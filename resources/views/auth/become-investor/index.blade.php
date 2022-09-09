@@ -6,20 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Style -->
-    <link rel="stylesheet" href="../../css/common.css">
-    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="{{asset('css/common.css')}}">
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
 
     <!-- Icon -->
-    <link rel="stylesheet" href="../../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{asset('fonts/font-awesome-4.7.0/css/font-awesome.min.css')}}">
     <!-- Font Awesome Icon 4.7.0 -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <!--Material Icon -->
 
     <!-- JS Script -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="../../js/svg-inject.js"></script>
-    <script src="../../js/js-cookie.js"></script>
-    <script src="../../js/main.js"></script>
+    <script src="{{asset('js/svg-inject.js')}}"></script>
+    <script src="{{asset('js/js-cookie.js')}}"></script>
+    <script src="{{asset('js/main.js')}}"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 
     <style>
@@ -117,34 +117,34 @@
         <!-- Menu -->
         <div id="mainMenuContainer" class="main-menu-container full-height w0 fixed">
             <nav id="main-menu" role="navigation">
-                <a href="../../" class="full-width align-in-center">
-                    <img class="mb-10" src="../../images/logo.png" alt="profile photo" width="150">
+                <a href="{{url('/')}}" class="full-width align-in-center">
+                    <img class="mb-10" src="{{asset('images/logo.png')}}" alt="profile photo" width="150">
                 </a>
                 <h2 class="font-size-20 font-weight-400 text-white text-center">Pete's Claws & Fins</h2>
                 <p class="font-size-12 font-weight-300 text-white text-center mb-20">Ecological Seafood Production</p>
                 <div class="full-width justify-center">
-                    <a href="#"><img class="social-icon" src="../../svg/twitter-square.svg" alt="twitter"></a>
-                    <a href="#"><img class="social-icon" src="../../svg/facebook-square.svg" alt="twitter"></a>
-                    <a href="#"><img class="social-icon" src="../../svg/instagram-square.svg" alt="twitter"></a>
-                    <a href="#"><img class="social-icon" src="../../svg/pinterest-square.svg" alt="twitter"></a>
+                    <a href="#"><img class="social-icon" src="{{asset('svg/twitter-square.svg')}}" alt="twitter"></a>
+                    <a href="#"><img class="social-icon" src="{{asset('svg/facebook-square.svg')}}" alt="twitter"></a>
+                    <a href="#"><img class="social-icon" src="{{asset('svg/instagram-square.svg')}}" alt="twitter"></a>
+                    <a href="#"><img class="social-icon" src="{{asset('svg/pinterest-square.svg')}}" alt="twitter"></a>
                 </div>
                 <hr>
                 <ul>
                     <ul class="menu">
-                        <li><a href="../soft-shelled-mudcrabs/">Soft-shelled mudcrabs</a></li>
-                        <li><a href="../hard-shelled-mudcrabs/">Hard-shelled mudcrabs</a></li>
-                        <li><a href="../information/">Information</a></li>
-                        <li><a href="../where-to-buy/">Where to buy</a></li>
-                        <li><a href="../contact-us.html">Contact us</a></li>
-                        <li class="distributor-investor-menu display-none"><a href="../updates.html">Updates</a></li>
-                        <li class="distributor-investor-menu display-none"><a href="../picture-gallery.html">Picture
+                        <li><a href="{{url('soft-shelled-mudcrabs')}}">Soft-shelled mudcrabs</a></li>
+                        <li><a href="{{url('hard-shelled-mudcrabs')}}">Hard-shelled mudcrabs</a></li>
+                        <li><a href="{{url('information')}}">Information</a></li>
+                        <li><a href="{{url('where-to-buy')}}">Where to buy</a></li>
+                        <li><a href="{{url('contact-us')}}">Contact us</a></li>
+                        <li class="distributor-investor-menu display-none"><a href="{{url('updates')}}">Updates</a></li>
+                        <li class="distributor-investor-menu display-none"><a href="{{url('picture-gallery')}}">Picture
                                 Gallery</a></li>
-                        <li class="distributor-investor-menu display-none"><a href="../future-ideas.html">Future
+                        <li class="distributor-investor-menu display-none"><a href="{{url('future-ideas.html')}}">Future
                                 Ideas</a></li>
-                        <li class="distributor-investor-menu display-none"><a href="../financial-updates.html">Financial
+                        <li class="distributor-investor-menu display-none"><a href="{{url('financial-updates.html')}}">Financial
                                 Updates</a></li>
-                        <li><a href="../become-distributor/">Become a distributor</a></li>
-                        <li class="active"><a href="../become-investor/">Become an investor</a></li>
+                        <li><a href="{{route('become-distributor')}}">Become a distributor</a></li>
+                        <li class="active"><a href="{{route('become-investor')}}">Become an investor</a></li>
                         
                     </ul>
                 </ul>
@@ -169,7 +169,7 @@
                         <div class="menu-dropdown-overlay">
                             <ul>
                                 <li class="disable-menu"><a>Account Info</a></li>
-                                <li class="login-menu"><a href="../login/">Log in</a></li>
+                                <li class="login-menu"><a href="{{route('login')}}">Log in</a></li>
                             </ul>
                         </div>
                         <div class="text-right">
@@ -196,17 +196,17 @@
                     <div class="company-info align-center full-height">
                         <div class="menu-dropdown-overlay">
                             <ul>
-                                <li><a href="../account">Account Info</a></li>
-                                <li><a href="../account/add-user.html">Add User</a></li>
+                                <li><a href="{{url('account')}}">Account Info</a></li>
+                                <li><a href="{{url('account.add-user')}}">Add User</a></li>
                                 <li class="md-divider"></li>
-                                <li class="logout-menu display-none"><a href="../logout.html">Log out</a></li>
+                                <li class="logout-menu display-none"><a href="{{route('logout')}}">Log out</a></li>
                             </ul>
                         </div>
                         <div class="text-right">
                             <h3>Company Name</h3>
                             <span class="user-status">Candidate</span>
                         </div>
-                        <img src="../../images/logo.png">
+                        <img src="{{asset('images/logo.png')}}">
                     </div>
                 </div>
             </div>
@@ -300,8 +300,8 @@
                 </svg>
 
                 <div class="absolute top-left _85-width _85-height align-in-center">
-                    <a href="../../" class="full-width align-in-center"><img
-                            class="_40-width _mb_40 mr-80 sm_mb-20 mr-5" src="../../images/logo.png"></a>
+                    <a href="{{url('/')}}" class="full-width align-in-center"><img
+                            class="_40-width _mb_40 mr-80 sm_mb-20 mr-5" src="{{asset('images/logo.png')}}"></a>
                 </div>
 
             </div>
@@ -399,7 +399,7 @@
 
         <!-- Content -->
         <div class="content-wrapper">
-            <section class="section" data-clip-id="1" style="background-image: url('../../bg/grey4.jpg');">
+            <section class="section" data-clip-id="1" style="background-image: url('{{asset('bg/grey4.jpg')}}');">
                 <div class="content">
                     <div class="full-width align-in-center pb-120">
                         <div class="_75-width md_90-width md_align-center flex-column justify-center max-w700">

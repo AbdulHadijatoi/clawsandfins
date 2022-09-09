@@ -6,20 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Style -->
-    <link rel="stylesheet" href="../../css/common.css">
-    <link rel="stylesheet" href="../../css/style.css?v=8">
+    <link rel="stylesheet" href="{{asset('css/common.css')}}">
+    <link rel="stylesheet" href="{{asset('css/style.css?v=8')}}">
 
     <!-- Icon -->
-    <link rel="stylesheet" href="../../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{asset('fonts/font-awesome-4.7.0/css/font-awesome.min.css')}}">
     <!-- Font Awesome Icon 4.7.0 -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <!--Material Icon -->
 
     <!-- JS Script -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="../../js/svg-inject.js"></script>
-    <script src="../../js/js-cookie.js"></script>
-    <script src="../../js/main.js?v=8"></script>
+    <script src="{{asset('js/svg-inject.js')}}"></script>
+    <script src="{{asset('js/js-cookie.js')}}"></script>
+    <script src="{{asset('js/main.js?v=8')}}"></script>
 
     <style>
         .visiting-address {
@@ -43,27 +43,27 @@
         <!-- Menu -->
         <div id="mainMenuContainer" class="main-menu-container full-height w0 fixed">
             <nav id="main-menu" role="navigation">
-                <a href="../../" class="full-width align-in-center">
-                    <img class="mb-10" src="../../images/logo.png" alt="profile photo" width="150">
+                <a href="{{url('/')}}" class="full-width align-in-center">
+                    <img class="mb-10" src="{{asset('images/logo.png')}}" alt="profile photo" width="150">
                 </a>
                 <h2 class="font-size-20 font-weight-400 text-white text-center">Pete's Claws & Fins</h2>
                 <p class="font-size-12 font-weight-300 text-white text-center mb-20">Ecological Seafood Production</p>
                 <div class="full-width justify-center">
-                    <a href="#"><img class="social-icon" src="../../svg/twitter-square.svg" alt="twitter"></a>
-                    <a href="#"><img class="social-icon" src="../../svg/facebook-square.svg" alt="twitter"></a>
-                    <a href="#"><img class="social-icon" src="../../svg/instagram-square.svg" alt="twitter"></a>
-                    <a href="#"><img class="social-icon" src="../../svg/pinterest-square.svg" alt="twitter"></a>
+                    <a href="#"><img class="social-icon" src="{{asset('svg/twitter-square.svg')}}" alt="twitter"></a>
+                    <a href="#"><img class="social-icon" src="{{asset('svg/facebook-square.svg')}}" alt="twitter"></a>
+                    <a href="#"><img class="social-icon" src="{{asset('svg/instagram-square.svg')}}" alt="twitter"></a>
+                    <a href="#"><img class="social-icon" src="{{asset('svg/pinterest-square.svg')}}" alt="twitter"></a>
                 </div>
                 <hr>
                 <ul>
                     <ul class="menu">
-                        <li><a href="../soft-shelled-mudcrabs/">Soft-shelled mudcrabs</a></li>
-                        <li><a href="../hard-shelled-mudcrabs/">Hard-shelled mudcrabs</a></li>
-                        <li><a href="../information/">Information</a></li>
-                        <li><a href="../where-to-buy/">Where to buy</a></li>
-                        <li><a href="../contact-us.html">Contact us</a></li>
-                        <li><a href="../become-distributor/">Become a distributor</a></li>
-                        <li><a href="../become-investor/">Become an investor</a></li>
+                        <li><a href="{{url('soft-shelled-mudcrabs')}}">Soft-shelled mudcrabs</a></li>
+                        <li><a href="{{url('hard-shelled-mudcrabs')}}">Hard-shelled mudcrabs</a></li>
+                        <li><a href="{{url('information')}}">Information</a></li>
+                        <li><a href="{{url('where-to-buy')}}">Where to buy</a></li>
+                        <li><a href="{{url('contact-us')}}">Contact us</a></li>
+                        <li><a href="{{route('become-distributor')}}">Become a distributor</a></li>
+                        <li><a href="{{route('become-investor')}}">Become an investor</a></li>
                     </ul>
                 </ul>
             </nav>
@@ -87,7 +87,7 @@
                         <div class="menu-dropdown-overlay">
                             <ul>
                                 <li class="disable-menu"><a>Account Info</a></li>
-                                <li class="login-menu"><a href="../login/">Log in</a></li>
+                                <li class="login-menu"><a href="{{route('login')}}">Log in</a></li>
                             </ul>
                         </div>
                         <div class="text-right">
@@ -114,17 +114,17 @@
                     <div class="company-info align-center full-height">
                         <div class="menu-dropdown-overlay">
                             <ul>
-                                <li><a href="../account">Account Info</a></li>
-                                <li><a href="../account/add-user.html">Add User</a></li>
+                                <li><a href="{{url('account')}}">Account Info</a></li>
+                                <li><a href="{{url('account.add-user')}}">Add User</a></li>
                                 <li class="md-divider"></li>
-                                <li class="logout-menu display-none"><a href="../logout.html">Log out</a></li>
+                                <li class="logout-menu display-none"><a href="{{route('logout')}}">Log out</a></li>
                             </ul>
                         </div>
                         <div class="text-right">
                             <h3>Company Name</h3>
                             <span class="user-status">Candidate</span>
                         </div>
-                        <img src="../../images/logo.png">
+                        <img src="{{asset('images/logo.png')}}">
                     </div>
                 </div>
             </div>
@@ -148,11 +148,11 @@
                 <div class="content">
                     <div class="full-width align-in-center vh100">
                         <div class="_75-width md_90-width md_align-center flex-column justify-center align-center max-w700" style="padding: 50px 0;">
-                            <img class="mb-10 max-w200" src="../../images/logo.png" alt="Logo">
+                            <img class="mb-10 max-w200" src="{{asset('images/logo.png')}}" alt="Logo">
                             <div class="login-form">
                                 <h1 class="h1 text-yellow sm_font-size-35 text-center mb-30">Login to your account</h1>
                                 <div class="info primary-info d-flex-important">
-                                    <label>Don't have an account, please register as a distributor <strong><a href="../become-distributor/">Become a Distributor</a></strong></label>
+                                    <label>Don't have an account, please register as a distributor <strong><a href="{{route('become-distributor')}}">Become a Distributor</a></strong></label>
                                 </div>
                                 <form action="login-success.html" method="get" onsubmit="return inputValidation(this)">
                                     <div class="d-flex full-width">
@@ -168,7 +168,7 @@
                                     <div class="d-flex full-width flex-column px-5">
                                         <div>
                                             <div class="d-flex-important align-center">
-                                                <a href="forgot-password.html">Forgot password?</a>
+                                                <a href="{{route('forgot-password')}}">Forgot password?</a>
                                             </div>
                                         </div>
                                     </div>
