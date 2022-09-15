@@ -39,7 +39,7 @@
                         <div class="menu-dropdown-overlay">
                             <ul>
                                 <li class="disable-menu"><a>Account Info</a></li>
-                                <li class="login-menu"><a href="../login/">Log in</a></li>
+                                <li class="login-menu"><a href="{{route('login')}}">Log in</a></li>
                             </ul>
                         </div>
                         <div class="text-right">
@@ -66,17 +66,19 @@
                     <div class="company-info align-center full-height">
                         <div class="menu-dropdown-overlay">
                             <ul>
-                                <li><a href="../account">Account Info</a></li>
-                                <li><a href="../account/add-user">Add User</a></li>
+                                <li><a href="{{url('account')}}">Account Info</a></li>
+                                <li><a href="{{url('account/add-user')}}">Add User</a></li>
                                 <li class="md-divider"></li>
-                                <li class="logout-menu display-none"><a href="../logout">Log out</a></li>
+                                @auth
+                                <li class="logout-menu display-none"><a href="{{route('logout')}}">Log out</a></li>
+                                @endauth
                             </ul>
                         </div>
                         <div class="text-right">
                             <h3>Company Name</h3>
                             <span class="user-status">Candidate</span>
                         </div>
-                        <img src="../../images/logo.png">
+                        <img src="{{asset('images/logo.png')}}">
                     </div>
                 </div>
             </div>
@@ -157,8 +159,8 @@
                 </svg>
 
                 <div class="absolute top-left _85-width _85-height align-in-center">
-                    <a href="../../" class="full-width align-in-center"><img class="_40-width _mb_40 mr-80 sm_mb-20 mr-5"
-                            src="../../images/logo.png"></a>
+                    <a href="{{url('/')}}" class="full-width align-in-center"><img class="_40-width _mb_40 mr-80 sm_mb-20 mr-5"
+                            src="{{asset('images/logo.png')}}"></a>
                 </div>
 
             </div>
@@ -230,7 +232,7 @@
                             <g id="Group_4" data-name="Group 4" class="cls-2" transform="translate(388.344)">
                                 <g id="sjaWRX.tif" transform="translate(-162.452)">
                                     <image id="Layer_1" data-name="Layer 1" width="1060.232" height="757.165"
-                                        xlink:href="../../images/header2-image.jpg" />
+                                        xlink:href="{{asset('images/header2-image.jpg')}}" />
                                 </g>
                             </g>
                         </g>
@@ -256,7 +258,7 @@
 
         <!-- Content -->
         <div class="content-wrapper">
-            <section class="section" data-clip-id="1" style="background-image: url(../../bg/Grey\ Background\ \(14\).png);">
+            <section class="section" data-clip-id="1" style="background-image: url({{asset('bg/Grey_Background_14.png')}});">
                 <div class="content full-width">
                     <div class="full-width align-in-center pb-120">
                         <div class="_75-width flex-column z-index-1 justify-center md_90-width md_align-center">
@@ -264,7 +266,7 @@
                             crabs so special</h1>
                             <div class="full-width mt-50">
                                 <video class="full-width" controls>
-                                    <source src="../../videos/crabs.mp4" type="video/mp4">
+                                    <source src="{{asset('videos/crabs.mp4')}}" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
                             </div>
@@ -272,7 +274,7 @@
                     </div>
                 </div>
             </section>
-            <section class="section" data-clip-id="2" style="background-image: url(../../bg/Grey\ Background\ \(2\).png);">
+            <section class="section" data-clip-id="2" style="background-image: url({{asset('bg/Grey_Background_2.png')}});">
                 <div class="content">
                     <div class="full-width align-in-center pb-40">
                         <div class="_75-width flex-column z-index-1 justify-center sm_90-width sm_align-center mt-20 sm_mt-10">
@@ -289,7 +291,7 @@
                             <div class="full-width justify-between align-center sm_flex-column sm_justify-center">
                                 <div class="w400 p-30 sm_p-10 sm_w250">
                                     <img class="full-width circle border-15-orange sm_border-10 shadow_1"
-                                        src="../../images/image_2.jpg">
+                                        src="{{asset('images/image_2.jpg')}}">
                                 </div>
                                 <div class="flex-column _50-width sm_text-center sm_90-width">
                                     <p class="para text-white sm_font-size-11">
@@ -311,9 +313,9 @@
                         </div>
                     </div>
                 </div>
-                <img img-arc="1" class="img-arc" src="../../arcs/arc 2.svg" />
+                <img img-arc="1" class="img-arc" src="{{asset('arcs/arc_2.svg')}}" />
             </section>
-            <section class="section" data-clip-id="3" style="background-image: url(../../bg/Grey\ Background\ \(4\).png);">
+            <section class="section" data-clip-id="3" style="background-image: url({{asset('bg/Grey_Background_4.png')}});">
                 <div class="content">
                     <div class="full-width align-in-center pt-100 pb-60">
                         <div
@@ -343,9 +345,9 @@
                         </div>
                     </div>
                 </div>
-                <img img-arc="2" class="img-arc" src="../../arcs/arc 15.svg" />
+                <img img-arc="2" class="img-arc" src="{{asset('arcs/arc_15.svg')}}" />
             </section>
-            <section class="section" data-clip-id="4" style="background-image: url(../../bg/Grey\ Background\ \(15\).png);">
+            <section class="section" data-clip-id="4" style="background-image: url({{asset('bg/Grey_Background_15.png')}});">
                 <div class="content">
                     <div class="full-width align-in-center pt-100 pb-10">
                         <div
@@ -375,9 +377,9 @@
                         </div>
                     </div>
                 </div>
-                <img img-arc="3" class="img-arc" src="../../arcs/arc 10.svg" />
+                <img img-arc="3" class="img-arc" src="{{asset('arcs/arc_10.svg')}}" />
             </section>
-            <section class="section" data-clip-id="5" style="background-image: url(../../bg/Grey\ Background\ \(3\).png);">
+            <section class="section" data-clip-id="5" style="background-image: url({{asset('bg/Grey_Background_3.png')}});">
                 <div class="content">
                     <div class="full-width align-in-center pt-100 pb-60">
                         <div class="_75-width flex-column z-index-1 justify-center sm_90-width sm_align-center sm_mt_60">
@@ -407,9 +409,9 @@
                         </div>
                     </div>
                 </div>
-                <img img-arc="4" class="img-arc" src="../../arcs/arc 13.svg" />
+                <img img-arc="4" class="img-arc" src="{{asset('arcs/arc_13.svg')}}" />
             </section>
-            <section class="section" data-clip-id="6" style="background-image: url(../../bg/pattern_bg4.jpg);">
+            <section class="section" data-clip-id="6" style="background-image: url({{asset('bg/pattern_bg4.jpg')}});">
                 <div class="content">
                     <div class="full-width align-in-center pt-100 pb-60">
                         <div class="_75-width flex-column z-index-1 justify-center sm_90-width sm_align-center sm_mt_60">
@@ -438,7 +440,7 @@
                         </div>
                     </div>
                 </div>
-                <img img-arc="5" class="img-arc" src="../../arcs/arc 6.svg" />
+                <img img-arc="5" class="img-arc" src="{{asset('arcs/arc_6.svg')}}" />
             </section>
         </div>
 @endsection

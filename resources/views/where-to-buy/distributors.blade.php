@@ -119,7 +119,7 @@
                         <div class="menu-dropdown-overlay">
                             <ul>
                                 <li class="disable-menu"><a>Account Info</a></li>
-                                <li class="login-menu"><a href="../login/">Log in</a></li>
+                                <li class="login-menu"><a href="{{route('login')}}">Log in</a></li>
                             </ul>
                         </div>
                         <div class="text-right">
@@ -146,17 +146,19 @@
                     <div class="company-info align-center full-height">
                         <div class="menu-dropdown-overlay">
                             <ul>
-                                <li><a href="../account">Account Info</a></li>
-                                <li><a href="../account/add-user">Add User</a></li>
+                                <li><a href="{{url('account')}}">Account Info</a></li>
+                                <li><a href="{{url('account/add-user')}}">Add User</a></li>
                                 <li class="md-divider"></li>
-                                <li class="logout-menu display-none"><a href="../logout">Log out</a></li>
+                                @auth
+                                <li class="logout-menu display-none"><a href="{{route('logout')}}">Log out</a></li>
+                                @endauth
                             </ul>
                         </div>
                         <div class="text-right">
                             <h3>Company Name</h3>
                             <span class="user-status">Candidate</span>
                         </div>
-                        <img src="../../images/logo.png">
+                        <img src="{{asset('images/logo.png')}}">
                     </div>
                 </div>
             </div>
@@ -250,8 +252,8 @@
                 </svg>
 
                 <div class="absolute top-left _85-width _85-height align-in-center">
-                    <a href="../../" class="full-width align-in-center"><img class="_40-width _mb_40 mr-80 sm_mb-20 mr-5"
-                            src="../../images/logo.png"></a>
+                    <a href="{{url('/')}}" class="full-width align-in-center"><img class="_40-width _mb_40 mr-80 sm_mb-20 mr-5"
+                            src="{{asset('images/logo.png')}}"></a>
                 </div>
 
             </div>
@@ -366,7 +368,7 @@
                                     
                                     <div class="distributor-item d-flex full-width" id="distributor1">
                                         <div class="company-logo" tooltip="Find on map">
-                                            <img src="../../images/logo.png">
+                                            <img src="{{asset('images/logo.png')}}">
                                         </div>
                                         <div class="company-info equal-width">
                                             <div class="info-header justify-between">
@@ -427,7 +429,7 @@
                                     </div>
                                     <div class="distributor-item d-flex full-width" id="distributor2">
                                         <div class="company-logo">
-                                            <img src="../../images/logo.png">
+                                            <img src="{{asset('images/logo.png')}}">
                                         </div>
                                         <div class="company-info equal-width">
                                             <div class="info-header justify-between">
@@ -488,7 +490,7 @@
                                     </div>
                                     <div class="distributor-item d-flex full-width" id="distributor3">
                                         <div class="company-logo">
-                                            <img src="../../images/logo.png">
+                                            <img src="{{asset('images/logo.png')}}">
                                         </div>
                                         <div class="company-info equal-width">
                                             <div class="info-header justify-between">
@@ -549,7 +551,7 @@
                                     </div>
                                     <div class="distributor-item d-flex full-width" id="distributor4">
                                         <div class="company-logo">
-                                            <img src="../../images/logo.png">
+                                            <img src="{{asset('images/logo.png')}}">
                                         </div>
                                         <div class="company-info equal-width">
                                             <div class="info-header justify-between">
@@ -610,7 +612,7 @@
                                     </div>
                                     <div class="distributor-item d-flex full-width" id="distributor5">
                                         <div class="company-logo">
-                                            <img src="../../images/logo.png">
+                                            <img src="{{asset('images/logo.png')}}">
                                         </div>
                                         <div class="company-info equal-width">
                                             <div class="info-header justify-between">
