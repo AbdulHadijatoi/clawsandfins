@@ -6,20 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Style -->
-    <link rel="stylesheet" href="../css/common.css">
-    <link rel="stylesheet" href="../css/style.css?v=8">
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/style.css?v=8">
 
     <!-- Icon -->
-    <link rel="stylesheet" href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
     <!-- Font Awesome Icon 4.7.0 -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <!--Material Icon -->
 
     <!-- JS Script -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="../js/svg-inject.js"></script>
-    <script src="../js/js-cookie.js"></script>
-    <script src="../js/main.js?v=8"></script>
+    <script src="../../js/svg-inject.js"></script>
+    <script src="../../js/js-cookie.js"></script>
+    <script src="../../js/main.js?v=8"></script>
 
     <style>
         .visiting-address {
@@ -43,31 +43,34 @@
         <!-- Menu -->
         <div id="mainMenuContainer" class="main-menu-container full-height w0 fixed">
             <nav id="main-menu" role="navigation">
-                <a href="../" class="full-width align-in-center">
-                    <img class="mb-10" src="../images/logo.png" alt="profile photo" width="150">
+                <a href="../../" class="full-width align-in-center">
+                    <img class="mb-10" src="../../images/logo.png" alt="profile photo" width="150">
                 </a>
                 <h2 class="font-size-20 font-weight-400 text-white text-center">Pete's Claws & Fins</h2>
                 <p class="font-size-12 font-weight-300 text-white text-center mb-20">Ecological Seafood Production</p>
                 <div class="full-width justify-center">
-                    <a href="#"><img class="social-icon" src="../svg/twitter-square.svg" alt="twitter"></a>
-                    <a href="#"><img class="social-icon" src="../svg/facebook-square.svg" alt="twitter"></a>
-                    <a href="#"><img class="social-icon" src="../svg/instagram-square.svg" alt="twitter"></a>
-                    <a href="#"><img class="social-icon" src="../svg/pinterest-square.svg" alt="twitter"></a>
+                    <a href="#"><img class="social-icon" src="../../svg/twitter-square.svg" alt="twitter"></a>
+                    <a href="#"><img class="social-icon" src="../../svg/facebook-square.svg" alt="twitter"></a>
+                    <a href="#"><img class="social-icon" src="../../svg/instagram-square.svg" alt="twitter"></a>
+                    <a href="#"><img class="social-icon" src="../../svg/pinterest-square.svg" alt="twitter"></a>
                 </div>
                 <hr>
                 <ul>
                     <ul class="menu">
-                        <li><a href="soft-shelled-mudcrabs/">Soft-shelled mudcrabs</a></li>
-                        <li><a href="hard-shelled-mudcrabs/">Hard-shelled mudcrabs</a></li>
-                        <li><a href="information/">Information</a></li>
-                        <li><a href="where-to-buy/">Where to buy</a></li>
-                        <li><a href="contact-us.html">Contact us</a></li>
-                        <li class="distributor-investor-menu display-none"><a href="updates.html">Updates</a></li>
-                        <li class="distributor-investor-menu display-none"><a href="picture-gallery.html">Picture Gallery</a></li>
-                        <li class="distributor-investor-menu display-none"><a href="future-ideas.html">Future Ideas</a></li>
-                        <li class="distributor-investor-menu display-none"><a href="financial-updates.html">Financial Updates</a></li>
-                        <li><a href="become-distributor/">Become a distributor</a></li>
-                        <li><a href="become-investor/">Become an investor</a></li>
+                        <li><a href="../soft-shelled-mudcrabs/">Soft-shelled mudcrabs</a></li>
+                        <li><a href="../hard-shelled-mudcrabs/">Hard-shelled mudcrabs</a></li>
+                        <li><a href="../information/">Information</a></li>
+                        <li><a href="../where-to-buy/">Where to buy</a></li>
+                        <li><a href="../contact-us">Contact us</a></li>
+                        <li class="distributor-investor-menu display-none"><a href="../updates">Updates</a></li>
+                        <li class="distributor-investor-menu display-none"><a href="../picture-gallery">Picture
+                                Gallery</a></li>
+                        <li class="distributor-investor-menu display-none"><a href="../future-ideas">Future
+                                Ideas</a></li>
+                        <li class="distributor-investor-menu display-none"><a href="../financial-updates">Financial
+                                Updates</a></li>
+                        <li><a href="../become-distributor/">Become a distributor</a></li>
+                        <li><a href="../become-investor/">Become an investor</a></li>
                         
                     </ul>
                 </ul>
@@ -92,7 +95,7 @@
                         <div class="menu-dropdown-overlay">
                             <ul>
                                 <li class="disable-menu"><a>Account Info</a></li>
-                                <li class="login-menu"><a href="pages/login/">Log in</a></li>
+                                <li class="login-menu"><a href="../login/">Log in</a></li>
                             </ul>
                         </div>
                         <div class="text-right">
@@ -104,7 +107,7 @@
             </div>
         </div>
         <!-- >>> End -->
-        
+
         <!-- After Login - Distributor/Inverstor Topbar >>> -->
         <div class="nav-top justify-center nav-distributor-investor display-none">
             <div class="nav-area max-w1280 justify-between align-center">
@@ -119,23 +122,23 @@
                     <div class="company-info align-center full-height">
                         <div class="menu-dropdown-overlay">
                             <ul>
-                                <li><a href="account">Account Info</a></li>
-                                <li><a href="account/add-user.html">Add User</a></li>
+                                <li><a href="../account">Account Info</a></li>
+                                <li><a href="../account/add-user">Add User</a></li>
                                 <li class="md-divider"></li>
-                                <li class="logout-menu display-none"><a href="../logout.html">Log out</a></li>
+                                <li class="logout-menu display-none"><a href="../logout">Log out</a></li>
                             </ul>
                         </div>
                         <div class="text-right">
                             <h3>Company Name</h3>
                             <span class="user-status">Candidate</span>
                         </div>
-                        <img src="../images/logo.png">
+                        <img src="../../images/logo.png">
                     </div>
                 </div>
             </div>
         </div>
         <!-- >>> End -->
-        
+
         <!-- Temporary Script for Logged in User >>> -->
         <script>
             if (Cookies.get('logged-in')) {
@@ -223,8 +226,8 @@
                 </svg>
 
                 <div class="absolute top-left _85-width _85-height align-in-center">
-                    <a href="../" class="full-width align-in-center"><img class="_40-width _mb_40 mr-80 sm_mb-20 mr-5"
-                            src="../images/logo.png"></a>
+                    <a href="../../" class="full-width align-in-center"><img
+                            class="_40-width _mb_40 mr-80 sm_mb-20 mr-5" src="../../images/logo.png"></a>
                 </div>
 
             </div>
@@ -296,7 +299,7 @@
                             <g id="Group_4" data-name="Group 4" class="cls-2" transform="translate(388.344)">
                                 <g id="sjaWRX.tif" transform="translate(-162.452)">
                                     <image id="Layer_1" data-name="Layer 1" width="1060.232" height="757.165"
-                                        xlink:href="../images/header2-image.jpg" />
+                                        xlink:href="../../images/header2-image.jpg" />
                                 </g>
                             </g>
                         </g>
@@ -322,52 +325,34 @@
 
         <!-- Content -->
         <div class="content-wrapper">
-            <section class="section default-bg" data-clip-id="1">
+            <section class="section" data-clip-id="1" style="background-image: url('../../bg/grey4.jpg');">
                 <div class="content">
                     <div class="full-width align-in-center pb-120">
                         <div class="_75-width md_90-width flex-column justify-center max-w700">
-                            <div class="confirm-box default-form-bg">
-                                <h1 class="h1 text-yellow sm_font-size-35 text-center mb-10 text-yellow">Contact us</h1>
-                                <div class="text-white font-size-12 p-10 text-center mb-20">
-                                    Fill out the form and well get back to you as soon as possible
+                            <div class="confirm-box text-center">
+                                <img src="../../svg/mail.svg">
+                                <h1 class="h1 text-yellow sm_font-size-35 text-center mb-30">Confirm your email address
+                                </h1>
+                                <div class="text-light p-20 text-center">
+                                    We sent a confirmation email to:
                                 </div>
-                                <form action="message-sent.html" method="get" onsubmit="return inputValidation(this)" target="framesubmit">
-                                    <div class="d-flex full-width form-responsive">
-                                        <div class="input-text">
-                                            <label>First Name</label>
-                                            <input type="text" id="first-name" placeholder="First Name">
-                                        </div>
-                                        <div class="input-text">
-                                            <label>Last Name</label>
-                                            <input type="text" id="last-name" placeholder="Last Name">
-                                        </div>
+                                <div class="text-light p-20 text-center">
+                                    <strong>jhondoe@mail.com</strong>
+                                </div>
+                                <div class="text-light p-20 text-center">
+                                    Check your email and click on the<br>confirmation link to continue.
+                                </div>
+                                <div class="d-flex full-width justify-center">
+                                    <div class="button-secondary">
+                                        <button type="submit">Resend Email</button>
                                     </div>
-                                    <div class="d-flex full-width form-responsive">
-                                        <div class="input-text">
-                                            <label>Subject</label>
-                                            <input type="text" id="subject" placeholder="Subject">
-                                        </div>
-                                    </div>
-                                    <div class="d-flex full-width form-responsive">
-                                        <div class="input-textarea">
-                                            <label>Message</label>
-                                            <textarea id="message" placeholder="Type message"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex full-width justify-center">
-                                        <div class="button-primary">
-                                            <button type="submit">Send Message</button>
-                                        </div>
-                                    </div>
-                                </form>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
         </div>
-
-        <iframe class="display-none" name="framesubmit" src=""></iframe>
 
         <!-- Footer -->
         <footer class="full-width z-index-5 relative">
@@ -402,7 +387,7 @@
                         <g style="clip-path:url(#Rectangle_7_00000089573270239812126640000004520386975560608171_);">
 
                             <image style="overflow:visible;" width="1429" height="877"
-                                xlink:href="../images/image_3.jpg"
+                                xlink:href="../../images/image_3.jpg"
                                 transform="matrix(0.2589 0 0 0.2589 127.85 834.8722)">
                             </image>
                         </g>
@@ -438,7 +423,7 @@
                         </clipPath>
                         <g style="clip-path:url(#Rectangle_7_00000071535616020478365760000010045756066559111054_);">
                             <image style="overflow:visible;" width="1429" height="877"
-                                xlink:href="../images/image_5.jpg"
+                                xlink:href="../../images/image_5.jpg"
                                 transform="matrix(0.2014 0 0 0.2014 496 920.1766)">
                             </image>
                         </g>
@@ -473,7 +458,7 @@
                         </clipPath>
                         <g style="clip-path:url(#Rectangle_7_00000011750910233994347730000001836264302129693076_); ">
                             <image style="overflow:visible;" width="1429" height="877"
-                                xlink:href="../images/image_6.jpg"
+                                xlink:href="../../images/image_6.jpg"
                                 transform="matrix(0.2463 0 0 0.2463 281.5209 988.9645)">
                             </image>
                         </g>
@@ -496,7 +481,7 @@
                 <g id="Group_40" data-name="Group 40" transform="translate(0 -3011.488)">
                     <g id="fpIUa2.tif" transform="translate(58.997 3380.907)">
                         <image id="Layer_1" data-name="Layer 1" width="81.663" height="76.145"
-                            xlink:href="../images/logo.png" />
+                            xlink:href="../../images/logo.png" />
                     </g>
                     <path id="Path_31" data-name="Path 31"
                         d="M761.7,3113v36.961q-6.543-.634-13.074-1.381-24.565-2.865-49.07-6.32c-18.269-2.583-36.508-5.385-54.682-8.545q-37.731-6.561-75.177-14.6-59.984-12.8-119.034-29.326a2101.765,2101.765,0,0,1-271.631-96.314A1987,1987,0,0,1,0,2904.791v-60.93a1044.908,1044.908,0,0,0,158.292,111.774C231.981,2998.26,309.6,3032,390.73,3057.732a1198.972,1198.972,0,0,0,126.11,32.563q33.643,6.775,67.661,11.509c18.7,2.577,37.425,4.814,56.217,6.546,21.691,1.993,43.411,3.309,65.173,4.148C724.494,3113.212,743.1,3113.224,761.7,3113Z"
@@ -522,35 +507,9 @@
     </div>
 
     <script>
-        function inputValidation(form) {
-            var errMsgCount = 0;
-            $(form).find('input[type=text],textarea').each(function () {
-                var elm = $(this);
-                var parentElm = elm.parent();
-                if (elm.val() == '') {
-                    errMsgCount++;
-                    parentElm.addClass('input-error');
-                    if (parentElm.find('.err-msg').length == 0) {
-                        var inpErr = document.createElement('span');
-                        $(inpErr).addClass('err-msg').html('Required');
-                        parentElm.append(inpErr);
-                    }
-                    elm.keyup(function () {
-                        $(this).parent().removeClass('input-error');
-                        $(this).next('.err-msg').remove();
-                    })
-                    if (errMsgCount == 1) {
-                        elm.focus();
-                    }
-                }
-            })
+        $(function () {
 
-            if (errMsgCount > 0) {
-                return false;
-            }
-
-            return true;
-        }
+        })
     </script>
 </body>
 

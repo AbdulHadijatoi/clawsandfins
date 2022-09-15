@@ -27,3 +27,35 @@ Route::get('forgot-password', [AuthController::class, 'forgotPassword'])->name('
 Route::post('post-become-investor', [AuthController::class, 'postBecomeInvestor'])->name('become-investor.post'); 
 // Route::get('dashboard', [AuthController::class, 'dashboard']); 
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+
+
+
+// Navigation menu url routes:begins
+Route::get('/soft-shelled-mudcrabs', function () {
+    return view('soft-shelled-mudcrabs/index');
+});
+Route::get('/hard-shelled-mudcrabs', function () {
+    return view('hard-shelled-mudcrabs/index');
+});
+Route::get('/information', function () {
+    return view('information/index');
+});
+Route::get('/where-to-buy', function () {
+    return view('where-to-buy/index');
+});
+Route::get('/contact-us', function () {
+    return view('contact-us');
+});
+Route::get('/updates', function () {
+    return view('updates');
+});
+Route::get('/picture-gallery', function () {
+    return view('picture-gallery');
+});
+Route::get('/future-ideas', function () {
+    return view('future-ideas');
+});
+Route::get('/financial-updates', function () {
+    return view('financial-updates');
+});
+// Navigation menu url routes:ends

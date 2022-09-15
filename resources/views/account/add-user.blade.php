@@ -7,7 +7,7 @@
 
     <!-- Style -->
     <link rel="stylesheet" href="../../css/common.css">
-    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/style.css?v=8">
 
     <!-- Icon -->
     <link rel="stylesheet" href="../../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
@@ -20,83 +20,165 @@
     <script src="../../js/svg-inject.js"></script>
     <script src="../../js/js-cookie.js"></script>
     <script src="../../js/main.js?v=8"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 
     <style>
-        #country-list{
-            display: flex;
-            flex-wrap: wrap;
-            align-items: stretch;
-        }
-        #country-list .country-item{
-            background: #cacaca;
-            margin: 5px;
-            color: #181818;
-            flex-grow: 1;
-            padding: 8px 15px;
-            text-align: center;
-            border-radius: 5px;
-            box-shadow: 0 0 2px rgba(0,0,0,0.5);
+        .logo {
+            background-color: rgba(255, 255, 255, 0.1);
+            width: 150px;
+            height: 150px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            margin-bottom: 30px;
+            cursor: pointer;
         }
 
-        #country-list .country-item span{
-            display: inline-block;
-            margin: 0 10px;
-            background: #181818;
-            min-width: 20px;
-            height: 20px;
-            color: #FECC2E;
-            border-radius: 10px;
-            font-size: 12px;
-            line-height: 20px;
+        .logo img {
+            display: none;
         }
 
-        #country-list .country-item:hover{
-            background-color: #FF8506;
-        }
-
-        .search{
-            position: relative;
-            padding: 5px;
-            margin: 30px 0;
-        }
-
-        .search input{
-            width: 100%;
-            padding: 10px 10px;
-            background: #181818;
-            border: 0;
-            border-radius: 5px;
+        .logo span {
+            font-size: 45px;
             color: white;
-            padding-right: 30px;
         }
 
-        .search span{
+        .logo+button {
+            display: none;
+            margin-top: 20px;
+            background: transparent;
+            border: 1px solid #FFF;
+            color: #FFF;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .logo.image-opened {
+            background: #585858;
+            border: 0;
+            width: 150px;
+            height: 150px;
+            flex-direction: column;
+            margin-bottom: 0px;
+            overflow: hidden;
+        }
+
+        .logo.image-opened img {
+            display: block;
+        }
+
+        .logo.image-opened span {
+            display: none;
+        }
+
+        .logo.image-opened+button {
+            display: block;
+        }
+
+        .visiting-address {
+            height: 300px;
+        }
+
+        .visiting-address #map {
+            height: 100%;
+        }
+
+        .map-marker-label {
+            display: block;
+            border-radius: 5px;
+            padding: 2px 8px;
+        }
+
+        .currency-field {
+            position: relative;
+        }
+
+        .currency-field:before {
+            content: attr(prefix);
             position: absolute;
-            right: 10px;
-            top: calc(50% - 13px);
-            color: #FECC2E;
+            left: 10px;
+            top: calc(50% - 1px);
+            transform: translatey(-50%);
+            color: #c8c8c8;
+            font-size: 14px;
         }
 
-        .not-found{
-            background: #181818 !important;
-            color: #444444 !important;
+        .currency-field input {
+            padding-left: 45px;
         }
 
-        .not-found span{
-            background: #141313 !important;
-            color: #444444 !important;
+        .form-container {
+            background: #4b4b4b;
         }
 
-        .search-found:after {
-            content: attr(item-found) " countries found";
-            position: absolute;
-            top: 100%;
-            left: 5px;
+        .table-header{
+            color: #FFF;
             font-size: 12px;
-            color: #adadad;
-            padding: 0 10px;
+            padding: 5px 10px;
+            border-bottom: 1px solid #6f6f6f;
         }
 
+        .table-row{
+            color: #FFF;
+            font-size: 14px;
+            padding: 10px;
+            border-bottom: 1px solid #6f6f6f;
+        }
+
+        .user-avatar{
+            display: block;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #312f2b;
+            text-align: center;
+            line-height: 40px;
+            margin-right: 10px;
+        }
+
+        .more-menu{
+            position: relative;
+        }
+
+        .more-menu button{
+            background: transparent;
+            border: 0;
+            color: #d1d1d1;
+            cursor: pointer;
+        }
+
+        .context-menu{
+            visibility: hidden;
+            position: absolute;
+            background: #FFF;
+            top: 0;
+            left: 0;
+            color: #2d2d2d;
+            border-radius: 5px;
+            z-index: 1;
+        }
+
+        .context-menu ul{
+            padding: 5px 0;
+        }
+
+        .context-menu ul li{
+            padding: 5px 20px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .context-menu ul li:hover{
+            background: #eae9e9;
+        }
+
+        .open-context-menu{
+            outline: none;
+        }
+
+        .open-context-menu:focus .context-menu{
+            visibility: visible;
+        }
     </style>
 </head>
 
@@ -122,12 +204,15 @@
                         <li><a href="../soft-shelled-mudcrabs/">Soft-shelled mudcrabs</a></li>
                         <li><a href="../hard-shelled-mudcrabs/">Hard-shelled mudcrabs</a></li>
                         <li><a href="../information/">Information</a></li>
-                        <li class="active"><a href="../where-to-buy/">Where to buy</a></li>
-                        <li><a href="../contact-us.html">Contact us</a></li>
-                        <li class="distributor-investor-menu display-none"><a href="../updates.html">Updates</a></li>
-                        <li class="distributor-investor-menu display-none"><a href="../picture-gallery.html">Picture Gallery</a></li>
-                        <li class="distributor-investor-menu display-none"><a href="../future-ideas.html">Future Ideas</a></li>
-                        <li class="distributor-investor-menu display-none"><a href="../financial-updates.html">Financial Updates</a></li>
+                        <li><a href="../where-to-buy/">Where to buy</a></li>
+                        <li><a href="../contact-us">Contact us</a></li>
+                        <li class="distributor-investor-menu display-none"><a href="../updates">Updates</a></li>
+                        <li class="distributor-investor-menu display-none"><a href="../picture-gallery">Picture
+                                Gallery</a></li>
+                        <li class="distributor-investor-menu display-none"><a href="../future-ideas">Future
+                                Ideas</a></li>
+                        <li class="distributor-investor-menu display-none"><a href="../financial-updates">Financial
+                                Updates</a></li>
                         <li><a href="../become-distributor/">Become a distributor</a></li>
                         <li><a href="../become-investor/">Become an investor</a></li>
                         
@@ -166,7 +251,7 @@
             </div>
         </div>
         <!-- >>> End -->
-        
+
         <!-- After Login - Distributor/Inverstor Topbar >>> -->
         <div class="nav-top justify-center nav-distributor-investor display-none">
             <div class="nav-area max-w1280 justify-between align-center">
@@ -182,9 +267,9 @@
                         <div class="menu-dropdown-overlay">
                             <ul>
                                 <li><a href="../account">Account Info</a></li>
-                                <li><a href="../account/add-user.html">Add User</a></li>
+                                <li><a href="../account/add-user">Add User</a></li>
                                 <li class="md-divider"></li>
-                                <li class="logout-menu display-none"><a href="../logout.html">Log out</a></li>
+                                <li class="logout-menu display-none"><a href="../logout">Log out</a></li>
                             </ul>
                         </div>
                         <div class="text-right">
@@ -197,7 +282,7 @@
             </div>
         </div>
         <!-- >>> End -->
-        
+
         <!-- Temporary Script for Logged in User >>> -->
         <script>
             if (Cookies.get('logged-in')) {
@@ -285,8 +370,8 @@
                 </svg>
 
                 <div class="absolute top-left _85-width _85-height align-in-center">
-                    <a href="../../" class="full-width align-in-center"><img class="_40-width _mb_40 mr-80 sm_mb-20 mr-5"
-                            src="../../images/logo.png"></a>
+                    <a href="../../" class="full-width align-in-center"><img
+                            class="_40-width _mb_40 mr-80 sm_mb-20 mr-5" src="../../images/logo.png"></a>
                 </div>
 
             </div>
@@ -384,20 +469,116 @@
 
         <!-- Content -->
         <div class="content-wrapper">
-            <section class="section" data-clip-id="1" style="background-image: url('../../bg/grey1.jpg');">
+            <section class="section" data-clip-id="1" style="background-image: url('../../bg/grey4.jpg');">
                 <div class="content">
                     <div class="full-width align-in-center pb-120">
-                        <div class="_75-width md_90-width flex-column justify-center max-w700">
-                            <div>
-                                <h1 class="h1 text-yellow sm_font-size-35 text-center mt-60">Where to buy our products</h1>
-                                <div class="search">
-                                    <input type="text" placeholder="Type the first letters to highlight your country below">
-                                    <span class="material-icons">
-                                        search
-                                    </span>
+                        <div class="_75-width md_90-width md_align-center flex-column justify-center max-w700">
+                            <h1 class="h1 text-yellow sm_font-size-35 sm_mt-60 text-center">Add User</h1>
+                            <form class="full-width" action="user/add" method="post" onsubmit="return inputValidation(this)">
+                                <div class="form-container">
+                                    <div class="d-flex full-width form-responsive mt-20">
+                                        <div class="input-text" required>
+                                            <label label="(Must be filled in)">First Name</label>
+                                            <input type="text" id="first-name" placeholder="First Name">
+                                        </div>
+                                        <div class="input-text" required>
+                                            <label label="(Must be filled in)">Last Name</label>
+                                            <input type="text" id="last-name" placeholder="Last Name">
+                                        </div>
+                                    </div>
+                                    <div class="d-flex full-width form-responsive">
+                                        <div class="input-text" required>
+                                            <label label="(Must be filled in)">Title</label>
+                                            <input type="title" id="title" placeholder="Title">
+                                        </div>
+                                    </div>
+                                    <div class="d-flex full-width form-responsive">
+                                        <div class="input-text" required>
+                                            <label label="(Must be filled in)">Email</label>
+                                            <input type="email" id="email" placeholder="Email">
+                                        </div>
+                                    </div>
+                                    <div class="d-flex full-width form-responsive">
+                                        <div class="input-text" required>
+                                            <label label="(Must be filled in)">Password</label>
+                                            <input type="password" id="password" placeholder="Password">
+                                        </div>
+                                        <div class="input-text" required>
+                                            <label label="(Must be filled in)">Confirm Password</label>
+                                            <input type="password" id="confirm-password" placeholder="Confirm Password">
+                                        </div>
+                                    </div>
+                                    <div class="d-flex full-width justify-center">
+                                        <div class="button-secondary">
+                                            <button type="submit">Add User</button>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div id="country-list" class="spinner" style="min-height: 150px">
-
+                            </form>
+                            <div class="full-width">
+                                <div class="form-container">
+                                    <div class="table-header d-flex">
+                                        <div class="equal-width">User</div>
+                                        <div class="equal-width">Title</div>
+                                    </div>
+                                    <div class="table-row d-flex">
+                                        <div class="equal-width">
+                                            <div class="d-flex">
+                                                <div><span class="user-avatar">R</span></div>
+                                                <div class="flex-column">
+                                                    <span>Richard Kyle</span>
+                                                    <span class="font-size-12 text-light">order@mail.com</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="equal-width d-flex">
+                                            <div class="equal-width">
+                                                <span class="font-size-12 text-light">Admin</span>
+                                            </div>
+                                            <div class="more-menu">
+                                                <button onclick="openContextMenu($(this).parent())">
+                                                    <span class="material-icons">
+                                                        more_vert
+                                                    </span>
+                                                </button>
+                                                <div class="context-menu">
+                                                    <ul>
+                                                        <li class="context-menu-item">Remove</li>
+                                                        <li class="context-menu-item">Disable</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="table-row d-flex">
+                                        <div class="equal-width">
+                                            <div class="d-flex">
+                                                <div><span class="user-avatar">J</span></div>
+                                                <div class="flex-column">
+                                                    <span>Jan Peter</span>
+                                                    <span class="font-size-12 text-light">janpeter@gmail.com</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="equal-width d-flex">
+                                            <div class="equal-width">
+                                                <span class="font-size-12 text-light">Owner</span>
+                                            </div>
+                                            <div class="more-menu">
+                                                <button onclick="openContextMenu($(this).parent())">
+                                                    <span class="material-icons">
+                                                        more_vert
+                                                    </span>
+                                                </button>
+                                                <div class="context-menu">
+                                                    <ul>
+                                                        <li class="context-menu-item">Remove</li>
+                                                        <li class="context-menu-item">Disable</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -406,7 +587,15 @@
             </section>
         </div>
 
-
+        <script>
+            function openContextMenu(elm){
+                elm.addClass('open-context-menu').attr('tabindex','-1').focus();
+                elm.find('.context-menu .context-menu-item').click(function(e){
+                    e.stopPropagation();
+                    elm.removeClass('open-context-menu');
+                })
+            }
+        </script>
 
         <!-- Footer -->
         <footer class="full-width z-index-5 relative">
@@ -561,52 +750,44 @@
     </div>
 
     <script>
-        var distributors=[2,0,0,5,1,4,0,0,0,5,0,3,2,0,0,4,2,1,0];
-        
-        $(function(){
-            $.getJSON('../../library/country-city/countries+cities.json', function (data) {
-                data = countryFilter(data);
-                $.each(data, function (key, val) {
-                    var item = $('<a href="distributors.html" class="country-item" value="' + val.name.toLowerCase() + '">' + val.name + '</a>');
-                    if(distributors[key]){
-                        item.append('<span>'+ distributors[key] +'</span>');
+        function inputValidation(form) {
+            var errMsgCount = 0;
+            $(form).find('.input-text[required] input, .input-textarea[required] textarea').each(function () {
+                var elm = $(this);
+                var parentElm = elm.attr('parent') ? elm.parents(elm.attr('parent')) : elm.parent();
+                if (elm.val() == '') {
+                    errMsgCount++;
+                    parentElm.addClass('input-error');
+                    if (parentElm.find('.err-msg').length == 0) {
+                        var inpErr = document.createElement('span');
+                        $(inpErr).addClass('err-msg').html('Required');
+                        parentElm.append(inpErr);
                     }
-                    item.click(function (e) {
-                        e.stopPropagation();
-                        $('#city .text').html('City');
-                        $('#city-box').addClass('loading').html('');
-                        countrySelectedKey = key;
-                        countrySelectedID = val.id;
-                        var pc = data[countrySelectedKey].phone_code;
-                        $('#phone-code')
-                            .attr('value', pc.replace('-'))
-                            .find('.text').html('+' + pc);
-                        setMapAddress(val.name);
-                        getCities();
-                        var prn = $(this).parents('.country-city-dropdown');
-                        prn.removeClass('expanded').addClass('selected');
-                        prn.find('.text').html($(this).attr('value'));
+                    elm.keyup(function () {
+                        $(this).parents('.input-error').removeClass('input-error');
+                        $(this).next('.err-msg').remove();
                     })
-                    $('#country-list').append(item);
-    
-                });
-                removeSpinner();
-            });
-            
-            $('.search input').keyup(function(){
-                $('#country-list').find('.country-item').removeClass('not-found');
-                if($(this).val() != ''){
-                    $(this)
-                        .parent()
-                        .addClass('search-found')
-                        .attr('item-found', $('#country-list').find('.country-item[value*="' + $(this).val().toLowerCase() + '"]').length );
-                    $('#country-list').find('.country-item:not([value*="' + $(this).val().toLowerCase() +'"])').addClass('not-found');
-                }else{
-                    $(this).parent().removeClass('search-found');
+                    if (errMsgCount == 1) {
+                        elm.focus();
+                    }
+
+                }
+
+                if (($('#password').val() != $('#confirm-password').val()) && errMsgCount == 0) {
+                    openDialog('Password', "Password doesn't match");
+                    $('#password').focus();
+                    errMsgCount++;
                 }
             })
-        })
+
+            if (errMsgCount > 0) {
+                return false;
+            }
+
+            return true;
+        }
     </script>
+
 </body>
 
 </html>

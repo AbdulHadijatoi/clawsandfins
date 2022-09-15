@@ -7,12 +7,12 @@
 
     <!-- Style -->
     <link rel="stylesheet" href="../../css/common.css">
-    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/style.css?v=8">
 
     <!-- Icon -->
     <link rel="stylesheet" href="../../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
     <!-- Font Awesome Icon 4.7.0 -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <!--Material Icon -->
 
     <!-- JS Script -->
@@ -29,7 +29,7 @@
             height: 150px;
             border: 1px solid rgba(255, 255, 255, 0.3);
             border-radius: 50%;
-            margin-bottom: 30px;
+            margin-bottom: 10px;
             cursor: pointer;
         }
 
@@ -241,18 +241,10 @@
             font-size: 12px;
         }
 
-        #map .centerMarker{
-            position:absolute;
-            background:url(../../icons/marker.png) no-repeat;
-            background-size: auto 30px;
-            background-position: center;
-            top:50%;left:50%;
-            z-index:1;
-            margin-left:-15px;
-            margin-top:-30px;
-            height:30px;
-            width:30px;
-            cursor:pointer;
+        #wesite-url-info:empty + span,
+        #order-mail-info:empty + span
+        {
+            display: block !important;
         }
     </style>
 </head>
@@ -280,12 +272,12 @@
                         <li><a href="../hard-shelled-mudcrabs/">Hard-shelled mudcrabs</a></li>
                         <li><a href="../information/">Information</a></li>
                         <li><a href="../where-to-buy/">Where to buy</a></li>
-                        <li><a href="../contact-us.html">Contact us</a></li>
-                        <li class="distributor-investor-menu display-none"><a href="../updates.html">Updates</a></li>
-                        <li class="distributor-investor-menu display-none"><a href="../picture-gallery.html">Picture Gallery</a></li>
-                        <li class="distributor-investor-menu display-none"><a href="../future-ideas.html">Future Ideas</a></li>
-                        <li class="distributor-investor-menu display-none"><a href="../financial-updates.html">Financial Updates</a></li>
-                        <li class="active"><a href="../become-distributor/">Become a distributor</a></li>
+                        <li><a href="../contact-us">Contact us</a></li>
+                        <li class="distributor-investor-menu display-none"><a href="../updates">Updates</a></li>
+                        <li class="distributor-investor-menu display-none"><a href="../picture-gallery">Picture Gallery</a></li>
+                        <li class="distributor-investor-menu display-none"><a href="../future-ideas">Future Ideas</a></li>
+                        <li class="distributor-investor-menu display-none"><a href="../financial-updates">Financial Updates</a></li>
+                        <li><a href="../become-distributor/">Become a distributor</a></li>
                         <li><a href="../become-investor/">Become an investor</a></li>
                         
                     </ul>
@@ -339,9 +331,9 @@
                         <div class="menu-dropdown-overlay">
                             <ul>
                                 <li><a href="../account">Account Info</a></li>
-                                <li><a href="../account/add-user.html">Add User</a></li>
+                                <li><a href="../account/add-user">Add User</a></li>
                                 <li class="md-divider"></li>
-                                <li class="logout-menu display-none"><a href="../logout.html">Log out</a></li>
+                                <li class="logout-menu display-none"><a href="../logout">Log out</a></li>
                             </ul>
                         </div>
                         <div class="text-right">
@@ -545,103 +537,195 @@
                 <div class="content">
                     <div class="full-width align-in-center pb-120">
                         <div class="_75-width md_90-width md_align-center flex-column justify-center max-w700">
-                            <h1 class="h1 text-yellow sm_font-size-35 sm_mt-60 text-center">Become a Distributor</h1>
-                            <span class="h4 text-white text-center mb-30">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                tempor incididunt ut labore et dolore magna</span>
-                            <form action="confirm-email.html" method="post" onsubmit="return inputValidation(this)">
+                            <h1 class="h1 text-yellow sm_font-size-35 sm_mt-60 text-center">Account Info</h1>
+                            <form action="update-success" method="get" onsubmit="return inputValidation(this)" target="framesubmit">
                                 <div class="form-container">
-                                    <div class="full-width text-center">
+                                    <div class="full-width text-center mb-30">
                                         <div class="logo-container align-in-center flex-column mt-20">
-                                            <label>Your Logo (Optional)</label>
-                                            <div class="logo d-flex align-in-center">
-                                                <img id="logo-img" alt="logo-img">
+                                            <div class="logo d-flex align-in-center image-opened">
+                                                <img id="logo-img" alt="logo-img" src="../../images/logo.png">
                                                 <span class="material-icons">
                                                     image
                                                 </span>
                                                 <button id="remove-logo" type="button">Remove Logo</button>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="d-flex full-width form-responsive">
-                                        <div class="input-text" required>
-                                            <label label="(Must be filled in)">Company Name</label>
-                                            <input type="text" id="company-name" placeholder="Company Name">
-                                        </div>
-                                        <div class="input-text" required>
-                                            <label label="(Must be filled in)">Contact Name</label>
-                                            <input type="text" id="contact-name" placeholder="Contact Name">
+                                        <h3 class="text-yellow text-center">Company Name</h3>
+                                        <div class="text-light text-center">
+                                            company@mail.com
                                         </div>
                                     </div>
-                                    <div class="d-flex full-width form-responsive">
-                                        <div class="input-text" required>
-                                            <label label="(Must be filled in)">Country</label>
-                                            <div id="country" class="country-city-dropdown equal-width" value="">
-                                                <span class="align-center justify-between">
-                                                    <span class="text" contenteditable="true"></span>
-                                                    <i class="material-icons expand-more">expand_more</i>
-                                                </span>
-                                                <div id="country-box"></div>
-                                            </div>
+                                    <div class="tile tile-info">
+                                        <div class="d-flex full-width form-responsive tile-show align-start">
+                                            <div class="tli-label text-white font-size-14 px-10">Contact Name</div>
+                                            <div id="contact-name-info" class="tli-detail text-light font-size-14 px-10"></div>
+                                            <div class="text-right"><button type="button" class="button-sm btn-edit">Edit</button></div>
                                         </div>
-                                        <div class="input-text" required>
-                                            <label label="(Must be filled in)">City</label>
-                                            <div id="city" class="country-city-dropdown equal-width" value="">
-                                                <span class="align-center justify-between">
-                                                    <span class="text" contenteditable="true"></span>
-                                                    <i class="material-icons expand-more">expand_more</i>
-                                                </span>
-                                                <div id="city-box"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex full-width form-responsive">
-                                        <div class="input-textarea" required>
-                                            <label style="font-size: 14px" label="(Must be filled in)">Postal Address</label>
-                                            <textarea id="postal-address" placeholder="Postal Address"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex full-width form-responsive">
-                                        <div class="input-text" required>
-                                            <label label="(Must be filled in)">Phone Number</label>
-                                            <div class="input-group d-flex-important align-center full-width relative">
-                                                <div id="phone-code" class="dropdown equal-width" value="1">
-                                                    <span class="align-center justify-between"><span class="text">+1</span><i
-                                                            class="material-icons expand-more">expand_more</i></span>
-                                                    <ul class="dropdown-item"></ul>
+                                        <div class="tile-hide px-10">
+                                            <div class="d-flex full-width form-responsive">
+                                                <div class="input-text" required>
+                                                    <label label="(Must be filled in)">Contact Name</label>
+                                                    <input type="text" id="contact-name" placeholder="Contact Name" valuefor="contact-name-info" value="Richard Kyle">
                                                 </div>
-                                                <input type="text" class="number-format" id="phone-number" parent=".input-text" placeholder="Phone Number">
+                                            </div>
+                                            <div class="d-flex full-width justify-center align-center">
+                                                <div class="button-secondary button-md px-5">
+                                                    <button class="update-info" type="submit">Update</button>
+                                                </div>
+                                                <div class="button-primary button-md px-5">
+                                                    <button type="button" class="btn-edit">Cancel</button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="d-flex full-width form-responsive">
-                                        <div class="input-text">
-                                            <label>Website URL</label>
-                                            <input type="text" id="website-url" placeholder="Website URL">
+                                    <div class="tile tile-info">
+                                        <div class="d-flex full-width form-responsive tile-show align-start">
+                                            <div class="tli-label text-white font-size-14 px-10">Location</div>
+                                            <div class="tli-detail text-light font-size-14 px-10">
+                                                <div class="text-yellow"><span id="country-info"></span><span id="city-info"></span></div>
+                                                <span id="postal-address-info"></span>
+                                            </div>
+                                            <div class="text-right"><button type="button" class="button-sm btn-edit">Edit</button></div>
                                         </div>
-                                    </div>
-                                    <div class="d-flex full-width form-responsive">
-                                        <div class="input-text" required>
-                                            <label label="(Must be filled in)">Administration Email</label>
-                                            <input type="email" id="administration-email" placeholder="Administration Email">
-                                        </div>
-                                        <div class="input-text">
-                                            <label>Order Email</label>
-                                            <input type="email" id="order-email" placeholder="Order Email">
-                                        </div>
-                                    </div>
-                                    <div class="d-flex full-width form-responsive">
-                                        <div class="input-text" required>
-                                            <label label="(Must be filled in)">Password</label>
-                                            <div class="input-group d-flex-important align-center full-width relative">
-                                                <input type="password" id="password" placeholder="Password">
-                                                <!-- <div class="d-flex align-center equal-width">
-                                                    <span class="material-icons password-visibility">visibility_off</span>
-                                                </div> -->
+                                        <div class="tile-hide px-10">
+                                            <div class="d-flex full-width form-responsive">
+                                                <div class="input-text" required>
+                                                    <label label="(Must be filled in)">Country</label>
+                                                    <div id="country" class="country-city-dropdown equal-width selected" value="United States" valuefor="country-info" >
+                                                        <span class="align-center justify-between">
+                                                            <span class="text" contenteditable="true">United States</span>
+                                                            <i class="material-icons expand-more">expand_more</i>
+                                                        </span>
+                                                        <div id="country-box"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="input-text" required>
+                                                    <label label="(Must be filled in)">City</label>
+                                                    <div id="city" class="country-city-dropdown equal-width selected" value="New York City" valuefor="city-info" vf-prefix=", ">
+                                                        <span class="align-center justify-between">
+                                                            <span class="text" contenteditable="true">New York City</span>
+                                                            <i class="material-icons expand-more">expand_more</i>
+                                                        </span>
+                                                        <div id="city-box"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex full-width form-responsive">
+                                                <div class="input-textarea" required>
+                                                    <label style="font-size: 14px" label="(Must be filled in)">Postal Address</label>
+                                                    <textarea id="postal-address" placeholder="Postal Address" valuefor="postal-address-info">2869 Broadway, New York, NY 10025, United States</textarea>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex full-width justify-center align-center">
+                                                <div class="button-secondary button-md px-5">
+                                                    <button class="update-info" type="submit">Update</button>
+                                                </div>
+                                                <div class="button-primary button-md px-5">
+                                                    <button type="button" class="btn-edit">Cancel</button>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="input-text" required>
-                                            <label label="(Must be filled in)">Confirm Password</label>
-                                            <input type="password" id="confirm-password" placeholder="Confirm Password">
+                                    </div>
+                                    <div class="tile tile-info">
+                                        <div class="d-flex full-width form-responsive tile-show align-start">
+                                            <div class="tli-label text-white font-size-14 px-10">Phone Number</div>
+                                            <div class="tli-detail text-light font-size-14 px-10"><span id="phone-number-prefix"></span><span id="phone-number-info"></span></div>
+                                            <div class="text-right"><button type="button" class="button-sm btn-edit">Edit</button></div>
+                                        </div>
+                                        <div class="tile-hide px-10">
+                                            <div class="d-flex full-width form-responsive">
+                                                <div class="input-text" required>
+                                                    <label label="(Must be filled in)">Phone Number</label>
+                                                    <div class="input-group d-flex-important align-center full-width relative">
+                                                        <div id="phone-code" class="dropdown equal-width" value="1" valuefor="phone-number-prefix" vf-prefix="+">
+                                                            <span class="align-center justify-between"><span class="text">+1</span><i
+                                                                    class="material-icons expand-more">expand_more</i></span>
+                                                            <ul class="dropdown-item"></ul>
+                                                        </div>
+                                                        <input type="number" id="phone-number" parent=".input-text" placeholder="Phone Number" value="23456789098" valuefor="phone-number-info">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex full-width justify-center align-center">
+                                                <div class="button-secondary button-md px-5">
+                                                    <button class="update-info" type="submit">Update</button>
+                                                </div>
+                                                <div class="button-primary button-md px-5">
+                                                    <button type="button" class="btn-edit">Cancel</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tile tile-info">
+                                        <div class="d-flex full-width form-responsive tile-show align-start">
+                                            <div class="tli-label text-white font-size-14 px-10">Website URL</div>
+                                            <div class="tli-detail text-light font-size-14 px-10"><span id="wesite-url-info"></span><span class="italic display-none">none</span></div>
+                                            <div class="text-right"><button type="button" class="button-sm btn-edit">Edit</button></div>
+                                        </div>
+                                        <div class="tile-hide px-10">
+                                            <div class="d-flex full-width form-responsive">
+                                                <div class="input-text">
+                                                    <label>Website URL</label>
+                                                    <input type="text" id="website-url" placeholder="Website URL" valuefor="wesite-url-info">
+                                                </div>
+                                            </div>
+                                            <div class="d-flex full-width justify-center align-center">
+                                                <div class="button-secondary button-md px-5">
+                                                    <button class="update-info" type="submit">Update</button>
+                                                </div>
+                                                <div class="button-primary button-md px-5">
+                                                    <button type="button" class="btn-edit">Cancel</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tile tile-info">
+                                        <div class="d-flex full-width form-responsive tile-show align-start">
+                                            <div class="tli-label text-white font-size-14 px-10">Order Email</div>
+                                            <div class="tli-detail text-light font-size-14 px-10"><span id="order-mail-info"></span><span class="italic display-none">none</span></div>
+                                            <div class="text-right"><button type="button" class="button-sm btn-edit">Edit</button></div>
+                                        </div>
+                                        <div class="tile-hide px-10">
+                                            <div class="d-flex full-width form-responsive">
+                                                <div class="input-text">
+                                                    <label>Order Email</label>
+                                                    <input type="email" id="order-email" placeholder="Order Email" value="order@mail.com" valuefor="order-mail-info">
+                                                </div>
+                                            </div>
+                                            <div class="d-flex full-width justify-center align-center">
+                                                <div class="button-secondary button-md px-5">
+                                                    <button class="update-info" type="submit">Update</button>
+                                                </div>
+                                                <div class="button-primary button-md px-5">
+                                                    <button type="button" class="btn-edit">Cancel</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tile tile-info mb-30">
+                                        <div class="d-flex full-width form-responsive tile-show align-start">
+                                            <div class="tli-label text-white font-size-14 px-10">Password</div>
+                                            <div class="text-right"><button type="button" class="button-sm btn-edit">Change Password</button></div>
+                                        </div>
+                                        <div class="tile-hide px-10">
+                                            <div class="d-flex full-width form-responsive">
+                                                <div class="input-text" required>
+                                                    <label label="(Must be filled in)">Password</label>
+                                                    <input type="password" id="password" placeholder="Password">
+                                                </div>
+                                                <div class="input-text" required>
+                                                    <label label="(Must be filled in)">Confirm Password</label>
+                                                    <input type="password" id="confirm-password" placeholder="Confirm Password">
+                                                </div>
+                                            </div>
+                                            <div class="d-flex full-width justify-center align-center">
+                                                <div class="button-secondary button-md px-5">
+                                                    <button class="update-info" type="submit">Update</button>
+                                                </div>
+                                                <div class="button-primary button-md px-5">
+                                                    <button type="button" class="btn-edit">Cancel</button>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -652,14 +736,14 @@
                                             <div class="_mt_10">
                                                 <div class="d-flex-important align-center">
                                                     <span class="checkbox align-in-center">
-                                                        <input type="checkbox" id="same-address">
+                                                        <input type="checkbox" id="same-address" checked>
                                                         <span class="material-icons">check</span>
                                                     </span>
                                                     <label label="(Must be filled in)">Visiting address (for customers) is same as postal address?</label>
                                                 </div>
                                             </div>
                                             <div class="input-textarea p-0 input-fly-button" required>
-                                                <textarea id="visiting-address" placeholder="Visiting Address"></textarea>
+                                                <textarea id="visiting-address" placeholder="Visiting Address">2869 Broadway, New York, NY 10025, United States</textarea>
                                                 <button type="button" id="update-map">Update Map</button>
                                             </div>
                                             <div class="mt-10">
@@ -672,10 +756,8 @@
                                                 </div>
                                             </div>
                                             <div class="visiting-address">
-                                                <div id="map" tabindex="-1"></div>
-                                                <!-- <span title="Drive Direction" onclick="driveDirection()" class="material-icons drive-direction-button">directions_car</span> -->
+                                                <div id="map" tabindex="-1" latitude="40.80523" longitude="-73.96639309999999"></div>
                                             </div>
-                                            
                                         </div>
                                     </div>
                                     <div class="d-flex full-width flex-column px-5 form-responsive">
@@ -705,25 +787,10 @@
                                                 business, and it is also
                                                 needed for a correct display on our <strong>"Where to buy our products"</strong> page.</label>
                                         </div>
-                                        <div class="info primary-info d-flex-important">
-                                            <span class="material-icons">help</span>
-                                            <label>If you encounters any problems, please tick the <span>I need some support</span> box, and we will contact
-                                                you on your
-                                                Administration email address registered here.</label>
-                                        </div>
-                                        <div>
-                                            <div class="d-flex-important align-center">
-                                                <span class="checkbox align-in-center">
-                                                    <input type="checkbox" id="need-support">
-                                                    <span class="material-icons">check</span>
-                                                </span>
-                                                <label>I need some support</label>
+                                        <div class="d-flex full-width justify-center align-center mb-20 mt-10">
+                                            <div class="button-secondary button-md px-5">
+                                                <button class="update-info" type="submit">Update</button>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex full-width justify-center">
-                                        <div class="button-secondary">
-                                            <button type="submit">SUBMIT</button>
                                         </div>
                                     </div>
                                 </div>
@@ -733,6 +800,8 @@
                 </div>
             </section>
         </div>
+
+        <iframe class="display-none" name="framesubmit" src=""></iframe>
 
         <!-- Footer -->
         <footer class="full-width z-index-5 relative">
@@ -889,16 +958,6 @@
     <input id="logo-file" class="display-none" type="file" accept="image/*" onchange="loadFile(event)">
 
     <script>
-        function driveDirection(){
-            if(curLatlng==null){
-                openDialog('Unknown Location', 'Enable your location to know your location on map or reload page');
-                return;
-            }
-            var origin = curLatlng.lat + "%2C" + curLatlng.lng;
-            var destination = (latlng.lat()??latlng.lat) + "%2C" + (latlng.lng() ?? latlng.lng);
-            var driveDirectionLink="https://www.google.com/maps/dir/?api=1&" + origin + "&destination=" + destination;
-            $('<a href="' + driveDirectionLink + '" target="blank"></a>')[0].click();
-        }
         var loadFile = function (event) {
             var output = $('#logo-img');
             var reader = new FileReader();
@@ -907,12 +966,24 @@
             }
             reader.readAsDataURL(event.target.files[0]);
         };
+
+        function setInfoValue(){
+            $('[valuefor]').each(function(){
+                var infoId=$(this).attr('valuefor');
+                var elm= $(this);
+                var prefix=elm.attr('vf-prefix');
+                var val=elm.attr('value')? elm.attr('value') : elm.val();
+                console.log(val);
+                $('#'+infoId).html((prefix? prefix:'')+val);
+            })
+        }
     </script>
 
     <script>
+        var formChildElm;
         function inputValidation(form){
             var errMsgCount=0;
-            $(form).find('.input-text[required] input, .input-textarea[required] textarea, .input-text[required] .country-city-dropdown, .input-radio[required] .radio-value').each(function () {
+            $(formChildElm?formChildElm:form).find('.input-text[required] input, .input-textarea[required] textarea, .input-text[required] .country-city-dropdown, .input-radio[required] .radio-value').each(function () {
                 var elm=$(this);
                 var parentElm = elm.attr('parent') ? elm.parents(elm.attr('parent')) : elm.parent();
                 var val= elm.attr('value')? elm.attr('value') : elm.val();
@@ -957,6 +1028,7 @@
         var countryKeyData=[];
         var currentCountryName='';
         var locationIsCorrect = '';
+        var loader;
         
         $.getJSON('../../library/country-city/countries+cities.json', function (data) {
             data = countryFilter(data);
@@ -975,6 +1047,7 @@
                         countrySelectedID=val.id;
                         setPhoneCode();
                         setMapAddress(val.name);
+                        loader = showLoader();
                         getCities();
                         var prn=$(this).parents('.country-city-dropdown');
                             prn.removeClass('expanded').addClass('selected').attr('value', $(this).attr('value'));
@@ -983,7 +1056,7 @@
                     })
                 $('#country-box').append(item);
 
-                var phoneCode = $('<li value="' + val.phone_code.replace('-','') + '">' + val.name + ' (+'+ val.phone_code.replace('-', '') + ')' + '</li>');
+                var phoneCode = $('<li value="' + val.phone_code.replace('-') + '">' + val.name + ' (+'+ val.phone_code + ')' + '</li>');
                     phoneCode.click(function(e){
                         e.stopPropagation();
                         var val=$(this).attr('value').replace('-');
@@ -996,7 +1069,21 @@
                 $('#phone-code .dropdown-item').append(phoneCode);
             });
 
-            getCurrentLocation();
+            if(getMapLocation()){
+                marker.setPosition(latlng);
+                setMapPosition();
+                map.setZoom(15);
+                geocodeLatLng(geocoder, map);
+            }
+
+            //Set city
+            var index = countryKeyData.findIndexBy('name', $('#country').attr('value'));
+            if (index >= 0) {
+                countrySelectedKey = countryKeyData[index].key;
+                getCities();
+                loader=showLoader();
+            }
+
 
         });
 
@@ -1017,7 +1104,7 @@
                     })
                     $('#city-box').append(item);
                 });
-
+                loader.remove();
             });
         }
 
@@ -1025,8 +1112,8 @@
             var index = countryKeyData.findIndexBy('key', countrySelectedKey);
             var pc = countryKeyData[index].phone_code;
             $('#phone-code')
-                .attr('value', pc.replace('-',''))
-                .find('.text').html('+' + pc.replace('-', ''));
+                .attr('value', pc.replace('-'))
+                .find('.text').html('+' + pc);
         }
 
         function clearCity(){
@@ -1046,6 +1133,12 @@
         }
 
         $(function(){
+            setInfoValue();
+
+            $('.update-info').click(function(){
+                formChildElm=$(this).parents('.tile-info');
+            })
+
             $('#country, #city, .dropdown').click(function(){
                 var elm=this;
                 $('.country-city-dropdown, .dropdown').each(function(){
@@ -1084,11 +1177,8 @@
                 var parent= $(this).parents('.country-city-dropdown');
                 if(parent.hasClass('search-mode')){
                     parent
+                        .addClass('expanded')
                         .removeClass('search-mode');
-                    $(this).prev().html('');
-                    if(parent.is('#country')){
-                        clearCity();
-                    }
                     if (isMobile) {
                         $('body').addClass('dropdown-expanded');
                     }
@@ -1224,6 +1314,11 @@
                     parent.removeClass('search-mode');
                 }
             })
+            
+            $('.btn-edit').click(function () {
+                var parent=$(this).parents('.tile-info');
+                    parent.toggleClass('edit-mode');
+            })
         })
 
         $(window).click(function(e){
@@ -1241,7 +1336,7 @@
         })
 
         // Google Maps
-        let map, curLatlng, latlng, marker, infoWindow, geocoder;
+        let map, latlng, marker, infoWindow, geocoder;
         var lockMap=false;
         var infoWindowContent =
                 '<div id="iw-container">' +
@@ -1263,9 +1358,9 @@
         }
 
         function setMapPosition() {
-            /*infoWindow.setPosition(latlng);
+            infoWindow.setPosition(latlng);
             infoWindow.setContent(infoWindowContent);
-            infoWindow.open(map, marker);*/
+            infoWindow.open(map, marker);
             map.setCenter(latlng);
         }
         
@@ -1285,49 +1380,46 @@
                     strictBounds: true
                 },
             });
-
-            $('<div/>').addClass('centerMarker').appendTo(map.getDiv());
             
             geocoder = new google.maps.Geocoder();
 
+            
             infoWindow = new google.maps.InfoWindow({content: infoWindowContent });
 
-            //addMarker();
+            addMarker();
 
-            google.maps.event.addListener(map, 'dragend', function () {
-                if (lockMap) { return; }
-                latlng = map.getCenter();
-                geocodeLatLng(geocoder, map);
-            });
-
-            /*
-            map.addListener('center_changed', () => {
-                marker.setPosition(map.getCenter())
-            })
-            /*
             google.maps.event.addListener(map, 'drag', function () {
                 if (lockMap) { return; }
-                //infoWindow.close();
+                infoWindow.close();
                 marker.setPosition(map.getCenter());
             });
             
-            /*
             google.maps.event.addListener(map, 'dragend', function () {
                 if (lockMap) { return; }
                 latlng = map.getCenter();
                 setMapPosition();
-                marker.setPosition(map.getCenter());
                 geocodeLatLng(geocoder, map);
             });
-            /*
+
             google.maps.event.addListener(map, 'click', function (event) {
                 if(lockMap || isMobile){ return; }
                 latlng= event.latLng;
                 marker.setPosition(latlng);
                 geocodeLatLng(geocoder, map);
             });
-            */
 
+
+        }
+
+        function getMapLocation(){
+            var mapElm=$('#map');
+            var lat = parseFloat(mapElm.attr('latitude'));
+            var lng = parseFloat(mapElm.attr('longitude'));
+            if(lat && lng){
+                latlng = { lat: lat, lng: lng };
+                return latlng;
+            }
+            return null;
         }
 
         function getCurrentLocation(){
@@ -1339,9 +1431,7 @@
                             lng: position.coords.longitude,
                         };
 
-                        curLatlng = latlng;
-
-                        //marker.setPosition(latlng);
+                        marker.setPosition(latlng);
                         setMapPosition();
                         map.setZoom(15);
                         geocodeLatLng(geocoder, map);
@@ -1380,10 +1470,9 @@
                 position: latlng,
                 map: map,
                 icon: svgMarker,
-                //draggable: true
+                draggable: true
             });
 
-            /*
             marker.addListener("click", () => {
                 infoWindow.open(map, marker);
             });
@@ -1397,7 +1486,6 @@
                 setMapPosition();
                 geocodeLatLng(geocoder, map);
             });
-            */
 
             
         }
@@ -1409,38 +1497,11 @@
                     if (response.results[0]) {
                         var address= response.results[0].formatted_address;
                         setMapPosition();
-                        //$('.map-marker-label').html(address);
+                        $('.map-marker-label').html(address);
+                        //$('#visiting-address').val(address);
 
                         var ac= response.results[0].address_components;
-                        if(ac.length>1){
-                            var d=ac.filter(
-                                function (data) { return data.types[0] == 'country' }
-                            );
-
-                            var countryName= d[0].long_name;
-                            $('#country')
-                                .addClass('selected')
-                                .attr('value', countryName)
-                                .find('.text')
-                                .html(countryName);
-
-                            /*var index= countryKeyData.map(function(obj){
-                                return obj.name;
-                            }).indexOf(countryName);*/
-                            if(currentCountryName!= countryName){
-
-                                var index=countryKeyData.findIndexBy('name', countryName);
-                                if(index >= 0){
-                                    countrySelectedKey= countryKeyData[index].key;
-                                    setPhoneCode();
-                                    clearCity();
-                                    $('#city-box').addClass('loading').html('');
-                                    getCities();
-                                }
-                            }
-
-                            currentCountryName= countryName;
-                        }else{
+                        if(ac.length<=0){
                             $('.map-marker-label').html('Unknown address');
                             $('#country')
                                 .removeClass('selected')
@@ -1451,14 +1512,13 @@
                         }
 
                     } else {
-                        //$('.map-marker-label').html("Unknown Address");
+                        $('.map-marker-label').html("Unknown Address");
                     }
                 })
-                .catch((e) => {});
+                .catch((e) => infoWindow.setContent('<span class="p-10 text-white display-block"><strong>Unknown Address</strong><br>Move the map to another location.</span>'));
         }
 
         function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-            /*
             infoWindow.setPosition(pos);
             infoWindow.setContent(
                 browserHasGeolocation
@@ -1466,7 +1526,6 @@
                     : "Error: Your browser doesn't support location."
             );
             infoWindow.open(map);
-            */
         }
 
         function setMapAddress(address) {  // "London, UK" for example 
@@ -1489,12 +1548,13 @@
                             map.setZoom(13);
                         }
                         geocodeLatLng(geocoder, map);
-                        //marker.setPosition(latlng);
+                        marker.setPosition(latlng);
                         //setMapPosition();
                     }
                 });
             }
         }
+
 
     </script>
 </body>

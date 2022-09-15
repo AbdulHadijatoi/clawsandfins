@@ -46,9 +46,8 @@
                         <li><a href="../hard-shelled-mudcrabs/">Hard-shelled mudcrabs</a></li>
                         <li><a href="../information/">Information</a></li>
                         <li><a href="../where-to-buy/">Where to buy</a></li>
-                        <li><a href="../contact-us.html">Contact us</a></li>
+                        <li><a href="../contact-us">Contact us</a></li>
                         <li><a href="../become-distributor/">Become a distributor</a></li>
-                        <li><a href="../become-investor/">Become an investor</a></li>
                     </ul>
                 </ul>
             </nav>
@@ -100,9 +99,9 @@
                         <div class="menu-dropdown-overlay">
                             <ul>
                                 <li><a href="../account">Account Info</a></li>
-                                <li><a href="../account/add-user.html">Add User</a></li>
+                                <li><a href="../account/add-user">Add User</a></li>
                                 <li class="md-divider"></li>
-                                <li class="logout-menu display-none"><a href="../logout.html">Log out</a></li>
+                                <li class="logout-menu display-none"><a href="../logout">Log out</a></li>
                             </ul>
                         </div>
                         <div class="text-right">
@@ -133,29 +132,18 @@
                 <div class="content">
                     <div class="full-width align-in-center vh100">
                         <div
-                            class="_75-width md_90-width md_align-center flex-column justify-center align-center max-w700" style="padding: 50px 0;">
+                            class="_75-width md_90-width md_align-center flex-column justify-center align-center max-w700" style="padding: 50px 20px;">
                             <div class="login-form pt-30 align-in-center flex-column">
-                                <div class="big-icon d-flex-important justify-center">
+                                <div class="login-spinner align-in-center">
+                                    <div class="loader"></div>
                                     <span class="material-icons d-flex-important align-in-center">
-                                        lock
+                                        check
                                     </span>
                                 </div>
-                                <h1 class="h1 text-yellow sm_font-size-35 text-center">Reset Password</h1>
+                                <h1 class="h1 text-yellow sm_font-size-35 text-center mb-30">Login Success</h1>
                                 <div class="text-light p-20 text-center">
-                                    Enter the email associated with your account and we'll send an email with instructions to reset your password.
+                                    Please wait, you will be redirect you...
                                 </div>
-                                <form class="full-width" action="login-success.html" method="post" onsubmit="return inputValidation(this)">
-                                    <div class="d-flex full-width">
-                                        <div class="input-text">
-                                            <input type="email" id="email" placeholder="Administration Email" style="box-shadow: unset;">
-                                        </div>
-                                    </div>
-                                    <div class="d-flex full-width justify-center">
-                                        <div class="button-primary mb-10">
-                                            <button type="submit">RESET</button>
-                                        </div>
-                                    </div>
-                                </form>
                             </div>
                         </div>
                     </div>
@@ -166,8 +154,11 @@
     </div>
 
     <script>
-        $(function () {
-
+        Cookies.set('logged-in', 'true', { path: '/' });
+        $(function(){
+            setTimeout(function(){
+                window.location.href= '../../';
+            },1000);
         })
     </script>
 </body>

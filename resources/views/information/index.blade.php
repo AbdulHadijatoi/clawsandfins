@@ -7,7 +7,7 @@
 
     <!-- Style -->
     <link rel="stylesheet" href="../../css/common.css">
-    <link rel="stylesheet" href="../../css/style.css?v=8">
+    <link rel="stylesheet" href="../../css/style.css">
 
     <!-- Icon -->
     <link rel="stylesheet" href="../../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
@@ -20,25 +20,9 @@
     <script src="../../js/svg-inject.js"></script>
     <script src="../../js/js-cookie.js"></script>
     <script src="../../js/main.js?v=8"></script>
-
-    <style>
-        .visiting-address {
-            height: 300px;
-        }
-
-        .visiting-address #map {
-            height: 100%;
-        }
-
-        .map-marker-label {
-            display: block;
-            border-radius: 5px;
-            padding: 2px 8px;
-        }
-    </style>
 </head>
 
-<body class="page-no-arc">
+<body>
     <div class="body-content max-w1280 margin-auto overflow-hidden">
         <!-- Menu -->
         <div id="mainMenuContainer" class="main-menu-container full-height w0 fixed">
@@ -57,15 +41,16 @@
                 <hr>
                 <ul>
                     <ul class="menu">
+                        <!-- <li class="menu-dropdown"><a href="">Soft-shelled mudcrabs</a></li> -->
                         <li><a href="../soft-shelled-mudcrabs/">Soft-shelled mudcrabs</a></li>
                         <li><a href="../hard-shelled-mudcrabs/">Hard-shelled mudcrabs</a></li>
-                        <li><a href="../information/">Information</a></li>
+                        <li class="active"><a href="../information/">Information</a></li>
                         <li><a href="../where-to-buy/">Where to buy</a></li>
-                        <li><a href="../contact-us.html">Contact us</a></li>
-                        <li class="distributor-investor-menu display-none"><a href="../updates.html">Updates</a></li>
-                        <li class="distributor-investor-menu display-none"><a href="../picture-gallery.html">Picture Gallery</a></li>
-                        <li class="distributor-investor-menu display-none"><a href="../future-ideas.html">Future Ideas</a></li>
-                        <li class="distributor-investor-menu display-none"><a href="../financial-updates.html">Financial Updates</a></li>
+                        <li><a href="../contact-us">Contact us</a></li>
+                        <li class="distributor-investor-menu display-none"><a href="../updates">Updates</a></li>
+                        <li class="distributor-investor-menu display-none"><a href="../picture-gallery">Picture Gallery</a></li>
+                        <li class="distributor-investor-menu display-none"><a href="../future-ideas">Future Ideas</a></li>
+                        <li class="distributor-investor-menu display-none"><a href="../financial-updates">Financial Updates</a></li>
                         <li><a href="../become-distributor/">Become a distributor</a></li>
                         <li><a href="../become-investor/">Become an investor</a></li>
                         
@@ -120,9 +105,9 @@
                         <div class="menu-dropdown-overlay">
                             <ul>
                                 <li><a href="../account">Account Info</a></li>
-                                <li><a href="../account/add-user.html">Add User</a></li>
+                                <li><a href="../account/add-user">Add User</a></li>
                                 <li class="md-divider"></li>
-                                <li class="logout-menu display-none"><a href="../logout.html">Log out</a></li>
+                                <li class="logout-menu display-none"><a href="../logout">Log out</a></li>
                             </ul>
                         </div>
                         <div class="text-right">
@@ -322,31 +307,102 @@
 
         <!-- Content -->
         <div class="content-wrapper">
-            <section class="section" data-clip-id="1" style="background-image: url('../../bg/grey4.jpg');">
-                <div class="content">
+            <section class="section" data-clip-id="1"
+                style="background-image: url(../../bg/Grey\ Background\ \(13\).png);">
+                <div class="content full-width">
                     <div class="full-width align-in-center pb-120">
-                        <div class="_75-width md_90-width flex-column justify-center max-w700">
-                            <div class="confirm-box text-center">
-                                <img src="../../svg/mail.svg">
-                                <h1 class="h1 text-yellow sm_font-size-35 text-center mb-30">Confirm your email address</h1>
-                                <div class="text-light p-20 text-center">
-                                    We sent a confirmation email to:
-                                </div>
-                                <div class="text-light p-20 text-center">
-                                    <strong>jhondoe@mail.com</strong>
-                                </div>
-                                <div class="text-light p-20 text-center">
-                                    Check your email and click on the<br>confirmation link to continue.
-                                </div>
-                                <div class="d-flex full-width justify-center">
-                                    <div class="button-secondary">
-                                        <button type="submit">Resend Email</button>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="_75-width flex-column z-index-1 justify-center md_90-width md_align-center">
+                            <h1 class="h1 sm_font-size-25 text-yellow text-center">Information</h1>
+                            <p class="para text-white sm_font-size-11 text-right sm_text-center">
+                                It is in our core believe that if you benefit the local community, the people there will
+                                add value to your
+                                business as well. For every site we establish a manufacturing facility, our project will
+                                add value to the
+                                community as whole. We will provide jobs for hundreds of local residents with positions
+                                available within our
+                                production, sales, administration, and management teams. We will also offer hundreds of
+                                local farmers
+                                opportunities to join our supply network, providing training, coaching, and financial
+                                support to help them adapt
+                                to a more intensive and efficient farming system. Through our research and development,
+                                anything learned or
+                                discovered will be shared with our farmers to produce more efficiently and a healthier
+                                product. One among many
+                                different local benefitting activities, is that we will arrange cleanup days where we
+                                offer students an extra
+                                income for their effort as well as courses in environment know-how and teach them the
+                                importance of keeping the
+                                environment healthy.
+                            </p>
                         </div>
                     </div>
                 </div>
+            </section>
+            <section class="section" data-clip-id="2"
+                style="background-image: url(../../bg/Grey\ Background\ \(5\).png);">
+                <div class="content">
+                    <div class="full-width align-in-center pb-100">
+                        <div
+                            class="_75-width flex-column z-index-1 justify-center sm_90-width sm_align-center mt-100 sm_mt-10">
+                            <h1 class="h1 text-white sm_font-size-30 text-center">More Info</h1>
+                            <p class="para text-white sm_font-size-11 text-right sm_text-center">
+                                It is in our core believe that if you benefit the local community, the people there will
+                                add value to your
+                                business as well. For every site we establish a manufacturing facility, our project will
+                                add value to the
+                                community as whole. We will provide jobs for hundreds of local residents with positions
+                                available within our
+                                production, sales, administration, and management teams. We will also offer hundreds of
+                                local farmers
+                                opportunities to join our supply network, providing training, coaching, and financial
+                                support to help them adapt
+                                to a more intensive and efficient farming system. Through our research and development,
+                                anything learned or
+                                discovered will be shared with our farmers to produce more efficiently and a healthier
+                                product. One among many
+                                different local benefitting activities, is that we will arrange cleanup days where we
+                                offer students an extra
+                                income for their effort as well as courses in environment know-how and teach them the
+                                importance of keeping the
+                                environment healthy.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <img img-arc="1" class="img-arc" src="../../arcs/arc 11.svg" />
+            </section>
+            <section class="section" data-clip-id="3"
+                style="background-image: url(../../bg/Grey\ Background\ \(3\).png);">
+                <div class="content">
+                    <div class="full-width align-in-center pb-40">
+                        <div
+                            class="_75-width flex-column z-index-1 justify-center sm_90-width sm_align-center mt-80 sm_mt-10">
+                            <h1 class="h1 text-white sm_font-size-30 text-center">More Info</h1>
+                            <p class="para text-white sm_font-size-11 text-right sm_text-center">
+                                It is in our core believe that if you benefit the local community, the people there will
+                                add value to your
+                                business as well. For every site we establish a manufacturing facility, our project will
+                                add value to the
+                                community as whole. We will provide jobs for hundreds of local residents with positions
+                                available within our
+                                production, sales, administration, and management teams. We will also offer hundreds of
+                                local farmers
+                                opportunities to join our supply network, providing training, coaching, and financial
+                                support to help them adapt
+                                to a more intensive and efficient farming system. Through our research and development,
+                                anything learned or
+                                discovered will be shared with our farmers to produce more efficiently and a healthier
+                                product. One among many
+                                different local benefitting activities, is that we will arrange cleanup days where we
+                                offer students an extra
+                                income for their effort as well as courses in environment know-how and teach them the
+                                importance of keeping the
+                                environment healthy.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <img img-arc="2" class="img-arc" src="../../arcs/arc 14.svg" />
             </section>
         </div>
 
@@ -501,12 +557,6 @@
             </svg>
         </footer>
     </div>
-
-    <script>
-        $(function(){
-
-        })
-    </script>
 </body>
 
 </html>

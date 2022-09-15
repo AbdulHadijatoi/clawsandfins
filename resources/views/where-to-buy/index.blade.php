@@ -6,68 +6,130 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Style -->
-    <link rel="stylesheet" href="../css/common.css">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/style.css">
 
     <!-- Icon -->
-    <link rel="stylesheet" href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
     <!-- Font Awesome Icon 4.7.0 -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <!--Material Icon -->
 
     <!-- JS Script -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="../js/svg-inject.js"></script>
-    <script src="../js/js-cookie.js"></script>
-    <script src="../js/main.js?v=8"></script>
+    <script src="../../js/svg-inject.js"></script>
+    <script src="../../js/js-cookie.js"></script>
+    <script src="../../js/main.js?v=8"></script>
 
     <style>
-        .visiting-address {
-            height: 300px;
+        #country-list{
+            display: flex;
+            flex-wrap: wrap;
+            align-items: stretch;
         }
-
-        .visiting-address #map {
-            height: 100%;
-        }
-
-        .map-marker-label {
-            display: block;
+        #country-list .country-item{
+            background: #cacaca;
+            margin: 5px;
+            color: #181818;
+            flex-grow: 1;
+            padding: 8px 15px;
+            text-align: center;
             border-radius: 5px;
-            padding: 2px 8px;
+            box-shadow: 0 0 2px rgba(0,0,0,0.5);
         }
+
+        #country-list .country-item span{
+            display: inline-block;
+            margin: 0 10px;
+            background: #181818;
+            min-width: 20px;
+            height: 20px;
+            color: #FECC2E;
+            border-radius: 10px;
+            font-size: 12px;
+            line-height: 20px;
+        }
+
+        #country-list .country-item:hover{
+            background-color: #FF8506;
+        }
+
+        .search{
+            position: relative;
+            padding: 5px;
+            margin: 30px 0;
+        }
+
+        .search input{
+            width: 100%;
+            padding: 10px 10px;
+            background: #181818;
+            border: 0;
+            border-radius: 5px;
+            color: white;
+            padding-right: 30px;
+        }
+
+        .search span{
+            position: absolute;
+            right: 10px;
+            top: calc(50% - 13px);
+            color: #FECC2E;
+        }
+
+        .not-found{
+            background: #181818 !important;
+            color: #444444 !important;
+        }
+
+        .not-found span{
+            background: #141313 !important;
+            color: #444444 !important;
+        }
+
+        .search-found:after {
+            content: attr(item-found) " countries found";
+            position: absolute;
+            top: 100%;
+            left: 5px;
+            font-size: 12px;
+            color: #adadad;
+            padding: 0 10px;
+        }
+
     </style>
 </head>
 
 <body class="page-no-arc">
     <div class="body-content max-w1280 margin-auto overflow-hidden">
         <!-- Menu -->
-        <div id="mainMenuContainer" class="main-menu-container full-height w0 fixed menu-dark">
+        <div id="mainMenuContainer" class="main-menu-container full-height w0 fixed">
             <nav id="main-menu" role="navigation">
-                <a href="../" class="full-width align-in-center">
-                    <img class="mb-10" src="../images/logo.png" alt="profile photo" width="150">
+                <a href="../../" class="full-width align-in-center">
+                    <img class="mb-10" src="../../images/logo.png" alt="profile photo" width="150">
                 </a>
                 <h2 class="font-size-20 font-weight-400 text-white text-center">Pete's Claws & Fins</h2>
                 <p class="font-size-12 font-weight-300 text-white text-center mb-20">Ecological Seafood Production</p>
                 <div class="full-width justify-center">
-                    <a href="#"><img class="social-icon" src="../svg/twitter-square.svg" alt="twitter"></a>
-                    <a href="#"><img class="social-icon" src="../svg/facebook-square.svg" alt="twitter"></a>
-                    <a href="#"><img class="social-icon" src="../svg/instagram-square.svg" alt="twitter"></a>
-                    <a href="#"><img class="social-icon" src="../svg/pinterest-square.svg" alt="twitter"></a>
+                    <a href="#"><img class="social-icon" src="../../svg/twitter-square.svg" alt="twitter"></a>
+                    <a href="#"><img class="social-icon" src="../../svg/facebook-square.svg" alt="twitter"></a>
+                    <a href="#"><img class="social-icon" src="../../svg/instagram-square.svg" alt="twitter"></a>
+                    <a href="#"><img class="social-icon" src="../../svg/pinterest-square.svg" alt="twitter"></a>
                 </div>
                 <hr>
                 <ul>
                     <ul class="menu">
-                        <li><a href="soft-shelled-mudcrabs/">Soft-shelled mudcrabs</a></li>
-                        <li><a href="hard-shelled-mudcrabs/">Hard-shelled mudcrabs</a></li>
-                        <li><a href="information/">Information</a></li>
-                        <li><a href="where-to-buy/">Where to buy</a></li>
-                        <li><a href="contact-us.html">Contact us</a></li>
-                        <li class="distributor-investor-menu display-none active"><a href="updates.html">Updates</a></li>
-                        <li class="distributor-investor-menu display-none"><a href="picture-gallery.html">Picture Gallery</a></li>
-                        <li class="distributor-investor-menu display-none"><a href="future-ideas.html">Future Ideas</a></li>
-                        <li class="distributor-investor-menu display-none"><a href="financial-updates.html">Financial Updates</a></li>
-                        <li><a href="become-distributor/">Become a distributor</a></li>
-                        <li><a href="become-investor/">Become an investor</a></li>
+                        <li><a href="../soft-shelled-mudcrabs/">Soft-shelled mudcrabs</a></li>
+                        <li><a href="../hard-shelled-mudcrabs/">Hard-shelled mudcrabs</a></li>
+                        <li><a href="../information/">Information</a></li>
+                        <li class="active"><a href="../where-to-buy/">Where to buy</a></li>
+                        <li><a href="../contact-us">Contact us</a></li>
+                        <li class="distributor-investor-menu display-none"><a href="../updates">Updates</a></li>
+                        <li class="distributor-investor-menu display-none"><a href="../picture-gallery">Picture Gallery</a></li>
+                        <li class="distributor-investor-menu display-none"><a href="../future-ideas">Future Ideas</a></li>
+                        <li class="distributor-investor-menu display-none"><a href="../financial-updates">Financial Updates</a></li>
+                        <li><a href="../become-distributor/">Become a distributor</a></li>
+                        <li><a href="../become-investor/">Become an investor</a></li>
                         
                     </ul>
                 </ul>
@@ -92,7 +154,7 @@
                         <div class="menu-dropdown-overlay">
                             <ul>
                                 <li class="disable-menu"><a>Account Info</a></li>
-                                <li class="login-menu"><a href="login/">Log in</a></li>
+                                <li class="login-menu"><a href="../login/">Log in</a></li>
                             </ul>
                         </div>
                         <div class="text-right">
@@ -119,17 +181,17 @@
                     <div class="company-info align-center full-height">
                         <div class="menu-dropdown-overlay">
                             <ul>
-                                <li><a href="account">Account Info</a></li>
-                                <li><a href="account/add-user.html">Add User</a></li>
+                                <li><a href="../account">Account Info</a></li>
+                                <li><a href="../account/add-user">Add User</a></li>
                                 <li class="md-divider"></li>
-                                <li class="logout-menu display-none"><a href="logout.html">Log out</a></li>
+                                <li class="logout-menu display-none"><a href="../logout">Log out</a></li>
                             </ul>
                         </div>
                         <div class="text-right">
                             <h3>Company Name</h3>
                             <span class="user-status">Candidate</span>
                         </div>
-                        <img src="../images/logo.png">
+                        <img src="../../images/logo.png">
                     </div>
                 </div>
             </div>
@@ -223,8 +285,8 @@
                 </svg>
 
                 <div class="absolute top-left _85-width _85-height align-in-center">
-                    <a href="../" class="full-width align-in-center"><img class="_40-width _mb_40 mr-80 sm_mb-20 mr-5"
-                            src="../images/logo.png"></a>
+                    <a href="../../" class="full-width align-in-center"><img class="_40-width _mb_40 mr-80 sm_mb-20 mr-5"
+                            src="../../images/logo.png"></a>
                 </div>
 
             </div>
@@ -296,7 +358,7 @@
                             <g id="Group_4" data-name="Group 4" class="cls-2" transform="translate(388.344)">
                                 <g id="sjaWRX.tif" transform="translate(-162.452)">
                                     <image id="Layer_1" data-name="Layer 1" width="1060.232" height="757.165"
-                                        xlink:href="../images/header2-image.jpg" />
+                                        xlink:href="../../images/header2-image.jpg" />
                                 </g>
                             </g>
                         </g>
@@ -322,45 +384,21 @@
 
         <!-- Content -->
         <div class="content-wrapper">
-            <section class="section bg-white" data-clip-id="1">
+            <section class="section" data-clip-id="1" style="background-image: url('../../bg/grey1.jpg');">
                 <div class="content">
-                    <div class="full-width align-in-center pb-60">
+                    <div class="full-width align-in-center pb-120">
                         <div class="_75-width md_90-width flex-column justify-center max-w700">
-                            <h1 class="h1 text-default sm_font-size-35 text-center mb-10">Updates</h1>
-                            <div class="text-default font-size-12 p-10 mb-20">
-                                <p class="para sm_font-size-11 text-default mt-20 mb-20">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                                    aliqua. Elit ut aliquam purus sit amet luctus venenatis. Enim tortor at auctor urna nunc id. Eu tincidunt tortor aliquam
-                                    nulla. Cursus sit amet dictum sit. Egestas diam in arcu cursus euismod. Eu ultrices vitae auctor eu augue. Aliquam
-                                    faucibus purus in massa tempor nec. Lectus quam id leo in vitae turpis. Nibh sit amet commodo nulla. Neque viverra justo
-                                    nec ultrices dui sapien. Eros donec ac odio tempor orci dapibus ultrices in iaculis. Sodales neque sodales ut etiam sit
-                                    amet nisl. Quam elementum pulvinar etiam non quam lacus suspendisse faucibus interdum. Tincidunt vitae semper quis
-                                    lectus nulla at volutpat diam ut. Risus sed vulputate odio ut enim. Morbi tristique senectus et netus et malesuada fames
-                                    ac. In eu mi bibendum neque egestas congue quisque egestas. Viverra accumsan in nisl nisi scelerisque eu ultrices vitae.
-                                    Est ante in nibh mauris cursus mattis molestie a.
-                                </p>
-                                
-                                <p class="para sm_font-size-11 text-default mt-20 mb-20">
-                                    Venenatis cras sed felis eget velit aliquet sagittis. Egestas egestas fringilla phasellus faucibus scelerisque eleifend.
-                                    Dis parturient montes nascetur ridiculus mus mauris vitae. Blandit turpis cursus in hac. Bibendum est ultricies integer
-                                    quis auctor elit. Dictum sit amet justo donec. Netus et malesuada fames ac. Eget egestas purus viverra accumsan in.
-                                    Egestas maecenas pharetra convallis posuere. Massa tincidunt dui ut ornare lectus sit amet. Ridiculus mus mauris vitae
-                                    ultricies leo integer. Netus et malesuada fames ac turpis egestas sed. Hac habitasse platea dictumst quisque sagittis
-                                    purus. Gravida in fermentum et sollicitudin ac orci phasellus. Ornare arcu odio ut sem nulla. In metus vulputate eu
-                                    scelerisque felis imperdiet proin. Nisl tincidunt eget nullam non nisi est sit amet facilisis. Consequat ac felis donec
-                                    et. Sed nisi lacus sed viverra tellus. Sed sed risus pretium quam vulputate dignissim suspendisse.
-                                </p>
-                                
-                                <p class="para sm_font-size-11 text-default mt-20 mb-20">
-                                    Gravida arcu ac tortor dignissim. Tempor nec feugiat nisl pretium. Vestibulum mattis ullamcorper velit sed ullamcorper
-                                    morbi. Interdum velit euismod in pellentesque massa. Enim nunc faucibus a pellentesque. Nec dui nunc mattis enim ut
-                                    tellus. Nulla facilisi cras fermentum odio eu feugiat pretium nibh ipsum. Dignissim convallis aenean et tortor at risus
-                                    viverra. Posuere ac ut consequat semper viverra nam. Phasellus faucibus scelerisque eleifend donec pretium vulputate. At
-                                    quis risus sed vulputate odio ut enim blandit volutpat. Non tellus orci ac auctor augue mauris augue. Viverra tellus in
-                                    hac habitasse. Suspendisse interdum consectetur libero id. Sed viverra tellus in hac habitasse platea. Morbi enim nunc
-                                    faucibus a pellentesque sit. Dignissim diam quis enim lobortis scelerisque. Cursus turpis massa tincidunt dui ut ornare
-                                    lectus sit amet. Quis enim lobortis scelerisque fermentum. Hendrerit dolor magna eget est lorem ipsum.
-                                </p>
+                            <div>
+                                <h1 class="h1 text-yellow sm_font-size-35 text-center mt-60">Where to buy our products</h1>
+                                <div class="search">
+                                    <input type="text" placeholder="Type the first letters to highlight your country below">
+                                    <span class="material-icons">
+                                        search
+                                    </span>
+                                </div>
+                                <div id="country-list" class="spinner" style="min-height: 150px">
+
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -368,7 +406,7 @@
             </section>
         </div>
 
-        
+
 
         <!-- Footer -->
         <footer class="full-width z-index-5 relative">
@@ -403,7 +441,7 @@
                         <g style="clip-path:url(#Rectangle_7_00000089573270239812126640000004520386975560608171_);">
 
                             <image style="overflow:visible;" width="1429" height="877"
-                                xlink:href="../images/image_3.jpg"
+                                xlink:href="../../images/image_3.jpg"
                                 transform="matrix(0.2589 0 0 0.2589 127.85 834.8722)">
                             </image>
                         </g>
@@ -439,7 +477,7 @@
                         </clipPath>
                         <g style="clip-path:url(#Rectangle_7_00000071535616020478365760000010045756066559111054_);">
                             <image style="overflow:visible;" width="1429" height="877"
-                                xlink:href="../images/image_5.jpg"
+                                xlink:href="../../images/image_5.jpg"
                                 transform="matrix(0.2014 0 0 0.2014 496 920.1766)">
                             </image>
                         </g>
@@ -474,7 +512,7 @@
                         </clipPath>
                         <g style="clip-path:url(#Rectangle_7_00000011750910233994347730000001836264302129693076_); ">
                             <image style="overflow:visible;" width="1429" height="877"
-                                xlink:href="../images/image_6.jpg"
+                                xlink:href="../../images/image_6.jpg"
                                 transform="matrix(0.2463 0 0 0.2463 281.5209 988.9645)">
                             </image>
                         </g>
@@ -497,7 +535,7 @@
                 <g id="Group_40" data-name="Group 40" transform="translate(0 -3011.488)">
                     <g id="fpIUa2.tif" transform="translate(58.997 3380.907)">
                         <image id="Layer_1" data-name="Layer 1" width="81.663" height="76.145"
-                            xlink:href="../images/logo.png" />
+                            xlink:href="../../images/logo.png" />
                     </g>
                     <path id="Path_31" data-name="Path 31"
                         d="M761.7,3113v36.961q-6.543-.634-13.074-1.381-24.565-2.865-49.07-6.32c-18.269-2.583-36.508-5.385-54.682-8.545q-37.731-6.561-75.177-14.6-59.984-12.8-119.034-29.326a2101.765,2101.765,0,0,1-271.631-96.314A1987,1987,0,0,1,0,2904.791v-60.93a1044.908,1044.908,0,0,0,158.292,111.774C231.981,2998.26,309.6,3032,390.73,3057.732a1198.972,1198.972,0,0,0,126.11,32.563q33.643,6.775,67.661,11.509c18.7,2.577,37.425,4.814,56.217,6.546,21.691,1.993,43.411,3.309,65.173,4.148C724.494,3113.212,743.1,3113.224,761.7,3113Z"
@@ -522,6 +560,53 @@
         </footer>
     </div>
 
+    <script>
+        var distributors=[2,0,0,5,1,4,0,0,0,5,0,3,2,0,0,4,2,1,0];
+        
+        $(function(){
+            $.getJSON('../../library/country-city/countries+cities.json', function (data) {
+                data = countryFilter(data);
+                $.each(data, function (key, val) {
+                    var item = $('<a href="distributors" class="country-item" value="' + val.name.toLowerCase() + '">' + val.name + '</a>');
+                    if(distributors[key]){
+                        item.append('<span>'+ distributors[key] +'</span>');
+                    }
+                    item.click(function (e) {
+                        e.stopPropagation();
+                        $('#city .text').html('City');
+                        $('#city-box').addClass('loading').html('');
+                        countrySelectedKey = key;
+                        countrySelectedID = val.id;
+                        var pc = data[countrySelectedKey].phone_code;
+                        $('#phone-code')
+                            .attr('value', pc.replace('-'))
+                            .find('.text').html('+' + pc);
+                        setMapAddress(val.name);
+                        getCities();
+                        var prn = $(this).parents('.country-city-dropdown');
+                        prn.removeClass('expanded').addClass('selected');
+                        prn.find('.text').html($(this).attr('value'));
+                    })
+                    $('#country-list').append(item);
+    
+                });
+                removeSpinner();
+            });
+            
+            $('.search input').keyup(function(){
+                $('#country-list').find('.country-item').removeClass('not-found');
+                if($(this).val() != ''){
+                    $(this)
+                        .parent()
+                        .addClass('search-found')
+                        .attr('item-found', $('#country-list').find('.country-item[value*="' + $(this).val().toLowerCase() + '"]').length );
+                    $('#country-list').find('.country-item:not([value*="' + $(this).val().toLowerCase() +'"])').addClass('not-found');
+                }else{
+                    $(this).parent().removeClass('search-found');
+                }
+            })
+        })
+    </script>
 </body>
 
 </html>

@@ -154,7 +154,7 @@
                                 <div class="info primary-info d-flex-important">
                                     <label>Don't have an account, please register as a distributor <strong><a href="{{route('become-distributor')}}">Become a Distributor</a></strong></label>
                                 </div>
-                                <form action="login-success.html" method="get" onsubmit="return inputValidation(this)">
+                                <form action="login-success" method="get" onsubmit="return inputValidation(this)">
                                     <div class="d-flex full-width">
                                         <div class="input-text">
                                             <input type="email" id="email" placeholder="Email" style="box-shadow: unset;">

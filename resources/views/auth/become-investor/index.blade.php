@@ -139,9 +139,9 @@
                         <li class="distributor-investor-menu display-none"><a href="{{url('updates')}}">Updates</a></li>
                         <li class="distributor-investor-menu display-none"><a href="{{url('picture-gallery')}}">Picture
                                 Gallery</a></li>
-                        <li class="distributor-investor-menu display-none"><a href="{{url('future-ideas.html')}}">Future
+                        <li class="distributor-investor-menu display-none"><a href="{{url('future-ideas')}}">Future
                                 Ideas</a></li>
-                        <li class="distributor-investor-menu display-none"><a href="{{url('financial-updates.html')}}">Financial
+                        <li class="distributor-investor-menu display-none"><a href="{{url('financial-updates')}}">Financial
                                 Updates</a></li>
                         <li><a href="{{route('become-distributor')}}">Become a distributor</a></li>
                         <li class="active"><a href="{{route('become-investor')}}">Become an investor</a></li>
@@ -407,7 +407,7 @@
                             </h1>
                             <span class="h4 text-white text-center mb-30">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
                             aliqua.</span>
-                            <form action="confirm-email.html" method="post" onsubmit="return inputValidation(this)">
+                            <form action="confirm-email" method="post" onsubmit="return inputValidation(this)">
                                 <div class="form-container">
                                     <div class="full-width text-center">
                                         <div class="logo-container align-in-center flex-column mt-20">

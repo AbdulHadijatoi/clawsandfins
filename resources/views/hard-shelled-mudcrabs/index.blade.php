@@ -46,11 +46,11 @@
                         <li class="active"><a href="../hard-shelled-mudcrabs/">Hard-shelled mudcrabs</a></li>
                         <li><a href="../information/">Information</a></li>
                         <li><a href="../where-to-buy/">Where to buy</a></li>
-                        <li><a href="../contact-us.html">Contact us</a></li>
-                        <li class="distributor-investor-menu display-none"><a href="../updates.html">Updates</a></li>
-                        <li class="distributor-investor-menu display-none"><a href="../picture-gallery.html">Picture Gallery</a></li>
-                        <li class="distributor-investor-menu display-none"><a href="../future-ideas.html">Future Ideas</a></li>
-                        <li class="distributor-investor-menu display-none"><a href="../financial-updates.html">Financial Updates</a></li>
+                        <li><a href="../contact-us">Contact us</a></li>
+                        <li class="distributor-investor-menu display-none"><a href="../updates">Updates</a></li>
+                        <li class="distributor-investor-menu display-none"><a href="../picture-gallery">Picture Gallery</a></li>
+                        <li class="distributor-investor-menu display-none"><a href="../future-ideas">Future Ideas</a></li>
+                        <li class="distributor-investor-menu display-none"><a href="../financial-updates">Financial Updates</a></li>
                         <li><a href="../become-distributor/">Become a distributor</a></li>
                         <li><a href="../become-investor/">Become an investor</a></li>
                         
@@ -105,9 +105,9 @@
                         <div class="menu-dropdown-overlay">
                             <ul>
                                 <li><a href="../account">Account Info</a></li>
-                                <li><a href="../account/add-user.html">Add User</a></li>
+                                <li><a href="../account/add-user">Add User</a></li>
                                 <li class="md-divider"></li>
-                                <li class="logout-menu display-none"><a href="../logout.html">Log out</a></li>
+                                <li class="logout-menu display-none"><a href="../logout">Log out</a></li>
                             </ul>
                         </div>
                         <div class="text-right">
