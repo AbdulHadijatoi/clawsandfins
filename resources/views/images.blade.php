@@ -15,7 +15,7 @@
             </span>
         </div>
         <div class="image max-w700">
-            <img src="../images/image_2.jpg">
+            <img src="{{asset('images/image_2.jpg')}}">
         </div>
     </div>
     <div id="image_2">
@@ -26,7 +26,7 @@
             </span>
         </div>
         <div class="image max-w700">
-            <img src="../images/image_5.jpg">
+            <img src="{{asset('images/image_5.jpg')}}">
         </div>
     </div>
     <div id="image_3">
@@ -37,7 +37,7 @@
             </span>
         </div>
         <div class="image max-w700">
-            <img src="../images/image_6.jpg">
+            <img src="{{asset('images/image_6.jpg')}}">
         </div>
     </div>
     <div id="image_4">
@@ -48,7 +48,7 @@
             </span>
         </div>
         <div class="image max-w700">
-            <img src="../images/image_3.jpg">
+            <img src="{{asset('images/image_3.jpg')}}">
         </div>
     </div>
     <div id="image_5">
@@ -59,7 +59,7 @@
             </span>
         </div>
         <div class="image max-w700">
-            <img src="../images/image_2.jpg">
+            <img src="{{asset('images/image_2.jpg')}}">
         </div>
     </div>
     <div id="image_6">
@@ -70,7 +70,7 @@
             </span>
         </div>
         <div class="image max-w700">
-            <img src="../images/header2-image.jpg">
+            <img src="{{asset('images/header2-image.jpg')}}">
         </div>
     </div>
     <div id="image_7">
@@ -81,7 +81,7 @@
             </span>
         </div>
         <div class="image max-w700">
-            <img src="../images/image_6.jpg">
+            <img src="{{asset('images/image_6.jpg')}}">
         </div>
     </div>
     <div id="image_8">
@@ -92,7 +92,7 @@
             </span>
         </div>
         <div class="image max-w700">
-            <img src="../images/image_3.jpg">
+            <img src="{{asset('images/image_3.jpg')}}">
         </div>
     </div>
     <div id="image_9">
@@ -103,7 +103,7 @@
             </span>
         </div>
         <div class="image max-w700">
-            <img src="../images/image_5.jpg">
+            <img src="{{asset('images/image_5.jpg')}}">
         </div>
     </div>
 </body>

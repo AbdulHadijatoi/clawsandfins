@@ -56,7 +56,7 @@
                         <div class="menu-dropdown-overlay">
                             <ul>
                                 <li class="disable-menu"><a>Account Info</a></li>
-                                <li class="login-menu"><a href="login/">Log in</a></li>
+                                <li class="login-menu"><a href="{{route('login')}}">Log in</a></li>
                             </ul>
                         </div>
                         <div class="text-right">
@@ -83,17 +83,17 @@
                     <div class="company-info align-center full-height">
                         <div class="menu-dropdown-overlay">
                             <ul>
-                                <li><a href="account">Account Info</a></li>
-                                <li><a href="account/add-user">Add User</a></li>
+                                <li><a href="{{url('account')}}">Account Info</a></li>
+                                <li><a href="{{url('account/add-user')}}">Add User</a></li>
                                 <li class="md-divider"></li>
-                                <li class="logout-menu display-none"><a href="logout">Log out</a></li>
+                                <li class="logout-menu display-none"><a href="{{route('logout')}}">Log out</a></li>
                             </ul>
                         </div>
                         <div class="text-right">
                             <h3>Company Name</h3>
                             <span class="user-status">Candidate</span>
                         </div>
-                        <img src="../images/logo.png">
+                        <img src="{{asset('images/logo.png')}}">
                     </div>
                 </div>
             </div>
@@ -175,8 +175,8 @@
                 </svg>
 
                 <div class="absolute top-left _85-width _85-height align-in-center">
-                    <a href="../" class="full-width align-in-center"><img class="_40-width _mb_40 mr-80 sm_mb-20 mr-5"
-                            src="../images/logo.png"></a>
+                    <a href="{{url('/')}}" class="full-width align-in-center"><img class="_40-width _mb_40 mr-80 sm_mb-20 mr-5"
+                            src="{{asset('images/logo.png')}}"></a>
                 </div>
 
             </div>
@@ -248,7 +248,7 @@
                             <g id="Group_4" data-name="Group 4" class="cls-2" transform="translate(388.344)">
                                 <g id="sjaWRX.tif" transform="translate(-162.452)">
                                     <image id="Layer_1" data-name="Layer 1" width="1060.232" height="757.165"
-                                        xlink:href="../images/header2-image.jpg" />
+                                        xlink:href="{{asset('images/header2-image.jpg')}}" />
                                 </g>
                             </g>
                         </g>
@@ -281,31 +281,31 @@
                             <h1 class="h1 text-default sm_font-size-35 text-center mb-10">Picture Gallery</h1>
                             <div class="gallery mt-40">
                                 <div id="img-1" class="item">
-                                    <a class="popup-page-url" parent-id="img-1" href="images.html #image_1"><img src="../images/image_2.jpg"></a>
+                                    <a class="popup-page-url" parent-id="img-1" href="images.html #image_1"><img src="{{asset('images/image_2.jpg')}}"></a>
                                 </div>
                                 <div id="img-2" class="item">
-                                    <a class="popup-page-url" parent-id="img-2" href="images.html #image_2"><img src="../images/image_5.jpg"></a>
+                                    <a class="popup-page-url" parent-id="img-2" href="images.html #image_2"><img src="{{asset('images/image_5.jpg')}}"></a>
                                 </div>
                                 <div id="img-3" class="item">
-                                    <a class="popup-page-url" parent-id="img-3" href="images.html #image_3"><img src="../images/image_6.jpg"></a>
+                                    <a class="popup-page-url" parent-id="img-3" href="images.html #image_3"><img src="{{asset('images/image_6.jpg')}}"></a>
                                 </div>
                                 <div id="img-4" class="item">
-                                    <a class="popup-page-url" parent-id="img-4" href="images.html #image_4"><img src="../images/image_3.jpg"></a>
+                                    <a class="popup-page-url" parent-id="img-4" href="images.html #image_4"><img src="{{asset('images/image_3.jpg')}}"></a>
                                 </div>
                                 <div id="img-5" class="item">
-                                    <a class="popup-page-url" parent-id="img-5" href="images.html #image_5"><img src="../images/image_2.jpg"></a>
+                                    <a class="popup-page-url" parent-id="img-5" href="images.html #image_5"><img src="{{asset('images/image_2.jpg')}}"></a>
                                 </div>
                                 <div id="img-6" class="item">
-                                    <a class="popup-page-url" parent-id="img-6" href="images.html #image_6"><img src="../images/header2-image.jpg"></a>
+                                    <a class="popup-page-url" parent-id="img-6" href="images.html #image_6"><img src="{{asset('images/header2-image.jpg')}}"></a>
                                 </div>
                                 <div id="img-7" class="item">
-                                    <a class="popup-page-url" parent-id="img-7" href="images.html #image_7"><img src="../images/image_6.jpg"></a>
+                                    <a class="popup-page-url" parent-id="img-7" href="images.html #image_7"><img src="{{asset('images/image_6.jpg')}}"></a>
                                 </div>
                                 <div id="img-8" class="item">
-                                    <a class="popup-page-url" parent-id="img-8" href="images.html #image_8"><img src="../images/image_3.jpg"></a>
+                                    <a class="popup-page-url" parent-id="img-8" href="images.html #image_8"><img src="{{asset('images/image_3.jpg')}}"></a>
                                 </div>
                                 <div id="img-9" class="item">
-                                    <a class="popup-page-url" parent-id="img-9" href="images.html #image_9"><img src="../images/image_5.jpg"></a>
+                                    <a class="popup-page-url" parent-id="img-9" href="images.html #image_9"><img src="{{asset('images/image_5.jpg')}}"></a>
                                 </div>
                             </div>
                         </div>

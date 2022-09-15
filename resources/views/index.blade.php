@@ -43,7 +43,7 @@
                     <div class="menu-dropdown-overlay">
                         <ul>
                             <li class="disable-menu"><a>Account Info</a></li>
-                            <li class="login-menu"><a href="{{url('login/')}}">Log in</a></li>
+                            <li class="login-menu"><a href="{{route('login')}}">Log in</a></li>
                         </ul>
                     </div>
                     <div class="text-right">
@@ -229,7 +229,7 @@
 
     <!-- Content -->
     <div class="content-wrapper">
-        <section class="section" data-clip-id="1" style="background-image: url(bg/pattern_bg1.jpg);">
+        <section class="section" data-clip-id="1" style="background-image: url({{asset('bg/pattern_bg1.jpg')}});">
             <div class="content">
                 <div class="full-width align-in-center pb-120">
                     <div class="_75-width flex-column z-index-1 justify-center md_90-width md_align-center">
@@ -257,7 +257,7 @@
                 </div>
             </div>
         </section>
-        <section class="section" data-clip-id="2" style="background-image: url(bg/pattern_bg2.jpg);">
+        <section class="section" data-clip-id="2" style="background-image: url({{asset('bg/pattern_bg2.jpg')}});">
             <div class="content">
                 <div class="full-width align-in-center pb-120">
                     <div class="_75-width flex-column z-index-1 justify-center sm_90-width sm_align-center mt-180 sm_mt-10">

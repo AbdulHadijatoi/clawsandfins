@@ -357,7 +357,7 @@
                             <g id="Group_4" data-name="Group 4" class="cls-2" transform="translate(388.344)">
                                 <g id="sjaWRX.tif" transform="translate(-162.452)">
                                     <image id="Layer_1" data-name="Layer 1" width="1060.232" height="757.165"
-                                        xlink:href="../../images/header2-image.jpg" />
+                                        xlink:href="{{asset('images/header2-image.jpg')}}" />
                                 </g>
                             </g>
                         </g>
@@ -383,7 +383,7 @@
 
         <!-- Content -->
         <div class="content-wrapper">
-            <section class="section" data-clip-id="1" style="background-image: url('../../bg/grey1.jpg');">
+            <section class="section" data-clip-id="1" style="background-image: url('{{asset('bg/grey1.jpg')}}');">
                 <div class="content">
                     <div class="full-width align-in-center pb-120">
                         <div class="_75-width md_90-width flex-column justify-center max-w700">

@@ -58,4 +58,10 @@ Route::get('/future-ideas', function () {
 Route::get('/financial-updates', function () {
     return view('financial-updates');
 });
+Route::get('/account/add-user', function () {
+    return view('account/add-user');
+});
+Route::get('/account', function () {
+    return view('account/index');
+});
 // Navigation menu url routes:ends

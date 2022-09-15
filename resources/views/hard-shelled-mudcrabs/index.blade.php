@@ -257,7 +257,7 @@
         <!-- Content -->
         <div class="content-wrapper">
             <section class="section" data-clip-id="1"
-                style="background-image: url(../../bg/Grey\ Background\ \(10\).png);">
+                style="background-image: url({{asset('bg/Grey_Background_10.png')}});">
                 <div class="content full-width">
                     <div class="full-width align-in-center pb-120">
                         <div class="_75-width flex-column z-index-1 justify-center md_90-width md_align-center">
@@ -297,7 +297,7 @@
                 </div>
             </section>
             <section class="section" data-clip-id="2"
-                style="background-image: url(../../bg/Grey\ Background\ \(3\).png);">
+                style="background-image: url({{asset('bg/Grey_Background_3.png')}});">
                 <div class="content">
                     <div class="full-width align-in-center pb-40">
                         <div
@@ -327,10 +327,10 @@
                         </div>
                     </div>
                 </div>
-                <img img-arc="1" class="img-arc" src="../../arcs/arc 7.svg" />
+                <img img-arc="1" class="img-arc" src="{{asset('arcs/arc_7.svg')}}" />
             </section>
             <section class="section" data-clip-id="3"
-                style="background-image: url(../../bg/Grey\ Background\ \(3\).png);">
+                style="background-image: url({{asset('bg/Grey_Background_3.png')}});">
                 <div class="content">
                     <div class="full-width align-in-center pb-40">
                         <div
@@ -360,7 +360,7 @@
                         </div>
                     </div>
                 </div>
-                <img img-arc="2" class="img-arc" src="../../arcs/arc 9.svg" />
+                <img img-arc="2" class="img-arc" src="{{asset('arcs/arc_9.svg')}}" />
             </section>
         </div>
 @endsection
