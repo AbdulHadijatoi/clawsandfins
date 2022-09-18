@@ -290,7 +290,7 @@
                     </div>
                 </div>
             </div>
-            <img img-arc="1" class="img-arc" src="arcs/arc 15.svg"/>
+            <img img-arc="1" class="img-arc" src="{{asset('arcs/arc_15.svg')}}"/>
         </section>
         <!-- <section class="section" data-clip-id="3" style="background-image: url({{asset('bg/pattern_bg3.jpg')}});">
             <div class="content">
