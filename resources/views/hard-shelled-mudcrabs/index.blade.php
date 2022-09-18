@@ -271,7 +271,7 @@
                             </p>
                             <div class="full-width justify-between align-center sm_flex-column sm_justify-center">
                                 <div class="w400 p-30 sm_p-10 sm_w250">
-                                    <img class="full-width circle border-15-orange sm_border-10 shadow_1" src="../../images/image_2.jpg">
+                                    <img class="full-width circle border-15-orange sm_border-10 shadow_1" src="{{asset('images/image_2.jpg')}}">
                                 </div>
                                 <div class="flex-column _50-width sm_text-center sm_90-width">
                                     <p class="para text-white sm_font-size-11">
