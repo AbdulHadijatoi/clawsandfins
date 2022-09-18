@@ -20,7 +20,7 @@
             Alive
         </div>
         <div class="image">
-            <img src="../../images/image_5.jpg">
+            <img src="{{asset('images/image_5.jpg')}}">
         </div>
     </div>
 </body>

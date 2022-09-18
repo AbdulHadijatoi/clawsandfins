@@ -384,8 +384,8 @@ function inputValidation(form) {
                 </svg>
 
                 <div class="absolute top-left _85-width _85-height align-in-center">
-                    <a href="../../" class="full-width align-in-center"><img
-                            class="_40-width _mb_40 mr-80 sm_mb-20 mr-5" src="../../images/logo.png"></a>
+                    <a href="{{url('/')}}" class="full-width align-in-center"><img
+                            class="_40-width _mb_40 mr-80 sm_mb-20 mr-5" src="{{asset('images/logo.png')}}"></a>
                 </div>
 
             </div>

@@ -20,7 +20,7 @@
             Frozen Cleaned
         </div>
         <div class="image">
-            <img src="../../images/image_2.jpg">
+            <img src="{{asset('images/image_2.jpg')}}">
         </div>
     </div>
 </body>

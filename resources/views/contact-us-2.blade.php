@@ -118,7 +118,7 @@
                                 <li><a href="{{url('account')}}">Account Info</a></li>
                                 <li><a href="{{url('account/add-user')}}">Add User</a></li>
                                 <li class="md-divider"></li>
-                                <li class="logout-menu display-none"><a href="../logout">Log out</a></li>
+                                <li class="logout-menu display-none"><a href="{{route('logout')}}">Log out</a></li>
                             </ul>
                         </div>
                         <div class="text-right">

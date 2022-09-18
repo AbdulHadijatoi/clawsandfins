@@ -1,60 +1,38 @@
-<!doctype html>
-<html>
+@extends('layouts.master')
 
-<head>
-    <title>Pete's Claws and Fins</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+@section('menu')
+    <li><a href="{{url('soft-shelled-mudcrabs')}}">Soft-shelled mudcrabs</a></li>
+    <li><a href="{{url('hard-shelled-mudcrabs')}}">Hard-shelled mudcrabs</a></li>
+    <li><a href="{{url('information')}}">Information</a></li>
+    <li><a href="{{url('where-to-buy')}}">Where to buy</a></li>
+    <li><a href="{{url('contact-us')}}">Contact us</a></li>
+    <li><a href="{{url('become-distributor')}}">Become a Distributor</a></li>
+@endsection
 
-    <!-- Style -->
-    <link rel="stylesheet" href="../../css/common.css">
-    <link rel="stylesheet" href="../../css/style.css?v=8">
 
-    <!-- Icon -->
-    <link rel="stylesheet" href="../../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-    <!-- Font Awesome Icon 4.7.0 -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <!--Material Icon -->
+@section('script_extra')
+<!-- Temporary Script for Logged in User >>> -->
+<script>
+    if (Cookies.get('logged-in')) {
+        $('.login-menu').hide();
+        $('.logout-menu').show();
+        $('.nav-visitor').addClass('display-none');
+        $('.nav-distributor-investor').removeClass('display-none');
+    }
+</script>
 
-    <!-- JS Script -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="../../js/svg-inject.js"></script>
-    <script src="../../js/js-cookie.js"></script>
-    <script src="../../js/main.js?v=8"></script>
+<script>
+    Cookies.set('logged-in', 'true', { path: '/' });
+    $(function(){
+        setTimeout(function(){
+            window.location.href= '{{url('/')}}';
+        },1000);
+    })
+</script>
+<!-- >>> End -->
+@endsection
 
-</head>
-
-<body class="page-no-arc">
-    <div class="body-content max-w1280 margin-auto overflow-hidden">
-        <!-- Menu -->
-        <div id="mainMenuContainer" class="main-menu-container full-height w0 fixed">
-            <nav id="main-menu" role="navigation">
-                <a href="../../" class="full-width align-in-center">
-                    <img class="mb-10" src="../../images/logo.png" alt="profile photo" width="150">
-                </a>
-                <h2 class="font-size-20 font-weight-400 text-white text-center">Pete's Claws & Fins</h2>
-                <p class="font-size-12 font-weight-300 text-white text-center mb-20">Ecological Seafood Production</p>
-                <div class="full-width justify-center">
-                    <a href="#"><img class="social-icon" src="../../svg/twitter-square.svg" alt="twitter"></a>
-                    <a href="#"><img class="social-icon" src="../../svg/facebook-square.svg" alt="twitter"></a>
-                    <a href="#"><img class="social-icon" src="../../svg/instagram-square.svg" alt="twitter"></a>
-                    <a href="#"><img class="social-icon" src="../../svg/pinterest-square.svg" alt="twitter"></a>
-                </div>
-                <hr>
-                <ul>
-                    <ul class="menu">
-                        <li><a href="../soft-shelled-mudcrabs/">Soft-shelled mudcrabs</a></li>
-                        <li><a href="../hard-shelled-mudcrabs/">Hard-shelled mudcrabs</a></li>
-                        <li><a href="../information/">Information</a></li>
-                        <li><a href="../where-to-buy/">Where to buy</a></li>
-                        <li><a href="../contact-us">Contact us</a></li>
-                        <li><a href="../become-distributor/">Become a distributor</a></li>
-                    </ul>
-                </ul>
-            </nav>
-            <div class="menu-button-container z-index-5">
-                <button id="menu-toggle">M<br>E</br>N<br>U</button>
-            </div>
-        </div>
+@section('content')
 
         <!-- Visitor Topbar >>> -->
         <div class="nav-top justify-center nav-visitor">
@@ -117,17 +95,6 @@
         </div>
         <!-- >>> End -->
         
-        <!-- Temporary Script for Logged in User >>> -->
-        <script>
-            if (Cookies.get('logged-in')) {
-                $('.login-menu').hide();
-                $('.logout-menu').show();
-                $('.nav-visitor').addClass('display-none');
-                $('.nav-distributor-investor').removeClass('display-none');
-            }
-        </script>
-        <!-- >>> End -->
-
         <!-- Content -->
         <div class="content-wrapper">
             <section class="login">
@@ -152,17 +119,4 @@
                 </div>
             </section>
         </div>
-
-    </div>
-
-    <script>
-        Cookies.set('logged-in', 'true', { path: '/' });
-        $(function(){
-            setTimeout(function(){
-                window.location.href= '../../';
-            },1000);
-        })
-    </script>
-</body>
-
-</html>
+@endsection

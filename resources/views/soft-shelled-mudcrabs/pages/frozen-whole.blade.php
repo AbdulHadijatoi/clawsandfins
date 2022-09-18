@@ -18,7 +18,7 @@
             Frozen whole 
         </div>
         <div class="image">
-            <img src="../../images/image_3.jpg">
+            <img src="{{asset('images/image_3.jpg')}}">
         </div> -->
         <div class="pdf spinner">
             <iframe onload="$('.spinner').removeClass('spinner')" src="https://docs.google.com/viewer?url=https://clawsandfins.demo.zhardsoft.com/WebRequirements.pdf&embedded=true"></iframe>

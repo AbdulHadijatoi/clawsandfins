@@ -20,7 +20,7 @@
             Frozen - Deep Fried
         </div>
         <div class="image">
-            <img src="../../images/image_6.jpg">
+            <img src="{{asset('images/image_6.jpg')}}">
         </div>
     </div>
 </body>
