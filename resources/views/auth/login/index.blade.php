@@ -94,12 +94,12 @@ page-no-arc
                                     @csrf
                                     <div class="d-flex full-width">
                                         <div class="input-text">
-                                            <input type="email" id="email" placeholder="Email" style="box-shadow: unset;">
+                                            <input type="email" id="email" placeholder="Email" style="box-shadow: unset;" name="email" value="{{old('email')}}" >
                                         </div>
                                     </div>
                                     <div class="d-flex full-width">
                                         <div class="input-text">
-                                            <input type="password" id="password" placeholder="Password" style="box-shadow: unset;">
+                                            <input type="password" id="password" placeholder="Password" style="box-shadow: unset;" name="password">
                                         </div>
                                     </div>
                                     <div class="d-flex full-width flex-column px-5">
