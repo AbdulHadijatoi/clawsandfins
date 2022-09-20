@@ -19,20 +19,23 @@
         <!-- Icon -->
         <link rel="stylesheet" href="{{asset('fonts/font-awesome-4.7.0/css/font-awesome.min.css')}}"> <!-- Font Awesome Icon 4.7.0 -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> <!--Material Icon -->
-        @yield('style_extra')
         <!-- JS Script -->
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="{{asset('js/svg-inject.js')}}"></script>
         <script src="{{asset('js/js-cookie.js')}}"></script>
         <script src="{{asset('js/main.js?v=8')}}"></script>
-        @yield('head_script_extra')
-    </head>
+        
+        @yield('head_extra')
 
-    <body class="open">
+        @yield('style_extra')
+    </head>
+    
+    <body class="@hasSection('body_class') @yield('body_class') @else open @endif">
         <div class="body-content max-w1280 margin-auto overflow-hidden">
             @include('components.header')
             @yield('content')
 
+            
             @include('components.footer')
         </div>
         @yield('script_extra')

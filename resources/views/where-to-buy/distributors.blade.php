@@ -625,7 +625,7 @@
             </section>
         </div>
 @endsection
-    @section('head_script_extra')
+    @section('head_extra')
         <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     @endsection
         

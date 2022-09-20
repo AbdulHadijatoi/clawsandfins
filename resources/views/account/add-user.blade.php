@@ -1,7 +1,5 @@
 @extends('layouts.master')
 
-
-
 @section('menu')
 <li><a href="{{url('soft-shelled-mudcrabs')}}">Soft-shelled mudcrabs</a></li>
 <li><a href="{{url('hard-shelled-mudcrabs')}}">Hard-shelled mudcrabs</a></li>
@@ -179,7 +177,7 @@
         }
 </style>
 @endsection
-@section('head_script_extra')
+@section('head_extra')
 <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 @endsection
 @section('script_extra')
@@ -248,8 +246,6 @@ function inputValidation(form) {
 @endsection
 
 @section('content')
-
-
         <!-- Visitor Topbar >>> -->
         <div class="nav-top justify-center nav-visitor">
             <div class="nav-area max-w1280 justify-between align-center">

@@ -6,38 +6,12 @@
     @include('components.menu_1')
 @endsection
 
-@section('style_extra')
-<style>
-    .visiting-address {
-        height: 300px;
-    }
-
-    .visiting-address #map {
-        height: 100%;
-    }
-
-    .map-marker-label {
-        display: block;
-        border-radius: 5px;
-        padding: 2px 8px;
-    }
-</style>
+@section('head_extra')
+<link rel="stylesheet" href="{{asset('css/style.css')}}">
 @endsection
 
-@section('script_extra')
-<!-- Temporary Script for Logged in User >>> -->
-<script>
-    if (Cookies.get('logged-in')) {
-        $('.distributor-investor-menu').removeClass('display-none');
-        $('.distributor-investor-menu').nextAll().hide();
-        $('.distributor-investor-menu').show();
-        $('.login-menu').hide();
-        $('.logout-menu').show();
-        $('.nav-visitor').addClass('display-none');
-        $('.nav-distributor-investor').removeClass('display-none');
-    }
-</script>
-<!-- >>> End -->
+@section('body_class')
+page-no-arc
 @endsection
 
 @section('content')
@@ -318,4 +292,78 @@
         </div>
 
         <iframe class="display-none" name="framesubmit" src=""></iframe>
+@endsection
+
+
+@section('style_extra')
+<style>
+    .visiting-address {
+        height: 300px;
+    }
+
+    .visiting-address #map {
+        height: 100%;
+    }
+
+    .map-marker-label {
+        display: block;
+        border-radius: 5px;
+        padding: 2px 8px;
+    }
+
+    .confirm-box{
+        background: #4b4b4b !important;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+</style>
+@endsection
+
+
+
+@section('script_extra')
+<!-- Temporary Script for Logged in User >>> -->
+<script>
+    if (Cookies.get('logged-in')) {
+        $('.distributor-investor-menu').removeClass('display-none');
+        $('.distributor-investor-menu').nextAll().hide();
+        $('.distributor-investor-menu').show();
+        $('.login-menu').hide();
+        $('.logout-menu').show();
+        $('.nav-visitor').addClass('display-none');
+        $('.nav-distributor-investor').removeClass('display-none');
+    }
+    
+</script>
+<script>
+    function inputValidation(form) {
+        var errMsgCount = 0;
+        $(form).find('input[type=text],textarea').each(function () {
+            var elm = $(this);
+            var parentElm = elm.parent();
+            if (elm.val() == '') {
+                errMsgCount++;
+                parentElm.addClass('input-error');
+                if (parentElm.find('.err-msg').length == 0) {
+                    var inpErr = document.createElement('span');
+                    $(inpErr).addClass('err-msg').html('Required');
+                    parentElm.append(inpErr);
+                }
+                elm.keyup(function () {
+                    $(this).parent().removeClass('input-error');
+                    $(this).next('.err-msg').remove();
+                })
+                if (errMsgCount == 1) {
+                    elm.focus();
+                }
+            }
+        })
+
+        if (errMsgCount > 0) {
+            return false;
+        }
+
+        return true;
+    }
+</script>
+<!-- >>> End -->
 @endsection
