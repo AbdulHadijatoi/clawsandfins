@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.master_no_footer')
 
 @section('menu')
     <li><a href="{{url('soft-shelled-mudcrabs')}}">Soft-shelled mudcrabs</a></li>
@@ -21,15 +21,10 @@
     }
 </script>
 
-<script>
-    Cookies.set('logged-in', 'true', { path: '/' });
-    $(function(){
-        setTimeout(function(){
-            window.location.href= '{{url('/')}}';
-        },1000);
-    })
-</script>
-<!-- >>> End -->
+
+
+@section('body_class')
+page-no-arc
 @endsection
 
 @section('content')
@@ -119,4 +114,15 @@
                 </div>
             </section>
         </div>
+@endsection
+
+<script>
+    Cookies.set('logged-in', 'true', { path: '/' });
+    $(function(){
+        setTimeout(function(){
+            window.location.href= '{{url('/')}}';
+        },1000);
+    })
+</script>
+<!-- >>> End -->
 @endsection

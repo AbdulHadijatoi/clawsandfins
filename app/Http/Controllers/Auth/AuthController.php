@@ -138,4 +138,14 @@ class AuthController extends Controller
   
         return Redirect('login');
     }
+
+    /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+    public function forgotPassword()
+    {
+        return view('auth.login.forgot-password');
+    }  
 }

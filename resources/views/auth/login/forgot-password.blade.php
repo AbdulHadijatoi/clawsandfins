@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.master_no_footer')
 
 @section('menu')
     <li><a href="{{url('soft-shelled-mudcrabs')}}">Soft-shelled mudcrabs</a></li>
@@ -10,17 +10,8 @@
     <li><a href="{{url('become-investor')}}">Become an investor</a></li>
 @endsection
 
-@section('script_extra')
-<!-- Temporary Script for Logged in User >>> -->
-<script>
-    if (Cookies.get('logged-in')) {
-        $('.login-menu').hide();
-        $('.logout-menu').show();
-        $('.nav-visitor').addClass('display-none');
-        $('.nav-distributor-investor').removeClass('display-none');
-    }
-</script>
-<!-- >>> End -->
+@section('body_class')
+page-no-arc
 @endsection
 
 @section('content')
@@ -120,4 +111,17 @@
                 </div>
             </section>
         </div>
+@endsection
+
+@section('script_extra')
+<!-- Temporary Script for Logged in User >>> -->
+<script>
+    if (Cookies.get('logged-in')) {
+        $('.login-menu').hide();
+        $('.logout-menu').show();
+        $('.nav-visitor').addClass('display-none');
+        $('.nav-distributor-investor').removeClass('display-none');
+    }
+</script>
+<!-- >>> End -->
 @endsection
