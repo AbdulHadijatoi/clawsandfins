@@ -2,17 +2,17 @@
 
 @section('menu')
     @include('components.menu_1')
-    {{-- <li><a href="{{url('soft-shelled-mudcrabs')}}">Soft-shelled mudcrabs</a></li>
-    <li><a href="{{url('hard-shelled-mudcrabs')}}">Hard-shelled mudcrabs</a></li>
-    <li><a href="{{url('information')}}">Information</a></li>
+    {{-- <li class="{{ (request()->is('soft-shelled-mudcrabs*')) ? 'active' : '' }}"><a href="{{url('soft-shelled-mudcrabs/')}}">Soft-shelled mudcrabs</a></li>
+    <li class="{{ (request()->is('hard-shelled-mudcrabs*')) ? 'active' : '' }}"><a href="{{url('hard-shelled-mudcrabs/')}}">Hard-shelled mudcrabs</a></li>
+    <li class="{{ (request()->is('information*')) ? 'active' : '' }}"><a href="{{url('information/')}}">Information</a></li>
     <li class="active"><a href="../where-to-buy/">Where to buy</a></li>
-    <li><a href="{{url('contact-us')}}">Contact us</a></li>
+    <li class="{{ (request()->is('contact-us*')) ? 'active' : '' }}"><a href="{{url('contact-us')}}">Contact us</a></li>
     <li class="distributor-investor-menu display-none"><a href="../updates">Updates</a></li>
     <li class="distributor-investor-menu display-none"><a href="../picture-gallery">Picture Gallery</a></li>
     <li class="distributor-investor-menu display-none"><a href="../future-ideas">Future Ideas</a></li>
     <li class="distributor-investor-menu display-none"><a href="../financial-updates">Financial Updates</a></li>
-    <li><a href="{{url('become-distributor')}}">Become a Distributor</a></li>
-    <li><a href="{{url('become-investor')}}">Become an investor</a></li> --}}
+    <li class="{{ (request()->is('become-distributor*')) ? 'active' : '' }}"><a href="{{url('become-distributor')}}">Become a distributor</a></li>
+    <li class="{{ (request()->is('become-investor*')) ? 'active' : '' }}"><a href="{{url('become-investor')}}">Become an investor</a></li> --}}
 @endsection
 
 @section('style_extra')

@@ -1,7 +1,7 @@
 <!-- Menu -->
 <div id="mainMenuContainer" class="main-menu-container full-height w0 fixed">
     <nav id="main-menu" role="navigation">
-        <a href="" class="full-width align-in-center">
+        <a href="{{url('/')}}" class="full-width align-in-center">
             <img class="mb-10" src="{{asset('images/logo.png')}}" alt="profile photo" width="150">
         </a>
         <h2 class="font-size-20 font-weight-400 text-white text-center">Pete's Claws & Fins</h2>
