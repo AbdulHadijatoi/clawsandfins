@@ -102,6 +102,16 @@ page-no-arc
                                             <input type="password" id="password" placeholder="Password" style="box-shadow: unset;" name="password">
                                         </div>
                                     </div>
+                                    @if(session('error'))
+                                        <div class="info primary-warning d-flex-important">
+                                            <label>{{session('error')}}</label>
+                                        </div>
+                                    @endif
+                                    @if(session('success'))
+                                        <div class="info primary-info d-flex-important">
+                                            <label>{{session('success')}}</label>
+                                        </div>
+                                    @endif
                                     <div class="d-flex full-width flex-column px-5">
                                         <div>
                                             <div class="d-flex-important align-center">

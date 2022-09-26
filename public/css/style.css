@@ -679,10 +679,19 @@ body.open #headerSvg img {
     background-color: #ffe0c1;
 }
 
-.primary-info>* {
+.primary-info>*{
     margin: 0 5px !important;
     color: #aa5b0f !important;
 }
+
+.primary-warning>*{
+    margin: 0 5px !important;
+    color: #fff !important;
+}
+.primary-warning{
+    background-color: #aa210f;
+}
+
 
 .primary-info>label span {
     background: #aa5b0f;

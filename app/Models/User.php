@@ -18,9 +18,10 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'image',
         'email',
         'password',
+        'role_id',
     ];
 
     /**
@@ -41,4 +42,24 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Validation rules
+     *
+     * @var array
+     */
+    public static $rules = [
+        'email' => 'email|nullable|unique:users,email',
+        'password' => 'required|min:8',
+    ];
+
+    public function investor()
+    {
+        return $this->hasOne(Investor::class,'user_id', 'id');
+    }
+   
+    public function distributor()
+    {
+        return $this->hasOne(Distributor::class,'user_id', 'id');
+    }
 }
