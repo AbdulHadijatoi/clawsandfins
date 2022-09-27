@@ -20,7 +20,7 @@ class CreateInvestorsTable extends Migration
             $table->string('last_name');
             $table->string('address');
             $table->unsignedDouble('size_of_investment');
-            $table->string('special_skills');
+            $table->text('special_skills');
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });

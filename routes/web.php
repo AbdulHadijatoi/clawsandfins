@@ -14,19 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
-
-Route::get('login', [AuthController::class, 'login'])->name('login');
-Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post'); 
-Route::get('become-distributor', [AuthController::class, 'becomeDistributor'])->name('become-distributor');
-Route::post('post-become-distributor', [AuthController::class, 'postBecomeDistributor'])->name('become-distributor.post'); 
-Route::get('become-investor', [AuthController::class, 'becomeInvestor'])->name('become-investor');
-Route::get('forgot-password', [AuthController::class, 'forgotPassword'])->name('forgot-password');
-Route::post('post-become-investor', [AuthController::class, 'postBecomeInvestor'])->name('become-investor.post'); 
 // Route::get('dashboard', [AuthController::class, 'dashboard']); 
-Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 
 
@@ -65,3 +53,58 @@ Route::get('/account', function () {
     return view('account/index');
 });
 // Navigation menu url routes:ends
+
+
+Route::group(['namespace' => 'App\Http\Controllers'], function()
+{   
+    /**
+     * Home Routes
+     */
+    Route::get('/', 'HomeController@index')->name('home.index');
+
+
+    Route::group(['middleware' => ['guest']], function() {
+        /**
+         * Register Routes
+         */
+        // Route::get('/register', 'RegisterController@show')->name('register.show');
+        // Route::post('/register', 'RegisterController@register')->name('register.perform');
+        Route::get('become-distributor', [AuthController::class, 'becomeDistributor'])->name('become-distributor');
+        Route::post('post-become-distributor', [AuthController::class, 'postBecomeDistributor'])->name('become-distributor.post'); 
+        Route::get('become-investor', [AuthController::class, 'becomeInvestor'])->name('become-investor');
+        Route::get('forgot-password', [AuthController::class, 'forgotPassword'])->name('forgot-password');
+        Route::post('post-become-investor', [AuthController::class, 'postBecomeInvestor'])->name('become-investor.post'); 
+
+        /**
+         * Login Routes
+         */
+        // Route::get('/login', 'LoginController@show')->name('login.show');
+        // Route::post('/login', 'LoginController@login')->name('login.perform');
+        Route::get('login', [AuthController::class, 'login'])->name('login');
+        Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post'); 
+
+    });
+
+    Route::group(['middleware' => ['auth', 'permission']], function() {
+        /**
+         * Logout Routes
+         */
+        // Route::get('/logout', 'LogoutController@perform')->name('logout');
+        Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+        /**
+         * User Routes
+         */
+        Route::group(['prefix' => 'users'], function() {
+            Route::get('/', 'UsersController@index')->name('users.index');
+            Route::get('/create', 'UsersController@create')->name('users.create');
+            Route::post('/create', 'UsersController@store')->name('users.store');
+            Route::get('/{user}/show', 'UsersController@show')->name('users.show');
+            Route::get('/{user}/edit', 'UsersController@edit')->name('users.edit');
+            Route::patch('/{user}/update', 'UsersController@update')->name('users.update');
+            Route::delete('/{user}/delete', 'UsersController@destroy')->name('users.destroy');
+        });
+
+        Route::resource('roles', RolesController::class);
+        Route::resource('permissions', PermissionsController::class);
+    });
+});

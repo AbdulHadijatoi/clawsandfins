@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
   
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreUserRequest;
+use App\Models\Investor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Session;
@@ -66,7 +68,7 @@ class AuthController extends Controller
      *
      * @return response()
      */
-    public function postBecomeDistributor(Request $request)
+    public function postBecomeDistributor(StoreUserRequest $request)
     {  
         $request->validate([
             'name' => 'required',
@@ -85,16 +87,18 @@ class AuthController extends Controller
      *
      * @return response()
      */
-    public function postBecomeInvestor(Request $request)
-    {  
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|min:6',
-        ]);
-           
+    public function postBecomeInvestor(StoreUserRequest $request)
+    {      
+        // $myRequest->request->add(['foo' => 'bar']);
+        // $request->replace(['foo' => 'bar']);
+
+
         $data = $request->all();
-        $check = $this->create($data);
+        $user = $this->create($data);
+
+        if($user){
+            // $investory = Investor;
+        }
          
         return redirect("/")->withSuccess('Great! You have Successfully loggedin');
     }
