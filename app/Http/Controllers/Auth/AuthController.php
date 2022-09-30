@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
   
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUserRequest;
+use App\Models\Distributor;
 use App\Models\Investor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -30,7 +31,7 @@ class AuthController extends Controller
      */
     public function becomeDistributor()
     {
-        return view('auth.become-distributor.index');
+        return view('auth.register.become-distributor');
     }
     /**
      * Write code on Method
@@ -39,7 +40,7 @@ class AuthController extends Controller
      */
     public function becomeInvestor()
     {
-        return view('auth.become-investor.index');
+        return view('auth.register.become-investor');
     }
       
     /**
@@ -70,16 +71,17 @@ class AuthController extends Controller
      */
     public function postBecomeDistributor(StoreUserRequest $request)
     {  
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|min:6',
-        ]);
-           
+        // return $request->input();
         $data = $request->all();
-        $check = $this->create($data);
-         
-        return redirect("/")->withSuccess('Great! You have Successfully loggedin');
+        $user = User::create($data);
+        $request->request->add(['user_id' => $user->id]); //add request
+        $data = $request->all();
+        $distributor = Distributor::create($data);
+        if($distributor){
+            return redirect("/")->withSuccess('Successully submitted the distributor application. Please wait a while until we review your request');
+        }else{
+            return back()->withError('Something went wrong, please try again');
+        }
     }
       
     /**
@@ -91,16 +93,17 @@ class AuthController extends Controller
     {      
         // $myRequest->request->add(['foo' => 'bar']);
         // $request->replace(['foo' => 'bar']);
-
-
         $data = $request->all();
-        $user = $this->create($data);
+        $user = User::create($data);
+        $request->request->add(['user_id' => $user->id]); //add request
+        $data = $request->all();
+        $investor = $this->create($data);
 
-        if($user){
-            // $investory = Investor;
+        if($investor){
+            return redirect("/")->withSuccess('Successully submitted the investor application. Please wait a while until we review your request');
+        }else{
+            return back()->withError('Something went wrong, please try again');
         }
-         
-        return redirect("/")->withSuccess('Great! You have Successfully loggedin');
     }
     
     /**
@@ -125,7 +128,7 @@ class AuthController extends Controller
     public function create(array $data)
     {
       return User::create([
-        'name' => $data['name'],
+        // 'image' => $data['image'],
         'email' => $data['email'],
         'password' => Hash::make($data['password'])
       ]);

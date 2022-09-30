@@ -10,10 +10,6 @@
     <li class="{{ (request()->is('become-investor*')) ? 'active' : '' }}"><a href="{{url('become-investor')}}">Become an investor</a></li>
 @endsection
 
-@section('body_class')
-page-no-arc
-@endsection
-
 @section('content')
         <!-- Content -->
         <div class="content-wrapper">

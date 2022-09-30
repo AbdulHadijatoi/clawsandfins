@@ -29,7 +29,7 @@ class UpdateUserRequest extends FormRequest
         return [
             'image' => 'required',
             'email' => 'required|email:rfc,dns|unique:users,email,'.$user->id,
-            'password' => 'required|min:8',
+            'password' => 'required|confirmed|min:8',
         ];
     }
 }

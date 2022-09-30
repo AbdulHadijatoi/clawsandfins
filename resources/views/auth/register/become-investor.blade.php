@@ -24,7 +24,8 @@ page-no-arc
                             </h1>
                             <span class="h4 text-white text-center mb-30">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
                             aliqua.</span>
-                            <form action="confirm-email" method="post" onsubmit="return inputValidation(this)">
+                            <form action="{{route('become-investor.post')}}" method="POST" onsubmit="return inputValidation(this)">
+                                @csrf
                                 <div class="form-container">
                                     <div class="full-width text-center">
                                         <div class="logo-container align-in-center flex-column mt-20">
@@ -41,40 +42,40 @@ page-no-arc
                                     <div class="d-flex full-width form-responsive">
                                         <div class="input-text" required>
                                             <label label="(Must be filled in)">First Name</label>
-                                            <input type="text" id="first-name" placeholder="First Name">
+                                            <input type="text" id="first-name" placeholder="First Name" name="first_name" value="{{old('first_name')}}">
                                         </div>
                                         <div class="input-text" required>
                                             <label label="(Must be filled in)">Last Name</label>
-                                            <input type="text" id="last-name" placeholder="Last Name">
+                                            <input type="text" id="last-name" placeholder="Last Name" name="last_name" value="{{old('last_name')}}">
                                         </div>
                                     </div>
                                     <div class="d-flex full-width form-responsive">
                                         <div class="input-text" required>
                                             <label label="(Must be filled in)">Email</label>
-                                            <input type="email" id="email" placeholder="Email">
+                                            <input type="email" id="email" placeholder="Email" name="email" value="{{old('email')}}">
                                         </div>
                                     </div>
                                     <div class="d-flex full-width form-responsive">
                                         <div class="input-text" required>
                                             <label label="(Must be filled in)">Password</label>
-                                            <input type="password" id="password" placeholder="Password">
+                                            <input type="password" id="password" placeholder="Password" name="password">
                                         </div>
                                         <div class="input-text" required>
                                             <label label="(Must be filled in)">Confirm Password</label>
-                                            <input type="password" id="confirm-password" placeholder="Confirm Password">
+                                            <input type="password" id="confirm-password" placeholder="Confirm Password" name="password_confirmation">
                                         </div>
                                     </div>
                                     <div class="d-flex full-width form-responsive">
                                         <div class="input-textarea" required>
                                             <label style="font-size: 14px" label="(Must be filled in)">Address</label>
-                                            <textarea id="address" placeholder="Address"></textarea>
+                                            <textarea id="address" placeholder="Address" name="address">{{old('address')}}</textarea>
                                         </div>
                                     </div>
                                     <div class="d-flex full-width form-responsive">
                                         <div class="input-text" required>
                                             <label label="(Must be filled in) This is just suggestion, and not binding in any way">Size of possible investment</label>
                                             <div class="currency-field" prefix="US$">
-                                                <input class="format-currency" type="text" id="investment" parent=".input-text" placeholder="0">
+                                                <input class="format-currency" type="text" id="investment" parent=".input-text" placeholder="0" name="size_of_investment" value="{{old('size_of_investment')}}">
                                             </div>
                                             <!-- <div class="input-group d-flex-important align-center full-width">
                                                 <div class="label">US$</div>
@@ -85,15 +86,23 @@ page-no-arc
                                     <div class="d-flex full-width form-responsive">
                                         <div class="input-textarea" required>
                                             <label label="(Must be filled in)">Do you have any "special skills" that you would be happy offer us? Or anything else, please write us a few lines below.</label>
-                                            <textarea id="skills" placeholder="Special skills"></textarea>
+                                            <textarea id="skills" placeholder="Special skills" name="special_skills">{{old('special_skills')}}</textarea>
                                         </div>
                                     </div>
+                                    @if ($errors->any())
+                                        @foreach ($errors->all() as $error)
+                                            <div class="info primary-warning d-flex-important">
+                                                <label>{{$error}}</label>
+                                            </div>
+                                        @endforeach
+                                    @endif
                                     <div class="d-flex full-width justify-center">
                                         <div class="button-secondary">
                                             <button type="submit">SUBMIT</button>
                                         </div>
                                     </div>
                                 </div>
+                                <input id="logo-file" class="display-none" type="file" accept="image/*" onchange="loadFile(event)" name="image">
                             </form>
                         </div>
                     </div>
@@ -102,7 +111,6 @@ page-no-arc
         </div>
 
 
-    <input id="logo-file" class="display-none" type="file" accept="image/*" onchange="loadFile(event)">
 @endsection
     
     

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\City;
+use App\Models\State;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -80,5 +82,23 @@ class HomeController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+    public function fetchCity(Request $request)
+    {
+        $states = State::where('country_id',$request->country_id)->get(['id']);
+        $data['cities'] = [];
+        foreach ($states as $key => $state) {
+            array_push($data['cities'],City::where("state_id", $state->id)
+                                    ->get(["name", "id"]));
+        }
+        
+                                      
+        return response()->json($data);
     }
 }

@@ -9,21 +9,21 @@ page-no-arc
 @endsection
 
 @section('style_extra')
-<style>
-    .visiting-address {
-        height: 300px;
-    }
+    <style>
+        .visiting-address {
+            height: 300px;
+        }
 
-    .visiting-address #map {
-        height: 100%;
-    }
+        .visiting-address #map {
+            height: 100%;
+        }
 
-    .map-marker-label {
-        display: block;
-        border-radius: 5px;
-        padding: 2px 8px;
-    }
-</style>
+        .map-marker-label {
+            display: block;
+            border-radius: 5px;
+            padding: 2px 8px;
+        }
+    </style>
 @endsection
 
 @section('content')
@@ -35,7 +35,8 @@ page-no-arc
                         <div class="_75-width md_90-width flex-column justify-center max-w700">
                             <div class="confirm-box text-center">
                                 <img src="{{asset('svg/mail.svg')}}">
-                                <h1 class="h1 text-yellow sm_font-size-35 text-center mb-30">Confirm your email address</h1>
+                                <h1 class="h1 text-yellow sm_font-size-35 text-center mb-30">Confirm your email address
+                                </h1>
                                 <div class="text-light p-20 text-center">
                                     We sent a confirmation email to:
                                 </div>
@@ -59,7 +60,6 @@ page-no-arc
 @endsection
 
 @section('script_extra')
-<!-- Temporary Script for Logged in User >>> -->
 <script>
     if (Cookies.get('logged-in')) {
         $('.distributor-investor-menu').removeClass('display-none');
@@ -71,5 +71,4 @@ page-no-arc
         $('.nav-distributor-investor').removeClass('display-none');
     }
 </script>
-<!-- >>> End -->
 @endsection

@@ -20,11 +20,10 @@ class Distributor extends Model
         'postal_address',
         'phone_number',
         'website_url',
-        'adminstration_email',
         'order_email',
         'visiting_address',
-        'want_location_disclose',
-        'is_location_correct',
+        'location_disclose',
+        'location_is_correct',
         'need_support',
     ];
 
@@ -35,7 +34,6 @@ class Distributor extends Model
      * @var array
      */
     public static $rules = [
-        'user_id' => 'required',
         'company_name' => 'required',
         'contact_name' => 'required',
         'country' => 'required',
@@ -43,11 +41,10 @@ class Distributor extends Model
         'postal_address' => 'required',
         'phone_number' => 'required',
         'website_url' => 'nullable',
-        'adminstration_email' => 'required',
         'order_email' => 'nullable',
         'visiting_address' => 'required',
         'want_location_disclose' => 'nullable',
-        'is_location_correct' => 'required',
+        'location_is_correct' => 'required',
         'need_support' => 'nullable',
     ];
 

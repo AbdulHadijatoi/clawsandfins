@@ -366,7 +366,7 @@ body.open #headerSvg img {
 }
 
 .input-text,
-.input-text input {
+.input-text input,.input-text select {
     width: 100%;
 }
 
@@ -378,7 +378,7 @@ body.open #headerSvg img {
     margin-bottom: 10px;
 }
 
-.input-text input {
+.input-text input,.input-text select {
     padding: 10px;
 }
 
@@ -387,7 +387,8 @@ body.open #headerSvg img {
 }
 
 .input-textarea,
-.input-textarea textarea {
+.input-textarea textarea,
+.input-text select {
     width: 100%;
 }
 
@@ -405,7 +406,8 @@ body.open #headerSvg img {
 }
 
 .input-text input,
-.input-textarea textarea {
+.input-textarea textarea,
+.input-text select {
     color: #FECC2E;
     /* background-color: #181818; */
     background-color: #292929;
@@ -429,14 +431,16 @@ body.open #headerSvg img {
 
 .input-error input,
 .input-error textarea,
-.input-error .country-city-dropdown
+.input-error .country-city-dropdown,
+.input-error select
  {
     border-bottom: 1px solid #c91c13 !important;
     color: #f5433a;
 }
 
 .input-light input,
-.input-light textarea {
+.input-light textarea,
+.input-light select {
     background: rgba(255, 255, 255, 0.5);
     border-bottom: 1px solid #FFF;
     color: #23282F;

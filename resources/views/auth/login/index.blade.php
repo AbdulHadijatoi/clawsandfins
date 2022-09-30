@@ -12,9 +12,6 @@
 @endsection
 
 @section('content')
-@php
-    $footer = false;
-@endphp
         <!-- Visitor Topbar >>> -->
         <div class="nav-top justify-center nav-visitor">
             <div class="nav-area max-w1280 justify-between align-center">

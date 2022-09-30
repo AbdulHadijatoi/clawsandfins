@@ -21,16 +21,7 @@
     }
 </script>
 
-
-
-@section('body_class')
-page-no-arc
-@endsection
-
 @section('content')
-
-        
-        
         <!-- Content -->
         <div class="content-wrapper">
             <section class="login">

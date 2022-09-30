@@ -23,11 +23,10 @@ class CreateDistributorsTable extends Migration
             $table->string('postal_address');
             $table->string('phone_number');
             $table->string('website_url')->nullable();
-            $table->string('adminstration_email');
             $table->string('order_email')->nullable();
             $table->string('visiting_address');
-            $table->string('want_location_disclose')->default(1);
-            $table->string('is_location_correct');
+            $table->string('location_disclose')->default(1);
+            $table->string('location_is_correct');
             $table->string('need_support');
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();

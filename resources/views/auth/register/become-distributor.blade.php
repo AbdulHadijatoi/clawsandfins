@@ -1,3 +1,8 @@
+@php
+    use App\CentralLogics\Helpers;
+    $countries = Helpers::getCountries();
+@endphp
+
 @extends('layouts.master')
 
 @section('menu')
@@ -23,7 +28,8 @@ page-no-arc
                             <h1 class="h1 text-yellow sm_font-size-35 sm_mt-60 text-center">Become a Distributor</h1>
                             <span class="h4 text-white text-center mb-30">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
                                 tempor incididunt ut labore et dolore magna</span>
-                            <form action="confirm-email" method="post" onsubmit="return inputValidation(this)">
+                            <form action="{{route('become-distributor.post')}}" method="POST" onsubmit="return inputValidation(this)" enctype="multipart/form-data">
+                                @csrf
                                 <div class="form-container">
                                     <div class="full-width text-center">
                                         <div class="logo-container align-in-center flex-column mt-20">
@@ -40,39 +46,38 @@ page-no-arc
                                     <div class="d-flex full-width form-responsive">
                                         <div class="input-text" required>
                                             <label label="(Must be filled in)">Company Name</label>
-                                            <input type="text" id="company-name" placeholder="Company Name">
+                                            <input type="text" id="company-name" placeholder="Company Name" name="company_name" value="{{old('company_name')}}">
                                         </div>
                                         <div class="input-text" required>
                                             <label label="(Must be filled in)">Contact Name</label>
-                                            <input type="text" id="contact-name" placeholder="Contact Name">
+                                            <input type="text" id="contact-name" placeholder="Contact Name" name="contact_name" value="{{old('contact_name')}}">
                                         </div>
                                     </div>
+
                                     <div class="d-flex full-width form-responsive">
                                         <div class="input-text" required>
                                             <label label="(Must be filled in)">Country</label>
-                                            <div id="country" class="country-city-dropdown equal-width" value="">
-                                                <span class="align-center justify-between">
-                                                    <span class="text" contenteditable="true"></span>
-                                                    <i class="material-icons expand-more">expand_more</i>
-                                                </span>
-                                                <div id="country-box"></div>
-                                            </div>
+                                            <select id="country-dropdown" name="country" style="outline:none">
+                                                <option value="0">--Select Country--</option>
+                                                @if($countries)
+                                                    @foreach ($countries as $country)
+                                                        <option value="{{$country->id}}">{{$country->name}}</option>
+                                                    @endforeach
+                                                @endif
+                                            </select>
                                         </div>
                                         <div class="input-text" required>
                                             <label label="(Must be filled in)">City</label>
-                                            <div id="city" class="country-city-dropdown equal-width" value="">
-                                                <span class="align-center justify-between">
-                                                    <span class="text" contenteditable="true"></span>
-                                                    <i class="material-icons expand-more">expand_more</i>
-                                                </span>
-                                                <div id="city-box"></div>
-                                            </div>
+                                            <select id="city-dropdown" name="city" style="outline:none">
+                                                
+                                            </select>
                                         </div>
                                     </div>
+                                    
                                     <div class="d-flex full-width form-responsive">
                                         <div class="input-textarea" required>
                                             <label style="font-size: 14px" label="(Must be filled in)">Postal Address</label>
-                                            <textarea id="postal-address" placeholder="Postal Address"></textarea>
+                                            <textarea id="postal-address" placeholder="Postal Address" name="postal_address">{{old('postal_address')}}</textarea>
                                         </div>
                                     </div>
                                     <div class="d-flex full-width form-responsive">
@@ -84,31 +89,32 @@ page-no-arc
                                                             class="material-icons expand-more">expand_more</i></span>
                                                     <ul class="dropdown-item"></ul>
                                                 </div>
-                                                <input type="text" class="number-format" id="phone-number" parent=".input-text" placeholder="Phone Number">
+                                                <input type="text" class="number-format" id="phone-number" parent=".input-text" placeholder="Phone Number" name="phone_number" value="{{old('phone_number')}}">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="d-flex full-width form-responsive">
                                         <div class="input-text">
                                             <label>Website URL</label>
-                                            <input type="text" id="website-url" placeholder="Website URL">
+                                            <input type="text" id="website-url" placeholder="Website URL" name="website_url" value="{{old('website_url')}}">
                                         </div>
                                     </div>
                                     <div class="d-flex full-width form-responsive">
                                         <div class="input-text" required>
                                             <label label="(Must be filled in)">Administration Email</label>
-                                            <input type="email" id="administration-email" placeholder="Administration Email">
+                                            <input type="email" id="administration-email" placeholder="Administration Email" name="email" value="{{old('email')}}">
                                         </div>
+                                        
                                         <div class="input-text">
                                             <label>Order Email</label>
-                                            <input type="email" id="order-email" placeholder="Order Email">
+                                            <input type="email" id="order-email" placeholder="Order Email" name="order_email" value="{{old('order_email')}}">
                                         </div>
                                     </div>
                                     <div class="d-flex full-width form-responsive">
                                         <div class="input-text" required>
                                             <label label="(Must be filled in)">Password</label>
                                             <div class="input-group d-flex-important align-center full-width relative">
-                                                <input type="password" id="password" placeholder="Password">
+                                                <input type="password" id="password" placeholder="Password" name="password">
                                                 <!-- <div class="d-flex align-center equal-width">
                                                     <span class="material-icons password-visibility">visibility_off</span>
                                                 </div> -->
@@ -116,7 +122,7 @@ page-no-arc
                                         </div>
                                         <div class="input-text" required>
                                             <label label="(Must be filled in)">Confirm Password</label>
-                                            <input type="password" id="confirm-password" placeholder="Confirm Password">
+                                            <input type="password" id="confirm-password" placeholder="Confirm Password" name="password_confirmation">
                                         </div>
                                     </div>
                                 </div>
@@ -127,20 +133,21 @@ page-no-arc
                                             <div class="_mt_10">
                                                 <div class="d-flex-important align-center">
                                                     <span class="checkbox align-in-center">
-                                                        <input type="checkbox" id="same-address">
+                                                        <input type="checkbox" id="same-address" name="same_address">
                                                         <span class="material-icons">check</span>
                                                     </span>
                                                     <label label="(Must be filled in)">Visiting address (for customers) is same as postal address?</label>
                                                 </div>
                                             </div>
                                             <div class="input-textarea p-0 input-fly-button" required>
-                                                <textarea id="visiting-address" placeholder="Visiting Address"></textarea>
+                                                <textarea id="visiting-address" placeholder="Visiting Address" name="visiting_address">{{old('visiting_address')}}</textarea>
                                                 <button type="button" id="update-map">Update Map</button>
                                             </div>
+                                            
                                             <div class="mt-10">
                                                 <div class="d-flex-important align-center">
                                                     <span class="checkbox align-in-center">
-                                                        <input type="checkbox" id="no-disclose">
+                                                        <input type="checkbox" id="no-disclose" name="location_disclose">
                                                         <span class="material-icons">check</span>
                                                     </span>
                                                     <label>We don't want to disclose our location on the map</label>
@@ -167,7 +174,7 @@ page-no-arc
                                                 </div>
                                                 <div class="d-flex-important align-center">
                                                     <span class="radio align-in-center">
-                                                        <input type="radio" name="location_is_correct" value="no">
+                                                        <input type="radio" name="location_is_correct" value="no" name="location_is_correct">
                                                         <span class="material-icons">check</span>
                                                     </span>
                                                     <label class="font-size-12 opacity-8">No, I'm not sure (Map-pin is removed and we will contact you for further support)</label>
@@ -189,30 +196,65 @@ page-no-arc
                                         <div>
                                             <div class="d-flex-important align-center">
                                                 <span class="checkbox align-in-center">
-                                                    <input type="checkbox" id="need-support">
+                                                    <input type="checkbox" id="need-support" name="need_support">
                                                     <span class="material-icons">check</span>
                                                 </span>
                                                 <label>I need some support</label>
                                             </div>
                                         </div>
                                     </div>
+                                   
+                                    @if ($errors->any())
+                                        @foreach ($errors->all() as $error)
+                                            <div class="info primary-warning d-flex-important">
+                                                <label>{{$error}}</label>
+                                            </div>
+                                        @endforeach
+                                    @endif
                                     <div class="d-flex full-width justify-center">
                                         <div class="button-secondary">
                                             <button type="submit">SUBMIT</button>
                                         </div>
                                     </div>
                                 </div>
+                                <input id="logo-file" class="display-none" type="file" accept="image/*" onchange="loadFile(event)" name="image">
                             </form>
                         </div>
                     </div>
                 </div>
             </section>
         </div>
-    <input id="logo-file" class="display-none" type="file" accept="image/*" onchange="loadFile(event)">
 @endsection
 
 
 @section('script_extra')
+    <script>
+        $('#country-dropdown').on('change', function () {
+                var idCountry = this.value;
+                $("#state-dropdown").html('');
+                $.ajax({
+                    url: "{{url('api/fetch-cities')}}",
+                    type: "POST",
+                    data: {
+                        country_id: idCountry,
+                        _token: '{{csrf_token()}}'
+                    },
+                    dataType: 'json',
+                    success: function (result) {
+                        // console.log(result.cities);
+                        $('#city-dropdown').html('<option value="">-- Select City --</option>');
+                        $.each(result.cities, function (key, stateCities) {
+                            stateCities.forEach(value => {
+                                $("#city-dropdown").append('<option value="' + value
+                                    .id + '">' + value.name + '</option>');    
+                            });
+                             
+                            
+                        });
+                    }
+                });
+            });
+    </script>
     <script>
         if (Cookies.get('logged-in')) {
             $('.distributor-investor-menu').removeClass('display-none');

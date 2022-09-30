@@ -27,7 +27,6 @@ class Investor extends Model
      * @var array
      */
     public static $rules = [
-        'user_id' => 'required',
         'first_name' => 'required',
         'last_name' => 'required',
         'address' => 'required',

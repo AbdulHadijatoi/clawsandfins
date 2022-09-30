@@ -2,7 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\City;
+use App\Models\Country;
+use App\Models\State;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Schema;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,6 +17,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        //
     }
 }

@@ -54,15 +54,7 @@ class User extends Authenticatable
         $this->attributes['password'] = bcrypt($value);
     }
 
-    /**
-     * Validation rules
-     *
-     * @var array
-     */
-    public static $rules = [
-        'email' => 'email|nullable|unique:users,email',
-        'password' => 'required|min:8',
-    ];
+    
 
     public function investor()
     {

@@ -24,9 +24,9 @@ class StoreUserRequest extends FormRequest
     public function rules()
     {
         return [
-            'image' => 'required',
-            'email' => 'required|email:rfc,dns|unique:users,email',
-            'password' => 'required|min:8',
+            // 'image' => 'required',
+            // 'email' => 'required|email:rfc,dns|unique:users,email',
+            'password' => 'required|confirmed|min:8',
         ];
     }
 }

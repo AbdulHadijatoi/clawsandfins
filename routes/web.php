@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -53,6 +54,7 @@ Route::get('/account', function () {
     return view('account/index');
 });
 // Navigation menu url routes:ends
+Route::post('api/fetch-cities', [HomeController::class, 'fetchCity']);
 
 
 Route::group(['namespace' => 'App\Http\Controllers'], function()
