@@ -72,7 +72,6 @@ class AuthController extends Controller
     public function postBecomeDistributor(StoreUserRequest $request)
     {  
         // 'attachments.*' => 'mimes:zip,rar,jpeg,jpg,png,gif,svg,pdf,txt,doc,docx,application/octet-stream,audio/mpeg,mpga,mp3,wav|max:204800', //only allow this type extension file.
-
         $data = $request->all();
         // UPLOAD IMAGE:BEGINS
         $image_name = 'users/default_user.jpg';
@@ -81,14 +80,11 @@ class AuthController extends Controller
             $image_name = $file->store('users', 'public');
         }
         // UPLOAD IMAGE:ENDS
-
+        $data['image'] = $image_name;
         $user = User::create($data);
         if($user){
-    
             $request->request->add(['user_id' => $user->id]); //add request
-            $request->image = $image_name;
             $data = $request->all();
-            $data['image'] = $image_name;
             $distributor = Distributor::create($data);
             if($distributor){
                 return redirect("/")->withSuccess('Successully submitted the distributor application. Please wait a while until we review your request');
@@ -116,15 +112,12 @@ class AuthController extends Controller
             $image_name = $file->store('users', 'public');
         }
         // UPLOAD IMAGE:ENDS
-
+        $data['image'] = $image_name;
         $user = User::create($data);
         if($user){
-    
             $request->request->add(['user_id' => $user->id]); //add request
             $data = $request->all();
-            $data['image'] = $image_name;
             $investor = Investor::create($data);
-            
             if($investor){
                 return redirect("/")->withSuccess('Successully submitted the investor application. Please wait a while until we review your request');
             }else{

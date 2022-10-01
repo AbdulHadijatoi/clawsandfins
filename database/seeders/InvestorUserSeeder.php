@@ -7,7 +7,7 @@ use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 
-class CreateDistributorUserSeeder extends Seeder
+class InvestorUserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -19,12 +19,12 @@ class CreateDistributorUserSeeder extends Seeder
         $user = User::create(
             [
                 'image' => 'users/default_user.jpg', 
-                'email' => 'distributor@gmail.com',
+                'email' => 'investor@gmail.com',
                 'password' => 'password'
-            ]
+            ],
         );
     
-        $role = Role::create(['name' => 'distributor']);
+        $role = Role::create(['name' => 'investor']);
      
         $permissions = Permission::pluck('id','id')->all();
    

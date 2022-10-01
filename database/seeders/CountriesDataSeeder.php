@@ -8,7 +8,7 @@ use App\Models\State;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Schema;
 
-class WorldCountryStateCitySeeder extends Seeder
+class CountriesDataSeeder extends Seeder
 {
     /**
      * Run the database seeds.
