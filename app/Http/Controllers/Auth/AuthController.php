@@ -57,7 +57,7 @@ class AuthController extends Controller
    
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('dashboard')
+            return redirect()->intended()
                         ->withSuccess('You have Successfully loggedin');
         }
   
@@ -72,6 +72,8 @@ class AuthController extends Controller
     public function postBecomeDistributor(StoreUserRequest $request)
     {  
         // 'attachments.*' => 'mimes:zip,rar,jpeg,jpg,png,gif,svg,pdf,txt,doc,docx,application/octet-stream,audio/mpeg,mpga,mp3,wav|max:204800', //only allow this type extension file.
+        $request->request->add(['name' => $request->company_name]); //add request
+        $request->request->add(['status' => 0]); //add request
         $data = $request->all();
         // UPLOAD IMAGE:BEGINS
         $image_name = 'users/default_user.jpg';
@@ -87,7 +89,7 @@ class AuthController extends Controller
             $data = $request->all();
             $distributor = Distributor::create($data);
             if($distributor){
-                return redirect("/")->withSuccess('Successully submitted the distributor application. Please wait a while until we review your request');
+                return redirect("/login")->withSuccess('Successully submitted the distributor application. Please wait a while until we review your request');
             }else{
                 return back()->withError('Something went wrong, please try again');
             }
@@ -104,6 +106,8 @@ class AuthController extends Controller
     public function postBecomeInvestor(StoreUserRequest $request)
     {      
 
+        $request->request->add(['name' => $request->first_name]); //add request
+        $request->request->add(['status' => 0]); //add request
         $data = $request->all();
         // UPLOAD IMAGE:BEGINS
         $image_name = 'users/default_user.jpg';
@@ -119,7 +123,7 @@ class AuthController extends Controller
             $data = $request->all();
             $investor = Investor::create($data);
             if($investor){
-                return redirect("/")->withSuccess('Successully submitted the investor application. Please wait a while until we review your request');
+                return redirect("/login")->withSuccess('Successully submitted the investor application. Please wait a while until we review your request');
             }else{
                 return back()->withError('Something went wrong, please try again');
             }
@@ -136,7 +140,7 @@ class AuthController extends Controller
     public function dashboard()
     {
         if(Auth::check()){
-            return view('dashboard');
+            return view('index');
         }
   
         return redirect("login")->withSuccess('Opps! You do not have access');

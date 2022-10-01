@@ -18,9 +18,11 @@ class DistributorUserSeeder extends Seeder
     {
         $user = User::create(
             [
+                'name' => 'Distributor', 
                 'image' => 'users/default_user.jpg', 
                 'email' => 'distributor@gmail.com',
-                'password' => 'password'
+                'password' => 'password',
+                'status' => '1',
             ]
         );
     

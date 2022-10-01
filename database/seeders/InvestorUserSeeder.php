@@ -18,9 +18,11 @@ class InvestorUserSeeder extends Seeder
     {
         $user = User::create(
             [
+                'name' => 'Investor', 
                 'image' => 'users/default_user.jpg', 
                 'email' => 'investor@gmail.com',
-                'password' => 'password'
+                'password' => 'password',
+                'status' => '1',
             ],
         );
     

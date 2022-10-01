@@ -18,9 +18,11 @@ class CandidateUserSeeder extends Seeder
     {
         $user = User::create(
             [
+                'name' => 'Candidate', 
                 'image' => 'users/default_user.jpg', 
                 'email' => 'candidate@gmail.com',
-                'password' => 'password'
+                'password' => 'password',
+                'status' => '0',
             ]
         );
     

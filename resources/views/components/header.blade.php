@@ -44,7 +44,7 @@
                     </div>
                     <div class="text-right">
                         <h3>Company Name</h3>
-                        <span class="user-status">Candidate</span>
+                        <span class="user-status">{{ ucfirst(trans(Auth::user()->getRoleNames()[0])) }}</span>
                     </div>
                     <img src="{{asset('images/logo.png')}}">
                 </div>

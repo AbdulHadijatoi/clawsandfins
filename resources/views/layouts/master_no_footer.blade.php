@@ -2,6 +2,10 @@
 <html>
 
     <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="Peter">
         <title>
             @hasSection('title')
                 @yield('title')
@@ -79,7 +83,7 @@
                             <div class="menu-dropdown-overlay">
                                 <ul>
                                     <li class="disable-menu"><a>Account Info</a></li>
-                                    <li class="login-menu"><a href="../login/">Log in</a></li>
+                                    <li class="login-menu"><a href="{{route('login')}}">Log in</a></li>
                                 </ul>
                             </div>
                             <div class="text-right">
