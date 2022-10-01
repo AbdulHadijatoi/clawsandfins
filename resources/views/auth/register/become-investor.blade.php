@@ -24,7 +24,7 @@ page-no-arc
                             </h1>
                             <span class="h4 text-white text-center mb-30">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
                             aliqua.</span>
-                            <form action="{{route('become-investor.post')}}" method="POST" onsubmit="return inputValidation(this)">
+                            <form action="{{route('become-investor.post')}}" method="POST" onsubmit="return inputValidation(this)" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-container">
                                     <div class="full-width text-center">

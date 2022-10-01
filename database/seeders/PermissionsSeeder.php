@@ -16,15 +16,31 @@ class PermissionsSeeder extends Seeder
      */
     public function run()
     {
-    
-        $permissions = Permission::insert([
-            ['name' => 'add user'],
-            ['name' => 'delete user'],
-            ['name' => 'update user'],
-        ]);
 
-        $role = Role::find(2);
-   
-        $role->syncPermissions($permissions);
+        // Distributor permissions:begins
+        $permission = Permission::firstOrCreate(["name" => "manage users"]);
+        $permission->assignRole("distributor");
+
+        $permission = Permission::firstOrCreate(["name" => "create users"]);
+        $permission->assignRole("distributor");
+
+        $permission = Permission::firstOrCreate(["name" => "edit users"]);
+        $permission->assignRole("distributor");
+
+        $permission = Permission::firstOrCreate(["name" => "update users"]);
+        $permission->assignRole("distributor");
+
+        $permission = Permission::firstOrCreate(["name" => "view users"]);
+        $permission->assignRole("distributor");
+
+        $permission = Permission::firstOrCreate(["name" => "delete users"]);
+        $permission->assignRole("distributor");
+        // Distributor permissions:ends
+
+
+        // ALL PERMISSIONS FOR ADMIN ROLE
+        $allPermissions = Permission::all();
+        $adminRole = Role::findByName('admin');
+        $adminRole->syncPermissions($allPermissions);
     }
 }

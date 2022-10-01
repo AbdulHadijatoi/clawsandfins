@@ -71,14 +71,31 @@ class AuthController extends Controller
      */
     public function postBecomeDistributor(StoreUserRequest $request)
     {  
-        // return $request->input();
+        // 'attachments.*' => 'mimes:zip,rar,jpeg,jpg,png,gif,svg,pdf,txt,doc,docx,application/octet-stream,audio/mpeg,mpga,mp3,wav|max:204800', //only allow this type extension file.
+
         $data = $request->all();
+        // UPLOAD IMAGE:BEGINS
+        $image_name = 'users/default_user.jpg';
+        if($request->hasfile('image')){
+            $file = $request->file('image');
+            $image_name = $file->store('users', 'public');
+        }
+        // UPLOAD IMAGE:ENDS
+        $request->request->add(['image' => $image_name]); //add request
         $user = User::create($data);
-        $request->request->add(['user_id' => $user->id]); //add request
-        $data = $request->all();
-        $distributor = Distributor::create($data);
-        if($distributor){
-            return redirect("/")->withSuccess('Successully submitted the distributor application. Please wait a while until we review your request');
+
+        if($user){
+    
+            $request->request->add(['user_id' => $user->id]); //add request
+            
+            $data = $request->all();
+            $distributor = Distributor::create($data);
+            if($distributor){
+    
+                return redirect("/")->withSuccess('Successully submitted the distributor application. Please wait a while until we review your request');
+            }else{
+                return back()->withError('Something went wrong, please try again');
+            }
         }else{
             return back()->withError('Something went wrong, please try again');
         }
@@ -91,16 +108,29 @@ class AuthController extends Controller
      */
     public function postBecomeInvestor(StoreUserRequest $request)
     {      
-        // $myRequest->request->add(['foo' => 'bar']);
-        // $request->replace(['foo' => 'bar']);
-        $data = $request->all();
-        $user = User::create($data);
-        $request->request->add(['user_id' => $user->id]); //add request
-        $data = $request->all();
-        $investor = $this->create($data);
 
-        if($investor){
-            return redirect("/")->withSuccess('Successully submitted the investor application. Please wait a while until we review your request');
+        $data = $request->all();
+        // UPLOAD IMAGE:BEGINS
+        $image_name = 'users/default_user.jpg';
+        if($request->hasfile('image')){
+            $file = $request->file('image');
+            $image_name = $file->store('users', 'public');
+        }
+        // UPLOAD IMAGE:ENDS
+        $request->request->add(['image' => $image_name]); //add request
+
+        $user = User::create($data);
+        if($user){
+    
+            $request->request->add(['user_id' => $user->id]); //add request
+            $data = $request->all();
+            $investor = Investor::create($data);
+            
+            if($investor){
+                return redirect("/")->withSuccess('Successully submitted the investor application. Please wait a while until we review your request');
+            }else{
+                return back()->withError('Something went wrong, please try again');
+            }
         }else{
             return back()->withError('Something went wrong, please try again');
         }
