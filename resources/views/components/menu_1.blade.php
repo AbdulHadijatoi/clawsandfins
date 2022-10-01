@@ -7,5 +7,7 @@
 <li class="distributor-investor-menu display-none {{ (request()->is('picture-gallery*')) ? 'active' : '' }}"><a href="{{url('picture-gallery')}}">Picture Gallery</a></li>
 <li class="distributor-investor-menu display-none {{ (request()->is('future-ideas*')) ? 'active' : '' }}"><a href="{{url('future-ideas')}}">Future Ideas</a></li>
 <li class="distributor-investor-menu display-none {{ (request()->is('financial-updates*')) ? 'active' : '' }}"><a href="{{url('financial-updates')}}">Financial Updates</a></li>
-<li class="{{ (request()->is('become-distributor*')) ? 'active' : '' }}"><a href="{{url('become-distributor')}}">Become a distributor</a></li>
-<li class="{{ (request()->is('become-investor*')) ? 'active' : '' }}"><a href="{{url('become-investor')}}">Become an investor</a></li>
+@if(!Auth::check())
+    <li class="{{ (request()->is('become-distributor*')) ? 'active' : '' }}"><a href="{{url('become-distributor')}}">Become a distributor</a></li>
+    <li class="{{ (request()->is('become-investor*')) ? 'active' : '' }}"><a href="{{url('become-investor')}}">Become an investor</a></li>
+@endif

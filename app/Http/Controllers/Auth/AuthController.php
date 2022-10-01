@@ -85,6 +85,7 @@ class AuthController extends Controller
         $data['image'] = $image_name;
         $user = User::create($data);
         if($user){
+            $user->assignRole('distributor');
             $request->request->add(['user_id' => $user->id]); //add request
             $data = $request->all();
             $distributor = Distributor::create($data);
@@ -119,6 +120,7 @@ class AuthController extends Controller
         $data['image'] = $image_name;
         $user = User::create($data);
         if($user){
+            $user->assignRole('investor');
             $request->request->add(['user_id' => $user->id]); //add request
             $data = $request->all();
             $investor = Investor::create($data);

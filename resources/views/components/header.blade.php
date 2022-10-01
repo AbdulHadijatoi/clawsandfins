@@ -27,7 +27,7 @@
         <div class="nav-area max-w1280 justify-between align-center">
             <div class="welcome-message no-wrap">
                 <h4>Welcome Back,</h4>
-                <h3>Contact Name</h3>
+                <h3>{{auth()->user()->load(['distributor'])->distributor->contact_name ?? auth()->user()->load(['investor'])->investor->first_name}}</h3>
             </div>
             <div class="zoom-info-button">
                 <button onclick="zoomNotif(0)">Content too small or big?</button>
@@ -37,13 +37,15 @@
                     <div class="menu-dropdown-overlay">
                         <ul>
                             <li><a href="{{url('account')}}">Account Info</a></li>
-                            <li><a href="{{url('account/add-user')}}">Add User</a></li>
+                            @if(Auth::user()->getRoleNames()[0] == 'distributor')
+                                <li><a href="{{url('account/add-user')}}">Add User</a></li>
+                            @endif
                             <li class="md-divider"></li>
                             <li class="logout-menu display-none"><a href="{{route('logout')}}">Log out</a></li>
                         </ul>
                     </div>
                     <div class="text-right">
-                        <h3>Company Name</h3>
+                        <h3>{{ Auth::user()->name }}</h3>
                         <span class="user-status">{{ ucfirst(trans(Auth::user()->getRoleNames()[0])) }}</span>
                     </div>
                     <img src="{{asset('images/logo.png')}}">

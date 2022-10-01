@@ -25,9 +25,9 @@ class CreateDistributorsTable extends Migration
             $table->string('website_url')->nullable();
             $table->string('order_email')->nullable();
             $table->string('visiting_address');
-            $table->string('location_disclose')->default(1);
-            $table->string('location_is_correct');
-            $table->string('need_support');
+            $table->string('location_disclose')->default(0);
+            $table->string('location_is_correct')->default(0);
+            $table->string('need_support')->default(0);
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });

@@ -59,10 +59,12 @@
                         <div class="_75-width md_90-width flex-column justify-center max-w700">
                             <div>
                                 <h1 class="h1 text-yellow sm_font-size-35 text-center mt-60">Distributors in United States</h1>
-                                <div class="banner-info justify-between align-center mt-40">
-                                    <div>Do you want to be our distributor in United States?</div>
-                                    <a href="{{url('become-distributor')}}">Become a Distributor</a>
-                                </div>
+                                @if(!Auth::check())
+                                    <div class="banner-info justify-between align-center mt-40">
+                                        <div>Do you want to be our distributor in United States?</div>
+                                        <a href="{{url('become-distributor')}}">Become a Distributor</a>
+                                    </div>
+                                @endif
                                 <div class="mt-20">
                                     <div id="map" style="height: 400px;"></div>
                                 </div>
