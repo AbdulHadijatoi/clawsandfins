@@ -81,17 +81,16 @@ class AuthController extends Controller
             $image_name = $file->store('users', 'public');
         }
         // UPLOAD IMAGE:ENDS
-        $request->request->add(['image' => $image_name]); //add request
-        $user = User::create($data);
 
+        $user = User::create($data);
         if($user){
     
             $request->request->add(['user_id' => $user->id]); //add request
-            
+            $request->image = $image_name;
             $data = $request->all();
+            $data['image'] = $image_name;
             $distributor = Distributor::create($data);
             if($distributor){
-    
                 return redirect("/")->withSuccess('Successully submitted the distributor application. Please wait a while until we review your request');
             }else{
                 return back()->withError('Something went wrong, please try again');
@@ -117,13 +116,13 @@ class AuthController extends Controller
             $image_name = $file->store('users', 'public');
         }
         // UPLOAD IMAGE:ENDS
-        $request->request->add(['image' => $image_name]); //add request
 
         $user = User::create($data);
         if($user){
     
             $request->request->add(['user_id' => $user->id]); //add request
             $data = $request->all();
+            $data['image'] = $image_name;
             $investor = Investor::create($data);
             
             if($investor){
