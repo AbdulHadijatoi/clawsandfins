@@ -15,9 +15,9 @@ class Country extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'image',
-        'email',
-        'password'
+        'name',
+        'country_code',
+        'dial_code'
     ];
 
     public function states()

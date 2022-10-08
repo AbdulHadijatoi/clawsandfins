@@ -89,8 +89,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
 
     Route::group(['middleware' => ['auth']], function() {
         Route::get('logout', [AuthController::class, 'logout'])->name('logout');
-    });
-    Route::group(['middleware' => ['auth', 'permission']], function() {
+    // });
+    // Route::group(['middleware' => ['auth', 'permission']], function() {
         /**
          * Logout Routes
          */

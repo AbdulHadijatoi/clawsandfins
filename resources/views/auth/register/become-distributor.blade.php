@@ -84,11 +84,11 @@ page-no-arc
                                         <div class="input-text" required>
                                             <label label="(Must be filled in)">Phone Number</label>
                                             <div class="input-group d-flex-important align-center full-width relative">
-                                                <div id="phone-code" class="dropdown equal-width" value="1">
-                                                    <span class="align-center justify-between"><span class="text">+1</span><i
-                                                            class="material-icons expand-more">expand_more</i></span>
-                                                    <ul class="dropdown-item"></ul>
-                                                </div>
+                                                {{-- <div id="phone-code" class="dropdown equal-width" value="1"> --}}
+                                                    <select id="dial_code" name="dial_code" style="outline:none; width: 100px; margin-right:3px;">
+                                                        <option value="0" selected disabled>+1</option>
+                                                    </select>
+                                                {{-- </div> --}}
                                                 <input type="text" class="number-format" id="phone-number" parent=".input-text" placeholder="Phone Number" name="phone_number" value="{{old('phone_number')}}">
                                             </div>
                                         </div>
@@ -241,16 +241,19 @@ page-no-arc
                     },
                     dataType: 'json',
                     success: function (result) {
-                        // console.log(result.cities);
+                        // console.log(result.dial_code);
                         $('#city-dropdown').html('<option value="">-- Select City --</option>');
                         $.each(result.cities, function (key, stateCities) {
                             stateCities.forEach(value => {
-                                $("#city-dropdown").append('<option value="' + value
-                                    .id + '">' + value.name + '</option>');    
+                                if(value.id != null && value.name != null){
+                                    $("#city-dropdown").append('<option value="' + value
+                                        .id + '">' + value.name + '</option>');    
+                                }
                             });
-                             
                             
                         });
+                        document.getElementById('dial_code').innerHTML = '<option>' + result.dial_code + '</option>';
+                        // $("#dial_code").html('<option>' + result.dial_code + '</option>');    
                     }
                 });
             });

@@ -17,6 +17,7 @@ class CreateCountriesTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('country_code')->nullable();
+            $table->string('dial_code')->nullable();
             $table->timestamps();
         });
     }

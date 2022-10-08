@@ -10,10 +10,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Session;
 use App\Models\User;
+use App\Traits\Otp;
+use App\Traits\SendMail;
 use Hash;
   
 class AuthController extends Controller
 {
+    use SendMail, Otp;
     /**
      * Write code on Method
      *
@@ -90,6 +93,7 @@ class AuthController extends Controller
             $data = $request->all();
             $distributor = Distributor::create($data);
             if($distributor){
+                // $this->sendInvoiceMail($order->order_number, $order);
                 return redirect("/login")->withSuccess('Successully submitted the distributor application. Please wait a while until we review your request');
             }else{
                 return back()->withError('Something went wrong, please try again');
@@ -125,6 +129,7 @@ class AuthController extends Controller
             $data = $request->all();
             $investor = Investor::create($data);
             if($investor){
+                // $this->sendInvoiceMail($order->order_number, $order);
                 return redirect("/login")->withSuccess('Successully submitted the investor application. Please wait a while until we review your request');
             }else{
                 return back()->withError('Something went wrong, please try again');

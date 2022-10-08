@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\City;
+use App\Models\Country;
 use App\Models\State;
 use Illuminate\Http\Request;
 
@@ -91,13 +92,14 @@ class HomeController extends Controller
      */
     public function fetchCity(Request $request)
     {
+        $country = Country::find($request->country_id);
         $states = State::where('country_id',$request->country_id)->get(['id']);
         $data['cities'] = [];
         foreach ($states as $key => $state) {
             array_push($data['cities'],City::where("state_id", $state->id)
                                     ->get(["name", "id"]));
         }
-        
+        $data['dial_code'] = $country->dial_code;
                                       
         return response()->json($data);
     }

@@ -96,7 +96,11 @@
             </div>
             <!-- >>> End -->
             @yield('content')
-
+            <div class="copyright-text">
+                <p>
+                    © 2020-{{date("Y")}} Pete's Claws and Fins, Yat Fung International Holding Ltd. All rights reserved.
+                </p>
+            </div>
         </div>
         @yield('script_extra')
     </body>

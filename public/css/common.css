@@ -5385,3 +5385,10 @@ a:hover {
         display: flex;
     }
 }
+
+.copyright-text{
+    text-align: center;
+    color: white;
+    padding: 10px 0px;
+    font-size: 0.9em;
+}

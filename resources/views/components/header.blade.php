@@ -27,7 +27,7 @@
         <div class="nav-area max-w1280 justify-between align-center">
             <div class="welcome-message no-wrap">
                 <h4>Welcome Back,</h4>
-                <h3>{{auth()->user()->load(['distributor'])->distributor->contact_name ?? auth()->user()->load(['investor'])->investor->first_name}}</h3>
+                <h3>{{auth()->user()->load(['distributor'])->distributor->contact_name ?? auth()->user()->load(['investor'])->investor->first_name ?? auth()->user()->load(['investor'])->name}}</h3>
             </div>
             <div class="zoom-info-button">
                 <button onclick="zoomNotif(0)">Content too small or big?</button>

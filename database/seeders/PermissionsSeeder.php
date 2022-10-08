@@ -40,7 +40,7 @@ class PermissionsSeeder extends Seeder
 
         // ALL PERMISSIONS FOR ADMIN ROLE
         $allPermissions = Permission::all();
-        $adminRole = Role::findByName('admin');
+        $adminRole = Role::findByName('Admin');
         $adminRole->syncPermissions($allPermissions);
     }
 }
