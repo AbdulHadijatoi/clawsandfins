@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('menu')
-    @include('components.menu_1')
+    @include('components.admin-menu')
 @endsection
 
 @section('body_class')

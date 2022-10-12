@@ -26,6 +26,10 @@ class AuthController extends Controller
     {
         return view('auth.login.index');
     }  
+    public function adminLogin()
+    {
+        return view('admin.login');
+    }  
       
     /**
      * Write code on Method
@@ -59,9 +63,32 @@ class AuthController extends Controller
         ]);
    
         $credentials = $request->only('email', 'password');
-        if (Auth::attempt($credentials)) {
-            return redirect()->intended()
-                        ->withSuccess('You have Successfully loggedin');
+        $user = User::where('email',$request->email)->first();
+        if($user && $user->getRoleNames()[0] != 'admin'){
+            $credentials = $request->only('email', 'password');
+            if (Auth::attempt($credentials)) {
+                return redirect()->intended()
+                            ->withSuccess('You have Successfully loggedin');
+            }
+        }
+  
+        return redirect("login")->withError('Oppes! You have entered invalid credentials');
+    }
+
+    public function adminPostLogin(Request $request)
+    {
+        $request->validate([
+            'email' => 'required',
+            'password' => 'required',
+        ]);
+   
+        $credentials = $request->only('email', 'password');
+        $user = User::where('email',$request->email)->first();
+        if($user && $user->getRoleNames()[0] == 'admin'){
+            if (Auth::attempt($credentials)) {
+                return redirect()->route('users.index')
+                            ->withSuccess('You have Successfully loggedin');
+            }
         }
   
         return redirect("login")->withError('Oppes! You have entered invalid credentials');

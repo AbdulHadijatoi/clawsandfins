@@ -20,7 +20,7 @@ class UsersController extends Controller
     {
         // if(Auth::user() -> hasPermissionTo('view users')) {
             $users = User::latest()->paginate(10);
-            return view('users.index', compact('users'));
+            return view('admin.users.index', compact('users'));
         // }else{
         //     abort(403);
         // }
@@ -33,7 +33,7 @@ class UsersController extends Controller
      */
     public function create() 
     {
-        return view('users.create');
+        return view('admin.users.create');
     }
 
     /**
@@ -52,7 +52,7 @@ class UsersController extends Controller
             'password' => 'test' 
         ]));
 
-        return redirect()->route('users.index')
+        return redirect()->route('admin.users.index')
             ->withSuccess(__('User created successfully.'));
     }
 
@@ -65,7 +65,7 @@ class UsersController extends Controller
      */
     public function show(User $user) 
     {
-        return view('users.show', [
+        return view('admin.users.show', [
             'user' => $user
         ]);
     }
@@ -79,7 +79,7 @@ class UsersController extends Controller
      */
     public function edit(User $user) 
     {
-        return view('users.edit', [
+        return view('admin.users.edit', [
             'user' => $user,
             'userRole' => $user->roles->pluck('name')->toArray(),
             'roles' => Role::latest()->get()
@@ -100,7 +100,7 @@ class UsersController extends Controller
 
         $user->syncRoles($request->get('role'));
 
-        return redirect()->route('users.index')
+        return redirect()->route('admin.users.index')
             ->withSuccess(__('User updated successfully.'));
     }
 
@@ -115,7 +115,7 @@ class UsersController extends Controller
     {
         $user->delete();
 
-        return redirect()->route('users.index')
+        return redirect()->route('admin.users.index')
             ->withSuccess(__('User deleted successfully.'));
     }
 }

@@ -83,14 +83,17 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         // Route::get('/login', 'LoginController@show')->name('login.show');
         // Route::post('/login', 'LoginController@login')->name('login.perform');
         Route::get('login', [AuthController::class, 'login'])->name('login');
+        Route::get('admin/login', [AuthController::class, 'adminLogin'])->name('admin.login');
         Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post'); 
+        Route::post('admin/post-login', [AuthController::class, 'adminPostLogin'])->name('admin.login.post'); 
 
     });
 
     Route::group(['middleware' => ['auth']], function() {
         Route::get('logout', [AuthController::class, 'logout'])->name('logout');
     });
-    Route::group(['middleware' => ['auth', 'role:admin|distributor']], function() {
+    Route::group(['middleware' => ['auth', 'role:admin|distributor'],'prefix'=>'admin'], function() {
+        Route::get('/', 'UsersController@index')->name('users.index');
         /**
          * Logout Routes
          */
