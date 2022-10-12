@@ -1,54 +1,303 @@
-@extends('layouts.app-master')
+@extends('layouts.master')
+
+@section('menu')
+    @include('components.menu_1')
+@endsection
+
+@section('body_class')
+page-no-arc
+@endsection
 
 @section('content')
-    <div class="bg-light p-4 rounded">
-        <h1>Add new user</h1>
-        <div class="lead">
-            Add new user and assign role.
+        <!-- Content -->
+        <div class="content-wrapper">
+            <section class="section" data-clip-id="1" style="background-image: url('{{asset('bg/grey4.jpg')}}');">
+                <div class="content">
+                    <div class="full-width align-in-center pb-120">
+                        <div class="_75-width md_90-width md_align-center flex-column justify-center max-w700">
+                            <h1 class="h1 text-yellow sm_font-size-35 sm_mt-60 text-center">Add User</h1>
+                            <form class="full-width" action="{{ route('users.store') }}" method="POST" onsubmit="return inputValidation(this)">
+                                @csrf
+                                <div class="form-container">
+                                    <div class="d-flex full-width form-responsive mt-20">
+                                        <div class="input-text" required>
+                                            <label label="(Must be filled in)">First Name</label>
+                                            <input type="text" id="first-name" placeholder="First Name" name="first_name">
+                                        </div>
+                                        <div class="input-text" required>
+                                            <label label="(Must be filled in)">Last Name</label>
+                                            <input type="text" id="last-name" placeholder="Last Name" name="last_name">
+                                        </div>
+                                    </div>
+                                    <div class="d-flex full-width form-responsive">
+                                        <div class="input-text" required>
+                                            <label label="(Must be filled in)">Title</label>
+                                            <input type="title" id="title" placeholder="Title" name="title">
+                                        </div>
+                                    </div>
+                                    <div class="d-flex full-width form-responsive">
+                                        <div class="input-text" required>
+                                            <label label="(Must be filled in)">Email</label>
+                                            <input type="email" id="email" placeholder="Email" name="email">
+                                        </div>
+                                    </div>
+                                    <div class="d-flex full-width form-responsive">
+                                        <div class="input-text" required>
+                                            <label label="(Must be filled in)">Password</label>
+                                            <input type="password" id="password" placeholder="Password" name="password">
+                                        </div>
+                                        <div class="input-text" required>
+                                            <label label="(Must be filled in)">Confirm Password</label>
+                                            <input type="password" id="confirm-password" placeholder="Confirm Password" name="password_confirmation">
+                                        </div>
+                                    </div>
+                                    @if ($errors->any())
+                                        @foreach ($errors->all() as $error)
+                                            <div class="info primary-warning d-flex-important">
+                                                <label>{{$error}}</label>
+                                            </div>
+                                        @endforeach
+                                    @endif
+                                    <div class="d-flex full-width justify-center">
+                                        <div class="button-secondary">
+                                            <button type="submit">Add User</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
 
-        <div class="container mt-4">
-            <form method="POST" action="">
-                @csrf
-                <div class="mb-3">
-                    <label for="name" class="form-label">Name</label>
-                    <input value="{{ old('name') }}" 
-                        type="text" 
-                        class="form-control" 
-                        name="name" 
-                        placeholder="Name" required>
+@endsection
 
-                    @if ($errors->has('name'))
-                        <span class="text-danger text-left">{{ $errors->first('name') }}</span>
-                    @endif
-                </div>
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
-                    <input value="{{ old('email') }}"
-                        type="email" 
-                        class="form-control" 
-                        name="email" 
-                        placeholder="Email address" required>
-                    @if ($errors->has('email'))
-                        <span class="text-danger text-left">{{ $errors->first('email') }}</span>
-                    @endif
-                </div>
-                <div class="mb-3">
-                    <label for="username" class="form-label">Username</label>
-                    <input value="{{ old('username') }}"
-                        type="text" 
-                        class="form-control" 
-                        name="username" 
-                        placeholder="Username" required>
-                    @if ($errors->has('username'))
-                        <span class="text-danger text-left">{{ $errors->first('username') }}</span>
-                    @endif
-                </div>
+@section('style_extra')
+<style>
+    .logo {
+            background-color: rgba(255, 255, 255, 0.1);
+            width: 150px;
+            height: 150px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            margin-bottom: 30px;
+            cursor: pointer;
+        }
 
-                <button type="submit" class="btn btn-primary">Save user</button>
-                <a href="{{ route('users.index') }}" class="btn btn-default">Back</a>
-            </form>
-        </div>
+        .logo img {
+            display: none;
+        }
 
-    </div>
+        .logo span {
+            font-size: 45px;
+            color: white;
+        }
+
+        .logo+button {
+            display: none;
+            margin-top: 20px;
+            background: transparent;
+            border: 1px solid #FFF;
+            color: #FFF;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .logo.image-opened {
+            background: #585858;
+            border: 0;
+            width: 150px;
+            height: 150px;
+            flex-direction: column;
+            margin-bottom: 0px;
+            overflow: hidden;
+        }
+
+        .logo.image-opened img {
+            display: block;
+        }
+
+        .logo.image-opened span {
+            display: none;
+        }
+
+        .logo.image-opened+button {
+            display: block;
+        }
+
+        .visiting-address {
+            height: 300px;
+        }
+
+        .visiting-address #map {
+            height: 100%;
+        }
+
+        .map-marker-label {
+            display: block;
+            border-radius: 5px;
+            padding: 2px 8px;
+        }
+
+        .currency-field {
+            position: relative;
+        }
+
+        .currency-field:before {
+            content: attr(prefix);
+            position: absolute;
+            left: 10px;
+            top: calc(50% - 1px);
+            transform: translatey(-50%);
+            color: #c8c8c8;
+            font-size: 14px;
+        }
+
+        .currency-field input {
+            padding-left: 45px;
+        }
+
+        .form-container {
+            background: #4b4b4b;
+        }
+
+        .table-header{
+            color: #FFF;
+            font-size: 12px;
+            padding: 5px 10px;
+            border-bottom: 1px solid #6f6f6f;
+        }
+
+        .table-row{
+            color: #FFF;
+            font-size: 14px;
+            padding: 10px;
+            border-bottom: 1px solid #6f6f6f;
+        }
+
+        .user-avatar{
+            display: block;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #312f2b;
+            text-align: center;
+            line-height: 40px;
+            margin-right: 10px;
+        }
+
+        .more-menu{
+            position: relative;
+        }
+
+        .more-menu button{
+            background: transparent;
+            border: 0;
+            color: #d1d1d1;
+            cursor: pointer;
+        }
+
+        .context-menu{
+            visibility: hidden;
+            position: absolute;
+            background: #FFF;
+            top: 0;
+            left: 0;
+            color: #2d2d2d;
+            border-radius: 5px;
+            z-index: 1;
+        }
+
+        .context-menu ul{
+            padding: 5px 0;
+        }
+
+        .context-menu ul li{
+            padding: 5px 20px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .context-menu ul li:hover{
+            background: #eae9e9;
+        }
+
+        .open-context-menu{
+            outline: none;
+        }
+
+        .open-context-menu:focus .context-menu{
+            visibility: visible;
+        }
+</style>
+@endsection
+
+@section('head_extra')
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+@endsection
+@section('script_extra')
+<!-- Temporary Script for Logged in User >>> -->
+<script>
+    if (Cookies.get('logged-in')) {
+        $('.distributor-investor-menu').removeClass('display-none');
+        $('.distributor-investor-menu').nextAll().hide();
+        $('.distributor-investor-menu').show();
+        $('.login-menu').hide();
+        $('.logout-menu').show();
+        $('.nav-visitor').addClass('display-none');
+        $('.nav-distributor-investor').removeClass('display-none');
+    }
+</script>
+
+
+<script>
+    function openContextMenu(elm){
+        elm.addClass('open-context-menu').attr('tabindex','-1').focus();
+        elm.find('.context-menu .context-menu-item').click(function(e){
+            e.stopPropagation();
+            elm.removeClass('open-context-menu');
+        })
+    }
+</script>
+<script>
+function inputValidation(form) {
+    var errMsgCount = 0;
+    $(form).find('.input-text[required] input, .input-textarea[required] textarea').each(function () {
+        var elm = $(this);
+        var parentElm = elm.attr('parent') ? elm.parents(elm.attr('parent')) : elm.parent();
+        if (elm.val() == '') {
+            errMsgCount++;
+            parentElm.addClass('input-error');
+            if (parentElm.find('.err-msg').length == 0) {
+                var inpErr = document.createElement('span');
+                $(inpErr).addClass('err-msg').html('Required');
+                parentElm.append(inpErr);
+            }
+            elm.keyup(function () {
+                $(this).parents('.input-error').removeClass('input-error');
+                $(this).next('.err-msg').remove();
+            })
+            if (errMsgCount == 1) {
+                elm.focus();
+            }
+
+        }
+
+        if (($('#password').val() != $('#confirm-password').val()) && errMsgCount == 0) {
+            openDialog('Password', "Password doesn't match");
+            $('#password').focus();
+            errMsgCount++;
+        }
+    })
+
+    if (errMsgCount > 0) {
+        return false;
+    }
+
+    return true;
+}
+</script>
+<!-- >>> End -->
 @endsection

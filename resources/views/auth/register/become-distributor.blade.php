@@ -252,8 +252,8 @@ page-no-arc
                             });
                             
                         });
-                        document.getElementById('dial_code').innerHTML = '<option>' + result.dial_code + '</option>';
-                        // $("#dial_code").html('<option>' + result.dial_code + '</option>');    
+                        // document.getElementById('dial_code').innerHTML = '<option>' + result.dial_code + '</option>';
+                        $("#dial_code").html('<option>' + result.dial_code + '</option>');    
                     }
                 });
             });

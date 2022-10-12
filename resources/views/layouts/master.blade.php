@@ -24,7 +24,7 @@
         <link rel="stylesheet" href="{{asset('fonts/font-awesome-4.7.0/css/font-awesome.min.css')}}"> <!-- Font Awesome Icon 4.7.0 -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> <!--Material Icon -->
         <!-- JS Script -->
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="{{asset('js/jquery-3.6.0.min.js')}}"></script>
         <script src="{{asset('js/svg-inject.js')}}"></script>
         <script src="{{asset('js/js-cookie.js')}}"></script>
         <script src="{{asset('js/main.js?v=8')}}"></script>

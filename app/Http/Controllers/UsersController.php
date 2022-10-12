@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
+use Illuminate\Support\Facades\Auth;
 
 class UsersController extends Controller
 {
@@ -17,9 +18,12 @@ class UsersController extends Controller
      */
     public function index() 
     {
-        $users = User::latest()->paginate(10);
-
-        return view('users.index', compact('users'));
+        // if(Auth::user() -> hasPermissionTo('view users')) {
+            $users = User::latest()->paginate(10);
+            return view('users.index', compact('users'));
+        // }else{
+        //     abort(403);
+        // }
     }
 
     /**
