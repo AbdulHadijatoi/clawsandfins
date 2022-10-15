@@ -184,7 +184,7 @@ body.open #main-menu {
 } */
 
 body.open .main-menu-container {
-    height: calc(100vh - 55px);
+    height: calc(100vh - 100px);
 }
 
 /* MAIN PAGE */
@@ -1307,6 +1307,7 @@ body.open-popup-page {
 
 .body-content {
     margin-top: 55px;
+    padding-bottom: 42px;
 }
 
 .nav-top {
