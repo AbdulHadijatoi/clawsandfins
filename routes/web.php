@@ -23,6 +23,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/soft-shelled-mudcrabs', function () {
     return view('soft-shelled-mudcrabs/index');
 });
+Route::get('/soft-shelled-mudcrabs/pages/{page}', function ($page) {
+    return view('soft-shelled-mudcrabs/pages',['page'=>$page]);
+});
 Route::get('/hard-shelled-mudcrabs', function () {
     return view('hard-shelled-mudcrabs/index');
 });
