@@ -48,7 +48,7 @@
                         <h3>{{ Auth::user()->name }}</h3>
                         <span class="user-status">{{ ucfirst(trans(Auth::user()->getRoleNames()[0])) }}</span>
                     </div>
-                    <img src="{{asset('images/logo.png')}}">
+                    <img src="{{url('storage/'.Auth::user()->image)}}">
                 </div>
             </div>
         </div>

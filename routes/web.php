@@ -53,12 +53,8 @@ Route::get('/financial-updates', function () {
 Route::get('/account/add-user', function () {
     return view('account/add-user');
 });
-Route::get('/account', function () {
-    return view('account/index');
-});
 // Navigation menu url routes:ends
 Route::post('api/fetch-cities', [HomeController::class, 'fetchCity']);
-
 
 Route::group(['namespace' => 'App\Http\Controllers'], function()
 {   
@@ -79,7 +75,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::get('become-investor', [AuthController::class, 'becomeInvestor'])->name('become-investor');
         Route::get('forgot-password', [AuthController::class, 'forgotPassword'])->name('forgot-password');
         Route::post('post-become-investor', [AuthController::class, 'postBecomeInvestor'])->name('become-investor.post'); 
-
+        
         /**
          * Login Routes
          */
@@ -89,10 +85,14 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::get('admin/login', [AuthController::class, 'adminLogin'])->name('admin.login');
         Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post'); 
         Route::post('admin/post-login', [AuthController::class, 'adminPostLogin'])->name('admin.login.post'); 
-
+        
     });
 
     Route::group(['middleware' => ['auth']], function() {
+        Route::get('/account/{id?}', 'UsersController@accountInfo')->name('account-info');
+        Route::post('post-edit-distributor', [AuthController::class, 'postEditDistributor'])->name('edit-distributor.post');
+        Route::post('post-edit-investor', [AuthController::class, 'postEditInvestor'])->name('edit-investor.post');
+
         Route::get('logout', [AuthController::class, 'logout'])->name('logout');
     });
     Route::group(['middleware' => ['auth', 'role:admin|distributor'],'prefix'=>'admin'], function() {

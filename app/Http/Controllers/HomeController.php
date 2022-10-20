@@ -96,9 +96,18 @@ class HomeController extends Controller
         $states = State::where('country_id',$request->country_id)->get(['id']);
         $data['cities'] = [];
         foreach ($states as $key => $state) {
-            array_push($data['cities'],City::where("state_id", $state->id)
-                                    ->get(["name", "id"]));
+            $data['cities'] = array_merge($data['cities'], City::where("state_id", $state->id)
+            ->orderBy('name')
+                ->get(["name", "id"])->toArray());
+            // array_push(
+            //     $data['cities'],
+            //     City::where("state_id", $state->id)
+            //         ->orderBy('name')
+            //         ->get(["name", "id"]));
         }
+        $cities = array_column($data['cities'], 'name');
+        array_multisort($cities, SORT_ASC, $data['cities']);
+
         $data['dial_code'] = $country->dial_code;
                                       
         return response()->json($data);
