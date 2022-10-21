@@ -93,13 +93,13 @@ class HomeController extends Controller
      */
     public function fetchCity(Request $request)
     {
-        $country = Country::where('id',174)->first(['dial_code']);
+        $country = Country::where('id',$request->country_id)->first(['dial_code']);
         $data = [];
         
         $cities = DB::table('countries')
                     ->join('states', 'countries.id', '=', 'states.country_id')
                     ->join('cities', 'states.id', '=', 'cities.state_id')
-                    ->where('countries.id','=','174')
+                    ->where('countries.id','=',$request->country_id)
                     ->select('cities.id', 'cities.name')
                     ->get();                           
         $data['dial_code'] = $country->dial_code;             
