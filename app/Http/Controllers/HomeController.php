@@ -97,8 +97,8 @@ class HomeController extends Controller
         $data = [];
         
         $cities = DB::table('countries')
-                    ->join('states', 'countries.id', '=', 'states.country_id')
-                    ->join('cities', 'states.id', '=', 'cities.state_id')
+                    ->rightJoin('states', 'countries.id', '=', 'states.country_id')
+                    ->rightJoin('cities', 'states.id', '=', 'cities.state_id')
                     ->where('countries.id','=',$request->country_id)
                     ->select('cities.id', 'cities.name')
                     ->get();                           
