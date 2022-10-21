@@ -32,6 +32,36 @@
         @yield('head_extra')
 
         @yield('style_extra')
+
+        <style>
+            .lds-dual-ring {
+                display: inline-block;
+                width: 25px;
+                height: 25px;
+            }
+            .lds-dual-ring:after {
+                content: " ";
+                display: block;
+                width: 20px;
+                height: 20px;
+                margin: 5px;
+                border-radius: 50%;
+                border: 3px solid #fff;
+                border-color: #fff transparent #fff transparent;
+                animation: lds-dual-ring 1.2s linear infinite;
+            }
+            @keyframes lds-dual-ring {
+                0% {
+                    transform: rotate(0deg);
+                }
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+
+
+        </style>
+        @livewireStyles
     </head>
     
     <body class="@hasSection('body_class') @yield('body_class') @else open @endif">
@@ -48,5 +78,7 @@
             </div>
         </div>
         @yield('script_extra')
+
+        @livewireScripts
     </body>
 </html>
