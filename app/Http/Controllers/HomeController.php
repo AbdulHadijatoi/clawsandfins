@@ -6,6 +6,7 @@ use App\Models\City;
 use App\Models\Country;
 use App\Models\State;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -92,7 +93,17 @@ class HomeController extends Controller
      */
     public function fetchCity(Request $request)
     {
-        $country = Country::with('states.cities')->where('id',$request->country_id)->first(['id','dial_code']);                              
-        return response()->json($country);
+        $country = Country::where('id',174)->first(['dial_code']);
+        $data = [];
+        
+        $cities = DB::table('countries')
+                    ->join('states', 'countries.id', '=', 'states.country_id')
+                    ->join('cities', 'states.id', '=', 'cities.state_id')
+                    ->where('countries.id','=','174')
+                    ->select('cities.id', 'cities.name')
+                    ->get();                           
+        $data['dial_code'] = $country->dial_code;             
+        $data['cities'] = $cities;             
+        return response()->json($data);
     }
 }
