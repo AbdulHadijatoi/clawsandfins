@@ -24,6 +24,8 @@ class Distributor extends Model
         'visiting_address',
         'location_disclose',
         'location_is_correct',
+        'latitude',
+        'longitude',
         'need_support',
     ];
 

@@ -243,13 +243,13 @@ page-no-arc
                     success: function (result) {
                         // console.log(result.dial_code);
                         $('#city-dropdown').html('<option value="">-- Select City --</option>');
-                        $.each(result.cities, function (key, stateCities) {
-                            stateCities.forEach(value => {
+                        $.each(result.cities, function (key, value) {
+                            //stateCities.forEach(value => {
                                 if(value.id != null && value.name != null){
                                     $("#city-dropdown").append('<option value="' + value
                                         .id + '">' + value.name + '</option>');    
                                 }
-                            });
+                            //});
                             
                         });
                         // document.getElementById('dial_code').innerHTML = '<option>' + result.dial_code + '</option>';
@@ -376,7 +376,7 @@ page-no-arc
                 $('#phone-code .dropdown-item').append(phoneCode);
             });
 
-            getCurrentLocation();
+            //getCurrentLocation();
 
         });
 
@@ -680,6 +680,8 @@ page-no-arc
                 geocodeLatLng(geocoder, map);
             });
 
+            getCurrentLocation();
+
             /*
             map.addListener('center_changed', () => {
                 marker.setPosition(map.getCenter())
@@ -710,29 +712,32 @@ page-no-arc
 
         }
 
-        function getCurrentLocation(){
+        function getCurrentLocation(value=false){
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(
                     (position) => {
-                        latlng = {
+                        var coordinate={
                             lat: position.coords.latitude,
                             lng: position.coords.longitude,
                         };
+                        curLatlng = coordinate;
 
-                        curLatlng = latlng;
-
-                        //marker.setPosition(latlng);
-                        setMapPosition();
-                        map.setZoom(15);
-                        geocodeLatLng(geocoder, map);
+                        if(value){
+                            return coordinate;
+                        }else{
+                            latlng = coordinate;
+                            //marker.setPosition(latlng);
+                            setMapPosition();
+                            map.setZoom(15);
+                            geocodeLatLng(geocoder, map);
+                        }
                     },
                     () => {
-                        handleLocationError(true, infoWindow, map.getCenter());
+                        return null;
                     }
                 );
             } else {
-                // Browser doesn't support Geolocation
-                handleLocationError(false, infoWindow, map.getCenter());
+                return null;
             }
         }
 

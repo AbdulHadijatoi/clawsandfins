@@ -1,9 +1,12 @@
 <?php
   
 namespace App\Http\Controllers\Auth;
-  
+
+use App\CentralLogics\Helpers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUserRequest;
+use App\Http\Requests\UpdateDistributorRequest;
+use App\Http\Requests\UpdateInvestorRequest;
 use App\Models\Distributor;
 use App\Models\Investor;
 use Illuminate\Http\Request;
@@ -13,7 +16,9 @@ use App\Models\User;
 use App\Traits\Otp;
 use App\Traits\SendMail;
 use Hash;
-  
+use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Foundation\Http\FormRequest;
+
 class AuthController extends Controller
 {
     use SendMail, Otp;
@@ -162,6 +167,92 @@ class AuthController extends Controller
                 return back()->withError('Something went wrong, please try again');
             }
         }else{
+            return back()->withError('Something went wrong, please try again');
+        }
+    }
+
+    /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+    public function postEditInvestor(UpdateInvestorRequest $request)
+    {
+        $id= auth()->user()->id;
+        if($request->first_name){
+            $request->request->add(['name' => $request->first_name]);
+        }
+
+        $data = $request->all();
+        $image_name = 'users/default_user.jpg';
+        
+        if ($request->hasfile('image')) {
+            $file = $request->file('image');
+            $image_name = $file->store('users', 'public');
+            $data['image'] = $image_name;
+        } else if ($request->remove_image) {
+            $data['image'] = $image_name;
+        }
+
+        $user=User::find($id);
+        $user->update($data);
+
+        $investorId= Investor::where('user_id',$id)->first()->id;
+        $investor=Investor::find($investorId);
+        $investor->update($data);
+        if ($user && $investor) {
+            if ($user->wasChanged() || $investor->wasChanged()) {
+                return redirect("/account")->withSuccess('Data has been updated');
+            }else{
+                return redirect("/account");
+            }
+        } else {
+            return back()->withError('Something went wrong, please try again');
+        }
+    }
+
+    /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+    public function postEditDistributor(UpdateDistributorRequest $request)
+    {
+        $id = auth()->user()->id;
+        if ($request->first_name) {
+            $request->request->add(['name' => $request->company_name]);
+        }
+
+        if($request->location_disclose){
+            $request->request->add(['latitude' => 0, 'longitude' => 0, 'location_is_correct' => '']);
+        }else{
+            $request->request->add(['location_disclose' => '0']);
+        }
+
+        $data = $request->all();
+        $image_name = 'users/default_user.jpg';
+
+        if ($request->hasfile('image')) {
+            $file = $request->file('image');
+            $image_name = $file->store('users', 'public');
+            $data['image'] = $image_name;
+        } else if ($request->remove_image) {
+            $data['image'] = $image_name;
+        }
+
+        $user = User::find($id);
+        $user->update($data);
+
+        $distributorId = Distributor::where('user_id', $id)->first()->id;
+        $distributor = Distributor::find($distributorId);
+        $distributor->update($data);
+        if ($user && $distributor) {
+            if ($user->wasChanged() || $distributor->wasChanged()) {
+                return redirect("/account")->withSuccess('Data has been updated');
+            } else {
+                return redirect("/account");
+            }
+        } else {
             return back()->withError('Something went wrong, please try again');
         }
     }

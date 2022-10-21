@@ -1,7 +1,26 @@
+@php
+    use App\CentralLogics\Helpers;
+    $countries = Helpers::getCountries();
+    $countriesArr=array();
+    if($countries){
+        foreach($countries as $country){
+            $countriesArr[]=[
+                'id' => $country->id,
+                'name' => $country->name,
+                'phone_code' => $country->dial_code
+            ];
+        }
+    }
+@endphp
+
 @extends('layouts.master')
 
 @section('menu')
     @include('components.menu_1')
+@endsection
+
+@section('body_class')
+page-no-arc
 @endsection
 
 @section('content')
@@ -13,21 +32,66 @@
                     <div class="full-width align-in-center pb-120">
                         <div class="_75-width md_90-width md_align-center flex-column justify-center max-w700">
                             <h1 class="h1 text-yellow sm_font-size-35 sm_mt-60 text-center">Account Info</h1>
-                            <form action="update-success" method="get" onsubmit="return inputValidation(this)" target="framesubmit">
+                            <form action="{{route('edit-distributor.post')}}" method="POST" onsubmit="setInputForm(this);return inputValidation(this);" enctype="multipart/form-data">
+                                @csrf
                                 <div class="form-container">
                                     <div class="full-width text-center mb-30">
                                         <div class="logo-container align-in-center flex-column mt-20">
                                             <div class="logo d-flex align-in-center image-opened">
-                                                <img id="logo-img" alt="logo-img" src="{{asset('images/logo.png')}}">
+                                                <img id="logo-img" alt="logo-img" src="{{ url('storage/'.$user->image) }}">
                                                 <span class="material-icons">
                                                     image
                                                 </span>
                                                 <button id="remove-logo" type="button">Remove Logo</button>
                                             </div>
+                                            <div class="button-secondary button-md px-5 display-none button-update-photo">
+                                                <button class="update-info" type="submit">Update</button>
+                                            </div>
+                                            <input id="logo-file" class="display-none" type="file" accept="image/*" onchange="loadFile(event)" name="image">
                                         </div>
-                                        <h3 class="text-yellow text-center">Company Name</h3>
-                                        <div class="text-light text-center">
-                                            company@mail.com
+                                        <div class="tile tile-info tile-no-border p-0">
+                                            <div class="d-flex full-width form-responsive tile-show align-start justify-center">
+                                                <h3 class="text-yellow text-center mr-10" id="company-name-info">{{$userData->company_name}}</h3>
+                                                <div class="text-right"><button type="button" class="button-sm btn-edit">Edit</button></div>
+                                            </div>
+                                            <div class="tile-hide px-10">
+                                                <div class="d-flex full-width form-responsive">
+                                                    <div class="input-text" required>
+                                                        <label label="(Must be filled in)">Company Name</label>
+                                                        <input type="text" id="company-name" data-name="company_name" placeholder="Company Name" valuefor="company-name-info" value="{{$userData->company_name}}">
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex full-width justify-center align-center">
+                                                    <div class="button-secondary button-md px-5">
+                                                        <button class="update-info" type="submit">Update</button>
+                                                    </div>
+                                                    <div class="button-primary button-md px-5">
+                                                        <button type="button" class="btn-edit">Cancel</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tile tile-info tile-no-border p-0">
+                                            <div class="d-flex full-width form-responsive tile-show align-start justify-center">
+                                                <div class="text-light text-center mr-10" id="email-info">{{$user->email}}</div>
+                                                <div class="text-right"><button type="button" class="button-sm btn-edit">Edit</button></div>
+                                            </div>
+                                            <div class="tile-hide px-10">
+                                                <div class="d-flex full-width form-responsive">
+                                                    <div class="input-text" required>
+                                                        <label label="(Must be filled in)">Email</label>
+                                                        <input type="text" id="email" data-name="email" placeholder="Email" valuefor="email-info" value="{{$user->email}}">
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex full-width justify-center align-center">
+                                                    <div class="button-secondary button-md px-5">
+                                                        <button class="update-info" type="submit">Update</button>
+                                                    </div>
+                                                    <div class="button-primary button-md px-5">
+                                                        <button type="button" class="btn-edit">Cancel</button>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="tile tile-info">
@@ -40,7 +104,7 @@
                                             <div class="d-flex full-width form-responsive">
                                                 <div class="input-text" required>
                                                     <label label="(Must be filled in)">Contact Name</label>
-                                                    <input type="text" id="contact-name" placeholder="Contact Name" valuefor="contact-name-info" value="Richard Kyle">
+                                                    <input type="text" id="contact-name" data-name="contact_name" placeholder="Contact Name" valuefor="contact-name-info" value="{{$userData->contact_name}}">
                                                 </div>
                                             </div>
                                             <div class="d-flex full-width justify-center align-center">
@@ -66,9 +130,9 @@
                                             <div class="d-flex full-width form-responsive">
                                                 <div class="input-text" required>
                                                     <label label="(Must be filled in)">Country</label>
-                                                    <div id="country" class="country-city-dropdown equal-width selected" value="United States" valuefor="country-info" >
+                                                    <div id="country" class="country-city-dropdown equal-width selected" data-name="country" value="{{$other->country->name}}" valuefor="country-info" >
                                                         <span class="align-center justify-between">
-                                                            <span class="text" contenteditable="true">United States</span>
+                                                            <span class="text" contenteditable="true">{{$other->country->name}}</span>
                                                             <i class="material-icons expand-more">expand_more</i>
                                                         </span>
                                                         <div id="country-box"></div>
@@ -76,9 +140,9 @@
                                                 </div>
                                                 <div class="input-text" required>
                                                     <label label="(Must be filled in)">City</label>
-                                                    <div id="city" class="country-city-dropdown equal-width selected" value="New York City" valuefor="city-info" vf-prefix=", ">
+                                                    <div id="city" class="country-city-dropdown equal-width selected" data-name="city" value="{{$other->city->name}}" valuefor="city-info" vf-prefix=", ">
                                                         <span class="align-center justify-between">
-                                                            <span class="text" contenteditable="true">New York City</span>
+                                                            <span class="text" contenteditable="true">{{$other->city->name}}</span>
                                                             <i class="material-icons expand-more">expand_more</i>
                                                         </span>
                                                         <div id="city-box"></div>
@@ -88,7 +152,7 @@
                                             <div class="d-flex full-width form-responsive">
                                                 <div class="input-textarea" required>
                                                     <label style="font-size: 14px" label="(Must be filled in)">Postal Address</label>
-                                                    <textarea id="postal-address" placeholder="Postal Address" valuefor="postal-address-info">2869 Broadway, New York, NY 10025, United States</textarea>
+                                                    <textarea id="postal-address" placeholder="Postal Address" valuefor="postal-address-info" data-name="postal_address">{{$userData->postal_address}}</textarea>
                                                 </div>
                                             </div>
                                             <div class="d-flex full-width justify-center align-center">
@@ -112,12 +176,14 @@
                                                 <div class="input-text" required>
                                                     <label label="(Must be filled in)">Phone Number</label>
                                                     <div class="input-group d-flex-important align-center full-width relative">
-                                                        <div id="phone-code" class="dropdown equal-width" value="1" valuefor="phone-number-prefix" vf-prefix="+">
-                                                            <span class="align-center justify-between"><span class="text">+1</span><i
-                                                                    class="material-icons expand-more">expand_more</i></span>
+                                                        <div id="phone-code" class="dropdown equal-width" value="{{$other->country->dial_code}}" valuefor="phone-number-prefix" vf-prefix="">
+                                                            <span class="align-center justify-between">
+                                                                <span class="text">{{$other->country->dial_code}}</span>
+                                                                {{-- <i class="material-icons expand-more">expand_more</i> --}}
+                                                            </span>
                                                             <ul class="dropdown-item"></ul>
                                                         </div>
-                                                        <input type="number" id="phone-number" parent=".input-text" placeholder="Phone Number" value="23456789098" valuefor="phone-number-info">
+                                                        <input type="text" class="number-format" id="phone-number" parent=".input-text" placeholder="Phone Number" data-name="phone_number" value="{{$userData->phone_number}}" valuefor="phone-number-info">
                                                     </div>
                                                 </div>
                                             </div>
@@ -141,7 +207,7 @@
                                             <div class="d-flex full-width form-responsive">
                                                 <div class="input-text">
                                                     <label>Website URL</label>
-                                                    <input type="text" id="website-url" placeholder="Website URL" valuefor="wesite-url-info">
+                                                    <input type="text" id="website-url" placeholder="Website URL" data-name="website_url" value="{{$userData->website_url}}" valuefor="wesite-url-info">
                                                 </div>
                                             </div>
                                             <div class="d-flex full-width justify-center align-center">
@@ -164,7 +230,7 @@
                                             <div class="d-flex full-width form-responsive">
                                                 <div class="input-text">
                                                     <label>Order Email</label>
-                                                    <input type="email" id="order-email" placeholder="Order Email" value="order@mail.com" valuefor="order-mail-info">
+                                                    <input type="email" id="order-email" placeholder="Order Email" data-name="order_email" value="{{$userData->order_email}}" valuefor="order-mail-info">
                                                 </div>
                                             </div>
                                             <div class="d-flex full-width justify-center align-center">
@@ -186,11 +252,11 @@
                                             <div class="d-flex full-width form-responsive">
                                                 <div class="input-text" required>
                                                     <label label="(Must be filled in)">Password</label>
-                                                    <input type="password" id="password" placeholder="Password">
+                                                    <input type="password" id="password" placeholder="Password" data-name="password">
                                                 </div>
                                                 <div class="input-text" required>
                                                     <label label="(Must be filled in)">Confirm Password</label>
-                                                    <input type="password" id="confirm-password" placeholder="Confirm Password">
+                                                    <input type="password" id="confirm-password" placeholder="Confirm Password" data-name="password_confirmation">
                                                 </div>
                                             </div>
                                             <div class="d-flex full-width justify-center align-center">
@@ -204,52 +270,53 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-container">
+                                <div class="form-container {{$userData->location_disclose=='on'?'no-disclose':null}}">
                                     <div class="d-flex full-width form-responsive">
                                         <div class="input-text">
                                             <!-- <label style="font-size: 14px">Visiting Address</label> -->
                                             <div class="_mt_10">
                                                 <div class="d-flex-important align-center">
                                                     <span class="checkbox align-in-center">
-                                                        <input type="checkbox" id="same-address" checked>
+                                                        <input type="checkbox" id="same-address" {{$userData->postal_address==$userData->visiting_address?'checked':null}}>
                                                         <span class="material-icons">check</span>
                                                     </span>
                                                     <label label="(Must be filled in)">Visiting address (for customers) is same as postal address?</label>
                                                 </div>
                                             </div>
                                             <div class="input-textarea p-0 input-fly-button" required>
-                                                <textarea id="visiting-address" placeholder="Visiting Address">2869 Broadway, New York, NY 10025, United States</textarea>
+                                                <textarea id="visiting-address" placeholder="Visiting Address" name="visiting_address">{{$userData->visiting_address}}</textarea>
                                                 <button type="button" id="update-map">Update Map</button>
                                             </div>
                                             <div class="mt-10">
                                                 <div class="d-flex-important align-center">
                                                     <span class="checkbox align-in-center">
-                                                        <input type="checkbox" id="no-disclose">
+                                                        <input type="checkbox" id="no-disclose" {{$userData->location_disclose=='on'?'checked':null}} name="location_disclose">
                                                         <span class="material-icons">check</span>
                                                     </span>
                                                     <label>We don't want to disclose our location on the map</label>
                                                 </div>
                                             </div>
                                             <div class="visiting-address">
-                                                <div id="map" tabindex="-1" latitude="40.80523" longitude="-73.96639309999999"></div>
+                                                <div id="map" tabindex="-1" latitude="{{$userData->latitude}}" longitude="{{$userData->longitude}}"></div>
+                                                <span title="Drive Direction" onclick="driveDirection()" class="material-icons drive-direction-button">directions_car</span>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="d-flex full-width flex-column px-5 form-responsive">
-                                        <div>
+                                        <div class="location-correct">
                                             <span class="text-white font-size-14" label="(Must be filled in)">Are you 100% sure your map location is correct? <font class="font-size-12">(Adjust the map manually so it better matches your location)</font></span>
                                             <div class="input-radio" required>
-                                                <div class="radio-value" value=""></div>
+                                                <div class="radio-value" value="{{$userData->location_disclose=='on'?'0':$userData->location_is_correct}}"></div>
                                                 <div class="d-flex-important align-center">
                                                     <span class="radio align-in-center">
-                                                        <input type="radio" name="location_is_correct" value="yes">
+                                                        <input type="radio" name="location_is_correct" value="yes" {{$userData->location_is_correct=='yes'?'checked':null}}>
                                                         <span class="material-icons">check</span>
                                                     </span>
                                                     <label class="font-size-12 opacity-8">YES, i am (Position will be locked)</label>
                                                 </div>
                                                 <div class="d-flex-important align-center">
                                                     <span class="radio align-in-center">
-                                                        <input type="radio" name="location_is_correct" value="no">
+                                                        <input type="radio" name="location_is_correct" value="no" {{$userData->location_is_correct=='no'?'checked':null}}>
                                                         <span class="material-icons">check</span>
                                                     </span>
                                                     <label class="font-size-12 opacity-8">No, I'm not sure (Map-pin is removed and we will contact you for further support)</label>
@@ -264,7 +331,7 @@
                                         </div>
                                         <div class="d-flex full-width justify-center align-center mb-20 mt-10">
                                             <div class="button-secondary button-md px-5">
-                                                <button class="update-info" type="submit">Update</button>
+                                                <button class="update-info" parent=".form-container" type="submit">Update</button>
                                             </div>
                                         </div>
                                     </div>
@@ -277,7 +344,6 @@
         </div>
 
         <iframe class="display-none" name="framesubmit" src=""></iframe>
-    <input id="logo-file" class="display-none" type="file" accept="image/*" onchange="loadFile(event)">
 
 @endsection
 
@@ -347,6 +413,20 @@
             padding: 2px 8px;
         }
 
+        #map .centerMarker{
+            position:absolute;
+            background:url('{{asset('icons/marker.png')}}') no-repeat;
+            background-size: auto 30px;
+            background-position: center;
+            top:50%;left:50%;
+            z-index:1;
+            margin-left:-15px;
+            margin-top:-30px;
+            height:30px;
+            width:30px;
+            cursor:pointer;
+        }
+
         #phone-code{
             position: absolute;
             min-width: 60px;
@@ -387,13 +467,13 @@
             left: 0;
             top: 0;
             color: #FFF;
-            background: rgba(0,0,0,0.6);
             width: 100%;
             height: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
             z-index: 1;
+            cursor: not-allowed;
         }
 
         /*.lock-map:after{
@@ -418,10 +498,10 @@
 
         .lock-map:before{
             content: "Map locked";
-        /*     background: #FFF; */
+            background: #1b1b1b;
             color: #FFF;
             position: absolute;
-            top: 10px;
+            bottom: 10px;
             left: 10px;
             border-radius: 20px;
             text-align: center;
@@ -430,7 +510,7 @@
             font-size: 14px;
             padding: 5px 10px;
             padding-left: 40px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+            box-shadow:  0 0 10px rgba(0,0,0,0.3);
         }
 
         .lock-map:after{
@@ -441,7 +521,7 @@
             font-size: 12px;
             color: #FFF;
             position: absolute;
-            top: 15px;
+            bottom: 15px;
             left: 20px;
             transform: unset;
             width: 20px;
@@ -506,7 +586,14 @@
         #order-mail-info:empty + span
         {
             display: block !important;
-    }
+        }
+
+        #update-map[disabled]{
+            background: #404040;
+            border: 1px solid #fff;
+            opacity: 0.2;
+            cursor: not-allowed;
+        }
 </style>
 @endsection
 
@@ -515,6 +602,10 @@
 @endsection
 
 @section('script_extra')
+
+    @if(session('success'))
+    <script>openDialog('Success', "{{session('success')}}");</script>
+    @endif
 
     <!-- Temporary Script for Logged in User >>> -->
     <script>
@@ -531,6 +622,34 @@
     <!-- >>> End -->
 
     <script>
+        function getLat(latlng){
+            var lat=0;
+            try{
+                lat = latlng.lat();
+            }catch(e){
+                lat = latlng.lat;
+            }
+            return lat;
+        }
+        function getLng(latlng){
+            var lat=0;
+            try{
+                lat = latlng.lng();
+            }catch(e){
+                lat = latlng.lng;
+            }
+            return lat;
+        }
+        function driveDirection(){
+            if(getCurrentLocation()==null && curLatlng==null){
+                openDialog('Unknown Location', 'Enable your location to know your location on map or reload page');
+                return;
+            }
+            var origin = getLat(curLatlng) + "%2C" + getLng(curLatlng);
+            var destination = getLat(latlng) + "%2C" + getLng(latlng);
+            var driveDirectionLink="https://www.google.com/maps/dir/?api=1&" + origin + "&destination=" + destination;
+            $('<a href="' + driveDirectionLink + '" target="blank"></a>')[0].click();
+        }
         var loadFile = function (event) {
             var output = $('#logo-img');
             var reader = new FileReader();
@@ -540,7 +659,7 @@
             reader.readAsDataURL(event.target.files[0]);
         };
 
-        function setInfoValue(){
+        /*function setInfoValue(){
             $('[valuefor]').each(function(){
                 var infoId=$(this).attr('valuefor');
                 var elm= $(this);
@@ -549,7 +668,39 @@
                 console.log(val);
                 $('#'+infoId).html((prefix? prefix:'')+val);
             })
+        }*/
+        var multiValue={};
+        
+        function setInfoValue(){
+            $('.tile-info').each(function(){
+                $(this).attr('id', 'ti'+Math.floor((Math.random()*1000) + 1));
+            })
+            $('[valuefor]').each(function(){
+                var infoId=$(this).attr('valuefor');
+                var elm= $(this);
+                var prefix=elm.attr('vf-prefix');
+                var val=elm.attr('value')? elm.attr('value') : elm.val();
+                if(prefix){
+                    val=prefix+val;
+                }
+                var valnum=elm.attr('valuenum');
+                if(valnum){
+                    var key=infoId;
+                    if(!multiValue[key]){
+                        multiValue[key]=[];
+                    }
+                    var mv=multiValue[key];
+                    mv[parseInt(elm.attr('valuenum'))-1]=val;
+                }else{
+                    $('#'+infoId).html(val);
+                }
+            })
+            for (var key of Object.keys(multiValue)) {
+                $('#'+key).html(multiValue[key].join(''));
+            }
         }
+
+        var countries=@php echo json_encode($countriesArr); @endphp;
     </script>
 
     <script>
@@ -559,7 +710,7 @@
             $(formChildElm?formChildElm:form).find('.input-text[required] input, .input-textarea[required] textarea, .input-text[required] .country-city-dropdown, .input-radio[required] .radio-value').each(function () {
                 var elm=$(this);
                 var parentElm = elm.attr('parent') ? elm.parents(elm.attr('parent')) : elm.parent();
-                var val= elm.attr('value')? elm.attr('value') : elm.val();
+                var val= (elm.is('input') || elm.is('textarea'))? elm.val() : elm.attr('value');
                 if( val == ''){
                     errMsgCount++;
                     parentElm.addClass('input-error');
@@ -567,6 +718,11 @@
                         var inpErr=document.createElement('span');
                             $(inpErr).addClass('err-msg').html('Required');
                         parentElm.append(inpErr);
+                    }
+                    if(parentElm.find('.text').length>0){
+                        parentElm.find('.text').focus();
+                    }else{
+                        elm.focus();
                     }
                     elm.on('keyup',function(){
                         $(this).parents('.input-error').removeClass('input-error');
@@ -590,6 +746,15 @@
 
             return true;
         }
+
+        function setInputForm(form){
+            if(countrySelectedID && $('#country').attr('name')){ $(form).append('<input type="hidden" name="country" value="'+countrySelectedID+'">'); }
+            if(citySelectedID && $('#city').attr('name')){ $(form).append('<input type="hidden" name="city" value="'+citySelectedID+'">'); }
+            if(locationIsCorrect=='yes' && latlng){ 
+                $(form).append('<input type="hidden" name="latitude" value="'+getLat(latlng)+'">');
+                $(form).append('<input type="hidden" name="longitude" value="'+getLng(latlng)+'">');
+            }
+        }
     </script>
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVckSdSfsjC7N1xkOULLyq38PbDiu9WvU&callback=initMap" defer></script>
@@ -603,10 +768,10 @@
         var locationIsCorrect = '';
         var loader;
         
-        $.getJSON("{{asset('library/country-city/countries+cities.json')}}", function (data) {
-            data = countryFilter(data);
+        var getCountries= function (data) {
             $.each(data, function (key, val) {
                 countryKeyData.push({
+                    "id": val.id,
                     "name": val.name,
                     "key": key,
                     "phone_code" : val.phone_code
@@ -615,13 +780,13 @@
                     item.click(function(e){
                         e.stopPropagation();
                         clearCity();
-                        $('#city-box').addClass('loading').html('');
+                        $('#city-box').addClass('loading').html('').parents('#city').attr('value','');
                         countrySelectedKey=key;
                         countrySelectedID=val.id;
                         setPhoneCode();
                         setMapAddress(val.name);
-                        loader = showLoader();
-                        getCities();
+                        //loader = showLoader();
+                        getCities(val.id);
                         var prn=$(this).parents('.country-city-dropdown');
                             prn.removeClass('expanded').addClass('selected').attr('value', $(this).attr('value'));
                             prn.find('.text').html( $(this).attr('value') );
@@ -629,38 +794,64 @@
                     })
                 $('#country-box').append(item);
 
-                var phoneCode = $('<li value="' + val.phone_code.replace('-') + '">' + val.name + ' (+'+ val.phone_code + ')' + '</li>');
+                /*var phoneCode = $('<li value="' + val.phone_code.replace('-') + '">' + val.name + ' ('+ val.phone_code + ')' + '</li>');
                     phoneCode.click(function(e){
                         e.stopPropagation();
                         var val=$(this).attr('value').replace('-');
                         $(this).parents('.dropdown')
                             .removeClass('expanded')
                             .attr('value', val)
-                            .find('.text').html('+' + val);
+                            .find('.text').html(val);
                         $('body').removeClass('dropdown-expanded');
                     })
-                $('#phone-code .dropdown-item').append(phoneCode);
+                $('#phone-code .dropdown-item').append(phoneCode);*/
             });
-
-            if(getMapLocation()){
-                marker.setPosition(latlng);
-                setMapPosition();
-                map.setZoom(15);
-                geocodeLatLng(geocoder, map);
-            }
 
             //Set city
             var index = countryKeyData.findIndexBy('name', $('#country').attr('value'));
             if (index >= 0) {
                 countrySelectedKey = countryKeyData[index].key;
-                getCities();
-                loader=showLoader();
+                getCities(countryKeyData[index].id);
+                //loader=showLoader();
             }
 
 
-        });
+        };
 
-        function getCities(){
+        getCountries(countries);
+
+        function getCities(idCountry){
+            if(!idCountry) return;
+            $('#city-box').html('');
+            $.ajax({
+                url: "{{url('api/fetch-cities')}}",
+                type: "POST",
+                data: {
+                    country_id: idCountry,
+                    _token: '{{csrf_token()}}'
+                },
+                dataType: 'json',
+                success: function (result) {
+                    $('#city-box').html('').removeClass('loading');
+                    $.each(result.cities, function (key, val) {
+                        var item = $('<div class="city-item" value="' + val.name + '">' + val.name + '</div>');
+                        item.click(function (e) {
+                            e.stopPropagation();
+                            citySelectedID = val.id;
+                            var address= $('#country .text').html() + ', ' + val.name;
+                            setMapAddress(address);
+                            var prn = $(this).parents('.country-city-dropdown');
+                            prn.removeClass('expanded').addClass('selected').attr('value', $(this).attr('value'));
+                            prn.find('.text').html($(this).attr('value'));
+                            $('body').removeClass('dropdown-expanded');
+                        })
+                        $('#city-box').append(item);
+                    });
+                    $('#city-box').removeClass('loading');
+                }
+            });
+
+            /*
             $.getJSON("{{asset('library/country-city/countries+cities.json')}}", function (data) {
                 $('#city-box').html('').removeClass('loading');
                 $.each(countryFilter(data)[countrySelectedKey].cities.filter((v, i, a) => a.findIndex(v2 => (v2.name === v.name)) === i), function (key, val) {
@@ -679,14 +870,16 @@
                 });
                 loader.remove();
             });
+            */
         }
+
 
         function setPhoneCode(){
             var index = countryKeyData.findIndexBy('key', countrySelectedKey);
             var pc = countryKeyData[index].phone_code;
             $('#phone-code')
                 .attr('value', pc.replace('-'))
-                .find('.text').html('+' + pc);
+                .find('.text').html(pc);
         }
 
         function clearCity(){
@@ -709,7 +902,16 @@
             setInfoValue();
 
             $('.update-info').click(function(){
-                formChildElm=$(this).parents('.tile-info');
+                var ti=[];
+                var prnt=$(this).attr('parent');
+                if(prnt){
+                    formChildElm=$(this).parents(prnt);
+                    return;
+                }
+                $('.tile-info.edit-mode').each(function(){
+                    ti.push('#'+$(this).attr('id'));
+                })
+                formChildElm=ti.join(',');
             })
 
             $('#country, #city, .dropdown').click(function(){
@@ -750,8 +952,13 @@
                 var parent= $(this).parents('.country-city-dropdown');
                 if(parent.hasClass('search-mode')){
                     parent
+                        .attr('value','')
                         .addClass('expanded')
-                        .removeClass('search-mode');
+                        .removeClass('search-mode selected')
+                        .find('.text').html('');
+                    if(parent.attr('id')=='country'){
+                        clearCity();
+                    }
                     if (isMobile) {
                         $('body').addClass('dropdown-expanded');
                     }
@@ -781,12 +988,19 @@
             })
             
             $('#no-disclose').on('change', function () {
+                var prnt=$(this).parents('.form-container');
                 if (this.checked) {
                     lockMap = true;
                     addRemoveMarker(0);
+                    prnt.addClass('no-disclose');
+                    resetLocationCorrect(false);
+                    $('input[name=location_is_correct]').prop('checked',false);
+                    $('.location-correct .radio-value').attr('value',0);
                 } else {
                     lockMap = false;
                     addRemoveMarker(1);
+                    prnt.removeClass('no-disclose');
+                    $('.location-correct .radio-value').attr('value','');
                 }
             })
             
@@ -796,33 +1010,27 @@
                 var errMsg= $(this).parents('.input-radio').find('.err-msg');
                 var val= $(this).val();
                 if(val == 'yes' && locationIsCorrect != 'yes'){
-                    $('#map').addClass('lock-map');
-                    lockMap=true;
-                    if(!marker){
-                        addRemoveMarker(1);
-                    }
-                    lockMapControl(true);
-                    locationIsCorrect='yes';
+                    setLocationIsCorrect(true);
                     prn.attr('value', 'yes');
                 }else if (val == 'no' && locationIsCorrect != 'no') {
-                    $('#map').removeClass('lock-map');
-                    lockMap=true;
-                    addRemoveMarker(0);
-                    lockMapControl(false);
-                    locationIsCorrect='no';
+                    setLocationIsCorrect(false);
                     prn.attr('value', 'no');
                 }else{
-                    $('#map').removeClass('lock-map');
-                    lockMap = false;
-                    if(!marker){
-                        addRemoveMarker(1);
-                    }
-                    lockMapControl(false);
-                    locationIsCorrect='';
-                    prn.attr('value', '');
+                    resetLocationCorrect();
                 }
                 errMsg.remove();
             })
+
+            function resetLocationCorrect(marker=true){
+                $('#map').removeClass('lock-map');
+                lockMap = false;
+                if(marker){
+                    addRemoveMarker(1);
+                }
+                lockMapControl(false);
+                locationIsCorrect='';
+                $('.radio-value').attr('value', '');
+            }
             
             /*$('#visiting-address').delayKeyup(function (elm) { 
                 setMapAddress(elm.val()); 
@@ -861,25 +1069,38 @@
                 $('#logo-file').click();
             })
             
-            $('#remove-logo').click(function(e){
+            /*$('#remove-logo').click(function(e){
                 e.stopPropagation();
                 $('#logo-img').attr('src','').parent().removeClass('image-opened');
+            })*/
+            $('#remove-logo').click(function(e){
+                e.stopPropagation();
+                var logoImg=$('#logo-img');
+                logoImg.parents('.logo-container').find('.button-update-photo').removeClass('display-none');
+                if(logoImg.is('[src*=http]')){
+                    logoImg.after('<input type="hidden" name="remove_image" value="1">');
+                }
+                logoImg.attr('src','').parent().removeClass('image-opened');
             })
 
             $('#country .text').keyup(function () {
                 var parent=$(this).parents('#country');
+                if(parent.attr('value')!=$(this).html()){
+                    if($('#city #city-box .city-item').length>0){ clearCity(); }
                     parent.find('.country-item').removeClass('not-match');
-                if ($(this).html() != '') {
-                    parent.addClass('search-mode');
-                    $('#country-box').find('.country-item:not([value*="' + $(this).html().toLowerCase() + '"i])').addClass('not-match');
-                } else {
-                    parent.removeClass('search-mode');
+                    if ($(this).html() != '') {
+                        parent.addClass('search-mode');
+                        $('#country-box').find('.country-item:not([value*="' + $(this).html().toLowerCase() + '"i])').addClass('not-match');
+                    } else {
+                        parent.removeClass('search-mode');
+                    }
+                    parent.attr('value','');
                 }
             })
             
             $('#city .text').keyup(function () {
                 var parent=$(this).parents('#city');
-                    parent.find('.city-item').removeClass('not-match');
+                    parent.attr('value','').find('.city-item').removeClass('not-match');
                 if ($(this).html() != '') {
                     parent.addClass('search-mode');
                     $('#city-box').find('.city-item:not([value*="' + $(this).html().toLowerCase() + '"i])').addClass('not-match');
@@ -888,11 +1109,37 @@
                 }
             })
             
-            $('.btn-edit').click(function () {
+            /*$('.btn-edit').click(function () {
                 var parent=$(this).parents('.tile-info');
                     parent.toggleClass('edit-mode');
+            })*/
+            $('.btn-edit').click(function () {
+                var elm=$(this);
+                var parent=elm.parents('.tile-info');
+                    parent.toggleClass('edit-mode');
+                    parent.find('.tile-hide [data-name]').each(function(){
+                        if(!elm.is(':contains(Cancel)')){
+                            $(this).attr('name', $(this).attr('data-name'))
+                        }else{
+                            $(this).removeAttr('name')
+                        }
+                    })
             })
         })
+
+        function setLocationIsCorrect(val=true){
+            if(val){
+                $('#map').addClass('lock-map');
+            }else{
+                $('#map').removeClass('lock-map');
+            }
+            lockMap=true;
+            if(!marker){
+                addRemoveMarker(val?1:0);
+            }
+            lockMapControl(val);
+            locationIsCorrect=val?'yes':'no';
+        }
 
         $(window).click(function(e){
             if ($(e.target).closest('.country-city-dropdown, .dropdown').length==0) {
@@ -909,7 +1156,7 @@
         })
 
         // Google Maps
-        let map, latlng, marker, infoWindow, geocoder;
+        let map, curLatlng, latlng, marker, infoWindow, geocoder;
         var lockMap=false;
         var infoWindowContent =
                 '<div id="iw-container">' +
@@ -921,19 +1168,23 @@
 
         function addRemoveMarker(val){
             if (val == 0) {
-                marker.setMap(null);
-                marker=null;
+                //marker.setMap(null);
+                //marker=null;
+                $('.drive-direction-button, .centerMarker').hide();
+                $('#update-map').prop('disabled',true);
             } else if(val == 1) {
-                addMarker();
+                //addMarker();
                 setMapPosition();
-                geocodeLatLng(geocoder, map);
+                //geocodeLatLng(geocoder, map);
+                $('.drive-direction-button, .centerMarker').show();
+                $('#update-map').prop('disabled',false);
             }
         }
 
         function setMapPosition() {
-            infoWindow.setPosition(latlng);
+            /*infoWindow.setPosition(latlng);
             infoWindow.setContent(infoWindowContent);
-            infoWindow.open(map, marker);
+            infoWindow.open(map, marker);*/
             map.setCenter(latlng);
         }
         
@@ -953,14 +1204,30 @@
                     strictBounds: true
                 },
             });
+
+            $('<div/>').addClass('centerMarker').appendTo(map.getDiv());
             
             geocoder = new google.maps.Geocoder();
 
             
             infoWindow = new google.maps.InfoWindow({content: infoWindowContent });
 
-            addMarker();
+            //addMarker();
 
+            google.maps.event.addListener(map, 'dragend', function () {
+                if (lockMap) { return; }
+                latlng = map.getCenter();
+                //geocodeLatLng(geocoder, map);
+            });
+
+            if(getMapLocation()){
+                setMapPosition();
+                map.setZoom(15);
+            }else{ 
+                getCurrentLocation();
+            }
+
+            /*
             google.maps.event.addListener(map, 'drag', function () {
                 if (lockMap) { return; }
                 infoWindow.close();
@@ -980,6 +1247,20 @@
                 marker.setPosition(latlng);
                 geocodeLatLng(geocoder, map);
             });
+            */
+
+            lockMap=@php echo ($userData->location_disclose=='on')?'true':'false'; @endphp;
+            @if($userData->location_disclose=='on')
+            addRemoveMarker(0);
+            @endif
+
+            @if($userData->location_is_correct=='yes')
+            setLocationIsCorrect(true);
+            @endif
+            
+            @if($userData->location_is_correct=='no')
+            setLocationIsCorrect(false);
+            @endif
 
 
         }
@@ -995,27 +1276,32 @@
             return null;
         }
 
-        function getCurrentLocation(){
+        function getCurrentLocation(value=false){
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(
                     (position) => {
-                        latlng = {
+                        var coordinate={
                             lat: position.coords.latitude,
                             lng: position.coords.longitude,
                         };
+                        curLatlng = coordinate;
 
-                        marker.setPosition(latlng);
-                        setMapPosition();
-                        map.setZoom(15);
-                        geocodeLatLng(geocoder, map);
+                        if(value){
+                            return coordinate;
+                        }else{
+                            latlng = coordinate;
+                            //marker.setPosition(latlng);
+                            setMapPosition();
+                            map.setZoom(15);
+                            //geocodeLatLng(geocoder, map);
+                        }
                     },
                     () => {
-                        handleLocationError(true, infoWindow, map.getCenter());
+                        return null;
                     }
                 );
             } else {
-                // Browser doesn't support Geolocation
-                handleLocationError(false, infoWindow, map.getCenter());
+                return null;
             }
         }
 
@@ -1024,7 +1310,7 @@
                 draggable: lock ? false : true
             });
             if(marker){
-                marker.setDraggable(lock ? false : true);
+                //marker.setDraggable(lock ? false : true);
             }
         }
 
@@ -1043,9 +1329,10 @@
                 position: latlng,
                 map: map,
                 icon: svgMarker,
-                draggable: true
+                //draggable: true
             });
 
+            /*
             marker.addListener("click", () => {
                 infoWindow.open(map, marker);
             });
@@ -1059,7 +1346,7 @@
                 setMapPosition();
                 geocodeLatLng(geocoder, map);
             });
-
+            */
             
         }
 
@@ -1070,7 +1357,7 @@
                     if (response.results[0]) {
                         var address= response.results[0].formatted_address;
                         setMapPosition();
-                        $('.map-marker-label').html(address);
+                        //$('.map-marker-label').html(address);
                         //$('#visiting-address').val(address);
 
                         var ac= response.results[0].address_components;
@@ -1120,9 +1407,11 @@
                             map.setCenter(new google.maps.LatLng(loc.lat(), loc.lng(), 7));
                             map.setZoom(13);
                         }
-                        geocodeLatLng(geocoder, map);
-                        marker.setPosition(latlng);
+                        //geocodeLatLng(geocoder, map);
+                        //marker.setPosition(latlng);
                         //setMapPosition();
+                    }else{
+                        openDialog('Map Info', "Can't find address on map");
                     }
                 });
             }

@@ -1549,6 +1549,10 @@ body.open-popup-page {
     padding: 10px 0;
 }
 
+.tile-no-border {
+    border: 0;
+}
+
 .tile+.tile {
     border-top: 0;
 }
@@ -1586,17 +1590,18 @@ body.open-popup-page {
 
 .drive-direction-button {
     position: absolute;
-    top: 10px;
-    left: 10px;
-    background: #FFF;
-    color: #5a5a5a;
-    width: 40px;
-    height: 40px;
-    text-align: center;
-    line-height: 40px !important;
-    border-radius: 50%;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-    cursor: pointer;
+        top: 10px;
+        left: 10px;
+        background: #EF280E;
+        color: #FFF;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        line-height: 40px !important;
+        border-radius: 50%;
+        box-shadow: 0 1px 3px rgb(0 0 0 / 50%);
+        cursor: pointer;
+        z-index: 100;
 }
 
 .distributor-item.logo-name-hover .company-logo img

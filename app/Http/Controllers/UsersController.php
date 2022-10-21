@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
+use App\Models\City;
+use App\Models\Country;
+use App\Models\Distributor;
+use App\Models\Investor;
 use Illuminate\Support\Facades\Auth;
 
 class UsersController extends Controller
@@ -117,5 +121,24 @@ class UsersController extends Controller
 
         return redirect()->route('admin.users.index')
             ->withSuccess(__('User deleted successfully.'));
+    }
+
+    public function accountInfo($id = null)
+    {
+        $user= auth()->user();
+        $userRole= $user->roles->pluck('name')->toArray()[0];
+        $userData= ("App\Models" . ($userRole == 'distributor' ? '\Distributor' : '\Investor'))::where('user_id', auth()->user()->id)->first();
+        $other=array();
+        if($userData->country && $userData->city){
+            $other= [
+                'country'=> (object) Country::where('id', $userData->country)->first()->toArray(),
+                'city'=> (object) City::where('id', $userData->city)->first()->toArray(),
+            ];
+        }
+        return view('account/'.($userRole == 'distributor' ? 'distributor' : 'investor'),[
+            'user'=>$user,
+            'userData'=> $userData,
+            'other'=> (object) $other,
+        ]);
     }
 }
