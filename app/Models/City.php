@@ -9,6 +9,8 @@ class City extends Model
 {
     use HasFactory;
 
+    protected $visible = ['id', 'name'];
+
     /**
      * The attributes that are mass assignable.
      *
@@ -21,6 +23,6 @@ class City extends Model
 
     public function state()
     {
-        return $this->belongsTo(State::class,'id', 'state_id');
+        return $this->belongsTo(State::class,'state_id');
     }
 }

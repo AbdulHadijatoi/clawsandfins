@@ -242,15 +242,20 @@ page-no-arc
                     },
                     dataType: 'json',
                     success: function (result) {
-                        // console.log(result.dial_code);
+                        // console.log(result);
                         $('#city-dropdown').html('<option value="">-- Select City --</option>');
-                        $.each(result.cities, function (key, value) {
-                            //stateCities.forEach(value => {
-                                if(value.id != null && value.name != null){
-                                    $("#city-dropdown").append('<option value="' + value
-                                        .id + '">' + value.name + '</option>');    
+                        $.each(result.states, function (key1, state) {
+                            $.each(state, function (key2, cities) {
+                                if(key2 == 'cities'){
+                                    $.each(cities, function (key3, city) {
+                                        // console.log(city.name);
+                                        $("#city-dropdown").append('<option value="' + city
+                                        .id + '">' + city.name + '</option>');    
+                                    });
                                 }
-                            //});
+                                
+                            });
+                           
                             
                         });
                         // document.getElementById('dial_code').innerHTML = '<option>' + result.dial_code + '</option>';

@@ -92,24 +92,7 @@ class HomeController extends Controller
      */
     public function fetchCity(Request $request)
     {
-        $country = Country::find($request->country_id);
-        $states = State::where('country_id',$request->country_id)->get(['id']);
-        $data['cities'] = [];
-        foreach ($states as $key => $state) {
-            $data['cities'] = array_merge($data['cities'], City::where("state_id", $state->id)
-            ->orderBy('name')
-                ->get(["name", "id"])->toArray());
-            // array_push(
-            //     $data['cities'],
-            //     City::where("state_id", $state->id)
-            //         ->orderBy('name')
-            //         ->get(["name", "id"]));
-        }
-        $cities = array_column($data['cities'], 'name');
-        array_multisort($cities, SORT_ASC, $data['cities']);
-
-        $data['dial_code'] = $country->dial_code;
-                                      
-        return response()->json($data);
+        $country = Country::with('states.cities')->where('id',$request->country_id)->first(['id','dial_code']);                              
+        return response()->json($country);
     }
 }

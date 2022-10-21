@@ -55,6 +55,7 @@ Route::get('/account/add-user', function () {
 });
 // Navigation menu url routes:ends
 Route::post('api/fetch-cities', [HomeController::class, 'fetchCity']);
+Route::get('test', [HomeController::class, 'fetchCity']);
 
 Route::group(['namespace' => 'App\Http\Controllers'], function()
 {   
