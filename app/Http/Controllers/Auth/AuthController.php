@@ -62,11 +62,12 @@ class AuthController extends Controller
      */
     public function postLogin(Request $request)
     {
-        $request->validate([
+        $this->validate($request,[
             'email' => 'required',
-            'password' => 'required',
+            'password' => 'required'
         ]);
    
+
         $credentials = $request->only('email', 'password');
         $user = User::where('email',$request->email)->first();
         if($user && $user->getRoleNames()[0] != 'admin'){
@@ -82,9 +83,9 @@ class AuthController extends Controller
 
     public function adminPostLogin(Request $request)
     {
-        $request->validate([
+        $this->validate($request,[
             'email' => 'required',
-            'password' => 'required',
+            'password' => 'required'
         ]);
    
         $credentials = $request->only('email', 'password');
@@ -106,6 +107,18 @@ class AuthController extends Controller
      */
     public function postBecomeDistributor(StoreUserRequest $request)
     {  
+        $this->validate($request,[
+            'company_name' => 'required',
+            'contact_name' => 'required',
+            'country' => 'required',
+            'city' => 'required',
+            'postal_address' => 'required',
+            'phone_number' => 'required',
+            'email' => 'required|email:rfc,dns|unique:users,email',
+            'password' => 'required|confirmed|min:8',
+            'visiting_address' => 'required',
+            'location_is_correct' => 'required'
+        ]);
         // 'attachments.*' => 'mimes:zip,rar,jpeg,jpg,png,gif,svg,pdf,txt,doc,docx,application/octet-stream,audio/mpeg,mpga,mp3,wav|max:204800', //only allow this type extension file.
         $request->request->add(['name' => $request->company_name]); //add request
         $request->request->add(['status' => 0]); //add request
@@ -141,7 +154,16 @@ class AuthController extends Controller
      * @return response()
      */
     public function postBecomeInvestor(StoreUserRequest $request)
-    {      
+    {    
+        $this->validate($request,[
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'email' => 'required|email:rfc,dns|unique:users,email',
+            'password' => 'required|confirmed|min:8',
+            'address' => 'required',
+            'size_of_investment' => 'required',
+            'special_skills' => 'required'
+        ]);  
 
         $request->request->add(['name' => $request->first_name]); //add request
         $request->request->add(['status' => 0]); //add request
