@@ -8,6 +8,7 @@ use App\Models\Country;
 use App\Models\State;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -94,24 +95,17 @@ class HomeController extends Controller
      */
     public function fetchCity(Request $request)
     {
-        $country = Country::find($request->country_id);
-        $states = State::where('country_id',$request->country_id)->get(['id']);
-        $data['cities'] = [];
-        foreach ($states as $key => $state) {
-            $data['cities'] = array_merge($data['cities'], City::where("state_id", $state->id)
-            ->orderBy('name')
-                ->get(["name", "id"])->toArray());
-            // array_push(
-            //     $data['cities'],
-            //     City::where("state_id", $state->id)
-            //         ->orderBy('name')
-            //         ->get(["name", "id"]));
-        }
-        $cities = array_column($data['cities'], 'name');
-        array_multisort($cities, SORT_ASC, $data['cities']);
-
-        $data['dial_code'] = $country->dial_code;
-                                      
+        $country = Country::where('id',$request->country_id)->first(['dial_code']);
+        $data = [];
+        
+        $cities = DB::table('countries')
+                    ->rightJoin('states', 'countries.id', '=', 'states.country_id')
+                    ->rightJoin('cities', 'states.id', '=', 'cities.state_id')
+                    ->where('countries.id','=',$request->country_id)
+                    ->select('cities.id', 'cities.name')
+                    ->get();                           
+        $data['dial_code'] = $country->dial_code;             
+        $data['cities'] = $cities;             
         return response()->json($data);
     }
 

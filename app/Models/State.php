@@ -9,6 +9,7 @@ class State extends Model
 {
     use HasFactory;
 
+    // protected $visible = ['id','name'];
     /**
      * The attributes that are mass assignable.
      *
@@ -21,11 +22,11 @@ class State extends Model
 
     public function country()
     {
-        return $this->belongsTo(State::class,'id', 'country_id');
+        return $this->belongsTo(State::class, 'country_id');
     }
    
     public function cities()
     {
-        return $this->hasMany(City::class,'state_id', 'id');
+        return $this->hasMany(City::class,'state_id');
     }
 }
