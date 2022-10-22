@@ -217,6 +217,13 @@ button:focus {
     outline: none;
 }
 
+button[disabled] {
+    background: #404040 !important;
+    border: 1px solid #fff !important;
+    opacity: 0.2;
+    cursor: not-allowed !important;
+}
+
 #menu-toggle {
     width: auto;
     height: auto;
@@ -1648,6 +1655,10 @@ body.open-popup-page {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
     transition: opacity .2s ease;
     transition-delay: .5s;
+}
+
+.no-disclose .location-correct {
+    display: none;
 }
 
 /* Portrait Mode */
