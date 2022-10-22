@@ -61,7 +61,6 @@
 
 
         </style>
-        @livewireStyles
     </head>
     
     <body class="@hasSection('body_class') @yield('body_class') @else open @endif">
@@ -79,6 +78,5 @@
         </div>
         @yield('script_extra')
 
-        @livewireScripts
     </body>
 </html>
