@@ -68,7 +68,7 @@ page-no-arc
                                     </div>
                                     <div class="input-text relative" required>
                                         <label label="(Must be filled in)">City</label>
-                                        <div id="loading" class="absolute top-0 mt-40 ml-5 hidden" wire:loading>
+                                        <div id="loading" class="absolute top-0 mt-40 ml-5 hidden">
                                             <div class="lds-dual-ring"></div>
                                         </div>
                                         <select id="city-dropdown" name="city" style="outline:none">
