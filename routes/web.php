@@ -55,6 +55,7 @@ Route::get('/account/add-user', function () {
 });
 // Navigation menu url routes:ends
 Route::post('api/fetch-cities', [HomeController::class, 'fetchCity']);
+Route::post('contact-us/send', [HomeController::class, 'sendMessage'])->name('contact-us.send');
 
 Route::group(['namespace' => 'App\Http\Controllers'], function()
 {   
@@ -97,6 +98,11 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
     });
     Route::group(['middleware' => ['auth', 'role:admin|distributor'],'prefix'=>'admin'], function() {
         Route::get('/', 'UsersController@index')->name('users.index');
+
+        Route::group(['prefix' => 'settings'], function () {
+            Route::get('/', 'SettingsController@index')->name('settings.index');
+            Route::post('/update', 'SettingsController@update')->name('settings.update');
+        });
         /**
          * Logout Routes
          */

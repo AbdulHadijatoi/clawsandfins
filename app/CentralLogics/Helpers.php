@@ -3,6 +3,7 @@
 namespace App\CentralLogics;
 
 use App\Models\Country;
+use App\Models\Settings;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Storage;
@@ -39,5 +40,12 @@ class Helpers
             unset($array[$key]);
         }
         return $array;
+    }
+    public static function js($script){
+        echo "<script>".$script."</script>";
+    }
+    public static function getSettingValue($field)
+    {
+        return Settings::where('field', $field)->first()->value;
     }
 }

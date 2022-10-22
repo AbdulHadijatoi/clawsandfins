@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\CentralLogics\Helpers;
 use App\Models\City;
 use App\Models\Country;
 use App\Models\State;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
@@ -111,5 +113,20 @@ class HomeController extends Controller
         $data['dial_code'] = $country->dial_code;
                                       
         return response()->json($data);
+    }
+
+    public function sendMessage(Request $request){
+        $address = config("mail.from.address");
+        $mailer= Helpers::getSettingValue('contact_us_mailer');
+        try {
+            Mail::send('mail.contact-us', ['description'=> $request->message], function ($m) use ($request, $address, $mailer) {
+                $m->from($address, $request->name);
+                $m->replyTo($request->email, $request->name);
+                $m->to($mailer)->subject($request->subject);
+            });
+            Helpers::js("parent.loader.remove();parent.$('#form')[0].reset();parent.openDialog('Message sent', 'Thanks, you message have been sent to us. We will reply to you shortly')");
+        } catch (\Exception $e) {
+            Helpers::js("parent.loader.remove();parent.openDialog('Message error', 'Message cant send, Please try again')");
+        }
     }
 }

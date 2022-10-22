@@ -40,6 +40,9 @@
                             @if(Auth::user()->getRoleNames()[0] == 'distributor')
                                 <li><a href="{{url('account/add-user')}}">Add User</a></li>
                             @endif
+                            @if(Auth::user()->getRoleNames()[0] == 'admin')
+                                <li><a href="{{url('admin/settings')}}">Settings</a></li>
+                            @endif
                             <li class="md-divider"></li>
                             <li class="logout-menu display-none"><a href="{{route('logout')}}">Log out</a></li>
                         </ul>

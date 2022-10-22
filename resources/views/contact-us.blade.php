@@ -26,27 +26,28 @@ page-no-arc
                                 <div class="text-white p-20 text-center mb-20">
                                     Fill out the form and well get back to you as soon as possible
                                 </div>
-                                <form action="message-sent" method="get" onsubmit="return inputValidation(this)" target="framesubmit">
+                                <form id="form" action="{{route('contact-us.send')}}" method="POST" onsubmit="return inputValidation(this,function(){ loader=showLoader(); });" target="framesubmit">
+                                    @csrf
                                     <div class="d-flex full-width form-responsive">
                                         <div class="input-text">
                                             <label>Name</label>
-                                            <input type="text" id="name" placeholder="Name">
+                                            <input type="text" id="name" placeholder="Name" name="name">
                                         </div>
                                         <div class="input-text">
                                             <label>Email</label>
-                                            <input type="text" id="email" placeholder="Email">
+                                            <input type="text" id="email" placeholder="Email" name="email">
                                         </div>
                                     </div>
                                     <div class="d-flex full-width form-responsive">
                                         <div class="input-text">
                                             <label>Subject</label>
-                                            <input type="text" id="subject" placeholder="Subject">
+                                            <input type="text" id="subject" placeholder="Subject" name="subject">
                                         </div>
                                     </div>
                                     <div class="d-flex full-width form-responsive">
                                         <div class="input-textarea">
                                             <label>Message</label>
-                                            <textarea id="message" placeholder="Type message"></textarea>
+                                            <textarea id="message" placeholder="Type message" name="message"></textarea>
                                         </div>
                                     </div>
                                     <div class="d-flex full-width justify-center">
@@ -106,7 +107,8 @@ page-no-arc
     
 </script>
 <script>
-    function inputValidation(form) {
+    var loader;
+    function inputValidation(form,callback) {
         var errMsgCount = 0;
         $(form).find('input[type=text],textarea').each(function () {
             var elm = $(this);
@@ -133,8 +135,11 @@ page-no-arc
             return false;
         }
 
+        callback();
+
         return true;
     }
+
 </script>
 <!-- >>> End -->
 @endsection
