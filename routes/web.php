@@ -57,6 +57,7 @@ Route::get('/account/add-user', function () {
 Route::post('api/fetch-cities', [HomeController::class, 'fetchCity']);
 Route::post('contact-us/send', [HomeController::class, 'sendMessage'])->name('contact-us.send');
 
+
 Route::group(['namespace' => 'App\Http\Controllers'], function()
 {   
     /**

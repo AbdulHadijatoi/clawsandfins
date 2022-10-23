@@ -95,6 +95,13 @@
                                             <input type="password" id="password" placeholder="Password" style="box-shadow: unset;" name="password">
                                         </div>
                                     </div>
+                                    @if(count($errors))
+                                        @foreach($errors->all() as $error)
+                                            <div class="info primary-warning d-flex-important">
+                                                <label>{{ $error }}</label>
+                                            </div>
+                                        @endforeach
+                                    @endif
                                     @if(session('error'))
                                         <div class="info primary-warning d-flex-important">
                                             <label>{{session('error')}}</label>
