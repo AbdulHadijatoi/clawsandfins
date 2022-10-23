@@ -23,6 +23,14 @@ page-no-arc
             border-radius: 5px;
             padding: 2px 8px;
         }
+        .confirm-box .fa{
+            font-size: 150px;
+            color: #EF280E;
+            text-shadow: 0 0 5px rgba(0,0,0,0.3);
+        }
+        header, footer{
+            display: none !important;
+        }
     </style>
 @endsection
 
@@ -33,25 +41,35 @@ page-no-arc
                 <div class="content">
                     <div class="full-width align-in-center pb-120">
                         <div class="_75-width md_90-width flex-column justify-center max-w700">
-                            <div class="confirm-box text-center">
+                            @if($status==1)
+                            <div class="confirm-box text-center" style="margin-top: 150px;">
                                 <img src="{{asset('svg/mail.svg')}}">
-                                <h1 class="h1 text-yellow sm_font-size-35 text-center mb-30">Confirm your email address
+                                <h1 class="h1 text-yellow sm_font-size-35 text-center mb-30">Email activation success
                                 </h1>
                                 <div class="text-light p-20 text-center">
-                                    We sent a confirmation email to:
-                                </div>
-                                <div class="text-light p-20 text-center">
-                                    <strong>{{$user->email}}</strong>
-                                </div>
-                                <div class="text-light p-20 text-center">
-                                    Check your email and click on the<br>confirmation link to continue.
+                                    Please log in to start using your account
                                 </div>
                                 <div class="d-flex full-width justify-center">
                                     <div class="button-secondary">
-                                        <button type="submit" class="resend-email">Resend Email</button>
+                                        <button type="submit" onclick="location.href='{{route('login')}}'">Log In</button>
                                     </div>
                                 </div>
                             </div>
+                            @else
+                            <div class="confirm-box text-center" style="background: #0f0f0f">
+                                <span class="fa fa-times-circle"></span>
+                                <h1 class="h1 text-yellow sm_font-size-35 text-center mb-30">Email verification link has expired
+                                </h1>
+                                <div class="text-light p-20 text-center" style="color: #959595">
+                                    Please log in and resend the link
+                                </div>
+                                <div class="d-flex full-width justify-center">
+                                    <div class="button-secondary">
+                                        <button type="submit" onclick="location.href='{{route('login')}}'">Log In</button>
+                                    </div>
+                                </div>
+                            </div>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -61,29 +79,6 @@ page-no-arc
 
 @section('script_extra')
 <script>
-    var loader;
-    $('.resend-email').click(function(){
-        loader=showLoader();
-        $.ajax({
-            url: "{{url('confirm-email/resend/'.request()->token)}}",
-            type: "POST",
-            data: {
-                _token: '{{csrf_token()}}'
-            },
-            dataType: 'json',
-            success: function (result) {
-                if(result.success){
-                    openDialog('Confirm Email', 'Confirmation email has been sent successfully');
-                }else if(result.error){
-                    if(result.error == 1){
-                        openDialog('Confirm Email', 'Confirmation email not sent, check yout connection');
-                    }else{
-                        openDialog('Error', 'Something went wrong, please try again');
-                    }
-                }
-                loader.remove();
-            }
-        });
-    })
+    
 </script>
 @endsection

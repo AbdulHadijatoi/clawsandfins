@@ -18,6 +18,8 @@ use App\Traits\SendMail;
 use Hash;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class AuthController extends Controller
 {
@@ -105,7 +107,10 @@ class AuthController extends Controller
      * @return response()
      */
     public function postBecomeDistributor(StoreUserRequest $request)
-    {  
+    {
+        if (User::where('email', $request->email)->first()) {
+            return redirect()->back()->withInput()->withErrors(['mail_used' => 'Email has been used']);
+        }
         // 'attachments.*' => 'mimes:zip,rar,jpeg,jpg,png,gif,svg,pdf,txt,doc,docx,application/octet-stream,audio/mpeg,mpga,mp3,wav|max:204800', //only allow this type extension file.
         $request->request->add(['name' => $request->company_name]); //add request
         $request->request->add(['status' => 0]); //add request
@@ -120,13 +125,16 @@ class AuthController extends Controller
         $data['image'] = $image_name;
         $user = User::create($data);
         if($user){
+            $token = sha1($user->id . '.' . $user->email);
             $user->assignRole('distributor');
             $request->request->add(['user_id' => $user->id]); //add request
             $data = $request->all();
             $distributor = Distributor::create($data);
             if($distributor){
                 // $this->sendInvoiceMail($order->order_number, $order);
-                return redirect("/login")->withSuccess('Successully submitted the distributor application. Please wait a while until we review your request');
+                $this->sendConfirmEmail($user);
+                return redirect()->route("confirm-email", ['token' => $token]);
+                // return redirect("/login")->withSuccess('Successully submitted the distributor application. Please wait a while until we review your request');
             }else{
                 return back()->withError('Something went wrong, please try again');
             }
@@ -141,8 +149,11 @@ class AuthController extends Controller
      * @return response()
      */
     public function postBecomeInvestor(StoreUserRequest $request)
-    {      
-
+    {
+        if (User::where('email', $request->email)->first()) {
+            return redirect()->back()->withInput()->withErrors(['mail_used' => 'Email has been used']);
+        }
+        
         $request->request->add(['name' => $request->first_name]); //add request
         $request->request->add(['status' => 0]); //add request
         $data = $request->all();
@@ -155,20 +166,94 @@ class AuthController extends Controller
         // UPLOAD IMAGE:ENDS
         $data['image'] = $image_name;
         $user = User::create($data);
+
         if($user){
+            $token= sha1($user->id.'.'.$user->email);
             $user->assignRole('investor');
             $request->request->add(['user_id' => $user->id]); //add request
             $data = $request->all();
             $investor = Investor::create($data);
+            
             if($investor){
                 // $this->sendInvoiceMail($order->order_number, $order);
-                return redirect("/login")->withSuccess('Successully submitted the investor application. Please wait a while until we review your request');
+                $this->sendConfirmEmail($user);
+                return redirect()->route("confirm-email", ['token' => $token]);
             }else{
-                return back()->withError('Something went wrong, please try again');
+                return back()->withInput()->withErrors(['error','Something went wrong, please try again']);
             }
         }else{
-            return back()->withError('Something went wrong, please try again');
+            return back()->withInput()->withErrors(['error', 'Something went wrong, please try again']);
         }
+    }
+
+    public static function getUserWithToken($token){
+        return User::where(DB::raw('SHA1(CONCAT(id,".",email))'), $token)->first();
+    }
+
+    public function confirmEmail(Request $request){
+        if(!$request->token){
+            return redirect('/login');
+        }
+        $user = AuthController::getUserWithToken($request->token);
+        return view('auth.register.confirm-email',compact('user'));
+        // return view('mail.email-confirmation', ['name' => "Rahmat Dani Zaki", 'url' => url("confirm-email/activation/")]);
+    }
+    
+    public function emailActivation($token){
+        $user = User::where(DB::raw('SHA1(CONCAT(id,".",email,".",updated_at))'), $token)->first();
+        $status = 0;
+        if($user){
+            $verified_at= date('Y-m-d H:i:s');
+            $hours = (strtotime($verified_at) - strtotime($user->updated_at)) / (60 * 60);
+            
+            if($hours > 1){
+                $status = 2;
+            }else{
+                $user->email_verified_at = $verified_at;
+                $verified=$user->save();
+                if($verified){
+                    $status = 1;
+                }
+            }
+        }else{
+            $status = 0;
+        }
+
+        return view('auth.register.email-activation', compact('status'));
+    }
+
+    public function sendConfirmEmail($user)
+    {
+        $activation_token = sha1($user->id . '.' . $user->email . '.' . $user->updated_at);
+        $address = config("mail.from.address");
+        $subject = "Confirm your Email Address for Pete's Claws and Fins";
+        try {
+            Mail::send('mail.email-confirmation', ['name' => $user->name, 'url' => url("confirm-email/activation/" . $activation_token)], function ($m) use ($user, $subject, $address) {
+                $m->from($address, "Pete's Claws and Fins");
+                $m->to($user->email)->subject($subject);
+            });
+            return true;
+        } catch (\Exception $e) {
+           return false;
+        }
+    }
+
+    public function resendEmailActivation($token){
+        $user=$this->getUserWithToken($token);
+        if($user){
+            $user->updated_at= date('Y-m-d H:i:s');
+            $updated=$user->save();
+            $sended = $updated? $this->sendConfirmEmail($user) : null;
+            if($sended){
+                $data['success'] = true;
+            }else{
+                $data['error'] = 1;
+            }
+        }else{
+            $data['error'] = 2;
+        }
+
+        return response()->json($data);
     }
 
     /**

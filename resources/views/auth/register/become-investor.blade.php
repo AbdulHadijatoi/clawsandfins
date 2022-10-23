@@ -89,13 +89,6 @@ page-no-arc
                                             <textarea id="skills" placeholder="Special skills" name="special_skills">{{old('special_skills')}}</textarea>
                                         </div>
                                     </div>
-                                    @if ($errors->any())
-                                        @foreach ($errors->all() as $error)
-                                            <div class="info primary-warning d-flex-important">
-                                                <label>{{$error}}</label>
-                                            </div>
-                                        @endforeach
-                                    @endif
                                     <div class="d-flex full-width justify-center">
                                         <div class="button-secondary">
                                             <button type="submit">SUBMIT</button>
@@ -109,7 +102,15 @@ page-no-arc
                 </div>
             </section>
         </div>
-
+        @if ($errors->any())
+            @php
+            $error=true;
+            $errMsg=$errors->all()[0];
+            @endphp
+            <div class="info primary-warning d-flex-important" style="opacity: 0">
+                <label class="d-flex align-center"><span class="fa fa-times-circle mr-10" style="font-size: 20px"></span>{{$errMsg}}</label>
+            </div>
+        @endif
 
 @endsection
     
@@ -130,6 +131,11 @@ page-no-arc
 <!-- >>> End -->
 
 <script>
+    @if(isset($error))
+    $('.info.primary-warning').addClass('info-flying');
+    setTimeout(function(){ $('.info-flying').remove(); }, 5000);
+    @endif
+
     var loadFile = function (event) {
         var output = $('#logo-img');
         var reader = new FileReader();
@@ -290,6 +296,18 @@ page-no-arc
 
     .form-container{
         background: #4b4b4b;
+    }
+
+    .info-flying{
+        position: fixed;
+        z-index: 3;
+        bottom: 60px;
+        left: 50%;
+        transform: translatex(-50%);
+        box-shadow: 0 0 5px rgba(0,0,0,0.5);
+        border-radius: 20px;
+        opacity: 1 !important;
+        transition: all .5s ease-in-out;
     }
 </style>
 @endsection

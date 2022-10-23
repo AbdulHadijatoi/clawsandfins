@@ -76,6 +76,9 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::get('become-investor', [AuthController::class, 'becomeInvestor'])->name('become-investor');
         Route::get('forgot-password', [AuthController::class, 'forgotPassword'])->name('forgot-password');
         Route::post('post-become-investor', [AuthController::class, 'postBecomeInvestor'])->name('become-investor.post'); 
+        Route::get('confirm-email', [AuthController::class, 'confirmEmail'])->name('confirm-email');
+        Route::get('confirm-email/activation/{token}', [AuthController::class, 'emailActivation'])->name('confirm-email.activation');
+        Route::post('confirm-email/resend/{token}', [AuthController::class, 'resendEmailActivation'])->name('confirm-email.resend');
         
         /**
          * Login Routes
