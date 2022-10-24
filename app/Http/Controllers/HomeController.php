@@ -103,6 +103,7 @@ class HomeController extends Controller
                     ->rightJoin('cities', 'states.id', '=', 'cities.state_id')
                     ->where('countries.id','=',$request->country_id)
                     ->select('cities.id', 'cities.name')
+                    ->orderBy('name')
                     ->get();                           
         $data['dial_code'] = $country->dial_code;             
         $data['cities'] = $cities;             
