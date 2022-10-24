@@ -36,7 +36,9 @@
                 <div class="company-info align-center full-height">
                     <div class="menu-dropdown-overlay">
                         <ul>
-                            <li><a href="{{url('account')}}">Account Info</a></li>
+                            @if(Auth::user()->getRoleNames()[0] != 'admin')
+                                <li><a href="{{url('account')}}">Account Info</a></li>
+                            @endif
                             @if(Auth::user()->getRoleNames()[0] == 'distributor')
                                 <li><a href="{{url('account/add-user')}}">Add User</a></li>
                             @endif

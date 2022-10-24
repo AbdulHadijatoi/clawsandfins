@@ -23,7 +23,7 @@
                 </clipPath>
                 <g style="clip-path:url(#Rectangle_7_00000089573270239812126640000004520386975560608171_);">
                     
-                        <image style="overflow:visible;" width="1429" height="877" xlink:href="images/image_3.jpg"  transform="matrix(0.2589 0 0 0.2589 127.85 834.8722)">
+                        <image style="overflow:visible;" width="1429" height="877" xlink:href="{{asset('images/image_3.jpg')}}"  transform="matrix(0.2589 0 0 0.2589 127.85 834.8722)">
                     </image>
                 </g>
             </g>
@@ -50,7 +50,7 @@
                     <use xlink:href="#Rectangle_7_00000118374291188098860910000009259735561836766373_"  style="overflow:visible;"/>
                 </clipPath>
                 <g style="clip-path:url(#Rectangle_7_00000071535616020478365760000010045756066559111054_);">
-                        <image style="overflow:visible;" width="1429" height="877" xlink:href="images/image_5.jpg"  transform="matrix(0.2014 0 0 0.2014 496 920.1766)">
+                        <image style="overflow:visible;" width="1429" height="877" xlink:href="{{asset('images/image_5.jpg')}}"  transform="matrix(0.2014 0 0 0.2014 496 920.1766)">
                     </image>
                 </g>
             </g>
@@ -75,7 +75,7 @@
                     <use xlink:href="#Rectangle_7_00000052821040910783348520000017259514160633741959_"  style="overflow:visible;"/>
                 </clipPath>
                 <g style="clip-path:url(#Rectangle_7_00000011750910233994347730000001836264302129693076_); ">
-                        <image style="overflow:visible;" width="1429" height="877" xlink:href="images/image_6.jpg"  transform="matrix(0.2463 0 0 0.2463 281.5209 988.9645)">
+                        <image style="overflow:visible;" width="1429" height="877" xlink:href="{{asset('images/image_6.jpg')}}"  transform="matrix(0.2463 0 0 0.2463 281.5209 988.9645)">
                     </image>
                 </g>
             </g>
