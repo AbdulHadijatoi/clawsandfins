@@ -20,6 +20,7 @@ use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Redirect;
 
 class AuthController extends Controller
 {
@@ -175,7 +176,6 @@ class AuthController extends Controller
             $investor = Investor::create($data);
             
             if($investor){
-                // $this->sendInvoiceMail($order->order_number, $order);
                 $this->sendConfirmEmail($user);
                 return redirect()->route("confirm-email", ['token' => $token]);
             }else{
@@ -192,7 +192,7 @@ class AuthController extends Controller
 
     public function confirmEmail(Request $request){
         if(!$request->token){
-            return redirect('/login');
+            return Redirect::route('login');
         }
         $user = AuthController::getUserWithToken($request->token);
         return view('auth.register.confirm-email',compact('user'));

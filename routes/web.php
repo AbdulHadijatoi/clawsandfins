@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 // Route::get('dashboard', [AuthController::class, 'dashboard']); 
 
-
+Route::get('logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
 
 // Navigation menu url routes:begins
 Route::get('/soft-shelled-mudcrabs', function () {
@@ -50,9 +50,7 @@ Route::get('/future-ideas', function () {
 Route::get('/financial-updates', function () {
     return view('financial-updates');
 });
-Route::get('/account/add-user', function () {
-    return view('account/add-user');
-});
+
 // Navigation menu url routes:ends
 Route::post('api/fetch-cities', [HomeController::class, 'fetchCity']);
 Route::post('contact-us/send', [HomeController::class, 'sendMessage'])->name('contact-us.send');
@@ -93,24 +91,27 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         
     });
 
-    Route::group(['middleware' => ['auth']], function() {
+    Route::get('verification-notice', function () {
+        return view('auth.register.verification-notice');
+    })->name('verificationNotice')->middleware('auth');
+    Route::group(['middleware' => ['auth','verified']], function() {
         Route::get('/account/{id?}', 'UsersController@accountInfo')->name('account-info');
         Route::post('post-edit-distributor', [AuthController::class, 'postEditDistributor'])->name('edit-distributor.post');
         Route::post('post-edit-investor', [AuthController::class, 'postEditInvestor'])->name('edit-investor.post');
-
-        Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+        
+        Route::get('/account/add-user', function () {
+            return view('account/add-user');
+        });
     });
-    Route::group(['middleware' => ['auth', 'role:admin|distributor'],'prefix'=>'admin'], function() {
+
+    // Later will remove the distributor role and just limit access of distributor to only users
+    Route::group(['middleware' => ['auth','verified', 'role:admin|distributor'],'prefix'=>'admin'], function() {
         Route::get('/', 'UsersController@index')->name('users.index');
 
         Route::group(['prefix' => 'settings'], function () {
             Route::get('/', 'SettingsController@index')->name('settings.index');
             Route::post('/update', 'SettingsController@update')->name('settings.update');
         });
-        /**
-         * Logout Routes
-         */
-        // Route::get('/logout', 'LogoutController@perform')->name('logout');
         
         /**
          * User Routes
