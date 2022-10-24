@@ -21,6 +21,7 @@ class AdminUserSeeder extends Seeder
             'image' => 'users/default_user.jpg', 
             'email' => 'admin@gmail.com',
             'password' => 'password',
+            'email_verified_at' => date('m-d-Y'),
             'status' => '1',
         ]);
     
