@@ -33,7 +33,7 @@ page-no-arc
                                         <div class="table-row d-flex">
                                             <div class="equal-width">
                                                 <div class="d-flex">
-                                                    <div><span class="user-avatar">R</span></div>
+                                                    <div><span class="user-avatar">{{Str::upper(substr($user->name, 0, 1))}}</span></div>
                                                     <div class="flex-column">
                                                         <span>{{$user->name}}</span>
                                                         <span class="font-size-12 text-light">{{$user->email}}</span>
