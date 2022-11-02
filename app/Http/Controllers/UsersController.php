@@ -12,6 +12,7 @@ use App\Models\Country;
 use App\Models\Distributor;
 use App\Models\Investor;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class UsersController extends Controller
 {
@@ -22,6 +23,12 @@ class UsersController extends Controller
      */
     public function index() 
     {
+        if (session()->has('mail-draft-id')) {
+            Session::remove('mail-draft-id');
+            Session::remove('userchecked');
+            Session::remove('mail-subject');
+            Session::remove('mail-message');
+        }
         // if(Auth::user() -> hasPermissionTo('view users')) {
             $users = User::latest()->paginate(10);
             return view('admin.users.index', compact('users'));

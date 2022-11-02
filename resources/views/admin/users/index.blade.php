@@ -19,60 +19,39 @@ page-no-arc
                                 <h1 class="h1 text-yellow sm_font-size-35 sm_mt-60 text-center">Manage Users</h1>
                                 <div class="form-container">
                                     <div class="d-flex full-width justify-between align-center">
-                                        <p class="text-light">Showing out of {{count($users)}} users</p>
                                         <div class="button-secondary">
                                             <a href="{{ route('users.create') }}"><button>Add User</button></a>
                                         </div>
-                                    </div>
-                                    <div class="table-header d-flex">
-                                        <div class="equal-width">User</div>
-                                        <div class="equal-width">Role</div>
-                                        <div class="equal-width">Status</div>
-                                    </div>
-                                    @foreach($users as $user)
-                                        <div class="table-row d-flex">
-                                            <div class="equal-width">
-                                                <div class="d-flex">
-                                                    <div><span class="user-avatar">{{Str::upper(substr($user->name, 0, 1))}}</span></div>
-                                                    <div class="flex-column">
-                                                        <span>{{$user->name}}</span>
-                                                        <span class="font-size-12 text-light">{{$user->email}}</span>
-                                                    </div>
+                                        <div class="d-flex">
+                                            <div class="dropdown-button-group d-flex">
+                                                <div class="button-primary">
+                                                    <a href="{{ route('email.send',['selected']) }}"><button>Send Email</button></a>
                                                 </div>
-                                            </div>
-                                            <div class="equal-width">
-                                                @foreach($user->roles as $role)
-                                                    <span class="font-size-12 text-light">{{$role->name}}</span>
-                                                @endforeach
-                                            </div>
-                                            <div class="equal-width d-flex">
-                                                <div class="equal-width">
-                                                    @if ($user->status == 1)
-                                                        <span class="font-size-12 text-light">Approved</span>
-                                                    @else
-                                                        <span class="font-size-12 text-light">Pending</span>
-                                                    @endif
-                                                </div>
-                                                <div class="more-menu">
-                                                    <button onclick="openContextMenu($(this).parent())">
-                                                        <span class="material-icons">
-                                                            more_vert
-                                                        </span>
-                                                    </button>
-                                                    <div class="context-menu">
-                                                        <ul>
-                                                            <li class="context-menu-item">Approved</li>
-                                                            <li class="context-menu-item">Reject</li>
-                                                        </ul>
-                                                    </div>
+                                                <div class="button-primary dropdown-button">
+                                                    <button><span class="fa fa-caret-down"></span></button>
+                                                    <ul tabindex="-1">
+                                                        <li><a href="{{ route('email.send',['all']) }}">All Users</a></li>
+                                                        <li><a href="{{ route('email.send',['candidate']) }}">Candidate</a></li>
+                                                        <li><a href="{{ route('email.send',['distributor']) }}">Distributor</a></li>
+                                                        <li><a href="{{ route('email.send',['investor']) }}">Investor</a></li>
+                                                    </ul>
                                                 </div>
                                             </div>
                                         </div>
-                                    @endforeach
+                                    </div>
+                                    <div class="table-header d-flex">
+                                        <div class="pr-10">#</div>
+                                        <div class="equal-width">User</div>
+                                        <div style="min-width: 100px">Role</div>
+                                        <div style="min-width: 100px">Status</div>
+                                    </div>
+                                    
+                                    <div><livewire:user.index :users="$users->all()" /></div>
                                     
                                 </div>
-                                <div class="d-flex">
+                                <div class="d-flex justify-between page-navigation">
                                     {!! $users->links() !!}
+                                    <p class="text-light">Showing out of {{count($users)}} users</p>
                                 </div>
                             </div>
                         </div>
@@ -241,24 +220,139 @@ page-no-arc
         .open-context-menu:focus .context-menu{
             visibility: visible;
         }
+         /*Dropdown Button*/
+        .dropdown-button-group{
+    
+        }
+
+        .dropdown-button-group > *{
+            margin-left: 0px; 
+            margin-right: 0px; 
+        }
+
+        .dropdown-button-group > *:first-child,
+        .dropdown-button-group > *:first-child button
+        {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        .dropdown-button-group > *:last-child,
+        .dropdown-button-group > *:last-child button
+        {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        .dropdown-button{
+            position: relative;
+        }
+
+        .dropdown-button button{
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .dropdown-button button:focus + ul{
+            visibility: visible;
+        }
+
+        .dropdown-button ul{
+            visibility: hidden;
+            position: absolute;
+            background: #FFF;
+            border-radius: 10px;
+            top: 100%;
+            z-index: 1000;
+            font-size: 14px;
+            padding: 10px 0;
+            overflow: hidden;
+            height: auto;
+        }
+
+        .dropdown-button ul:hover{
+            visibility: visible;
+        }
+
+        .dropdown-button ul:focus{
+            padding: 0px;
+            background: transparent;
+            transition: all 0.5s 0.2s ease;
+        }
+        .dropdown-button ul:focus li{
+            margin-top: -100%;
+            transition: all 0.5s 0.2s ease;
+        }
+
+        .dropdown-button ul li{
+            cursor: pointer;
+        }
+
+        .dropdown-button ul li a{
+            padding: 3px 20px;
+            display: block;
+            color: #363636;
+            white-space: nowrap;
+        }
+
+        .dropdown-button ul li:hover{
+            background: #eae8e8;
+        }
+
+        .user-checked{
+            background: #6b6969;
+            padding: 5px 10px;
+            margin: 5px 0;
+            border-radius: 10px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .user-checked:hover{
+            background: #7e7c7c;
+        }
+
+        .user-checked.expand-uc + .user-checked-container{
+            display: block;
+        }
+
+        .user-checked-container{
+            display: none;
+            overflow: auto;
+            max-height: 200px;
+        }
+
+        .uc-item{
+            display: inline-block;
+            font-size: 12px;
+            color: rgb(224,224,224);
+            border: 1px solid #d5d5d5;
+            padding: 2px 8px;
+            border-radius: 20px;
+        }
+
+        .uc-item:hover{
+            background: rgba(0,0,0,0.2);
+        }
+
+        .uc-item i{
+            cursor: pointer;
+            margin-left: 5px;
+        }
 </style>
 @endsection
 
 @section('head_extra')
 <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 @endsection
+
 @section('script_extra')
-<!-- Temporary Script for Logged in User >>> -->
 <script>
-    if (Cookies.get('logged-in')) {
-        $('.distributor-investor-menu').removeClass('display-none');
-        $('.distributor-investor-menu').nextAll().hide();
-        $('.distributor-investor-menu').show();
-        $('.login-menu').hide();
-        $('.logout-menu').show();
-        $('.nav-visitor').addClass('display-none');
-        $('.nav-distributor-investor').removeClass('display-none');
-    }
+    $(function(){
+        $('.checkbox').click(function(){
+            $(this).find('input[type=checkbox]').prop('checked', !$(this).find('input[type=checkbox]').prop('checked')).change();
+        })
+    })
 </script>
 
 

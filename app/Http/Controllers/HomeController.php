@@ -9,6 +9,8 @@ use App\Models\State;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\DB;
+use App\Jobs\SendMessageJob;
+use App\Mail\ContactUs;
 
 class HomeController extends Controller
 {
@@ -110,18 +112,37 @@ class HomeController extends Controller
         return response()->json($data);
     }
 
-    public function sendMessage(Request $request){
+    public static function sendMessage(Request $request, $return = false, $from = true, $replyTo = true, $queue = false){
         $address = config("mail.from.address");
-        $mailer= Helpers::getSettingValue('contact_us_mailer');
+        $mailer= $request->recipient ?? Helpers::getSettingValue('contact_us_mailer');
+
         try {
-            Mail::send('mail.contact-us', ['description'=> $request->message], function ($m) use ($request, $address, $mailer) {
-                $m->from($address, $request->name);
-                $m->replyTo($request->email, $request->name);
-                $m->to($mailer)->subject($request->subject);
-            });
-            Helpers::js("parent.loader.remove();parent.$('#form')[0].reset();parent.openDialog('Message sent', 'Thanks, you message have been sent to us. We will reply to you shortly')");
+            if($queue){
+                $request=(object) $request->toArray();
+                if(!is_array($mailer)){ $mailer=[$mailer]; }
+                foreach ($mailer as $recipient) {
+                    dispatch(new SendMessageJob($request, $address, $recipient, $from, $replyTo));
+                }
+            }else{
+                Mail::send( [], [], function ($m) use ($request, $address, $mailer, $from, $replyTo) {
+                    if ($from) { $m->from($address, $request->name ?? $request->from); }
+                    if ($replyTo) { $m->replyTo($request->email, $request->name ?? $request->replyTo); }
+
+                    $m->to($mailer)->subject($request->subject)->setBody('<div>'.$request->message.'</div>', 'text/html');
+                });
+            }
+
+            if($return){
+                return true;
+            }else{
+                Helpers::js("parent.loader.remove();parent.$('#form')[0].reset();parent.openDialog('Message sent', 'Thanks, you message have been sent to us. We will reply to you shortly')");
+            }
         } catch (\Exception $e) {
-            Helpers::js("parent.loader.remove();parent.openDialog('Message error', 'Message cant send, Please try again')");
+            if ($return) {
+                return false;
+            } else {
+                Helpers::js("parent.loader.remove();parent.openDialog('Message error', 'Message cant send, Please try again')");
+            }
         }
     }
 }

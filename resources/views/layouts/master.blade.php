@@ -59,6 +59,7 @@
                 }
             }
         </style>
+        @livewireStyles
     </head>
     
     <body class="@hasSection('body_class') @yield('body_class') @else open @endif">
@@ -75,6 +76,11 @@
             </div>
         </div>
         @yield('script_extra')
-
+        @livewireScripts
+        <script>
+        window.addEventListener('openDialog', (e) => {
+            openDialog(e.detail.title,e.detail.content);
+        });
+        </script>
     </body>
 </html>
