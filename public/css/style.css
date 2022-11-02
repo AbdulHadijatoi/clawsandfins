@@ -1661,6 +1661,25 @@ body.open-popup-page {
     display: none;
 }
 
+/* Custom Page Navigation */
+.page-navigation>nav>div:nth-child(1) a {
+    background: #F85405;
+    padding: 5px 10px;
+    color: #FFF;
+    margin: 0 5px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.page-navigation>nav>div:nth-child(1) span {
+    background: #696969;
+    padding: 5px 10px;
+    color: #FFF;
+    margin: 0 5px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
 /* Portrait Mode */
 @media screen and (orientation: portrait) {
 

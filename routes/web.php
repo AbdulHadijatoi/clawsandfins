@@ -125,6 +125,14 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
             Route::patch('/{user}/update', 'UsersController@update')->name('users.update');
             Route::delete('/{user}/delete', 'UsersController@destroy')->name('users.destroy');
         });
+        
+        Route::group(['prefix' => 'send-email'], function() {
+            Route::get('/', 'EmailController@index')->name('email.index');
+            Route::get('/view/{param?}/{id?}', 'EmailController@index')->name('email.view');
+            Route::get('/send/{option?}/{draftId?}', 'EmailController@send')->name('email.send');
+            Route::get('/action/{param?}/{id?}', 'EmailController@action')->name('email.action');
+            Route::post('/send-email', 'EmailController@sendEmail')->name('email.send-email');
+        });
 
         Route::resource('roles', RolesController::class);
         Route::resource('permissions', PermissionsController::class);
