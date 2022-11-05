@@ -23,18 +23,7 @@ class UsersController extends Controller
      */
     public function index() 
     {
-        if (session()->has('mail-draft-id')) {
-            Session::remove('mail-draft-id');
-            Session::remove('userchecked');
-            Session::remove('mail-subject');
-            Session::remove('mail-message');
-        }
-        // if(Auth::user() -> hasPermissionTo('view users')) {
-            $users = User::latest()->paginate(10);
-            return view('admin.users.index', compact('users'));
-        // }else{
-        //     abort(403);
-        // }
+        //
     }
 
     /**
@@ -44,7 +33,7 @@ class UsersController extends Controller
      */
     public function create() 
     {
-        return view('admin.users.create');
+        //
     }
 
     /**
@@ -57,14 +46,7 @@ class UsersController extends Controller
      */
     public function store(User $user, StoreUserRequest $request) 
     {
-        //For demo purposes only. When creating user or inviting a user
-        // you should create a generated random password and email it to the user
-        $user->create(array_merge($request->validated(), [
-            'password' => 'test' 
-        ]));
-
-        return redirect()->route('admin.users.index')
-            ->withSuccess(__('User created successfully.'));
+        //
     }
 
     /**
@@ -76,9 +58,7 @@ class UsersController extends Controller
      */
     public function show(User $user) 
     {
-        return view('admin.users.show', [
-            'user' => $user
-        ]);
+        //
     }
 
     /**
@@ -90,11 +70,7 @@ class UsersController extends Controller
      */
     public function edit(User $user) 
     {
-        return view('admin.users.edit', [
-            'user' => $user,
-            'userRole' => $user->roles->pluck('name')->toArray(),
-            'roles' => Role::latest()->get()
-        ]);
+        //
     }
 
     /**
@@ -107,12 +83,7 @@ class UsersController extends Controller
      */
     public function update(User $user, UpdateUserRequest $request) 
     {
-        $user->update($request->validated());
-
-        $user->syncRoles($request->get('role'));
-
-        return redirect()->route('admin.users.index')
-            ->withSuccess(__('User updated successfully.'));
+        //
     }
 
     /**
@@ -124,10 +95,7 @@ class UsersController extends Controller
      */
     public function destroy(User $user) 
     {
-        $user->delete();
-
-        return redirect()->route('admin.users.index')
-            ->withSuccess(__('User deleted successfully.'));
+        //
     }
 
     public function accountInfo($id = null)
@@ -148,4 +116,6 @@ class UsersController extends Controller
             'other'=> (object) $other,
         ]);
     }
+
+    
 }

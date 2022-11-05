@@ -2,6 +2,12 @@
 
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UsersController;
+use App\Http\Controllers\Admin\PermissionsController;
+use App\Http\Controllers\Admin\RolesController;
+use App\Http\Controllers\EmailController;
+use App\Http\Controllers\SettingsController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -82,20 +88,20 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         /**
          * Login Routes
          */
-        // Route::get('/login', 'LoginController@show')->name('login.show');
-        // Route::post('/login', 'LoginController@login')->name('login.perform');
         Route::get('login', [AuthController::class, 'login'])->name('login');
         Route::get('admin/login', [AuthController::class, 'adminLogin'])->name('admin.login');
         Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post'); 
         Route::post('admin/post-login', [AuthController::class, 'adminPostLogin'])->name('admin.login.post'); 
-        
     });
 
     Route::get('verification-notice', function () {
+        if(Auth::check() && auth()->user()->hasVerifiedEmail()){
+            return redirect()->route('home.index');
+        }
         return view('auth.register.verification-notice');
     })->name('verificationNotice')->middleware('auth');
     Route::group(['middleware' => ['auth','verified']], function() {
-        Route::get('/account/{id?}', 'UsersController@accountInfo')->name('account-info');
+        Route::get('/account/{id?}', [UsersController::class, 'accountInfo'])->name('account-info');
         Route::post('post-edit-distributor', [AuthController::class, 'postEditDistributor'])->name('edit-distributor.post');
         Route::post('post-edit-investor', [AuthController::class, 'postEditInvestor'])->name('edit-investor.post');
         
@@ -105,36 +111,26 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
     });
 
     // Later will remove the distributor role and just limit access of distributor to only users
-    Route::group(['middleware' => ['auth','verified', 'role:admin|distributor'],'prefix'=>'admin'], function() {
-        Route::get('/', 'UsersController@index')->name('users.index');
+    Route::group(['middleware' => ['auth','verified', 'role:admin'],'prefix'=>'admin'], function() {
+        Route::get('/', [UsersController::class, 'index'])->name('users.index');
 
         Route::group(['prefix' => 'settings'], function () {
-            Route::get('/', 'SettingsController@index')->name('settings.index');
-            Route::post('/update', 'SettingsController@update')->name('settings.update');
+            Route::get('/', [SettingsController::class, 'index'])->name('settings.index');
+            Route::post('/update', [SettingsController::class, 'update'])->name('settings.update');
         });
         
-        /**
-         * User Routes
-         */
-        Route::group(['prefix' => 'users'], function() {
-            Route::get('/', 'UsersController@index')->name('users.index');
-            Route::get('/create', 'UsersController@create')->name('users.create');
-            Route::post('/create', 'UsersController@store')->name('users.store');
-            Route::get('/{user}/show', 'UsersController@show')->name('users.show');
-            Route::get('/{user}/edit', 'UsersController@edit')->name('users.edit');
-            Route::patch('/{user}/update', 'UsersController@update')->name('users.update');
-            Route::delete('/{user}/delete', 'UsersController@destroy')->name('users.destroy');
-        });
+        Route::resource('users', \Admin\UsersController::class);
+        Route::post('users/updateRole', [App\Http\Controllers\Admin\UsersController::class,'updateUserRole'])->name('users.updateRole');
         
         Route::group(['prefix' => 'send-email'], function() {
-            Route::get('/', 'EmailController@index')->name('email.index');
-            Route::get('/view/{param?}/{id?}', 'EmailController@index')->name('email.view');
-            Route::get('/send/{option?}/{draftId?}', 'EmailController@send')->name('email.send');
-            Route::get('/action/{param?}/{id?}', 'EmailController@action')->name('email.action');
-            Route::post('/send-email', 'EmailController@sendEmail')->name('email.send-email');
+            Route::get('/', [EmailController::class,'index'])->name('email.index');
+            Route::get('/view/{param?}/{id?}', [EmailController::class,'index'])->name('email.view');
+            Route::get('/send/{option?}/{draftId?}', [EmailController::class,'send'])->name('email.send');
+            Route::get('/action/{param?}/{id?}', [EmailController::class,'action'])->name('email.action');
+            Route::post('/send-email', [EmailController::class,'sendEmail'])->name('email.send-email');
         });
 
-        Route::resource('roles', RolesController::class);
-        Route::resource('permissions', PermissionsController::class);
+        Route::resource('roles', \Admin\RolesController::class);
+        Route::resource('permissions', \Admin\PermissionsController::class);
     });
 });

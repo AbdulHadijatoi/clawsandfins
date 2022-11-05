@@ -44,6 +44,7 @@ page-no-arc
                                         <div class="equal-width">User</div>
                                         <div style="min-width: 100px">Role</div>
                                         <div style="min-width: 100px">Status</div>
+                                        <div style="min-width: 100px">Action</div>
                                     </div>
                                     
                                     <div><livewire:user.index :users="$users->all()" /></div>

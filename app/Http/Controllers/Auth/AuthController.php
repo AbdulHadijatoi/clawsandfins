@@ -72,6 +72,10 @@ class AuthController extends Controller
    
         $credentials = $request->only('email', 'password');
         $user = User::where('email',$request->email)->first();
+        if($user->status == '-1'){
+            return redirect("login")
+                            ->withError('Your account is rejected, please contact support');
+        }
         if($user && $user->getRoleNames()[0] != 'admin'){
             $credentials = $request->only('email', 'password');
             if (Auth::attempt($credentials)) {
@@ -127,7 +131,7 @@ class AuthController extends Controller
         $user = User::create($data);
         if($user){
             $token = sha1($user->id . '.' . $user->email);
-            $user->assignRole('distributor');
+            $user->assignRole('distributor candidate');
             $request->request->add(['user_id' => $user->id]); //add request
             $data = $request->all();
             $distributor = Distributor::create($data);
@@ -170,7 +174,7 @@ class AuthController extends Controller
 
         if($user){
             $token= sha1($user->id.'.'.$user->email);
-            $user->assignRole('investor');
+            $user->assignRole('investor candidate');
             $request->request->add(['user_id' => $user->id]); //add request
             $data = $request->all();
             $investor = Investor::create($data);
@@ -195,6 +199,9 @@ class AuthController extends Controller
             return Redirect::route('login');
         }
         $user = AuthController::getUserWithToken($request->token);
+        if($user->hasVerifiedEmail()){
+            return redirect()->route('home.index');
+        }
         return view('auth.register.confirm-email',compact('user'));
         // return view('mail.email-confirmation', ['name' => "Rahmat Dani Zaki", 'url' => url("confirm-email/activation/")]);
     }

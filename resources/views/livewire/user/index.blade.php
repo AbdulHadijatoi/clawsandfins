@@ -49,22 +49,31 @@
                 <div class="equal-width">
                     @if ($user->status == 1)
                         <span class="font-size-12 text-light">Approved</span>
+                    @elseif ($user->status == -1)
+                        <span class="font-size-12 text-light">Rejected</span>
                     @else
                         <span class="font-size-12 text-light">Pending</span>
                     @endif
                 </div>
-                <div class="more-menu">
-                    <button onclick="openContextMenu($(this).parent())">
-                        <span class="material-icons">
-                            more_vert
-                        </span>
-                    </button>
-                    <div class="context-menu">
-                        <ul>
-                            <li class="context-menu-item">Approved</li>
-                            <li class="context-menu-item">Reject</li>
-                        </ul>
-                    </div>
+                    
+            </div>
+           
+            <div class="d-flex">
+                <div class="button-primary btn-small">
+                    <form action="{{ route('users.updateRole') }}" method="POST">
+                        @csrf
+                        <input type="hidden" name="id" value="{{$user->id}}">
+                        <input type="hidden" name="status" value="1">
+                        <button type="submit" class="btn-small">Approve</button>
+                    </form>
+                </div>
+                <div class="button-secondary btn-small">
+                    <form action="{{ route('users.updateRole') }}" method="POST">
+                        @csrf
+                        <input type="hidden" name="id" value="{{$user->id}}">
+                        <input type="hidden" name="status" value="-1">
+                        <button type="submit" class="btn-small">reject</button></a>
+                    </form>
                 </div>
             </div>
         </div>

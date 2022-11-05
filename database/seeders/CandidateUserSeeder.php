@@ -16,22 +16,34 @@ class CandidateUserSeeder extends Seeder
      */
     public function run()
     {
-        $user = User::create(
+        $investorUser = User::create(
             [
-                'name' => 'Candidate', 
+                'name' => 'Investor Candidate', 
                 'image' => 'users/default_user.jpg', 
-                'email' => 'candidate@gmail.com',
+                'email' => 'investorcandidate@gmail.com',
+                'password' => 'password',
+                'status' => '0',
+            ]
+        );
+        $distributorUser = User::create(
+            [
+                'name' => 'Distributor Candidate', 
+                'image' => 'users/default_user.jpg', 
+                'email' => 'distributorcandidate@gmail.com',
                 'password' => 'password',
                 'status' => '0',
             ]
         );
     
-        $role = Role::create(['name' => 'candidate']);
+        $investorCandidateRole = Role::create(['name' => 'investor candidate']);
+        $distributorCandidateRole = Role::create(['name' => 'distributor candidate']);
      
         $permissions = Permission::pluck('id','id')->all();
    
-        $role->syncPermissions($permissions);
+        $investorCandidateRole->syncPermissions($permissions);
+        $distributorCandidateRole->syncPermissions($permissions);
      
-        $user->assignRole([$role->id]);
+        $investorUser->assignRole([$investorCandidateRole->id]);
+        $distributorUser->assignRole([$distributorCandidateRole->id]);
     }
 }

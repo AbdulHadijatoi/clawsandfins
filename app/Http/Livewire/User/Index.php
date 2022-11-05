@@ -92,5 +92,5 @@ class Index extends Component
     
         return view($this->findUser?'livewire.user.list':'livewire.user.index');
     }
-
+    
 }
