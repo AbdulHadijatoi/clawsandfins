@@ -1,9 +1,5 @@
 @extends('layouts.master')
 
-@section('menu')
-    @include('components.menu_1')
-@endsection
-
 @section('style_extra')
 <style>
     .visiting-address {

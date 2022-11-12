@@ -2,10 +2,6 @@
 
 @extends('layouts.master')
 
-@section('menu')
-    @include('components.admin-menu')
-@endsection
-
 @section('body_class')
 page-no-arc
 @endsection

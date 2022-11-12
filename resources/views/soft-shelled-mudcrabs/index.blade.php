@@ -1,12 +1,5 @@
 @extends('layouts.master')
 
-
-
-@section('menu')
-    @include('components.menu_1')
-@endsection
-
-
 @section('script_extra')
 <!-- Temporary Script for Logged in User >>> -->
 <script>

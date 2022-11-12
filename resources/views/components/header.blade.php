@@ -14,7 +14,7 @@
         </div>
         <hr>
         <ul class="menu">
-            @yield('menu')
+            @include('components.menu.main-menu')
         </ul>
     </nav>
     <div class="menu-button-container z-index-5">

@@ -1,11 +1,5 @@
 @extends('layouts.master')
 
-
-
-@section('menu')
-    @include('components.menu_1')
-@endsection
-
 @section('head_extra')
 <link rel="stylesheet" href="{{asset('css/style.css')}}">
 @endsection

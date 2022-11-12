@@ -52,15 +52,7 @@
                     </div>
                     <hr>
                     <ul>
-                        <ul class="menu">
-                            <li><a href="{{url('soft-shelled-mudcrabs')}}">Soft-shelled mudcrabs</a></li>
-                            <li><a href="{{url('hard-shelled-mudcrabs')}}">Hard-shelled mudcrabs</a></li>
-                            <li><a href="{{url('information')}}">Information</a></li>
-                            <li><a href="{{url('where-to-buy')}}">Where to buy</a></li>
-                            <li><a href="{{url('contact-us')}}">Contact us</a></li>
-                            <li><a href="{{url('become-distributor')}}">Become a distributor</a></li>
-                            <li><a href="{{url('become-investor')}}">Become an investor</a></li>
-                        </ul>
+                        @include('components.menu.main-menu')
                     </ul>
                 </nav>
                 <div class="menu-button-container z-index-5">
@@ -82,7 +74,7 @@
                         <div class="company-info align-center full-height">
                             <div class="menu-dropdown-overlay">
                                 <ul>
-                                    <li class="disable-menu"><a>Account Info</a></li>
+                                    {{-- <li class="disable-menu"><a>Account Info</a></li> --}}
                                     <li class="login-menu"><a href="{{route('login')}}">Log in</a></li>
                                 </ul>
                             </div>
