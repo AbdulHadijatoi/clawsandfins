@@ -1,21 +1,5 @@
 @extends('layouts.master')
 
-@section('script_extra')
-<!-- Temporary Script for Logged in User >>> -->
-<script>
-    if (Cookies.get('logged-in')) {
-        $('.distributor-investor-menu').removeClass('display-none');
-        $('.distributor-investor-menu').nextAll().hide();
-        $('.distributor-investor-menu').show();
-        $('.login-menu').hide();
-        $('.logout-menu').show();
-        $('.nav-visitor').addClass('display-none');
-        $('.nav-distributor-investor').removeClass('display-none');
-    }
-</script>
-<!-- >>> End -->
-@endsection
-
 @section('content')
         <!-- Content -->
         <div class="content-wrapper">
@@ -204,4 +188,20 @@
                 <img img-arc="5" class="img-arc" src="{{asset('arcs/arc_6.svg')}}" />
             </section>
         </div>
+@endsection
+
+@section('script_extra')
+<!-- Temporary Script for Logged in User >>> -->
+<script>
+    if (Cookies.get('logged-in')) {
+        $('.distributor-investor-menu').removeClass('display-none');
+        $('.distributor-investor-menu').nextAll().hide();
+        $('.distributor-investor-menu').show();
+        $('.login-menu').hide();
+        $('.logout-menu').show();
+        $('.nav-visitor').addClass('display-none');
+        $('.nav-distributor-investor').removeClass('display-none');
+    }
+</script>
+<!-- >>> End -->
 @endsection

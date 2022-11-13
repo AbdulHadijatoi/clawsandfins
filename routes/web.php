@@ -44,8 +44,14 @@ Route::get('/where-to-buy', function () {
 Route::get('/contact-us', function () {
     return view('contact-us');
 });
+Route::get('/more-about-soft-shell', function () {
+    return view('more-about-soft-shell');
+});
 Route::get('/updates', function () {
     return view('updates');
+});
+Route::get('/supply-and-auction', function () {
+    return view('supply-and-auction');
 });
 Route::get('/picture-gallery', function () {
     return view('picture-gallery');

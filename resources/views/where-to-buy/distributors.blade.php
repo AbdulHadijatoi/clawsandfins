@@ -1,51 +1,5 @@
 @extends('layouts.master')
 
-@section('style_extra')
-<style>
-    .visiting-address {
-        height: 300px;
-    }
-
-    .visiting-address #map {
-        height: 100%;
-    }
-
-    .map-marker-label {
-        display: block;
-        border-radius: 5px;
-        padding: 2px 8px;
-    }
-
-    .card-highlight{
-        background-color: #FFFFFF;
-        /*-webkit-animation: colorhighlight 1s linear infinite;
-        animation: colorhighlight 1s linear infinite;*/
-    }
-
-    @-webkit-keyframes colorhighlight {
-        0% {
-            background-color: #dbdbdb;
-        }
-
-        100% {
-            background-color: #FFD4AB;
-        }
-    }
-
-    @keyframes colorhighlight {
-        0% {
-            background-color: #dbdbdb;
-        }
-
-        100% {
-            background-color: #FFD4AB;
-        }
-    }
-</style>
-@endsection
-
-
-
 @section('content')
         <!-- Content -->
         <div class="content-wrapper">
@@ -379,11 +333,12 @@
             </section>
         </div>
 @endsection
-    @section('head_extra')
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    @endsection
+    
+@section('head_extra')
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+@endsection
         
-    @section('script_extra')
+@section('script_extra')
         <script>
             if (Cookies.get('logged-in')) {
                 $('.distributor-investor-menu').removeClass('display-none');
@@ -625,4 +580,48 @@
             
             
         </script>
-    @endsection
+@endsection
+
+    @section('style_extra')
+<style>
+    .visiting-address {
+        height: 300px;
+    }
+
+    .visiting-address #map {
+        height: 100%;
+    }
+
+    .map-marker-label {
+        display: block;
+        border-radius: 5px;
+        padding: 2px 8px;
+    }
+
+    .card-highlight{
+        background-color: #FFFFFF;
+        /*-webkit-animation: colorhighlight 1s linear infinite;
+        animation: colorhighlight 1s linear infinite;*/
+    }
+
+    @-webkit-keyframes colorhighlight {
+        0% {
+            background-color: #dbdbdb;
+        }
+
+        100% {
+            background-color: #FFD4AB;
+        }
+    }
+
+    @keyframes colorhighlight {
+        0% {
+            background-color: #dbdbdb;
+        }
+
+        100% {
+            background-color: #FFD4AB;
+        }
+    }
+</style>
+@endsection

@@ -1,26 +1,5 @@
 @extends('layouts.master')
 
-@section('script_extra')
-<!-- Temporary Script for Logged in User >>> -->
-<script>
-    if (Cookies.get('logged-in')) {
-        $('.distributor-investor-menu').removeClass('display-none');
-        $('.distributor-investor-menu').nextAll().hide();
-        $('.distributor-investor-menu').show();
-        $('.login-menu').hide();
-        $('.logout-menu').show();
-        $('.nav-visitor').addClass('display-none');
-        $('.nav-distributor-investor').removeClass('display-none');
-    }
-
-    if (Cookies.get('logged-out')) {
-        openDialog('Logout','You are logged out');
-        Cookies.remove('logged-out', { path: '/' });
-    }
-</script>
-<!-- >>> End -->
-@endsection
-
 @section('content')
     <!-- Content -->
     <div class="content-wrapper">
@@ -123,6 +102,25 @@
             <img img-arc="3" class="img-arc" src="{{asset('arcs/arc_3.svg')}}"/>
         </section> -->
     </div>
+@endsection
 
-    
+@section('script_extra')
+<!-- Temporary Script for Logged in User >>> -->
+<script>
+    if (Cookies.get('logged-in')) {
+        $('.distributor-investor-menu').removeClass('display-none');
+        $('.distributor-investor-menu').nextAll().hide();
+        $('.distributor-investor-menu').show();
+        $('.login-menu').hide();
+        $('.logout-menu').show();
+        $('.nav-visitor').addClass('display-none');
+        $('.nav-distributor-investor').removeClass('display-none');
+    }
+
+    if (Cookies.get('logged-out')) {
+        openDialog('Logout','You are logged out');
+        Cookies.remove('logged-out', { path: '/' });
+    }
+</script>
+<!-- >>> End -->
 @endsection

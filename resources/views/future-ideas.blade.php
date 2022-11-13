@@ -1,46 +1,6 @@
 @extends('layouts.master')
 
-@section('style_extra')
-<style>
-    .visiting-address {
-        height: 300px;
-    }
-
-    .visiting-address #map {
-        height: 100%;
-    }
-
-    .map-marker-label {
-        display: block;
-        border-radius: 5px;
-        padding: 2px 8px;
-    }
-</style>
-@endsection
-
-@section('script_extra')
-<!-- Temporary Script for Logged in User >>> -->
-<script>
-    if (Cookies.get('logged-in')) {
-        $('.distributor-investor-menu').removeClass('display-none');
-        $('.distributor-investor-menu').nextAll().hide();
-        $('.distributor-investor-menu').show();
-        $('.login-menu').hide();
-        $('.logout-menu').show();
-        $('.nav-visitor').addClass('display-none');
-        $('.nav-distributor-investor').removeClass('display-none');
-    }
-</script>
-<!-- >>> End -->
-@endsection
-
 @section('content')
-
-        
-        
-
-        
-
         <!-- Content -->
         <div class="content-wrapper">
             <section class="section bg-white" data-clip-id="1">
@@ -89,4 +49,38 @@
             </section>
         </div>
         
+@endsection
+
+@section('style_extra')
+<style>
+    .visiting-address {
+        height: 300px;
+    }
+
+    .visiting-address #map {
+        height: 100%;
+    }
+
+    .map-marker-label {
+        display: block;
+        border-radius: 5px;
+        padding: 2px 8px;
+    }
+</style>
+@endsection
+
+@section('script_extra')
+<!-- Temporary Script for Logged in User >>> -->
+<script>
+    if (Cookies.get('logged-in')) {
+        $('.distributor-investor-menu').removeClass('display-none');
+        $('.distributor-investor-menu').nextAll().hide();
+        $('.distributor-investor-menu').show();
+        $('.login-menu').hide();
+        $('.logout-menu').show();
+        $('.nav-visitor').addClass('display-none');
+        $('.nav-distributor-investor').removeClass('display-none');
+    }
+</script>
+<!-- >>> End -->
 @endsection

@@ -9,7 +9,7 @@
                 @include('components.menu.visitor-only')
         @endif
 
-        @if(Auth::check())
+        @if(Auth::check() && auth()->user()->hasVerifiedEmail())
                 {{-- @if(Auth::user()->hasPermissionTo('view more-about-soft-shell')) --}}
                         <li class="distributor-investor-menu {{ (request()->is('more-about-soft-shell*')) ? 'active' : '' }}">
                                 <a href="{{url('more-about-soft-shell')}}">More About Soft-shell</a>
@@ -18,8 +18,8 @@
                 <li class="distributor-investor-menu {{ (request()->is('updates*')) ? 'active' : '' }}">
                         <a href="{{url('updates')}}">Updates</a>
                 </li>
-                <li class="distributor-investor-menu {{ (request()->is('updates*')) ? 'active' : '' }}">
-                        <a href="{{url('updates')}}">Supply & Auction</a>
+                <li class="distributor-investor-menu {{ (request()->is('supply-and-auction*')) ? 'active' : '' }}">
+                        <a href="{{url('supply-and-auction')}}">Supply & Auction</a>
                 </li>
                 <li class="distributor-investor-menu {{ (request()->is('picture-gallery*')) ? 'active' : '' }}">
                         <a href="{{url('picture-gallery')}}">Picture Gallery</a>
