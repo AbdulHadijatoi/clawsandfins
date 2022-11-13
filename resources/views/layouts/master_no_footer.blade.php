@@ -44,12 +44,7 @@
                     </a>
                     <h2 class="font-size-20 font-weight-400 text-white text-center">Pete's Claws & Fins</h2>
                     <p class="font-size-12 font-weight-300 text-white text-center mb-20">Ecological Seafood Production</p>
-                    <div class="full-width justify-center">
-                        <a href="#"><img class="social-icon" src="{{asset('svg/twitter-square.svg')}}" alt="twitter"></a>
-                        <a href="#"><img class="social-icon" src="{{asset('svg/facebook-square.svg')}}" alt="twitter"></a>
-                        <a href="#"><img class="social-icon" src="{{asset('svg/instagram-square.svg')}}" alt="twitter"></a>
-                        <a href="#"><img class="social-icon" src="{{asset('svg/pinterest-square.svg')}}" alt="twitter"></a>
-                    </div>
+                    @include('components.social-links')
                     <hr>
                     <ul>
                         @include('components.menu.main-menu')
