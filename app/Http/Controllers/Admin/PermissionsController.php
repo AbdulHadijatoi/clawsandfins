@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class PermissionsController extends Controller
 {
@@ -81,6 +82,22 @@ class PermissionsController extends Controller
 
         return redirect()->route('permissions.index')
             ->withSuccess(__('Permission updated successfully.'));
+    }
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  Permission  $permission
+     * @return \Illuminate\Http\Response
+     */
+    public function assignPermissionToRole($roleName, $permission)
+    {
+
+        $role = Role::findByName($roleName);
+        $role->givePermissionTo($permission);
+        
+        return redirect()->route('permissions.index')
+            ->withSuccess(__('Role permissions updated successfully.'));
     }
 
     /**

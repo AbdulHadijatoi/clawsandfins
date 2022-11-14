@@ -47,6 +47,9 @@ Route::get('/contact-us', function () {
 Route::get('/more-about-soft-shell', function () {
     return view('more-about-soft-shell');
 });
+// Route::get('/updates', function () {
+//     return view('updates');
+// })->middleware('permission:view-updates');
 Route::get('/updates', function () {
     return view('updates');
 });
@@ -138,5 +141,6 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
 
         Route::resource('roles', \Admin\RolesController::class);
         Route::resource('permissions', \Admin\PermissionsController::class);
+        Route::get('permissions/assign-permission/{role}/{permission}', 'Admin\PermissionsController@assignPermissionToRole');
     });
 });

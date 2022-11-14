@@ -16,6 +16,9 @@ class PermissionsSeeder extends Seeder
      */
     public function run()
     {
+        // Page Permission:begins
+        Permission::create(["name" => "view updates"]);
+        // Page Permission:ends
 
         // Distributor permissions:begins
         $permission = Permission::firstOrCreate(["name" => "manage users"]);
