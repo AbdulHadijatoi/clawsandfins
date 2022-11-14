@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\CentralLogics\Helpers;
 use App\Http\Controllers\Controller;
+use App\Models\Page;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Spatie\Permission\Models\Permission;
@@ -83,22 +85,7 @@ class PermissionsController extends Controller
         return redirect()->route('permissions.index')
             ->withSuccess(__('Permission updated successfully.'));
     }
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  Permission  $permission
-     * @return \Illuminate\Http\Response
-     */
-    public function assignPermissionToRole($roleName, $permission)
-    {
-
-        $role = Role::findByName($roleName);
-        $role->givePermissionTo($permission);
-        
-        return redirect()->route('permissions.index')
-            ->withSuccess(__('Role permissions updated successfully.'));
-    }
+    
 
     /**
      * Remove the specified resource from storage.
@@ -112,5 +99,35 @@ class PermissionsController extends Controller
 
         return redirect()->route('permissions.index')
             ->withSuccess(__('Permission deleted successfully.'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  Permission  $permission
+     * @return \Illuminate\Http\Response
+     */
+    public function assignPermissionToRole($roleName = null, $permission = null)
+    {
+        if($roleName && $permission){
+            $role = Role::findByName($roleName);
+        $role->givePermissionTo($permission);
+        
+        }
+    
+        return redirect()->route('permissions.index')
+            ->withSuccess(__('Role permissions updated successfully.'));
+    }
+
+   
+    public function viewPagesPermission()
+    {
+        $pages = Page::get();
+        $investorPerms = getPermissionsByRole('investor');
+        $distributorPerms = getPermissionsByRole('distributor');
+        $distCandidatePerms = getPermissionsByRole('distributor candidate');
+        $invCandidatePerms = getPermissionsByRole('investor candidate');
+        return view('admin.permissions.manage-pages',compact('pages','investorPerms','distributorPerms','distCandidatePerms','invCandidatePerms'));
     }
 }

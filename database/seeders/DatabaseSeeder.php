@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
             InvestorUserSeeder::class,
             CandidateUserSeeder::class,
             PermissionsSeeder::class,
+            PagesSeeder::class,
         ]);
     }
 }

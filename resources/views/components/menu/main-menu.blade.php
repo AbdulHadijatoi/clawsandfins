@@ -24,13 +24,13 @@
                 <li class="distributor-investor-menu {{ (request()->is('picture-gallery*')) ? 'active' : '' }}">
                         <a href="{{url('picture-gallery')}}">Picture Gallery</a>
                 </li>
-                @if(Auth::user()->getRoleNames()[0] == 'investor')
+                {{-- @if(Auth::user()->getRoleNames()[0] == 'investor') --}}
                         <li class="distributor-investor-menu {{ (request()->is('future-ideas*')) ? 'active' : '' }}">
                                 <a href="{{url('future-ideas')}}">Future Ideas</a>
                         </li>
                         <li class="distributor-investor-menu {{ (request()->is('financial-updates*')) ? 'active' : '' }}">
                                 <a href="{{url('financial-updates')}}">Financial Updates</a>
                         </li>
-                @endif
+                {{-- @endif --}}
         @endif
 @endif

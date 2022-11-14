@@ -9,8 +9,7 @@
           {{-- <li><a href="{{ url('/') }}" class="nav-link px-2 text-white">Home</a></li> --}}
           @auth
             @role('admin')
-            <li><a href="{{ route('users.index') }}" class="nav-link px-2 text-white">Users</a></li>
-            <li><a href="{{ route('roles.index') }}" class="nav-link px-2 text-white">Roles</a></li>
+            @include('components.menu.admin')
             @endrole
           @endauth
         </ul>

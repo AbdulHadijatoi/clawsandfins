@@ -121,14 +121,14 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
 
     // Later will remove the distributor role and just limit access of distributor to only users
     Route::group(['middleware' => ['auth','verified', 'role:admin'],'prefix'=>'admin'], function() {
-        Route::get('/', [UsersController::class, 'index'])->name('users.index');
-
+        Route::get('/', 'Admin\UsersController@index');
         Route::group(['prefix' => 'settings'], function () {
             Route::get('/', [SettingsController::class, 'index'])->name('settings.index');
             Route::post('/update', [SettingsController::class, 'update'])->name('settings.update');
         });
         
         Route::resource('users', \Admin\UsersController::class);
+        
         Route::post('users/updateRole', [App\Http\Controllers\Admin\UsersController::class,'updateUserRole'])->name('users.updateRole');
         
         Route::group(['prefix' => 'send-email'], function() {
@@ -141,6 +141,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
 
         Route::resource('roles', \Admin\RolesController::class);
         Route::resource('permissions', \Admin\PermissionsController::class);
-        Route::get('permissions/assign-permission/{role}/{permission}', 'Admin\PermissionsController@assignPermissionToRole');
+        Route::get('pages-permission', 'Admin\PermissionsController@viewPagesPermission');
+        Route::post('permissions/assign-permission/{role?}/{permission?}', 'Admin\PermissionsController@assignPermissionToRole')->name('permissions.savePagePermissions');
     });
 });
