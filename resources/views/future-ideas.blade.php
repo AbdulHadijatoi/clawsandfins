@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('body_class')
+page-no-arc
+@endsection
+
 @section('content')
         <!-- Content -->
         <div class="content-wrapper">

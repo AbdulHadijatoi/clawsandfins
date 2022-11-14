@@ -11,7 +11,7 @@ page-no-arc
             <div class="content">
                 <div class="full-width align-in-center pb-60">
                     <div class="_75-width md_90-width flex-column justify-center max-w700">
-                        <h1 class="h1 text-default sm_font-size-35 text-center mb-10">Updates</h1>
+                        <h1 class="h1 text-default sm_font-size-35 text-center mb-10">More Information About Soft shell</h1>
                         <div class="text-default font-size-12 p-10 mb-20">
                             <p class="para sm_font-size-11 text-default mt-20 mb-20">
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
