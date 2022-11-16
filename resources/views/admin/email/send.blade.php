@@ -4,6 +4,12 @@
 page-no-arc
 @endsection
 
+@php
+if(isset($option)){
+    $sendOption=ucfirst(str_replace('-',' ',$option));
+}
+@endphp
+
 @section('content')
         <!-- Content -->
         <div class="content-wrapper">
@@ -38,7 +44,7 @@ page-no-arc
                                                     @if($option=='selected')
                                                         <livewire:user.index :userchecked="true" :draftId="$draftId"/>
                                                     @else
-                                                    <span class="fixed-recipients">{{ucfirst($option)}}</span>
+                                                    <span class="fixed-recipients">{{$sendOption}}</span>
                                                     @endif
                                                 @else
                                                 <div class="content-text" contenteditable="true" id="recipients" placeholder="To" name="recipients" value="">
@@ -390,14 +396,13 @@ page-no-arc
 </style>
 @endsection
 
-@section('head_extra')
+{{-- @section('head_extra')
 <script src="https://cdn.tiny.cloud/1/r9a5eqnpeueslw19rsf5ks22sfrzthxxjeikv8mclszcl7s6/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 <script src="https://cdn.tiny.cloud/1/r9a5eqnpeueslw19rsf5ks22sfrzthxxjeikv8mclszcl7s6/tinymce/6/plugins.min.js" referrerpolicy="origin"></script>
-@endsection
+@endsection --}}
 @section('script_extra')
 
-<script>
-    tinymce.init({
+    {{-- tinymce.init({
         selector:'textarea#message',
         plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage tableofcontents footnotes mergetags autocorrect',
         toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
@@ -412,7 +417,8 @@ page-no-arc
                 Livewire.set('message', editor.getContent());
             });
         }
-    });
+    }); --}}
+<script>
     let draft;
     $(function(){
         $('.send-email-button, .draft-email-button').click(function(){

@@ -142,14 +142,11 @@
 @endsection
 
 @section('script_extra')
-<!-- Temporary Script for Logged in User >>> -->
 <script>
-    if (Cookies.get('logged-in')) {
-        $('.login-menu').hide();
-        $('.logout-menu').show();
-        $('.nav-visitor').addClass('display-none');
-        $('.nav-distributor-investor').removeClass('display-none');
-    }
+    $('#password').keydown(function(e){
+        if(e.keyCode===13){
+            $('.login form')[0].submit();
+        }
+    })
 </script>
-<!-- >>> End -->
 @endsection

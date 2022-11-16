@@ -24,4 +24,9 @@ class Country extends Model
     {
         return $this->hasMany(State::class,'country_id');
     }
+
+    public function distributors()
+    {
+        return $this->hasMany(Distributor::class, 'country', 'id');
+    }
 }

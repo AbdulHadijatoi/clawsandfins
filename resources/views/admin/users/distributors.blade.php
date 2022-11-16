@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('menu')
+    @include('components.admin-menu')
+@endsection
+
 @section('body_class')
 page-no-arc
 @endsection
@@ -12,11 +16,31 @@ page-no-arc
                     <div class="full-width align-in-center pb-120">
                         <div class="_75-width md_90-width md_align-center flex-column justify-center max-w700">
                             <div class="full-width">
-                                <h1 class="h1 text-yellow sm_font-size-35 sm_mt-60 text-center">Manage Users</h1>
+                                <h1 class="h1 text-yellow sm_font-size-35 sm_mt-60 text-center">Manage Distributors</h1>
                                 <div class="form-container">
                                     <div class="d-flex full-width justify-between align-center">
-                                        <div class="button-secondary">
-                                            <a href="{{ route('users.create') }}"><button>Add User</button></a>
+                                        <div class="d-flex align-center">
+                                            <div class="button-secondary">
+                                                <a href="{{ route('users.create') }}"><button class="no-wrap">Add</button></a>
+                                            </div>
+                                            <div class="input-text">
+                                                <select id="distributor-dropdown" name="country" style="outline:none">
+                                                    <option value="">--All--</option>
+                                                    <option value="1">Distributors</option>
+                                                    <option value="2">Distributor candidate</option>
+                                                </select>
+                                            </div>
+                                            <div class="button-secondary">
+                                                <a id="edit-button" href="{{ route('users.distributors.edit',['all']) }}"><button class="no-wrap">Edit</button></a>
+                                            </div>
+                                            <div class="button-secondary">
+                                                <a id="edit-selected-button" href="{{ route('users.distributors.edit',['selected']) }}"><button class="no-wrap">Edit Selected</button></a>
+                                            </div>
+                                        </div>
+                                        <div class="equal-width mr-10">
+                                            <div class="input-text">
+                                                <input id="distributor-search" type="text" placeholder="Search">
+                                            </div>
                                         </div>
                                         <div class="d-flex">
                                             <div class="dropdown-button-group d-flex">
@@ -26,11 +50,8 @@ page-no-arc
                                                 <div class="button-primary dropdown-button">
                                                     <button><span class="fa fa-caret-down"></span></button>
                                                     <ul tabindex="-1">
-                                                        <li><a href="{{ route('email.send',['all']) }}">All Users</a></li>
-                                                        <li><a href="{{ route('email.send',['distributor-candidate']) }}">Distributor Candidate</a></li>
-                                                        <li><a href="{{ route('email.send',['distributor']) }}">Distributor</a></li>
-                                                        <li><a href="{{ route('email.send',['investor-candidate']) }}">Investor Candidate</a></li>
-                                                        <li><a href="{{ route('email.send',['investor']) }}">Investor</a></li>
+                                                        <li><a href="{{ route('email.send',['distributors']) }}">Distributors</a></li>
+                                                        <li><a href="{{ route('email.send',['distributor-candidate']) }}">Distributor candidate</a></li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -39,18 +60,19 @@ page-no-arc
                                     <div class="table-header d-flex">
                                         <div class="pr-10">#</div>
                                         <div class="equal-width">User</div>
-                                        <div style="min-width: 100px">Role</div>
+                                        <div style="min-width: 150px">Contact Name</div>
+                                        <div style="min-width: 150px">Phone</div>
+                                        <div style="min-width: 120px">Country</div>
+                                        <div style="min-width: 120px">City</div>
+                                        <div style="min-width: 100px">Location</div>
                                         <div style="min-width: 100px">Status</div>
-                                        <div style="min-width: 100px">Action</div>
                                     </div>
                                     
-                                    <div><livewire:user.index :users="$users->all()" /></div>
+                                    <div><livewire:user.index :userType="$userType"/></div>
                                     
                                 </div>
-                                <div class="d-flex justify-between page-navigation">
-                                    {!! $users->links() !!}
-                                    <p class="text-light">Showing out of {{count($users)}} users</p>
-                                </div>
+                                {{-- <livewire:paging :users="[$users]" /> --}}
+                                {{-- <livewire:paging :view="[$users->links()]" :total="count($users)" /> --}}
                             </div>
                         </div>
                     </div>
@@ -62,6 +84,38 @@ page-no-arc
 
 @section('style_extra')
 <style>
+    /* Custom Page Navigation */
+    .page-navigation{
+        margin: 10px 0;
+        font-size: 12px;
+    }
+
+    .page-navigation nav>div{
+        align-items: center;
+    }
+    .page-navigation nav>div:nth-child(1) span > span {
+        background: #696969;
+        padding: 5px 10px;
+        color: #FFF;
+        margin: 0 5px;
+        border-radius: 5px;
+        font-size: 14px;
+    }
+
+    .page-navigation nav>div:nth-child(1) span > button {
+        background: #F85405;
+        padding: 5px 10px;
+        color: #FFF;
+        margin: 0 5px;
+        border-radius: 5px;
+        font-size: 14px;
+        border: 0;
+        cursor: pointer;
+    }
+
+    .button-primary, .button-secondary {
+        margin: 10px 10px;
+    }
     .logo {
             background-color: rgba(255, 255, 255, 0.1);
             width: 150px;
@@ -173,6 +227,7 @@ page-no-arc
             text-align: center;
             line-height: 40px;
             margin-right: 10px;
+            color: #FFF !important;
         }
 
         .more-menu{
@@ -191,10 +246,11 @@ page-no-arc
             position: absolute;
             background: #FFF;
             top: 0;
-            left: 0;
+            right: 0;
             color: #2d2d2d;
             border-radius: 5px;
-            z-index: 1;
+            z-index: 2;
+            box-shadow: 0 3px 5px rgba(0,0,0,0.2);
         }
 
         .context-menu ul{
@@ -205,6 +261,7 @@ page-no-arc
             padding: 5px 20px;
             cursor: pointer;
             font-size: 14px;
+            white-space: nowrap;
         }
 
         .context-menu ul li:hover{
@@ -217,6 +274,16 @@ page-no-arc
 
         .open-context-menu:focus .context-menu{
             visibility: visible;
+        }
+
+        .context-menu ul li.url {
+            padding: 0;
+        }
+
+        .context-menu ul li.url a{
+            display: block;
+            padding: 5px 20px;
+            color: #2d2d2d;
         }
          /*Dropdown Button*/
         .dropdown-button-group{
@@ -261,6 +328,7 @@ page-no-arc
             background: #FFF;
             border-radius: 10px;
             top: 100%;
+            right: 0;
             z-index: 1000;
             font-size: 14px;
             padding: 10px 0;
@@ -337,6 +405,75 @@ page-no-arc
             cursor: pointer;
             margin-left: 5px;
         }
+
+        /*Table Row Detail*/
+        .table-row-hover:hover{
+            cursor: pointer;
+            background-color: #444444;
+        }
+
+        .table-row-detail{
+            display: none;
+            position: absolute;
+            background: #FFF;
+            z-index: 1;
+            padding: 10px;
+            padding-top: 0;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+            cursor: default;
+        }
+
+        .table-row-detail .table-header{
+            background: #cecccc;
+        }
+
+        .table-row-detail .fa-check-circle{
+            color: #0cb431 !important;
+            font-size: 20px;
+        }
+
+        .table-row-detail .fa-times-circle{
+            color: #E50B00 !important;
+            font-size: 20px;
+        }
+
+        .show-table-row-detail.table-row *{
+            color: #3c3c3c;
+        }
+
+        .show-table-row-detail.table-row .checkbox{
+            display: none;
+        }
+
+        .show-table-row-detail{
+            position: relative;
+            background: #FFF !important;
+            border-radius: 10px 10px 0 0;
+            box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+        }
+        .show-table-row-detail .table-row-detail{
+            display: block;
+            left: 0;
+            top: 100%;
+            width: 100%;
+            
+        }
+        /* Approved/Rejected*/
+        .approved,
+        .rejected
+        {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 10px;
+            color: #FFF;
+        }
+        .approved{
+            background: #F85405;
+        }
+        .rejected{
+            background: #EF280E;
+        }
 </style>
 @endsection
 
@@ -347,8 +484,33 @@ page-no-arc
 @section('script_extra')
 <script>
     $(function(){
-        $('.checkbox').click(function(){
+        $('body').on('click', '.checkbox', function(e){
+            e.stopPropagation();
             $(this).find('input[type=checkbox]').prop('checked', !$(this).find('input[type=checkbox]').prop('checked')).change();
+        })
+
+        $('#distributor-dropdown').change(function(){
+            let val = $(this).val();
+            let baseUrl = "{{ route('users.distributors.edit') }}";
+                val  = ( val=='1' ) ? 'distributors' : ( val == '2' ) ? 'distributor-candidate' : 'all';
+            $('#edit-button').attr( 'href', baseUrl + '/' + val );
+            Livewire.emit('setFilter', $(this).val());
+        })
+        
+        var autosearch;
+        $('#distributor-search').keyup(function(){
+            let val= $(this).val();
+            clearTimeout(autosearch);
+            autosearch = setTimeout(function() {
+                Livewire.emit('setSearch', val);
+            }, 2000);
+        })
+        
+        $('#edit-selected-button').click(function(e){
+            if($('.user-checked').length == 0){
+                e.preventDefault();
+                openDialog('Select Distributor', 'No distributor selected');
+            }
         })
     })
 </script>
@@ -357,7 +519,7 @@ page-no-arc
 <script>
     function openContextMenu(elm){
         elm.addClass('open-context-menu').attr('tabindex','-1').focus();
-        elm.find('.context-menu .context-menu-item').click(function(e){
+        elm.find('.context-menu .context-menu-item, .context-menu .context-menu-item a').click(function(e){
             e.stopPropagation();
             elm.removeClass('open-context-menu');
         })

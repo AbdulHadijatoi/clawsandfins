@@ -54,5 +54,15 @@ class Distributor extends Model
     {
         return $this->belongsTo(User::class,'user_id','id');
     }
+    
+    public function getCountry()
+    {
+        return $this->belongsTo(Country::class,'country','id');
+    }
+    
+    public function getCity()
+    {
+        return $this->belongsTo(City::class,'city','id')->select(['name', 'id']);
+    }
 
 }
