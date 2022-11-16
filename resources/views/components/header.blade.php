@@ -1,11 +1,13 @@
 <!-- Menu -->
 <div id="mainMenuContainer" class="main-menu-container full-height w0 fixed">
     <nav id="main-menu" role="navigation">
+        @if(!isset($adminView))
         <a href="{{url('/')}}" class="full-width align-in-center">
             <img class="mb-10" src="{{asset('images/logo.png')}}" alt="profile photo" width="150">
         </a>
+        @endif
         <h2 class="font-size-20 font-weight-400 text-white text-center">Pete's Claws & Fins</h2>
-        <p class="font-size-12 font-weight-300 text-white text-center mb-20">Ecological Seafood Production</p>
+        <p class="font-size-12 font-weight-300 text-white text-center @if(!isset($adminView)) mb-20 @endif">Ecological Seafood Production</p>
         @include('components.social-links')
         <hr>
         <ul class="menu">
@@ -19,18 +21,30 @@
 @auth
     <!-- After Login - Distributor/Inverstor Topbar >>> -->
     <div class="nav-top justify-center nav-distributor-investor">
-        <div class="nav-area max-w1280 justify-between align-center">
-            <div class="welcome-message no-wrap">
-                <h4>Welcome Back,</h4>
-                <h3>{{auth()->user()->load(['distributor'])->distributor->contact_name ?? auth()->user()->load(['investor'])->investor->first_name ?? auth()->user()->load(['investor'])->name}}</h3>
+        <div class="nav-area @if(!isset($adminView)) max-w1280 @else px-40 @endif justify-between align-center">
+            <div class="d-flex align-center">
+                @if(isset($adminView))
+                <a href="{{url('/')}}" class="align-in-center">
+                    <img src="{{asset('images/logo.png')}}" alt="profile photo" style="height: 50px; width: auto">
+                </a>
+                @endif
+                <div class="welcome-message no-wrap">
+                    <h4>Welcome Back,</h4>
+                    <h3>{{auth()->user()->load(['distributor'])->distributor->contact_name ?? auth()->user()->load(['investor'])->investor->first_name ?? auth()->user()->load(['investor'])->name}}</h3>
+                </div>
             </div>
+            @if(!isset($adminView) || isset($isUser))
             <div class="zoom-info-button">
                 <button onclick="zoomNotif(0)">Content too small or big?</button>
             </div>
+            @endif
             <div class="align-center full-height">
                 <div class="company-info align-center full-height">
                     <div class="menu-dropdown-overlay">
                         <ul>
+                            @if(!isset($isUser) && !isset($adminView))
+                                <li><a href="{{url('admin/dashboard')}}">Dashboard</a></li>
+                            @endif
                             @if(Auth::user()->getRoleNames()[0] != 'admin')
                                 <li><a href="{{url('account')}}">Account Info</a></li>
                             @endif
@@ -41,12 +55,12 @@
                                 <li><a href="{{url('admin/settings')}}">Settings</a></li>
                             @endif
                             <li class="md-divider"></li>
-                            <li class="logout-menu display-none"><a href="{{route('logout')}}">Log out</a></li>
+                            <li class="logout-menu display-none"><a href="{{route(!isset($isUser)?'admin.logout':'logout')}}">Log out</a></li>
                         </ul>
                     </div>
                     <div class="text-right">
                         <h3>{{ Auth::user()->name }}</h3>
-                        <span class="user-status">{{ ucfirst(trans(Auth::user()->getRoleNames()[0])) }}</span>
+                        <span class="user-status">{{ ucfirst(trans(Auth::user()->getRoleNames()[0])) }} {{Auth::user()->status == 0?'candidate':null}}</span>
                     </div>
                     <img src="{{url('storage/'.Auth::user()->image)}}">
                 </div>
@@ -84,6 +98,7 @@
     <!-- >>> End -->
 @endauth
 
+@if(!isset($adminView) || isset($isUser))
 <!-- Header -->
 <header class="full-width text-white flex justify-between relative _mt_100">
     <div id="placeholder1"></div>
@@ -254,3 +269,4 @@
     </div>
 </header>
 
+@endif

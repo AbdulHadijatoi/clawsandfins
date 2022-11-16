@@ -24,7 +24,7 @@ page-no-arc
                         <h1 class="h1 text-yellow sm_font-size-35 sm_mt-60 text-center">Become a Distributor</h1>
                         <span class="h4 text-white text-center mb-30">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
                             tempor incididunt ut labore et dolore magna</span>
-                        <form action="{{route('become-distributor.post')}}" method="POST" onsubmit="return inputValidation(this)" enctype="multipart/form-data">
+                        <form action="{{route('become-distributor.post')}}" method="POST" onsubmit="setInputForm(this);return inputValidation(this)" enctype="multipart/form-data" target="blank">
                             @csrf
                             <div class="form-container">
                                 <div class="full-width text-center">
@@ -54,7 +54,7 @@ page-no-arc
                                     <div class="input-text" required>
                                         <label label="(Must be filled in)">Country</label>
                                         <select id="country-dropdown" name="country" style="outline:none">
-                                            <option value="0">--Select Country--</option>
+                                            <option value="">--Select Country--</option>
                                             @if($countries)
                                                 @foreach ($countries as $country)
                                                     <option value="{{$country->id}}">{{$country->name}}</option>
@@ -162,7 +162,7 @@ page-no-arc
                                 <div class="d-flex full-width flex-column px-5 form-responsive">
                                     <div>
                                         <span class="text-white font-size-14" label="(Must be filled in)">Are you 100% sure your map location is correct? <font class="font-size-12">(Adjust the map manually so it better matches your location)</font></span>
-                                        <div class="input-radio" required>
+                                        <div class="input-radio" tabindex="-1" required focus-parent="true">
                                             <div class="radio-value" value=""></div>
                                             <div class="d-flex-important align-center">
                                                 <span class="radio align-in-center">
@@ -202,15 +202,6 @@ page-no-arc
                                         </div>
                                     </div>
                                 </div>
-                               
-                                @if ($errors->any())
-                                    @foreach ($errors->all() as $error)
-                                        <div class="info primary-warning d-flex-important">
-                                            <label>{{$error}}</label>
-                                        </div>
-                                    @endforeach
-                                @endif
-
                                 <div class="d-flex full-width justify-center">
                                     <div class="button-secondary">
                                         <button type="submit">SUBMIT</button>
@@ -224,11 +215,47 @@ page-no-arc
             </div>
         </section>
     </div>
+    @if ($errors->any())
+        @foreach ($errors->all() as $error)
+            <div class="info primary-warning d-flex-important" style="opacity: 0">
+                <label class="d-flex align-center"><span class="fa fa-times-circle mr-10" style="font-size: 20px"></span>{{$error}}</label>
+            </div>
+        @endforeach
+    @endif
 @endsection
 
 
 @section('script_extra')
     <script>
+        function getLat(latlng){
+            var lat=0;
+            try{
+                lat = latlng.lat();
+            }catch(e){
+                lat = latlng.lat;
+            }
+            return lat;
+        }
+
+        function getLng(latlng){
+            var lat=0;
+            try{
+                lat = latlng.lng();
+            }catch(e){
+                lat = latlng.lng;
+            }
+            return lat;
+        }
+
+        function setInputForm(form){
+            /*if(countrySelectedID && $('#country').attr('name')){ $(form).append('<input type="hidden" name="country" value="'+countrySelectedID+'">'); }
+            if(citySelectedID && $('#city').attr('name')){ $(form).append('<input type="hidden" name="city" value="'+citySelectedID+'">'); }*/
+            if(locationIsCorrect=='yes' && latlng){ 
+                $(form).append('<input type="hidden" name="latitude" value="'+getLat(latlng)+'">');
+                $(form).append('<input type="hidden" name="longitude" value="'+getLng(latlng)+'">');
+            }
+        }
+
         $('#country-dropdown').on('change', function () {
                 var idCountry = this.value;
                 $("#state-dropdown").html('');
@@ -258,15 +285,10 @@ page-no-arc
             });
     </script>
     <script>
-        if (Cookies.get('logged-in')) {
-            $('.distributor-investor-menu').removeClass('display-none');
-            $('.distributor-investor-menu').nextAll().hide();
-            $('.distributor-investor-menu').show();
-            $('.login-menu').hide();
-            $('.logout-menu').show();
-            $('.nav-visitor').addClass('display-none');
-            $('.nav-distributor-investor').removeClass('display-none');
-        }
+        @if(isset($error))
+        $('.info.primary-warning').addClass('info-flying');
+        setTimeout(function(){ $('.info-flying').remove(); }, 5000);
+        @endif
 
         function driveDirection(){
             if(curLatlng==null){
@@ -291,7 +313,8 @@ page-no-arc
     <script>
         function inputValidation(form){
             var errMsgCount=0;
-            $(form).find('.input-text[required] input, .input-textarea[required] textarea, .input-text[required] .country-city-dropdown, .input-radio[required] .radio-value').each(function () {
+            var errFocused=false;
+            $(form).find('.input-text[required] input, .input-text[required] select, .input-textarea[required] textarea, .input-text[required] .country-city-dropdown, .input-radio[required] .radio-value').each(function () {
                 var elm=$(this);
                 var parentElm = elm.attr('parent') ? elm.parents(elm.attr('parent')) : elm.parent();
                 var val= elm.attr('value')? elm.attr('value') : elm.val();
@@ -303,12 +326,14 @@ page-no-arc
                             $(inpErr).addClass('err-msg').html('Required');
                         parentElm.append(inpErr);
                     }
-                    elm.on('keyup',function(){
+                    elm.on('keyup change',function(){
                         $(this).parents('.input-error').removeClass('input-error');
                         $(this).nextAll('.err-msg').remove();
                     })
-                    if(errMsgCount==1){
-                        elm.focus();
+                    if(errMsgCount>0 && !errFocused){
+                        
+                        window.scrollTo(0, parentElm[0].offsetTop - 150);
+                        errFocused=true;
                     }
                 }
 
@@ -1115,6 +1140,18 @@ page-no-arc
         height:30px;
         width:30px;
         cursor:pointer;
+    }
+
+    .info-flying{
+        position: fixed;
+        z-index: 3;
+        bottom: 60px;
+        left: 50%;
+        transform: translatex(-50%);
+        box-shadow: 0 0 5px rgba(0,0,0,0.5);
+        border-radius: 20px;
+        opacity: 1 !important;
+        transition: all .5s ease-in-out;
     }
 </style>
 @endsection

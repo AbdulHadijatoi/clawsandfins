@@ -1,5 +1,59 @@
 @extends('layouts.master')
 
+@section('menu')
+    @include('components.menu_1')
+@endsection
+
+@section('body_class')
+page-no-arc
+@endsection
+
+@section('style_extra')
+<style>
+    .visiting-address {
+        height: 300px;
+    }
+
+    .visiting-address #map {
+        height: 100%;
+    }
+
+    .map-marker-label {
+        display: block;
+        border-radius: 5px;
+        padding: 2px 8px;
+    }
+
+    .card-highlight{
+        background-color: #FFFFFF;
+        /*-webkit-animation: colorhighlight 1s linear infinite;
+        animation: colorhighlight 1s linear infinite;*/
+    }
+
+    @-webkit-keyframes colorhighlight {
+        0% {
+            background-color: #dbdbdb;
+        }
+
+        100% {
+            background-color: #FFD4AB;
+        }
+    }
+
+    @keyframes colorhighlight {
+        0% {
+            background-color: #dbdbdb;
+        }
+
+        100% {
+            background-color: #FFD4AB;
+        }
+    }
+</style>
+@endsection
+
+
+
 @section('content')
         <!-- Content -->
         <div class="content-wrapper">
@@ -8,7 +62,7 @@
                     <div class="full-width align-in-center pb-120">
                         <div class="_75-width md_90-width flex-column justify-center max-w700">
                             <div>
-                                <h1 class="h1 text-yellow sm_font-size-35 text-center mt-60">Distributors in United States</h1>
+                                <h1 class="h1 text-yellow sm_font-size-35 text-center mt-60">Distributors in {{$country->name}}</h1>
                                 @if(!Auth::check())
                                     <div class="banner-info justify-between align-center mt-40">
                                         <div>Do you want to be our distributor in United States?</div>
@@ -19,69 +73,72 @@
                                     <div id="map" style="height: 400px;"></div>
                                 </div>
                                 <div id="distributor-list" class="mt-20">
-                                    
-                                    <div class="distributor-item d-flex full-width" id="distributor1">
+                                    @foreach($distributors as $distributor)
+                                    <div class="distributor-item d-flex full-width" id="distributor{{$distributor->id}}">
                                         <div class="company-logo" tooltip="Find on map">
-                                            <img src="{{asset('images/logo.png')}}">
+                                            <img src="{{url('storage/'.$distributor->user->image)}}">
                                         </div>
                                         <div class="company-info equal-width">
                                             <div class="info-header justify-between">
                                                 <div class="info-name">
-                                                    <span>Nevada</span>
-                                                    <h2 tooltip="Find on map">Company Name 1</h2>
-                                                    <h4>Contact Name</h4>
+                                                    <span>{{$distributor->getCity->name}}</span>
+                                                    <h2 tooltip="Find on map">{{$distributor->company_name}}</h2>
+                                                    <h4>{{$distributor->contact_name}}</h4>
                                                 </div>
                                                 <div class="contact-button align-center">
                                                     <div class="call-button">
-                                                        <a href="tel:+1234567890987" tooltip="Call">
+                                                        <a href="tel:{{$distributor->getCountry->dial_code.$distributor->phone_number}}" tooltip="Call">
                                                             <span class="material-icons">
                                                                 call
                                                             </span>
                                                         </a>
                                                     </div>
+                                                    @if($distributor->latitude != 0 && $distributor->longitude != 0)
                                                     <div class="map-button">
-                                                        <a href="https://maps.google.com/?q=36.144542,-115.192973" tooltip="Find Direction" target="_blank" class="map">
+                                                        <a href="https://maps.google.com/?q={{$distributor->latitude}},{{$distributor->longitude}}" tooltip="Find Direction" target="_blank" class="map">
                                                             <span class="material-icons">
                                                                 map
                                                             </span>
                                                         </a>
                                                     </div>
+                                                    @endif
                                                 </div>
                                             </div>
                                             <div class="contact-info align-center">
-                                                <a href="mailto:company@gmail.com" tooltip="Send Email" class="email align-center">
+                                                <a href="mailto:{{$distributor->order_email}}" tooltip="Send Email" class="email align-center">
                                                     <span class="material-icons">
                                                         email
                                                     </span>
                                                     <div>
-                                                        company@gmail.com
+                                                        {{$distributor->order_email}}
                                                     </div>
                                                 </a>
-                                                <a href="tel:+123456789087" tooltip="Call" class="phone align-center">
+                                                <a href="tel:{{$distributor->getCountry->dial_code.$distributor->phone_number}}" tooltip="Call" class="phone align-center">
                                                     <span class="material-icons">
                                                         phone
                                                     </span>
                                                     <div>
-                                                        +1 2345 6789 0987
+                                                        {{$distributor->getCountry->dial_code.$distributor->phone_number}}
                                                     </div>
                                                 </a>
-                                                <a href="https://www.clawsandfins.com" tooltip="Visit Website" class="website align-center" target="_blank">
+                                                <a href="{{$distributor->website_url}}" tooltip="Visit Website" class="website align-center" target="_blank">
                                                     <span class="material-icons">
                                                         public
                                                     </span>
                                                     <div>
-                                                        www.clawsandfins.com
+                                                        {{$distributor->website_url}}
                                                     </div>
                                                 </a>
                                             </div>
                                             <div class="address d-flex">
                                                 <span>Address:</span>
-                                                4300 Central Ave SW, Albuquerque, NM 87105, United States
+                                                {{$distributor->postal_address}}
                                             </div>
                                             
                                         </div>
                                     </div>
-                                    <div class="distributor-item d-flex full-width" id="distributor2">
+                                    @endforeach
+                                    {{-- <div class="distributor-item d-flex full-width" id="distributor2">
                                         <div class="company-logo">
                                             <img src="{{asset('images/logo.png')}}">
                                         </div>
@@ -324,7 +381,7 @@
                                             </div>
                                             
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
                         </div>
@@ -440,7 +497,7 @@
                 infoWindow = new google.maps.InfoWindow({ content: content });
 
                 //addMarker();
-                setMapAddress('United States');
+                setMapAddress('{{$country->name}}');
                 setMarkers(map);
             }
 
@@ -515,13 +572,16 @@
                 }
             }
 
-            const distributorMaps = [
-                ["Company Name 1", 36.144542, -115.192973, 1],
-                ["Company Name 2", 43.034326, -108.376604, 2],
-                ["Company Name 3", 44.056177, -121.301805, 3],
-                ["Company Name 4", 33.557719, -105.601885, 4],
-                ["Company Name 5", 31.453586, -100.458361, 5],
-            ];
+            const distributorMaps = [];
+
+            @foreach($distributors as $distributor)
+            distributorMaps.push([
+                "{{$distributor->company_name}}",
+                {{$distributor->latitude}},
+                {{$distributor->longitude}},
+                {{$distributor->id}},
+            ]);
+            @endforeach
 
             var markers=[];
 

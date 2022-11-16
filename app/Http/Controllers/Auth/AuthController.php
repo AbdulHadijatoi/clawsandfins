@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\CentralLogics\Helpers;
+use App\Events\EmailVerified;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateDistributorRequest;
@@ -84,7 +85,7 @@ class AuthController extends Controller
             }
         }
   
-        return redirect("login")->withError('Oppes! You have entered invalid credentials');
+        return redirect("login")->withInput()->withError('Oppes! You have entered invalid credentials');
     }
 
     public function adminPostLogin(Request $request)
@@ -98,7 +99,7 @@ class AuthController extends Controller
         $user = User::where('email',$request->email)->first();
         if($user && $user->getRoleNames()[0] == 'admin'){
             if (Auth::attempt($credentials)) {
-                return redirect()->route('users.index')
+                return redirect()->route('users.distributors')
                             ->withSuccess('You have Successfully loggedin');
             }
         }
@@ -130,8 +131,8 @@ class AuthController extends Controller
         $data['image'] = $image_name;
         $user = User::create($data);
         if($user){
-            $token = sha1($user->id . '.' . $user->email);
-            $user->assignRole('distributor candidate');
+            $token = $this->generateToken($user);
+            $user->assignRole('distributor');
             $request->request->add(['user_id' => $user->id]); //add request
             $data = $request->all();
             $distributor = Distributor::create($data);
@@ -173,8 +174,8 @@ class AuthController extends Controller
         $user = User::create($data);
 
         if($user){
-            $token= sha1($user->id.'.'.$user->email);
-            $user->assignRole('investor candidate');
+            $token= $this->generateToken($user);
+            $user->assignRole('investor');
             $request->request->add(['user_id' => $user->id]); //add request
             $data = $request->all();
             $investor = Investor::create($data);
@@ -190,6 +191,10 @@ class AuthController extends Controller
         }
     }
 
+    public static function generateToken($user){
+        return sha1($user->id . '.' . $user->email);
+    }
+    
     public static function getUserWithToken($token){
         return User::where(DB::raw('SHA1(CONCAT(id,".",email))'), $token)->first();
     }
@@ -212,7 +217,6 @@ class AuthController extends Controller
         if($user){
             $verified_at= date('Y-m-d H:i:s');
             $hours = (strtotime($verified_at) - strtotime($user->updated_at)) / (60 * 60);
-            
             if($hours > 1){
                 $status = 2;
             }else{
@@ -261,6 +265,22 @@ class AuthController extends Controller
         }
 
         return response()->json($data);
+    }
+
+    public function verificationNotice()
+    {
+        $user = auth()->user();
+        $token= $this->generateToken($user);
+        return view('auth.register.verification-notice', compact('token'));
+    }
+    
+    public function getVerified(Request $request)
+    {
+        $user = (auth()->user() ?? AuthController::getUserWithToken($request->token)) ?? null;
+        if ($request->listenEmailVerified && $user) {
+            $data['verified'] = $user->email_verified_at;
+            return response()->json($data);
+        }
     }
 
     /**
@@ -386,7 +406,7 @@ class AuthController extends Controller
         Session::flush();
         Auth::logout();
   
-        return Redirect('login');
+        return Redirect(request()->is('admin*')?'admin/login':'login');
     }
 
     /**

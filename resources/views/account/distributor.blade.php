@@ -32,6 +32,11 @@ page-no-arc
                                 @csrf
                                 <div class="form-container">
                                     <div class="full-width text-center mb-30">
+                                        @if(isset($adminView))
+                                        <div class="tile tile-info tile-no-border p-0">
+                                            <livewire:user.index :userID="$id" :userStatus="true" :user="$user" :userRole="$userRole"/>
+                                        </div>
+                                        @endif
                                         <div class="logo-container align-in-center flex-column mt-20">
                                             <div class="logo d-flex align-in-center image-opened">
                                                 <img id="logo-img" alt="logo-img" src="{{ url('storage/'.$user->image) }}">
@@ -346,6 +351,11 @@ page-no-arc
 
 @section('style_extra')
 <style>
+    .button-primary,
+    .button-secondary
+    {
+        margin: 0px;
+    }
     .logo {
             background-color: rgba(255, 255, 255, 0.1);
             width: 150px;
@@ -589,6 +599,10 @@ page-no-arc
             border: 1px solid #fff;
             opacity: 0.2;
             cursor: not-allowed;
+        }
+
+        .small-popup {
+            background: #FFF;
         }
 </style>
 @endsection

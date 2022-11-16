@@ -24,6 +24,7 @@ use Illuminate\Support\Facades\Route;
 // Route::get('dashboard', [AuthController::class, 'dashboard']); 
 
 Route::get('logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
+Route::get('admin/logout', [AuthController::class, 'logout'])->name('admin.logout')->middleware('auth');
 
 // Navigation menu url routes:begins
 Route::get('/soft-shelled-mudcrabs', function () {
@@ -38,9 +39,9 @@ Route::get('/hard-shelled-mudcrabs', function () {
 Route::get('/information', function () {
     return view('information/index');
 });
-Route::get('/where-to-buy', function () {
-    return view('where-to-buy/index');
-});
+// Route::get('/where-to-buy', function () {
+//     return view('where-to-buy/index');
+// });
 Route::get('/contact-us', function () {
     return view('contact-us');
 });
@@ -77,6 +78,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
      * Home Routes
      */
     Route::get('/', 'HomeController@index')->name('home.index');
+    Route::get('/where-to-buy', 'HomeController@whereToBuy')->name('home.where-to-buy');
+    Route::get('/distributors/{countryId}', 'HomeController@distributors')->name('home.distributors');
 
 
     Route::group(['middleware' => ['guest']], function() {
@@ -92,7 +95,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::post('post-become-investor', [AuthController::class, 'postBecomeInvestor'])->name('become-investor.post'); 
         Route::get('confirm-email', [AuthController::class, 'confirmEmail'])->name('confirm-email');
         Route::get('confirm-email/activation/{token}', [AuthController::class, 'emailActivation'])->name('confirm-email.activation');
-        Route::post('confirm-email/resend/{token}', [AuthController::class, 'resendEmailActivation'])->name('confirm-email.resend');
+        // Route::post('confirm-email/resend/{token}', [AuthController::class, 'resendEmailActivation'])->name('confirm-email.resend');
         
         /**
          * Login Routes
@@ -103,12 +106,22 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::post('admin/post-login', [AuthController::class, 'adminPostLogin'])->name('admin.login.post'); 
     });
 
-    Route::get('verification-notice', function () {
-        if(Auth::check() && auth()->user()->hasVerifiedEmail()){
-            return redirect()->route('home.index');
-        }
-        return view('auth.register.verification-notice');
-    })->name('verificationNotice')->middleware('auth');
+    Route::get('verification-notice', [AuthController::class, 'verificationNotice'])->name('verificationNotice')->middleware('auth');
+    Route::get('verification/verified', [AuthController::class, 'getVerified'])->name('getVerified');
+    Route::post('confirm-email/resend/{token}', [AuthController::class, 'resendEmailActivation'])->name('confirm-email.resend');
+    // Route::get('verification-notice', function () {
+    //     return view('auth.register.verification-notice');
+    // })->name('verificationNotice')->middleware('auth');
+    Route::group(['middleware' => ['auth']], function () {
+        Route::get('/home', function () {
+            if (explode('/', request()->route()->getPrefix() ?? '')[0] == 'admin' || Auth::user()->getRoleNames()[0] == 'admin') {
+                return redirect()->route('users.distributors');
+            }else{
+                return redirect()->route('account-info');
+            }
+        });
+    });
+
     Route::group(['middleware' => ['auth','verified']], function() {
         Route::get('/account/{id?}', [UsersController::class, 'accountInfo'])->name('account-info');
         Route::post('post-edit-distributor', [AuthController::class, 'postEditDistributor'])->name('edit-distributor.post');
@@ -120,16 +133,43 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
     });
 
     // Later will remove the distributor role and just limit access of distributor to only users
+<<<<<<< HEAD
     Route::group(['middleware' => ['auth','verified', 'role:admin'],'prefix'=>'admin'], function() {
         Route::get('/', 'Admin\UsersController@index');
+=======
+    Route::group(['middleware' => ['auth','verified', 'role:admin|distributor'],'prefix'=>'admin'], function() {
+        // Route::get('/', 'UsersController@index')->name('users.index');
+        Route::get('/dashboard', function () {
+            return redirect()->route('users.distributors');
+        });
+
+>>>>>>> 252ed8c6f2830994eda3986b313c724027df7229
         Route::group(['prefix' => 'settings'], function () {
             Route::get('/', [SettingsController::class, 'index'])->name('settings.index');
             Route::post('/update', [SettingsController::class, 'update'])->name('settings.update');
         });
         
+<<<<<<< HEAD
         Route::resource('users', \Admin\UsersController::class);
         
         Route::post('users/updateRole', [App\Http\Controllers\Admin\UsersController::class,'updateUserRole'])->name('users.updateRole');
+=======
+        /**
+         * User Routes
+         */
+        Route::group(['prefix' => 'users'], function() {
+            Route::get('/distributors', 'UsersController@distributors')->name('users.distributors');
+            Route::get('/distributors/edit/{option?}', 'UsersController@editDistributors')->name('users.distributors.edit');
+            Route::get('/investors', 'UsersController@investors')->name('users.investors');
+            Route::get('/investors/edit/{option?}', 'UsersController@editInvestors')->name('users.investors.edit');
+            Route::get('/create', 'UsersController@create')->name('users.create');
+            Route::post('/create', 'UsersController@store')->name('users.store');
+            Route::get('/{user}/show', 'UsersController@show')->name('users.show');
+            Route::get('/{user}/edit', 'UsersController@edit')->name('users.edit');
+            Route::patch('/{user}/update', 'UsersController@update')->name('users.update');
+            Route::delete('/{user}/delete', 'UsersController@destroy')->name('users.destroy');
+        });
+>>>>>>> 252ed8c6f2830994eda3986b313c724027df7229
         
         Route::group(['prefix' => 'send-email'], function() {
             Route::get('/', [EmailController::class,'index'])->name('email.index');

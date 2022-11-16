@@ -16,6 +16,15 @@ use Illuminate\Support\Facades\Session;
 
 class UsersController extends Controller
 {
+    public function clearMailSession()
+    {
+        if (session()->has('mail-draft-id')) {
+            Session::remove('mail-draft-id');
+            Session::remove('userchecked');
+            Session::remove('mail-subject');
+            Session::remove('mail-message');
+        }
+    }
     /**
      * Display all users
      * 
@@ -23,7 +32,68 @@ class UsersController extends Controller
      */
     public function index() 
     {
-        //
+        
+        // if(Auth::user() -> hasPermissionTo('view users')) {
+            $users = User::with(['distributor'])->whereHas(
+                'roles',
+                function ($q) {
+                    $q->where('name', '!=', 'candidate')
+                        ->where('name', '!=', 'admin');
+                }
+            )->latest()->paginate(10);
+
+            return view('admin.users.index', compact('users'));
+        // }else{
+        //     abort(403);
+        // }
+    }
+    
+    public function distributors() 
+    {
+        $this->clearMailSession();
+        // $users = User::with(['distributor'])->whereHas(
+        //     'roles',
+        //     function ($q) {
+        //         $q->where('name', '=', 'distributor');
+        //     }
+        // )->whereHas('distributor')->latest()->paginate(10);
+
+        return view('admin.users.distributors', [
+            'userType' => 'distributor'
+        ]);
+    }
+    
+    public function editDistributors($option) 
+    {
+        
+        return view('admin.users.edit-distributor', [
+            'option' => $option,
+            'editOption' => ($option == 'all' ? 'All Distributors' : ucfirst(str_replace('-', ' ', $option)) )
+        ]);
+    }
+    
+    public function investors() 
+    {
+        $this->clearMailSession();
+        // $users = User::with(['investor'])->whereHas(
+        //     'roles',
+        //     function ($q) {
+        //         $q->where('name', '=', 'investor');
+        //     }
+        // )->latest()->paginate(10);
+
+        return view('admin.users.investors', [
+            'userType' => 'investor'
+        ]);
+    }
+
+    public function editInvestors($option)
+    {
+
+        return view('admin.users.edit-investor', [
+            'option' => $option,
+            'editOption' => ($option == 'all' ? 'All Investors' : ucfirst(str_replace('-', ' ', $option)))
+        ]);
     }
 
     /**
@@ -43,7 +113,7 @@ class UsersController extends Controller
      * @param StoreUserRequest $request
      * 
      * @return \Illuminate\Http\Response
-     */
+    */
     public function store(User $user, StoreUserRequest $request) 
     {
         //
@@ -100,9 +170,14 @@ class UsersController extends Controller
 
     public function accountInfo($id = null)
     {
-        $user= auth()->user();
+        if($id){
+            $user = User::find($id);
+        }else{
+            $user= auth()->user();
+            $id= auth()->user()->id;
+        }
         $userRole= $user->roles->pluck('name')->toArray()[0];
-        $userData= ("App\Models" . ($userRole == 'distributor' ? '\Distributor' : '\Investor'))::where('user_id', auth()->user()->id)->first();
+        $userData= ("App\Models" . ($userRole == 'distributor' ? '\Distributor' : '\Investor'))::where('user_id', $id)->first();
         $other=array();
         if($userData->country && $userData->city){
             $other= [
@@ -111,8 +186,10 @@ class UsersController extends Controller
             ];
         }
         return view('account/'.($userRole == 'distributor' ? 'distributor' : 'investor'),[
+            'id'=>$id,
             'user'=>$user,
             'userData'=> $userData,
+            'userRole'=> $userRole,
             'other'=> (object) $other,
         ]);
     }

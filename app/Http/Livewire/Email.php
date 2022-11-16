@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use Livewire\Component;
+use Spatie\Permission\Models\Role;
 
 class Email extends Component
 {
@@ -36,8 +37,8 @@ class Email extends Component
         $recipients = ($this->option && $this->option!='selected') ? $this->option : json_encode(session()->has('userchecked') ? Session::get('userchecked') : []);
         $mail_draft_data= [
             'recipient' => $recipients,
-            'subject' => $this->subject,
-            'message' => $this->message,
+            'subject' => $this->subject ?? '',
+            'message' => $this->message ?? '',
             'status' => 0
         ];
 
@@ -59,15 +60,25 @@ class Email extends Component
         $users= new User;
         $recipientsData= [];
         $hasUserChecked= session()->has('userchecked') && count(session()->get('userchecked', [])) > 0;
+        
         if( $this->option && $this->option != 'selected' ){
             if( $this->option != 'all' ){
-                $users=$users->whereHas(
+                $optArr = explode('-', $this->option);
+                $isCandidate = ($optArr[1] ?? '') == 'candidate';
+                $opt = substr($optArr[0], 0, -1);
+                $role = Role::where('name', 'LIKE', $opt . '%')->first()->name;
+                
+                $users = $users->whereHas(
                     'roles',
-                    function ($q) {
-                        $q->where('name','=', $this->option);
+                    function ($q) use ($role){
+                        $q->where('name', '=', $role);
                     }
-                );
+                )->whereHas($role)->where('status', ($isCandidate?0:1));
+
+            }else{
+                $users = $users->whereHas('distributor')->orWhereHas('investor')->where('status', '!=', 2);
             }
+
             $recipientsData=$users->get()->pluck('email')->toArray();
         } else if ( ($this->option == 'selected' && $hasUserChecked) || $hasUserChecked ){
             $recipientsData= session()->get('userchecked');
@@ -75,6 +86,8 @@ class Email extends Component
             $this->dispatchBrowserEvent('openDialog', ['title' => 'Error', 'content' => 'Please specify at least one recipient.']);
             return;
         }
+
+        // dd($recipientsData);
 
         $recipients = ($this->option && $this->option != 'selected') ? $this->option : json_encode($recipientsData);
         $isDraft= $this->draftId?true:false;
