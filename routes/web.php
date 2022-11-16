@@ -133,27 +133,20 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
     });
 
     // Later will remove the distributor role and just limit access of distributor to only users
-<<<<<<< HEAD
-    Route::group(['middleware' => ['auth','verified', 'role:admin'],'prefix'=>'admin'], function() {
-        Route::get('/', 'Admin\UsersController@index');
-=======
     Route::group(['middleware' => ['auth','verified', 'role:admin|distributor'],'prefix'=>'admin'], function() {
         // Route::get('/', 'UsersController@index')->name('users.index');
         Route::get('/dashboard', function () {
             return redirect()->route('users.distributors');
         });
 
->>>>>>> 252ed8c6f2830994eda3986b313c724027df7229
         Route::group(['prefix' => 'settings'], function () {
             Route::get('/', [SettingsController::class, 'index'])->name('settings.index');
             Route::post('/update', [SettingsController::class, 'update'])->name('settings.update');
         });
         
-<<<<<<< HEAD
-        Route::resource('users', \Admin\UsersController::class);
+        // Route::resource('users', \Admin\UsersController::class);
         
         Route::post('users/updateRole', [App\Http\Controllers\Admin\UsersController::class,'updateUserRole'])->name('users.updateRole');
-=======
         /**
          * User Routes
          */
@@ -169,7 +162,6 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
             Route::patch('/{user}/update', 'UsersController@update')->name('users.update');
             Route::delete('/{user}/delete', 'UsersController@destroy')->name('users.destroy');
         });
->>>>>>> 252ed8c6f2830994eda3986b313c724027df7229
         
         Route::group(['prefix' => 'send-email'], function() {
             Route::get('/', [EmailController::class,'index'])->name('email.index');
