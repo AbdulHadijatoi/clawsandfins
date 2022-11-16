@@ -46,10 +46,71 @@ page-no-arc
                                 <div class="text-light p-20 text-center">
                                     Check your email and click on the<br>confirmation link to continue.
                                 </div>
+                                <div class="d-flex full-width justify-center">
+                                    <div class="button-secondary">
+                                        <button type="submit" class="resend-email">Resend Email</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
         </div>
+@endsection
+
+@section('script_extra')
+<script>
+    var loader;
+    $('.resend-email').click(function(){
+        loader=showLoader();
+        $.ajax({
+            url: "{{ url('confirm-email/resend/'.$token) }}",
+            type: "POST",
+            data: {
+                _token: '{{csrf_token()}}'
+            },
+            dataType: 'json',
+            success: function (result) {
+                if(result.success){
+                    openDialog('Confirm Email', 'Confirmation email has been sent successfully');
+                }else if(result.error){
+                    if(result.error == 1){
+                        openDialog('Confirm Email', 'Confirmation email not sent, check yout connection');
+                    }else{
+                        openDialog('Error', 'Something went wrong, please try again');
+                    }
+                }
+                loader.remove();
+            }
+        });
+    })
+
+    let emailIsVerified=false;
+    let listenInterval=setInterval(function(){
+        $.ajax({
+            url: "{{ url('verification/verified') }}",
+            type: "GET",
+            data: {
+                listenEmailVerified: true,
+                _token: '{{csrf_token()}}'
+            },
+            dataType: 'json',
+            success: function (result) {
+                if(result.verified && !emailIsVerified){
+                    emailIsVerified=true;
+                    openDialog('Congratulations', 'Your email has been verified');
+                    clearInterval(listenInterval);
+                    listenInterval=setInterval(function() {
+                        if($('.open-dialog').length <=0 ){
+                            clearInterval(listenInterval);
+                            window.location.href="{{ url()->previous() }}";
+                        }
+                    }, 1000);
+                }
+            }
+        });
+    }, 10000)
+
+</script>
 @endsection

@@ -1,3 +1,8 @@
+@php
+if(isset($option)){
+    $sendOption=ucfirst(str_replace('-',' ',$option));
+}
+@endphp
 <div>
     <form wire:submit.prevent="sendEmail">
         <div class="d-flex full-width form-responsive">
@@ -14,7 +19,7 @@
         <div class="d-flex justify-between align-center">
             <div class="d-flex">
                 <div class="button-primary">
-                    <button type="submit" id="send-mail" onclick="$(this).html('Sending...')">Send</button>
+                    <button type="submit" id="send-mail">Send</button>
                 </div>
                 @if(!$draftId)
                 <div class="button-secondary">
@@ -78,6 +83,14 @@ autoSaveInterval=setInterval(function(){
 },30000);
 
 $('#send-mail').click(function(e){
+    let option={!! isset($sendOption) ? '"' . ($sendOption=='All' ? 'users' : $sendOption) . '"' : 'null' !!};
+    if(option){
+        if(!confirm('Do you really want to send out to all ' + option + '?')){
+            e.preventDefault();
+            return;
+        }
+    }
+
     let contentTextLength = $('.content-text').children(':not(:hidden)').length;
     let userCheckedLength = $('.user-checked-container').children(':not(:hidden)').length;
     let fixedRecipient = $('.fixed-recipients').length;
@@ -85,6 +98,9 @@ $('#send-mail').click(function(e){
         openDialog('Error', 'Please specify at least one recipient.');
         e.preventDefault();
     }
+    
+    $(this).html('Sending...');
+
     @this.set('message', editorElm.getContent());
 })
 </script>

@@ -28,7 +28,15 @@ page-no-arc
                                     </span>
                                 </div>
                                 <div id="country-list" class="spinner" style="min-height: 150px">
-
+                                    @if($countries)
+                                        @foreach ($countries as $country)
+                                            <a href="{{route('home.distributors', [$country->id])}}" class="country-item" value="{{strtolower($country->name)}}">{{$country->name}}
+                                                @if($country->distributors_count>0)
+                                                <span title="{{$country->distributors_count}} {{$country->distributors_count==1?'distributor':'distributors'}}">{{$country->distributors_count}}</span>
+                                                @endif
+                                            </a>
+                                        @endforeach
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -42,18 +50,23 @@ page-no-arc
 
 @section('script_extra')
     <script>
-        if (Cookies.get('logged-in')) {
-            $('.distributor-investor-menu').removeClass('display-none');
-            $('.distributor-investor-menu').nextAll().hide();
-            $('.distributor-investor-menu').show();
-            $('.login-menu').hide();
-            $('.logout-menu').show();
-            $('.nav-visitor').addClass('display-none');
-            $('.nav-distributor-investor').removeClass('display-none');
-        }
-    </script>
+        $(function(){
+            removeSpinner();
 
-    {{-- <script src="{{asset('js/countries_script.js')}}"></script> --}}
+            $('.search input').keyup(function(){
+                $('#country-list').find('.country-item').removeClass('not-found');
+                if($(this).val() != ''){
+                    $(this)
+                        .parent()
+                        .addClass('search-found')
+                        .attr('item-found', $('#country-list').find('.country-item[value*="' + $(this).val().toLowerCase() + '"]').length );
+                    $('#country-list').find('.country-item:not([value*="' + $(this).val().toLowerCase() +'"])').addClass('not-found');
+                }else{
+                    $(this).parent().removeClass('search-found');
+                }
+            })
+        })
+    </script>
 @endsection
 
 

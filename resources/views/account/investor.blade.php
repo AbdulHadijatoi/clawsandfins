@@ -21,6 +21,11 @@ page-no-arc
                                 @csrf
                                 <div class="form-container">
                                     <div class="full-width text-center mb-30">
+                                        <div class="tile tile-info tile-no-border p-0">
+                                            <livewire:user.index :userID="$id" :userStatus="true" :user="$user" :userRole="$userRole"/>
+                                        </div>
+                                    </div>
+                                    <div class="full-width text-center mb-30">
                                         <div class="logo-container align-in-center flex-column mt-20">
                                             <div class="logo d-flex align-in-center image-opened">
                                                 <img id="logo-img" alt="logo-img" src="{{ url('storage/'.$user->image) }}">
@@ -45,11 +50,11 @@ page-no-arc
                                             <div class="d-flex full-width form-responsive">
                                                 <div class="input-text" required>
                                                     <label label="(Must be filled in)">Name</label>
-                                                    <input type="text" id="first-name" placeholder="First Name" data-name="first_name" valuefor="name-info" valuenum="1" vf-prefix=" " value="{{$userData->first_name}}">
+                                                    <input type="text" id="first-name" placeholder="First Name" data-name="first_name" valuefor="name-info" valuenum="1" value="{{$userData->first_name}}">
                                                 </div>
                                                 <div class="input-text" required>
                                                     <label label="(Must be filled in)">Last Name</label>
-                                                    <input type="text" id="last-name" placeholder="Last Name" data-name="last_name" valuefor="name-info" valuenum="2" value="{{$userData->last_name}}">
+                                                    <input type="text" id="last-name" placeholder="Last Name" data-name="last_name" valuefor="name-info" valuenum="2" value="{{$userData->last_name}}" vf-prefix=" ">
                                                 </div>
                                             </div>
                                             <div class="d-flex full-width justify-center align-center">
@@ -209,6 +214,11 @@ page-no-arc
 
 @section('style_extra')
 <style>
+    .button-primary,
+    .button-secondary
+    {
+        margin: 0px;
+    }
     .logo {
             background-color: rgba(255, 255, 255, 0.1);
             width: 150px;

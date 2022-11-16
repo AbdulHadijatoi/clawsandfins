@@ -73,20 +73,23 @@ function smlData($recipient){
                                             </div>
                                             @else
                                             <div class="dropdown-button-group d-flex full-width">
-                                                <div class="button-primary equal-width">
+                                                <div class="button-secondary equal-width">
                                                     <a href="{{ route('email.send') }}"><button>Send</button></a>
                                                 </div>
-                                                <div class="button-primary">
+                                                <div class="button-secondary">
+                                                    <a href="{{ route('email.send',['distributor']) }}"><button>Distributors</button></a>
+                                                </div>
+                                                <div class="button-secondary">
+                                                    <a href="{{ route('email.send',['distributor-candidate']) }}"><button>Distributor Candidate</button></a>
+                                                </div>
+                                                <div class="button-secondary">
+                                                    <a href="{{ route('email.send',['investor']) }}"><button>Investors</button></a>
+                                                </div>
+                                                <div class="button-secondary">
+                                                    <a href="{{ route('email.send',['investor-candidate']) }}"><button>Investor Candidate</button></a>
+                                                </div>
+                                                <div class="button-secondary">
                                                     <a href="{{ route('email.send',['all']) }}"><button>All Users</button></a>
-                                                </div>
-                                                <div class="button-primary">
-                                                    <a href="{{ route('email.send',['candidate']) }}"><button>Candidate</button></a>
-                                                </div>
-                                                <div class="button-primary">
-                                                    <a href="{{ route('email.send',['distributor']) }}"><button>Distributor</button></a>
-                                                </div>
-                                                <div class="button-primary">
-                                                    <a href="{{ route('email.send',['investor']) }}"><button>Investor</button></a>
                                                 </div>
                                             </div>
                                             @endif
@@ -105,7 +108,7 @@ function smlData($recipient){
                                                 <a href="{{ route('email.view',['show',$item->id]) }}" class="sml-item d-flex align-top">
                                                     <div class="d-flex flex-column equal-width">
                                                         <h4>{!! !empty($item->subject)?$item->subject:'<em>No Subject</em>' !!}</h4>
-                                                        <span class="to">{!! is_array($recipient)?join(',',$recipient).$rc_more:$recipient !!}</span>
+                                                        <span class="to">{!! is_array($recipient)?join(',',$recipient).$rc_more:ucfirst(str_replace('-',' ',$recipient)) !!}</span>
                                                     </div>
                                                 </a>
                                                 @endforeach
@@ -127,7 +130,7 @@ function smlData($recipient){
                                                 <a href="{{ route('email.send',[ (is_array($recipient)?'selected':$recipient), $item->id]) }}" class="sml-item d-flex align-top">
                                                     <div class="d-flex flex-column equal-width">
                                                         <h4>{!! !empty($item->subject)?$item->subject:'<em>No Subject</em>' !!}</h4>
-                                                        <span class="to">{!! is_array($recipient)?join(',',$recipient).$rc_more:$recipient !!}</span>
+                                                        <span class="to">{!! is_array($recipient)?join(',',$recipient).$rc_more:ucfirst(str_replace('-',' ',$recipient)) !!}</span>
                                                     </div>
                                                     <span data-route="{{ route('email.action',['delete-draft',$item->id]) }}" class="delete-draft fa fa-trash text-light cursor-pointer ml-10"></span>
                                                 </a>
@@ -159,6 +162,9 @@ function smlData($recipient){
 
 @section('style_extra')
 <style>
+    .button-secondary button{
+        border: 0;
+    }
     .logo {
             background-color: rgba(255, 255, 255, 0.1);
             width: 150px;
@@ -481,6 +487,12 @@ function smlData($recipient){
         }
 
         /*Mail View*/
+        .mail-view .button-primary,
+        .mail-view .button-secondary
+        {
+            margin: 0px;
+        }
+
         .mail-view > *{
             margin: 10px 0;
             border-bottom: 1px solid #696969;

@@ -6,7 +6,7 @@
             {{$value->name}}
             <span>{{$value->email}}</span>
         </div>
-        <div class="role">{{$value->roles[0]->name}}</div>
+        <div class="role">{{ucwords($value->roles[0]->name)}} {{$value->status==0?'candidate':null}}</div>
     </div>
     @endforeach
 @endif

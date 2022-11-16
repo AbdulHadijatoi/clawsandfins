@@ -85,5 +85,32 @@ page-no-arc
             }
         });
     })
+
+    let emailIsVerified=false;
+    let listenInterval=setInterval(function(){
+        $.ajax({
+            url: "{{ url('verification/verified') }}",
+            type: "GET",
+            data: {
+                listenEmailVerified: true,
+                token: '{{request()->token}}',
+                _token: '{{csrf_token()}}'
+            },
+            dataType: 'json',
+            success: function (result) {
+                if(result.verified && !emailIsVerified){
+                    emailIsVerified=true;
+                    openDialog('Congratulations', 'Your email has been verified');
+                    clearInterval(listenInterval);
+                    listenInterval=setInterval(function() {
+                        if($('.open-dialog').length <=0 ){
+                            clearInterval(listenInterval);
+                            window.location.href="{{ url('/login') }}";
+                        }
+                    }, 1000);
+                }
+            }
+        });
+    }, 10000)
 </script>
 @endsection

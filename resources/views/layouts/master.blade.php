@@ -1,3 +1,11 @@
+@php
+if(Auth::user()==null || Auth::user()->getRoleNames()[0] != 'admin' ){
+    $isUser=true;
+}
+if( explode('/', request()->route()->getPrefix() ?? '')[0] == 'admin'){
+    $adminView=true;
+}
+@endphp
 <!doctype html>
 <html>
 
@@ -58,28 +66,77 @@
                     transform: rotate(360deg);
                 }
             }
+
         </style>
+        @if(!isset($isUser) && isset($adminView))
+        <style>
+            .content-wrapper .section{
+                padding-top: 50px;
+            }
+
+            .content-wrapper .section .md_90-width{
+                max-width: 90%;
+                width: 100%;
+            }
+
+            @media screen and (min-width: 1023px) {
+                body.open .content-wrapper .section{
+                    padding-left: 250px;
+                }
+            }
+
+            #main-menu{
+                padding-top: 30px;
+            }
+
+            .small-popup{
+                background: #FFF;
+            }
+        </style>
+        @endif
         @livewireStyles
     </head>
     
-    <body class="@hasSection('body_class') @yield('body_class') @else open @endif">
-        <div class="body-content max-w1280 margin-auto overflow-hidden">
+    <body class="@hasSection('body_class') @yield('body_class') @endif @if(isset($_COOKIE['menu'])) open @endif">
+        <div class="body-content margin-auto overflow-hidden @if(!isset($adminView) || isset($isUser)) max-w1280 @endif">
             @include('components.header')
             @yield('content')
 
-            
+            @if(!isset($adminView) || isset($isUser))
             @include('components.footer')
+            @endif
+
+            @if(!isset($adminView))
             <div class="copyright-text">
                 <p>
                     © 2020-{{date("Y")}} Pete's Claws and Fins, Yat Fung International Holding Ltd. All rights reserved.
                 </p>
             </div>
+            @endif
         </div>
-        @yield('script_extra')
         @livewireScripts
+        @yield('script_extra')
         <script>
         window.addEventListener('openDialog', (e) => {
             openDialog(e.detail.title,e.detail.content);
+        });
+        window.addEventListener('smallPopup', (e) => {
+            smallPopup(e.detail.content, e.detail.callback, e.detail.delay, e.detail.autohide, e.detail.mouseout, e.detail.closeBtn);
+        });
+        Livewire.on('js', scripts => {
+            if(Array.isArray(scripts)){
+                scripts.forEach(function(js) {
+                    eval(js+';');
+                });
+            }else{
+                eval(scripts+';');
+            }
+        });
+        Livewire.on('alert', msg => {
+            alert(msg);
+        });
+        Livewire.on('removeSpinner', args => {
+            $('#loader').remove();
         });
         </script>
     </body>

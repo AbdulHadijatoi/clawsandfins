@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\DB;
 use App\Jobs\SendMessageJob;
 use App\Mail\ContactUs;
+use App\Models\Distributor;
+use Illuminate\Support\Facades\Cookie;
 
 class HomeController extends Controller
 {
@@ -22,6 +24,27 @@ class HomeController extends Controller
     public function index()
     {
         return view('index');
+    }
+    
+    public function whereToBuy()
+    {
+        $countries = Helpers::getCountries()->toQuery()->withCount('distributors')->get();
+        return view('where-to-buy/index', compact('countries'));
+    }
+    
+    public function distributors($countryId)
+    {
+        
+        $country=Country::where('id',$countryId);
+        if(!$country){
+            return redirect()->route('home.where-to-buy');
+        }
+        $country= $country->first();
+        $distributors= Distributor::with(['getCountry' => function ($query) {
+            $query->select('id', 'dial_code');
+        }])->where('country', $countryId)->get();
+
+        return view('where-to-buy/distributors', compact('country', 'distributors'));
     }
 
     /**
