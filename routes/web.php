@@ -134,7 +134,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
 
     // Later will remove the distributor role and just limit access of distributor to only users
     Route::group(['middleware' => ['auth','verified', 'role:admin|distributor'],'prefix'=>'admin'], function() {
-        // Route::get('/', 'UsersController@index')->name('users.index');
+        Route::get('/', 'Admin\UsersController@distributors')->name('admin.home');
         Route::get('/dashboard', function () {
             return redirect()->route('users.distributors');
         });
@@ -146,21 +146,23 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         
         // Route::resource('users', \Admin\UsersController::class);
         
-        Route::post('users/updateRole', [App\Http\Controllers\Admin\UsersController::class,'updateUserRole'])->name('users.updateRole');
+        
         /**
          * User Routes
          */
         Route::group(['prefix' => 'users'], function() {
-            Route::get('/distributors', 'UsersController@distributors')->name('users.distributors');
-            Route::get('/distributors/edit/{option?}', 'UsersController@editDistributors')->name('users.distributors.edit');
-            Route::get('/investors', 'UsersController@investors')->name('users.investors');
-            Route::get('/investors/edit/{option?}', 'UsersController@editInvestors')->name('users.investors.edit');
-            Route::get('/create', 'UsersController@create')->name('users.create');
-            Route::post('/create', 'UsersController@store')->name('users.store');
-            Route::get('/{user}/show', 'UsersController@show')->name('users.show');
-            Route::get('/{user}/edit', 'UsersController@edit')->name('users.edit');
-            Route::patch('/{user}/update', 'UsersController@update')->name('users.update');
-            Route::delete('/{user}/delete', 'UsersController@destroy')->name('users.destroy');
+            Route::get('/', 'Admin\UsersController@distributors')->name('users.home');
+            Route::post('/updateRole', 'Admin\UsersController@updateUserRole')->name('users.updateRole');
+            Route::get('/distributors', 'Admin\UsersController@distributors')->name('users.distributors');
+            Route::get('/distributors/edit/{option?}', 'Admin\UsersController@editDistributors')->name('users.distributors.edit');
+            Route::get('/investors', 'Admin\UsersController@investors')->name('users.investors');
+            Route::get('/investors/edit/{option?}', 'Admin\UsersController@editInvestors')->name('users.investors.edit');
+            Route::get('/create', 'Admin\UsersController@create')->name('users.create');
+            Route::post('/create', 'Admin\UsersController@store')->name('users.store');
+            Route::get('/{user}/show', 'Admin\UsersController@show')->name('users.show');
+            Route::get('/{user}/edit', 'Admin\UsersController@edit')->name('users.edit');
+            Route::patch('/{user}/update', 'Admin\UsersController@update')->name('users.update');
+            Route::delete('/{user}/delete', 'Admin\UsersController@destroy')->name('users.destroy');
         });
         
         Route::group(['prefix' => 'send-email'], function() {

@@ -151,4 +151,64 @@ class UsersController extends Controller
         return redirect()->route('users.index')
             ->withSuccess(__('User updated successfully.'));
     }
+
+    // NEW CODE FROM DANI
+
+    public function distributors() 
+    {
+        $this->clearMailSession();
+        // $users = User::with(['distributor'])->whereHas(
+        //     'roles',
+        //     function ($q) {
+        //         $q->where('name', '=', 'distributor');
+        //     }
+        // )->whereHas('distributor')->latest()->paginate(10);
+
+        return view('admin.users.distributors', [
+            'userType' => 'distributor'
+        ]);
+    }
+    
+    public function editDistributors($option) 
+    {
+        
+        return view('admin.users.edit-distributor', [
+            'option' => $option,
+            'editOption' => ($option == 'all' ? 'All Distributors' : ucfirst(str_replace('-', ' ', $option)) )
+        ]);
+    }
+    
+    public function investors() 
+    {
+        $this->clearMailSession();
+        // $users = User::with(['investor'])->whereHas(
+        //     'roles',
+        //     function ($q) {
+        //         $q->where('name', '=', 'investor');
+        //     }
+        // )->latest()->paginate(10);
+
+        return view('admin.users.investors', [
+            'userType' => 'investor'
+        ]);
+    }
+
+    public function editInvestors($option)
+    {
+
+        return view('admin.users.edit-investor', [
+            'option' => $option,
+            'editOption' => ($option == 'all' ? 'All Investors' : ucfirst(str_replace('-', ' ', $option)))
+        ]);
+    }
+
+    public function clearMailSession()
+    {
+        if (session()->has('mail-draft-id')) {
+            Session::remove('mail-draft-id');
+            Session::remove('userchecked');
+            Session::remove('mail-subject');
+            Session::remove('mail-message');
+        }
+    }
 }

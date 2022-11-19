@@ -145,7 +145,14 @@ class Index extends Component
 
     public function approve($id)
     {
+
         $user = User::find($id);
+        $currentRole = $user->getRoleNames()[0];
+        if($currentRole == 'investor candidate'){
+            $user->syncRoles(['investor']);
+        }else if($currentRole == 'distributor candidate'){
+            $user->syncRoles(['distributor']);
+        }
         $user->status = 1;
         if ($user->save()) {
             $this->user = $user;

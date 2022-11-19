@@ -17,7 +17,10 @@
                 <tr>
                     <th scope="col">Name</th>
                     <th scope="col">Slug</th> 
-                    <th scope="col">Permissions</th> 
+                    <th scope="col">Investor</th> 
+                    <th scope="col">Investor<br>Candidate</th> 
+                    <th scope="col">Distributor</th> 
+                    <th scope="col">Distributor<br>Candidate</th> 
                 </tr>
                 </thead>
                 <tbody>
@@ -27,10 +30,16 @@
                             <td>{{ $page->name }}</td>
                             <td>{{ $page->slug }}</td>
                             <td>
-                                <label>Distributor <input type="checkbox" name="" value=""/></label>
-                                <label>Investor <input type="checkbox" name="" value=""/></label>
-                                <label>Distributor Candidate <input type="checkbox" name="" value=""/></label>
-                                <label>Investor Candidate <input type="checkbox" name="" value=""/></label>
+                                <input type="checkbox" name="" value=""/>
+                            </td>
+                            <td>
+                                <input type="checkbox" name="" value=""/>
+                            </td>
+                            <td>
+                                <input type="checkbox" name="" value=""/>
+                            </td>
+                            <td>
+                                <input type="checkbox" name="" value=""/>
                             </td>
                             {{-- <td>
                                 {!! Form::open(['method' => 'DELETE','route' => ['permissions.destroy', $permission->id],'style'=>'display:inline']) !!}
