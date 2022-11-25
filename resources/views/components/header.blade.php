@@ -18,7 +18,7 @@
         <button id="menu-toggle">M<br>E</br>N<br>U</button>
     </div>
 </div>
-@auth
+@if(auth::check() && Auth::user()->getRoleNames()[0] != 'unknown visitor')
     <!-- After Login - Distributor/Inverstor Topbar >>> -->
     <div class="nav-top justify-center nav-distributor-investor">
         <div class="nav-area @if(!isset($adminView)) max-w1280 @else px-40 @endif justify-between align-center">
@@ -84,7 +84,9 @@
                     <div class="menu-dropdown-overlay">
                         <ul>
                             <li class="disable-menu"><a>Account Info</a></li>
-                            <li class="login-menu"><a href="{{route('login')}}">Log in</a></li>
+                            @can('login')
+                                <li class="login-menu"><a href="{{route('login')}}">Log in</a></li>
+                            @endcan
                         </ul>
                     </div>
                     <div class="text-right">

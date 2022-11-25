@@ -108,26 +108,52 @@ class PermissionsController extends Controller
      * @param  Permission  $permission
      * @return \Illuminate\Http\Response
      */
-    public function assignPermissionToRole($roleName = null, $permission = null)
+    public function assignPermissionToRole(Request $request)
     {
-        if($roleName && $permission){
-            $role = Role::findByName($roleName);
-        $role->givePermissionTo($permission);
-        
+        // REMOVING EXISTING PAGES PERMISSIONS FROM ALL ROLES
+        revokeAllPagesPermissionsByRole('investor');
+        revokeAllPagesPermissionsByRole('distributor');
+        revokeAllPagesPermissionsByRole('investor candidate');
+        revokeAllPagesPermissionsByRole('distributor candidate');
+        revokeAllPagesPermissionsByRole('unknown visitor');
+
+
+        $pagesPermissions = $request->except('_token');
+        foreach ($pagesPermissions as $key => $pagePermission) {
+            $tempArr = explode('_',$key,2);
+            $tempRole = Role::findByName(str_replace('_',' ',$tempArr[1]));
+            $tempRole->givePermissionTo($tempArr[0]);
         }
-    
-        return redirect()->route('permissions.index')
+
+        return redirect()->back()
             ->withSuccess(__('Role permissions updated successfully.'));
     }
 
-   
     public function viewPagesPermission()
     {
+        // CREATING ALL EXISTING PAGES PERMISSIONS
+        syncPagesPermissions();
+
+        // GRANTING ADMIN ALL EXISTING PAGES PERMISSIONS
+        giveAllPermissionsToRole('admin');
+        
         $pages = Page::get();
+        if($pages){
+            foreach ($pages as $page) {
+                    Permission::updateOrCreate(['name'=>$page->slug]);
+            }
+        }
         $investorPerms = getPermissionsByRole('investor');
         $distributorPerms = getPermissionsByRole('distributor');
         $distCandidatePerms = getPermissionsByRole('distributor candidate');
         $invCandidatePerms = getPermissionsByRole('investor candidate');
-        return view('admin.permissions.manage-pages',compact('pages','investorPerms','distributorPerms','distCandidatePerms','invCandidatePerms'));
+        $invCandidatePerms = getPermissionsByRole('unknown visitor');
+        $roles = Role::get();
+        // return $invCandidatePerms;
+        // Permission::create(["name" => "view updates"]);
+        return view('admin.permissions.manage-pages',compact('pages','roles','investorPerms','distributorPerms','distCandidatePerms','invCandidatePerms'));
     }
+
+
+    
 }

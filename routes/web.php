@@ -27,46 +27,45 @@ Route::get('logout', [AuthController::class, 'logout'])->name('logout')->middlew
 Route::get('admin/logout', [AuthController::class, 'logout'])->name('admin.logout')->middleware('auth');
 
 // Navigation menu url routes:begins
-Route::get('/soft-shelled-mudcrabs', function () {
-    return view('soft-shelled-mudcrabs/index');
-});
-Route::get('/soft-shelled-mudcrabs/pages/{page}', function ($page) {
-    return view('soft-shelled-mudcrabs/pages',['page'=>$page]);
-});
-Route::get('/hard-shelled-mudcrabs', function () {
-    return view('hard-shelled-mudcrabs/index');
-});
-Route::get('/information', function () {
-    return view('information/index');
-});
-// Route::get('/where-to-buy', function () {
-//     return view('where-to-buy/index');
-// });
-Route::get('/contact-us', function () {
-    return view('contact-us');
-});
-Route::get('/more-about-soft-shell', function () {
-    return view('more-about-soft-shell');
-});
-// Route::get('/updates', function () {
-//     return view('updates');
-// })->middleware('permission:view-updates');
-Route::get('/updates', function () {
-    return view('updates');
-});
-Route::get('/supply-and-auction', function () {
-    return view('supply-and-auction');
-});
-Route::get('/picture-gallery', function () {
-    return view('picture-gallery');
-});
-Route::get('/future-ideas', function () {
-    return view('future-ideas');
-});
-Route::get('/financial-updates', function () {
-    return view('financial-updates');
-});
+Route::group(['middleware' => ['visitor']], function() {
+    Route::get('/soft-shelled-mudcrabs', function () {
+        return view('soft-shelled-mudcrabs/index');
+    })->middleware('permission:soft-shelled-mudcrabs');
+    Route::get('/soft-shelled-mudcrabs/pages/{page}', function ($page) {
+        return view('soft-shelled-mudcrabs/pages',['page'=>$page]);
+    })->middleware('permission:soft-shelled-mudcrabs');
+    Route::get('/hard-shelled-mudcrabs', function () {
+        return view('hard-shelled-mudcrabs/index');
+    })->middleware('permission:hard-shelled-mudcrabs');
+    Route::get('/information', function () {
+        return view('information/index');
+    })->middleware('permission:information');
+    // Route::get('/where-to-buy', function () {
+    //     return view('where-to-buy/index');
+    // });
+    Route::get('/contact-us', function () {
+        return view('contact-us');
+    })->middleware('permission:contact-us');
+    Route::get('/more-about-soft-shell', function () {
+        return view('more-about-soft-shell');
+    })->middleware('permission:more-about-soft-shell');
 
+    Route::get('/updates', function () {
+        return view('updates');
+    })->middleware('permission:updates');
+    Route::get('/supply-and-auction', function () {
+        return view('supply-and-auction');
+    })->middleware('permission:supply-and-auction');
+    Route::get('/picture-gallery', function () {
+        return view('picture-gallery');
+    })->middleware('permission:picture-gallery');
+    Route::get('/future-ideas', function () {
+        return view('future-ideas');
+    })->middleware('permission:future-ideas');
+    Route::get('/financial-updates', function () {
+        return view('financial-updates');
+    })->middleware('permission:financial-updates');
+});
 // Navigation menu url routes:ends
 Route::post('api/fetch-cities', [HomeController::class, 'fetchCity']);
 Route::post('contact-us/send', [HomeController::class, 'sendMessage'])->name('contact-us.send');
@@ -77,51 +76,52 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
     /**
      * Home Routes
      */
-    Route::get('/', 'HomeController@index')->name('home.index');
-    Route::get('/where-to-buy', 'HomeController@whereToBuy')->name('home.where-to-buy');
-    Route::get('/distributors/{countryId}', 'HomeController@distributors')->name('home.distributors');
+    Route::group(['middleware' => ['visitor']], function() {
+        Route::get('/', 'HomeController@index')->name('home.index')->middleware('permission:home');
+        Route::get('/where-to-buy', 'HomeController@whereToBuy')->name('home.where-to-buy')->middleware('permission:where-to-buy');
+        Route::get('/distributors/{countryId}', 'HomeController@distributors')->name('home.distributors')->middleware('permission:distributors');
 
 
-    Route::group(['middleware' => ['guest']], function() {
         /**
          * Register Routes
          */
         // Route::get('/register', 'RegisterController@show')->name('register.show');
         // Route::post('/register', 'RegisterController@register')->name('register.perform');
-        Route::get('become-distributor', [AuthController::class, 'becomeDistributor'])->name('become-distributor');
+        Route::get('become-distributor', [AuthController::class, 'becomeDistributor'])->name('become-distributor')->middleware('permission:become-distributor');
         Route::post('post-become-distributor', [AuthController::class, 'postBecomeDistributor'])->name('become-distributor.post'); 
-        Route::get('become-investor', [AuthController::class, 'becomeInvestor'])->name('become-investor');
+        Route::get('become-investor', [AuthController::class, 'becomeInvestor'])->name('become-investor')->middleware('permission:become-investor');
         Route::get('forgot-password', [AuthController::class, 'forgotPassword'])->name('forgot-password');
         Route::post('post-become-investor', [AuthController::class, 'postBecomeInvestor'])->name('become-investor.post'); 
-        Route::get('confirm-email', [AuthController::class, 'confirmEmail'])->name('confirm-email');
+        Route::get('confirm-email', [AuthController::class, 'confirmEmail'])->name('confirm-email')->middleware('permission:confirm-email');
         Route::get('confirm-email/activation/{token}', [AuthController::class, 'emailActivation'])->name('confirm-email.activation');
         // Route::post('confirm-email/resend/{token}', [AuthController::class, 'resendEmailActivation'])->name('confirm-email.resend');
         
         /**
          * Login Routes
          */
-        Route::get('login', [AuthController::class, 'login'])->name('login');
-        Route::get('admin/login', [AuthController::class, 'adminLogin'])->name('admin.login');
+        Route::get('login', [AuthController::class, 'login'])->name('login')->middleware('permission:login');
+        Route::get('admin/login', [AuthController::class, 'adminLogin'])->name('admin.login')->middleware('permission:admin-login');
         Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post'); 
         Route::post('admin/post-login', [AuthController::class, 'adminPostLogin'])->name('admin.login.post'); 
-    });
+    
 
-    Route::get('verification-notice', [AuthController::class, 'verificationNotice'])->name('verificationNotice')->middleware('auth');
-    Route::get('verification/verified', [AuthController::class, 'getVerified'])->name('getVerified');
-    Route::post('confirm-email/resend/{token}', [AuthController::class, 'resendEmailActivation'])->name('confirm-email.resend');
-    // Route::get('verification-notice', function () {
-    //     return view('auth.register.verification-notice');
-    // })->name('verificationNotice')->middleware('auth');
-    Route::group(['middleware' => ['auth']], function () {
-        Route::get('/home', function () {
-            if (explode('/', request()->route()->getPrefix() ?? '')[0] == 'admin' || Auth::user()->getRoleNames()[0] == 'admin') {
-                return redirect()->route('users.distributors');
-            }else{
-                return redirect()->route('account-info');
-            }
+        Route::get('verification-notice', [AuthController::class, 'verificationNotice'])->name('verificationNotice')->middleware('auth');
+        Route::get('verification/verified', [AuthController::class, 'getVerified'])->name('getVerified');
+        Route::post('confirm-email/resend/{token}', [AuthController::class, 'resendEmailActivation'])->name('confirm-email.resend');
+        // Route::get('verification-notice', function () {
+        //     return view('auth.register.verification-notice');
+        // })->name('verificationNotice')->middleware('auth');
+        Route::group(['middleware' => ['auth']], function () {
+            Route::get('/home', function () {
+                if (explode('/', request()->route()->getPrefix() ?? '')[0] == 'admin' || Auth::user()->getRoleNames()[0] == 'admin') {
+                    return redirect()->route('users.distributors');
+                }else{
+                    return redirect()->route('account-info');
+                }
+            });
         });
     });
-
+    
     Route::group(['middleware' => ['auth','verified']], function() {
         Route::get('/account/{id?}', [UsersController::class, 'accountInfo'])->name('account-info');
         Route::post('post-edit-distributor', [AuthController::class, 'postEditDistributor'])->name('edit-distributor.post');
@@ -129,11 +129,11 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         
         Route::get('/account/add-user', function () {
             return view('account/add-user');
-        });
+        })->middleware('permission:account-add-user');
     });
 
     // Later will remove the distributor role and just limit access of distributor to only users
-    Route::group(['middleware' => ['auth','verified', 'role:admin|distributor'],'prefix'=>'admin'], function() {
+    Route::group(['middleware' => ['auth','verified', 'role:admin'],'prefix'=>'admin'], function() {
         Route::get('/', 'Admin\UsersController@distributors')->name('admin.home');
         Route::get('/dashboard', function () {
             return redirect()->route('users.distributors');

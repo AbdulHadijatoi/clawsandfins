@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Page;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
@@ -17,7 +18,12 @@ class PermissionsSeeder extends Seeder
     public function run()
     {
         // Page Permission:begins
-        Permission::create(["name" => "view updates"]);
+        $pages = Page::get();
+        if($pages){
+            foreach ($pages as $page) {
+                Permission::updateOrCreate(['name'=>$page->slug]);
+            }
+        }
         // Page Permission:ends
 
         // Distributor permissions:begins
