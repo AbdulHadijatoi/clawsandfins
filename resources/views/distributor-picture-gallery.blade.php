@@ -11,7 +11,7 @@ page-no-arc
                 <div class="content">
                     <div class="full-width align-in-center pb-60">
                         <div class="_75-width md_90-width flex-column justify-center">
-                            <h1 class="h1 text-default sm_font-size-35 text-center mb-10">Picture Gallery</h1>
+                            <h1 class="h1 text-default sm_font-size-35 text-center mb-10">Distributor Picture Gallery</h1>
                             <div class="gallery mt-40">
                                 <div id="img-1" class="item">
                                     <a class="popup-page-url" parent-id="img-1" href="images.html #image_1"><img src="{{asset('images/image_2.jpg')}}"></a>

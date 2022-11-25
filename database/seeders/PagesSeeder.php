@@ -18,7 +18,8 @@ class PagesSeeder extends Seeder
         Page::updateOrCreate(['name'=>'Home','slug'=>'home']);
         Page::updateOrCreate(['name'=>'Updates','slug'=>'updates']);
         Page::updateOrCreate(['name'=>'Supply & Auction','slug'=>'supply-and-auction']);
-        Page::updateOrCreate(['name'=>'Picture Gallery','slug'=>'picture-gallery']);
+        Page::updateOrCreate(['name'=>'Distributor Picture Gallery','slug'=>'distributor-picture-gallery']);
+        Page::updateOrCreate(['name'=>'Investor Picture Gallery','slug'=>'investor-picture-gallery']);
         Page::updateOrCreate(['name'=>'Future Ideas','slug'=>'future-ideas']);
         Page::updateOrCreate(['name'=>'Financial Updates','slug'=>'financial-updates']);
         Page::updateOrCreate(['name'=>'Soft Shelled Mudcrabs','slug'=>'soft-shelled-mudcrabs']);

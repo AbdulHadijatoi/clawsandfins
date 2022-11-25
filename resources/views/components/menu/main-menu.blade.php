@@ -59,9 +59,14 @@
                         </li>
                 @endcan
 
-                @can('picture-gallery')
-                        <li class="distributor-investor-menu {{ (request()->is('picture-gallery*')) ? 'active' : '' }}">
-                                <a href="{{url('picture-gallery')}}">Picture Gallery</a>
+                @can('distributor-picture-gallery')
+                        <li class="distributor-investor-menu {{ (request()->is('distributor-picture-gallery*')) ? 'active' : '' }}">
+                                <a href="{{url('distributor-picture-gallery')}}">Distributor Picture Gallery</a>
+                        </li>
+                @endcan
+                @can('investor-picture-gallery')
+                        <li class="distributor-investor-menu {{ (request()->is('investor-picture-gallery*')) ? 'active' : '' }}">
+                                <a href="{{url('investor-picture-gallery')}}">Investor Picture Gallery</a>
                         </li>
                 @endcan
                 @can('future-ideas')

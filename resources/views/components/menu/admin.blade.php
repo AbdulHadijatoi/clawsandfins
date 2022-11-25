@@ -7,6 +7,12 @@
 <li class="{{ (request()->is('admin/users/investors*')) ? 'active' : '' }}">
     <a href="{{url('admin/users/investors')}}">Investors</a>
 </li>
+<li class="{{ (request()->is('admin/distributor-picture-gallery*')) ? 'active' : '' }}">
+    <a href="{{url('admin/distributor-picture-gallery')}}">Picture Gallery Distributor</a>
+</li>
+<li class="{{ (request()->is('admin/investor-picture-gallery*')) ? 'active' : '' }}">
+    <a href="{{url('admin/investor-picture-gallery')}}">Picture Gallery Investor</a>
+</li>
 <li class="{{ (request()->is('admin/permissions*')) ? 'active' : '' }}">
     <a href="{{url('admin/permissions/')}}">Permissions</a>
 </li>

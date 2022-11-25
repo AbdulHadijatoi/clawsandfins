@@ -56,9 +56,12 @@ Route::group(['middleware' => ['visitor']], function() {
     Route::get('/supply-and-auction', function () {
         return view('supply-and-auction');
     })->middleware('permission:supply-and-auction');
-    Route::get('/picture-gallery', function () {
-        return view('picture-gallery');
+    Route::get('/distributor-picture-gallery', function () {
+        return view('distributor-picture-gallery');
     })->middleware('permission:picture-gallery');
+    Route::get('/investor-picture-gallery', function () {
+        return view('investor-picture-gallery');
+    })->middleware('permission:investor-picture-gallery');
     Route::get('/future-ideas', function () {
         return view('future-ideas');
     })->middleware('permission:future-ideas');
@@ -174,6 +177,9 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         });
 
         Route::resource('roles', \Admin\RolesController::class);
+        Route::resource('distributor-picture-gallery', \Admin\PictureGalleryDistributorController::class);
+        Route::resource('investor-picture-gallery', \Admin\PictureGalleryInvestorController::class);
+
         Route::resource('permissions', \Admin\PermissionsController::class);
         Route::get('pages-permission', 'Admin\PermissionsController@viewPagesPermission');
         Route::post('permissions/assign-permission/{role?}/{permission?}', 'Admin\PermissionsController@assignPermissionToRole')->name('permissions.savePagePermissions');
