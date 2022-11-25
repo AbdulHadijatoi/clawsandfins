@@ -25,7 +25,7 @@ class GuestUserSeeder extends Seeder
             'status' => '1',
         ]);
     
-        $role = Role::where('name', 'unknown visitor')->first();
+        $role = Role::updateOrCreate(['name' => 'unknown visitor']);
      
         $user->assignRole([$role->id]);
     }
