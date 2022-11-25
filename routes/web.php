@@ -100,7 +100,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
          * Login Routes
          */
         Route::get('login', [AuthController::class, 'login'])->name('login')->middleware('permission:login');
-        Route::get('admin/login', [AuthController::class, 'adminLogin'])->name('admin.login')->middleware('permission:admin-login');
+        Route::get('admin/login', [AuthController::class, 'adminLogin'])->name('admin.login');
         Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post'); 
         Route::post('admin/post-login', [AuthController::class, 'adminPostLogin'])->name('admin.login.post'); 
     
@@ -121,7 +121,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
             });
         });
     });
-    
+
     Route::group(['middleware' => ['auth','verified']], function() {
         Route::get('/account/{id?}', [UsersController::class, 'accountInfo'])->name('account-info');
         Route::post('post-edit-distributor', [AuthController::class, 'postEditDistributor'])->name('edit-distributor.post');
