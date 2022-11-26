@@ -65,4 +65,9 @@ class Distributor extends Model
         return $this->belongsTo(City::class,'city','id')->select(['name', 'id']);
     }
 
+    public function pictures()
+    {
+        return $this->hasMany(Picture::class);
+    }
+
 }

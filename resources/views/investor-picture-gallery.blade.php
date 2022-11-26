@@ -13,33 +13,13 @@ page-no-arc
                         <div class="_75-width md_90-width flex-column justify-center">
                             <h1 class="h1 text-default sm_font-size-35 text-center mb-10">Investor Picture Gallery</h1>
                             <div class="gallery mt-40">
-                                <div id="img-1" class="item">
-                                    <a class="popup-page-url" parent-id="img-1" href="images.html #image_1"><img src="{{asset('images/image_2.jpg')}}"></a>
-                                </div>
-                                <div id="img-2" class="item">
-                                    <a class="popup-page-url" parent-id="img-2" href="images.html #image_2"><img src="{{asset('images/image_5.jpg')}}"></a>
-                                </div>
-                                <div id="img-3" class="item">
-                                    <a class="popup-page-url" parent-id="img-3" href="images.html #image_3"><img src="{{asset('images/image_6.jpg')}}"></a>
-                                </div>
-                                <div id="img-4" class="item">
-                                    <a class="popup-page-url" parent-id="img-4" href="images.html #image_4"><img src="{{asset('images/image_3.jpg')}}"></a>
-                                </div>
-                                <div id="img-5" class="item">
-                                    <a class="popup-page-url" parent-id="img-5" href="images.html #image_5"><img src="{{asset('images/image_2.jpg')}}"></a>
-                                </div>
-                                <div id="img-6" class="item">
-                                    <a class="popup-page-url" parent-id="img-6" href="images.html #image_6"><img src="{{asset('images/header2-image.jpg')}}"></a>
-                                </div>
-                                <div id="img-7" class="item">
-                                    <a class="popup-page-url" parent-id="img-7" href="images.html #image_7"><img src="{{asset('images/image_6.jpg')}}"></a>
-                                </div>
-                                <div id="img-8" class="item">
-                                    <a class="popup-page-url" parent-id="img-8" href="images.html #image_8"><img src="{{asset('images/image_3.jpg')}}"></a>
-                                </div>
-                                <div id="img-9" class="item">
-                                    <a class="popup-page-url" parent-id="img-9" href="images.html #image_9"><img src="{{asset('images/image_5.jpg')}}"></a>
-                                </div>
+                                @if($pictures)
+                                    @foreach ($pictures as $index => $pic)
+                                        <div id="img-{{$index}}" class="item">
+                                            <a class="popup-page-url" parent-id="img-{{$index}}" href="images.html #image_{{$index}}"><img src="{{url('storage/'.$pic->name)}}"></a>
+                                        </div>
+                                    @endforeach
+                                @endif
                             </div>
                         </div>
                     </div>

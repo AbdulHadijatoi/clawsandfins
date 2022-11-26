@@ -38,4 +38,9 @@ class Investor extends Model
     {
         return $this->belongsTo(User::class,'user_id','id');
     }
+
+    public function pictures()
+    {
+        return $this->hasMany(Picture::class);
+    }
 }

@@ -15,24 +15,28 @@
 
         <table class="table table-bordered">
           <tr>
-             <th width="1%">No</th>
+             <th>No</th>
              <th>Preview</th>
-             <th width="3%" colspan="3">Action</th>
+             <th>Action</th>
           </tr>
             {{-- @foreach ($roles as $key => $role) --}}
-            <tr>
-                <td>1</td>
-                <td>picture/directory.jpg</td>
+            @if($pictures)
+                @foreach ($pictures as $pic)
+                    <tr>
+                        <td>{{$pic->id}}</td>
+                        <td>{{$pic->name}}</td>
 
-                <td>
-                    {!! Form::open(['method' => 'GET','route' => ['investor-picture-gallery.show', 9999],'style'=>'display:inline']) !!}
-                    {!! Form::submit('Show', ['class' => 'btn btn-danger btn-sm']) !!}
-                    {!! Form::close() !!}
-                    {!! Form::open(['method' => 'DELETE','route' => ['investor-picture-gallery.destroy', 9999],'style'=>'display:inline']) !!}
-                    {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
-                    {!! Form::close() !!}
-                </td>
-            </tr>
+                        <td>
+                            {{-- {!! Form::open(['method' => 'GET','route' => ['investor-picture-gallery.show', 9999],'style'=>'display:inline']) !!}
+                            {!! Form::submit('Show', ['class' => 'btn btn-danger btn-sm']) !!}
+                            {!! Form::close() !!} --}}
+                            {!! Form::open(['method' => 'DELETE','route' => ['investor-picture-gallery.destroy', $pic->id],'style'=>'display:inline']) !!}
+                            {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
+                            {!! Form::close() !!}
+                        </td>
+                    </tr>
+                @endforeach
+            @endif
             {{-- @endforeach --}}
         </table>
 

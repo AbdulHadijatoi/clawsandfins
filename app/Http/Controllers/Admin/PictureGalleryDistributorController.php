@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Picture;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use Spatie\Permission\Models\Role;
 
 class PictureGalleryDistributorController extends Controller
 {
@@ -14,8 +17,10 @@ class PictureGalleryDistributorController extends Controller
      */
     public function index()
     {
-        // $roles = Role::orderBy('id','DESC')->paginate(5);
-        return view('admin.picture-gallery.distributor.index');
+        $role = Role::where('name','distributor')->first();
+
+        $pictures = Picture::where('role_id',$role->id)->paginate(10);
+        return view('admin.picture-gallery.distributor.index',compact('pictures'));
     }
 
     /**
@@ -25,7 +30,7 @@ class PictureGalleryDistributorController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.picture-gallery.distributor.create');
     }
 
     /**
@@ -36,7 +41,22 @@ class PictureGalleryDistributorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validation = [
+            'picture.*' => 'required|mimes:jpeg,jpg,png,gif,svg,pdf|max:204800'
+        ];
+
+        $this->validate($request, $validation);
+
+        $role = Role::where('name','distributor')->first();
+
+        if($request->hasfile('picture')){
+            foreach($request->file('picture') as $pic){
+                $name = $pic->store('distributor-gallery', 'public');
+                Picture::updateOrCreate(['name'=>$name,'role_id'=>$role->id]);
+            }
+        }
+
+        return redirect()->route('distributor-picture-gallery.index')->withSuccess('Pictures uploaded successfully!');
     }
 
     /**
@@ -81,6 +101,16 @@ class PictureGalleryDistributorController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $pic = Picture::find($id);
+        if(!$pic){
+            return redirect()->route('distributor-picture-gallery.index')->withErrors('Picture not found');
+        }
+        if (File::exists($pic->name)) {
+            // File::delete($pic->name);
+            unlink($pic->name);
+        }
+        $pic->delete();
+
+        return redirect()->route('distributor-picture-gallery.index')->withSuccess('Picture deleted successfully!');
     }
 }

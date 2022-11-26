@@ -7,8 +7,10 @@ use App\Http\Controllers\Admin\PermissionsController;
 use App\Http\Controllers\Admin\RolesController;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\SettingsController;
+use App\Models\Picture;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Spatie\Permission\Models\Role;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,9 +42,6 @@ Route::group(['middleware' => ['visitor']], function() {
     Route::get('/information', function () {
         return view('information/index');
     })->middleware('permission:information');
-    // Route::get('/where-to-buy', function () {
-    //     return view('where-to-buy/index');
-    // });
     Route::get('/contact-us', function () {
         return view('contact-us');
     })->middleware('permission:contact-us');
@@ -57,10 +56,16 @@ Route::group(['middleware' => ['visitor']], function() {
         return view('supply-and-auction');
     })->middleware('permission:supply-and-auction');
     Route::get('/distributor-picture-gallery', function () {
-        return view('distributor-picture-gallery');
+        $role = Role::where('name','distributor')->first();
+
+        $pictures = Picture::where('role_id',$role->id)->get();
+        return view('distributor-picture-gallery',compact('pictures'));
     })->middleware('permission:picture-gallery');
     Route::get('/investor-picture-gallery', function () {
-        return view('investor-picture-gallery');
+        $role = Role::where('name','investor')->first();
+
+        $pictures = Picture::where('role_id',$role->id)->get();
+        return view('investor-picture-gallery',compact('pictures'));
     })->middleware('permission:investor-picture-gallery');
     Route::get('/future-ideas', function () {
         return view('future-ideas');
