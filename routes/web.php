@@ -60,7 +60,7 @@ Route::group(['middleware' => ['visitor']], function() {
 
         $pictures = Picture::where('role_id',$role->id)->get();
         return view('distributor-picture-gallery',compact('pictures'));
-    })->middleware('permission:picture-gallery');
+    })->middleware('permission:distributor-picture-gallery');
     Route::get('/investor-picture-gallery', function () {
         $role = Role::where('name','investor')->first();
 
@@ -87,7 +87,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
     Route::group(['middleware' => ['visitor']], function() {
         Route::get('/', 'HomeController@index')->name('home.index')->middleware('permission:home');
         Route::get('/where-to-buy', 'HomeController@whereToBuy')->name('home.where-to-buy')->middleware('permission:where-to-buy');
-        Route::get('/distributors/{countryId}', 'HomeController@distributors')->name('home.distributors')->middleware('permission:distributors');
+        Route::get('/distributors/{countryId}', 'HomeController@distributors')->name('home.distributors')->middleware('permission:where-to-buy-distributors');
 
 
         /**
@@ -107,7 +107,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         /**
          * Login Routes
          */
-        Route::get('login', [AuthController::class, 'login'])->name('login')->middleware('permission:login');
+        Route::get('login', [AuthController::class, 'login'])->name('login');
         Route::get('admin/login', [AuthController::class, 'adminLogin'])->name('admin.login');
         Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post'); 
         Route::post('admin/post-login', [AuthController::class, 'adminPostLogin'])->name('admin.login.post'); 

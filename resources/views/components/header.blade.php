@@ -84,9 +84,7 @@
                     <div class="menu-dropdown-overlay">
                         <ul>
                             <li class="disable-menu"><a>Account Info</a></li>
-                            @can('login')
-                                <li class="login-menu"><a href="{{route('login')}}">Log in</a></li>
-                            @endcan
+                            <li class="login-menu"><a href="{{route('login')}}">Log in</a></li>
                         </ul>
                     </div>
                     <div class="text-right">

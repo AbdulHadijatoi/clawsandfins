@@ -27,13 +27,13 @@ class PagesSeeder extends Seeder
         Page::updateOrCreate(['name'=>'Information','slug'=>'information']);
         Page::updateOrCreate(['name'=>'Where to Buy','slug'=>'where-to-buy']);
         Page::updateOrCreate(['name'=>'Contact us','slug'=>'contact-us']);
-        Page::updateOrCreate(['name'=>'Distributors','slug'=>'distributors']);
+        Page::updateOrCreate(['name'=>'Where to Buy Distributors','slug'=>'where-to-buy-distributors']);
         Page::updateOrCreate(['name'=>'Become Distributor','slug'=>'become-distributor']);
         Page::updateOrCreate(['name'=>'Become Investor','slug'=>'become-investor']);
         Page::updateOrCreate(['name'=>'Forgot Password','slug'=>'forgot-password']);
         Page::updateOrCreate(['name'=>'Confirm Email','slug'=>'confirm-email']);
-        Page::updateOrCreate(['name'=>'Login','slug'=>'login']);
-        Page::updateOrCreate(['name'=>'Admin Login','slug'=>'admin-login']);
+        // Page::updateOrCreate(['name'=>'Login','slug'=>'login']);
+        // Page::updateOrCreate(['name'=>'Admin Login','slug'=>'admin-login']);
         Page::updateOrCreate(['name'=>'Account Add User','slug'=>'account-add-user']);
         Page::updateOrCreate(['name'=>'Settings','slug'=>'settings']);
 

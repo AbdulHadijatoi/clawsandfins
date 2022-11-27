@@ -3,13 +3,18 @@
 @else
         @if(Auth::check() && auth()->user()->hasVerifiedEmail())
 
+                @can('soft-shelled-mudcrabs')
+                        <li class="{{ (request()->is('soft-shelled-mudcrabs*')) ? 'active' : '' }}">
+                                <a href="{{url('soft-shelled-mudcrabs/')}}">Soft-shelled mudcrabs</a>
+                        </li>
+                @endcan
                 @include('components.menu.popup-links')
-
                 @can('hard-shelled-mudcrabs')
                         <li class="{{ (request()->is('hard-shelled-mudcrabs*')) ? 'active' : '' }}">
                                 <a href="{{url('hard-shelled-mudcrabs/')}}">Hard-shelled mudcrabs</a>
                         </li>
                 @endcan
+
 
                 @can('information')
                         <li class="{{ (request()->is('information*')) ? 'active' : '' }}">
