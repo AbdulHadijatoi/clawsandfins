@@ -4,7 +4,7 @@
     <div class="bg-light p-4 rounded">
         <h2>Page Permissions</h2>
         <div class="lead">
-            Manage page permissions by role.
+            Use (tick) mark to restrict page access by role.
         </div>
 
         <div class="mt-2">
@@ -38,7 +38,7 @@
                                     @continue
                                 @endif
                                 <td style="text-align: center">
-                                    <input type="checkbox" name="{{$page->slug .'_'. $role->name}}" @if($role->hasPermissionTo($page->slug)) checked @endif/>
+                                    <input type="checkbox" name="{{$page->slug .'_'. $role->name}}" @if(!$role->hasPermissionTo($page->slug)) checked @endif/>
                                 </td>
                             @endforeach
                         </tr>

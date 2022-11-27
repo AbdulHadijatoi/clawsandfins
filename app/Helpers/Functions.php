@@ -60,6 +60,15 @@ if (!function_exists('revokeAllPagesPermissionsByRole')) {
         }
     }
 }
+if (!function_exists('giveAllPagesPermissionsByRole')) {
+    function giveAllPagesPermissionsByRole($roleName){
+        $pages = Page::get(['slug']);
+        $role = Role::where('name',$roleName)->first();
+        foreach ($pages as $page) {
+            $role->givePermissionTo($page->slug);
+        }
+    }
+}
 
 if (!function_exists('syncPagesPermissions')) {
     function syncPagesPermissions(){

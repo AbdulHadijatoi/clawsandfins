@@ -111,18 +111,18 @@ class PermissionsController extends Controller
     public function assignPermissionToRole(Request $request)
     {
         // REMOVING EXISTING PAGES PERMISSIONS FROM ALL ROLES
-        revokeAllPagesPermissionsByRole('investor');
-        revokeAllPagesPermissionsByRole('distributor');
-        revokeAllPagesPermissionsByRole('investor candidate');
-        revokeAllPagesPermissionsByRole('distributor candidate');
-        revokeAllPagesPermissionsByRole('unknown visitor');
+        giveAllPagesPermissionsByRole('investor');
+        giveAllPagesPermissionsByRole('distributor');
+        giveAllPagesPermissionsByRole('investor candidate');
+        giveAllPagesPermissionsByRole('distributor candidate');
+        giveAllPagesPermissionsByRole('unknown visitor');
 
 
         $pagesPermissions = $request->except('_token');
         foreach ($pagesPermissions as $key => $pagePermission) {
             $tempArr = explode('_',$key,2);
             $tempRole = Role::findByName(str_replace('_',' ',$tempArr[1]));
-            $tempRole->givePermissionTo($tempArr[0]);
+            $tempRole->revokePermissionTo($tempArr[0]);
         }
 
         return redirect()->back()
