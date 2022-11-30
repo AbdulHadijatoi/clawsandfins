@@ -22,12 +22,12 @@ if( explode('/', request()->route()->getPrefix() ?? '')[0] == 'admin'){
             @endif
         </title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
         <!-- Style -->
         <link rel="stylesheet" href="{{asset('css/common.css')}}">
-        
+
         <link rel="stylesheet" href="{{asset('css/style.css?v=8')}}">
-    
+
         <!-- Icon -->
         <link rel="stylesheet" href="{{asset('fonts/font-awesome-4.7.0/css/font-awesome.min.css')}}"> <!-- Font Awesome Icon 4.7.0 -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> <!--Material Icon -->
@@ -36,7 +36,7 @@ if( explode('/', request()->route()->getPrefix() ?? '')[0] == 'admin'){
         <script src="{{asset('js/svg-inject.js')}}"></script>
         <script src="{{asset('js/js-cookie.js')}}"></script>
         <script src="{{asset('js/main.js?v=8')}}"></script>
-        
+
         @yield('head_extra')
 
         @yield('style_extra')
@@ -95,8 +95,9 @@ if( explode('/', request()->route()->getPrefix() ?? '')[0] == 'admin'){
         </style>
         @endif
         @livewireStyles
+        @stack('styles')
     </head>
-    
+
     <body class="@hasSection('body_class') @yield('body_class') @endif @if(isset($_COOKIE['menu'])) open @endif">
         <div class="body-content margin-auto overflow-hidden @if(!isset($adminView) || isset($isUser)) max-w1280 @endif">
             @include('components.header')
@@ -115,6 +116,7 @@ if( explode('/', request()->route()->getPrefix() ?? '')[0] == 'admin'){
             @endif
         </div>
         @livewireScripts
+        @stack('scripts')
         @yield('script_extra')
         <script>
         window.addEventListener('openDialog', (e) => {
