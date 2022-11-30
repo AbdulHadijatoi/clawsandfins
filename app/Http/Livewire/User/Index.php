@@ -270,10 +270,12 @@ class Index extends Component
 
         if(session()->has('userchecked')){
             $this->usercheckedValue = session()->get('userchecked', []);
-            if ($this->userType && isset($users)) {
+            if ($this->userType && $users->get()->count() > 0) {
                 $q=$users->get()->toQuery();
                 $q->whereIn('email', $this->usercheckedValue);
                 $this->usercheckedValue = $q->pluck('email')->toArray();
+            }else{
+                $this->usercheckedValue = [];
             }
         }
 
