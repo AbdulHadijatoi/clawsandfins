@@ -1,5 +1,5 @@
 <!-- Menu -->
-<div id="mainMenuContainer" class="main-menu-container full-height w0 fixed">
+<div id="mainMenuContainer" class="main-menu-container full-height w0 fixed @yield('custom-class-menu')">
     <nav id="main-menu" role="navigation">
         @if(!isset($adminView))
         <a href="{{url('/')}}" class="full-width align-in-center">

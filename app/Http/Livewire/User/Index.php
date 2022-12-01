@@ -11,7 +11,7 @@ use Livewire\WithPagination;
 class Index extends Component
 {
     use WithPagination;
-    
+
     public $userID;
     public $userType;
     public $userStatus;
@@ -56,14 +56,14 @@ class Index extends Component
             $this->user = User::find($this->userID);
         }
     }
-    
+
     public function setFilter($filter){
         $this->filter = $filter;
         if(!$this->filter){
-            
+
         }
     }
-    
+
     public function setSearch($search){
         $this->search = $search;
     }
@@ -119,7 +119,7 @@ class Index extends Component
             $this->refreshComponent();
         }
     }
-    
+
     public function removeChecked($email)
     {
         $recipients = session()->has('userchecked') ? Session::get('userchecked') : [];
@@ -161,7 +161,7 @@ class Index extends Component
             $this->dispatchBrowserEvent('openDialog', ['title' => 'Error', 'content' => 'Something went wrong, please try again']);
         }
     }
-    
+
     public function reject($id)
     {
         $user = User::find($id);
@@ -173,7 +173,7 @@ class Index extends Component
             $this->dispatchBrowserEvent('openDialog', ['title' => 'Error', 'content' => 'Something went wrong, please try again']);
         }
     }
-    
+
     public function sendEmail($id)
     {
         $user = User::find($id);
@@ -218,7 +218,7 @@ class Index extends Component
             $users = User::with([$this->userType])->whereHas(
                 'roles',
                 function ($q) {
-                    $q->where('name', '=', $this->userType);
+                    $q->where('name', '=', $this->userType)->orWhere('name', '=', $this->userType . ' candidate');
                 }
             );
             if($this->filter || $this->search){
@@ -250,30 +250,32 @@ class Index extends Component
                     // });
                 }
                 // $userPaginate= $userFilter->latest()->paginate(10);
-                
+
             }else{
                 $userFilter = $users->whereHas($this->userType);
             }
-            
+
             $userPaginate = $userFilter->latest()->paginate(10);
             $this->users = $userPaginate->all();
         }
 
         if($this->findUser && $this->users){
             $rc = session()->has('userchecked') ? Session::get('userchecked') : [];
-            
+
             $this->users = $this->users->filter(function ($item) use ($rc){
                 return !in_array($item->email, $rc);
             })->values();
-            
+
         }
-        
+
         if(session()->has('userchecked')){
             $this->usercheckedValue = session()->get('userchecked', []);
-            if ($this->userType && isset($users)) {
+            if ($this->userType && $users->get()->count() > 0) {
                 $q=$users->get()->toQuery();
                 $q->whereIn('email', $this->usercheckedValue);
                 $this->usercheckedValue = $q->pluck('email')->toArray();
+            }else{
+                $this->usercheckedValue = [];
             }
         }
 
@@ -298,5 +300,5 @@ class Index extends Component
             'userPaginate' => $userPaginate ?? null
         ]);
     }
-    
+
 }

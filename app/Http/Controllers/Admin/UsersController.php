@@ -19,10 +19,10 @@ class UsersController extends Controller
 {
     /**
      * Display all users
-     * 
+     *
      * @return \Illuminate\Http\Response
      */
-    public function index() 
+    public function index()
     {
         if (session()->has('mail-draft-id')) {
             Session::remove('mail-draft-id');
@@ -40,28 +40,28 @@ class UsersController extends Controller
 
     /**
      * Show form for creating user
-     * 
+     *
      * @return \Illuminate\Http\Response
      */
-    public function create() 
+    public function create()
     {
         return view('admin.users.create');
     }
 
     /**
      * Store a newly created user
-     * 
+     *
      * @param User $user
      * @param StoreUserRequest $request
-     * 
+     *
      * @return \Illuminate\Http\Response
      */
-    public function store(User $user, StoreUserRequest $request) 
+    public function store(User $user, StoreUserRequest $request)
     {
         //For demo purposes only. When creating user or inviting a user
         // you should create a generated random password and email it to the user
         $user->create(array_merge($request->validated(), [
-            'password' => 'test' 
+            'password' => 'test'
         ]));
 
         return redirect()->route('users.index')
@@ -70,12 +70,12 @@ class UsersController extends Controller
 
     /**
      * Show user data
-     * 
+     *
      * @param User $user
-     * 
+     *
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user) 
+    public function show(User $user)
     {
         return view('admin.users.show', [
             'user' => $user
@@ -84,12 +84,12 @@ class UsersController extends Controller
 
     /**
      * Edit user data
-     * 
+     *
      * @param User $user
-     * 
+     *
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user) 
+    public function edit(User $user)
     {
         return view('admin.users.edit', [
             'user' => $user,
@@ -100,13 +100,13 @@ class UsersController extends Controller
 
     /**
      * Update user data
-     * 
+     *
      * @param User $user
      * @param UpdateUserRequest $request
-     * 
+     *
      * @return \Illuminate\Http\Response
      */
-    public function update(User $user, UpdateUserRequest $request) 
+    public function update(User $user, UpdateUserRequest $request)
     {
         $user->update($request->validated());
 
@@ -115,23 +115,23 @@ class UsersController extends Controller
         return redirect()->route('users.index')
             ->withSuccess(__('User updated successfully.'));
     }
-    
+
     /**
      * Delete user data
-     * 
+     *
      * @param User $user
-     * 
+     *
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user) 
+    public function destroy(User $user)
     {
         $user->delete();
-        
+
         return redirect()->route('users.index')
         ->withSuccess(__('User deleted successfully.'));
     }
 
-    public function updateUserRole(Request $request) 
+    public function updateUserRole(Request $request)
     {
         // return $request->input();
         $user = User::find($request->id);
@@ -154,7 +154,7 @@ class UsersController extends Controller
 
     // NEW CODE FROM DANI
 
-    public function distributors() 
+    public function distributors()
     {
         $this->clearMailSession();
         // $users = User::with(['distributor'])->whereHas(
@@ -168,17 +168,17 @@ class UsersController extends Controller
             'userType' => 'distributor'
         ]);
     }
-    
-    public function editDistributors($option) 
+
+    public function editDistributors($option)
     {
-        
+
         return view('admin.users.edit-distributor', [
             'option' => $option,
             'editOption' => ($option == 'all' ? 'All Distributors' : ucfirst(str_replace('-', ' ', $option)) )
         ]);
     }
-    
-    public function investors() 
+
+    public function investors()
     {
         $this->clearMailSession();
         // $users = User::with(['investor'])->whereHas(

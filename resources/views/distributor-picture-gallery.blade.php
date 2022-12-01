@@ -4,6 +4,8 @@
 page-no-arc
 @endsection
 
+@section('custom-class-menu', 'menu-dark')
+
 @section('content')
         <!-- Content -->
         <div class="content-wrapper">
@@ -20,7 +22,7 @@ page-no-arc
                                         </div>
                                     @endforeach
                                 @endif
-                                
+
                             </div>
                         </div>
                     </div>

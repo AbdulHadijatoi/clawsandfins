@@ -33,7 +33,7 @@ class Email extends Component
         if($autosave && !$this->draftId){
             return;
         }
-        
+
         $recipients = ($this->option && $this->option!='selected') ? $this->option : json_encode(session()->has('userchecked') ? Session::get('userchecked') : []);
         $mail_draft_data= [
             'recipient' => $recipients,
@@ -54,24 +54,24 @@ class Email extends Component
             }
         }
     }
-    
+
     public function sendEmail()
     {
         $users= new User;
         $recipientsData= [];
         $hasUserChecked= session()->has('userchecked') && count(session()->get('userchecked', [])) > 0;
-        
+
         if( $this->option && $this->option != 'selected' ){
             if( $this->option != 'all' ){
                 $optArr = explode('-', $this->option);
                 $isCandidate = ($optArr[1] ?? '') == 'candidate';
                 $opt = substr($optArr[0], 0, -1);
                 $role = Role::where('name', 'LIKE', $opt . '%')->first()->name;
-                
+
                 $users = $users->whereHas(
                     'roles',
                     function ($q) use ($role){
-                        $q->where('name', '=', $role);
+                        $q->where('name', '=', $role)->orWhere('name', '=', $role . ' candidate');
                     }
                 )->whereHas($role)->where('status', ($isCandidate?0:1));
 
@@ -104,10 +104,10 @@ class Email extends Component
             'recipient' => $recipientsData,
         ]);
 
-        
+
         $sended = HomeController::sendMessage($request, true, true, false, true);
         // dd($sended);
-        
+
         $send_mail = $sended ? ( $isDraft? SendEmail::where('id', '=', $this->draftId)->update($mail_data) : SendEmail::create($mail_data) ) : null;
         if ($send_mail) {
             $this->draftId=null;
@@ -133,7 +133,7 @@ class Email extends Component
                 Session::put($_MAIL_SUBJECT, $this->sm->subject);
                 Session::put($_MAIL_MESSAGE, $this->sm->message);
             }else{
-                
+
             }
 
             if (session()->has($_MAIL_SUBJECT)) {
