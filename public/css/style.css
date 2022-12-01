@@ -1707,9 +1707,7 @@ body.open-popup-page {
 @media screen and (min-width: 1440px) {
     .popup-page {
         max-width: 1280px !important;
-        width: 80%;
-        /* height: 100vh;
-        height: 100%; */
+        width: auto;
     }
 
     /*

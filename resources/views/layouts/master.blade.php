@@ -2,7 +2,11 @@
 if(Auth::user()==null || Auth::user()->getRoleNames()[0] != 'admin' ){
     $isUser=true;
 }
-if( explode('/', request()->route()->getPrefix() ?? '')[0] == 'admin'){
+$prefixRoute = explode('/', request()->route()->getPrefix() ?? '');
+if(count($prefixRoute) > 1 && $prefixRoute[0]==''){
+    $prefixRoute[0] = $prefixRoute[1];
+}
+if( $prefixRoute[0] == 'admin'){
     $adminView=true;
 }
 @endphp
@@ -26,7 +30,7 @@ if( explode('/', request()->route()->getPrefix() ?? '')[0] == 'admin'){
         <!-- Style -->
         <link rel="stylesheet" href="{{asset('css/common.css')}}">
 
-        <link rel="stylesheet" href="{{asset('css/style.css?v=9')}}">
+        <link rel="stylesheet" href="{{asset('css/style.css?v=10')}}">
 
         <!-- Icon -->
         <link rel="stylesheet" href="{{asset('fonts/font-awesome-4.7.0/css/font-awesome.min.css')}}"> <!-- Font Awesome Icon 4.7.0 -->

@@ -78,7 +78,7 @@ if (!function_exists('syncPagesPermissions')) {
                 Permission::updateOrCreate(['name'=>$page->slug]);
             }
         }
-        return redirect()->back()
-            ->withSuccess(__('All pages permissions are synced successfully.'));
+        // return redirect()->back()
+        //     ->withSuccess(__('All pages permissions are synced successfully.'));
     }
 }
