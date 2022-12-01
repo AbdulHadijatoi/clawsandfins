@@ -4,6 +4,8 @@
 page-no-arc
 @endsection
 
+@section('custom-class-menu', 'menu-dark')
+
 @section('content')
         <!-- Content -->
         <div class="content-wrapper">
@@ -24,7 +26,7 @@ page-no-arc
                                     ac. In eu mi bibendum neque egestas congue quisque egestas. Viverra accumsan in nisl nisi scelerisque eu ultrices vitae.
                                     Est ante in nibh mauris cursus mattis molestie a.
                                 </p>
-                                
+
                                 <p class="para sm_font-size-11 text-default mt-20 mb-20">
                                     Venenatis cras sed felis eget velit aliquet sagittis. Egestas egestas fringilla phasellus faucibus scelerisque eleifend.
                                     Dis parturient montes nascetur ridiculus mus mauris vitae. Blandit turpis cursus in hac. Bibendum est ultricies integer
@@ -35,7 +37,7 @@ page-no-arc
                                     scelerisque felis imperdiet proin. Nisl tincidunt eget nullam non nisi est sit amet facilisis. Consequat ac felis donec
                                     et. Sed nisi lacus sed viverra tellus. Sed sed risus pretium quam vulputate dignissim suspendisse.
                                 </p>
-                                
+
                                 <p class="para sm_font-size-11 text-default mt-20 mb-20">
                                     Gravida arcu ac tortor dignissim. Tempor nec feugiat nisl pretium. Vestibulum mattis ullamcorper velit sed ullamcorper
                                     morbi. Interdum velit euismod in pellentesque massa. Enim nunc faucibus a pellentesque. Nec dui nunc mattis enim ut
