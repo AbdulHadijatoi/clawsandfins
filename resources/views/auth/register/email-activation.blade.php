@@ -27,6 +27,17 @@ page-no-arc
         header, footer{
             display: none !important;
         }
+
+        .login-form {
+            padding-top: 20px;
+            margin: 20px;
+        }
+
+        .login-form h1 {
+            font-size: 20px;
+            margin: 0;
+            margin-bottom: 10px;
+        }
     </style>
 @endsection
 
@@ -45,9 +56,15 @@ page-no-arc
                                 <div class="text-light p-20 text-center">
                                     Please log in to start using your account
                                 </div>
-                                <div class="d-flex full-width justify-center">
+                                {{-- <div class="d-flex full-width justify-center">
                                     <div class="button-secondary">
                                         <button type="submit" onclick="location.href='{{route('login')}}'">Log In</button>
+                                    </div>
+                                </div> --}}
+                                <div class="inline-block">
+                                    <div class="login-form">
+                                        <h1 class="h1 text-yellow sm_font-size-35 text-center mb-30">Login</h1>
+                                        @include('auth.login.login-form')
                                     </div>
                                 </div>
                             </div>
@@ -75,6 +92,6 @@ page-no-arc
 
 @section('script_extra')
 <script>
-    
+
 </script>
 @endsection
