@@ -70,7 +70,7 @@ page-no-arc
                                 </div>
                                 <div id="distributor-list" class="mt-20">
                                     @foreach($distributors as $distributor)
-                                    <div class="distributor-item d-flex full-width" id="distributor{{$distributor->id}}">
+                                    <div class="distributor-item d-flex full-width @if($distributor->latitude == 0 && $distributor->longitude == 0) no-location @endif" id="distributor{{$distributor->id}}">
                                         <div class="company-logo" tooltip="Find on map">
                                             <img src="{{url('storage/'.$distributor->user->image)}}">
                                         </div>
@@ -117,7 +117,14 @@ page-no-arc
                                                         {{$distributor->getCountry->dial_code.$distributor->phone_number}}
                                                     </div>
                                                 </a>
-                                                <a href="{{$distributor->website_url}}" tooltip="Visit Website" class="website align-center" target="_blank">
+                                                @php
+                                                    $website_url = $distributor->website_url;
+                                                    $url = parse_url($website_url);
+                                                    if(!isset($url['schema'])){
+                                                        $website_url = 'http://' . $url['path'];
+                                                    }
+                                                @endphp
+                                                <a href="{{$website_url}}" tooltip="Visit Website" class="website align-center" target="_blank">
                                                     <span class="material-icons">
                                                         public
                                                     </span>
@@ -130,254 +137,10 @@ page-no-arc
                                                 <span>Address:</span>
                                                 {{$distributor->postal_address}}
                                             </div>
-                                            
+
                                         </div>
                                     </div>
                                     @endforeach
-                                    {{-- <div class="distributor-item d-flex full-width" id="distributor2">
-                                        <div class="company-logo">
-                                            <img src="{{asset('images/logo.png')}}">
-                                        </div>
-                                        <div class="company-info equal-width">
-                                            <div class="info-header justify-between">
-                                                <div class="info-name">
-                                                    <span>Wyoming</span>
-                                                    <h2>Company Name 2</h2>
-                                                    <h4>Contact Name</h4>
-                                                </div>
-                                                <div class="contact-button align-center">
-                                                    <div class="call-button">
-                                                        <a href="tel:+1234567890987">
-                                                            <span class="material-icons">
-                                                                call
-                                                            </span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="map-button">
-                                                        <a href="https://maps.google.com/?q=43.034326,-108.376604" target="_blank" class="map">
-                                                            <span class="material-icons">
-                                                                map
-                                                            </span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="contact-info align-center">
-                                                <a href="mailto:company@gmail.com" class="email align-center">
-                                                    <span class="material-icons">
-                                                        email
-                                                    </span>
-                                                    <div>
-                                                        company@gmail.com
-                                                    </div>
-                                                </a>
-                                                <a href="tel:+123456789087" class="phone align-center">
-                                                    <span class="material-icons">
-                                                        phone
-                                                    </span>
-                                                    <div>
-                                                        +1 2345 6789 0987
-                                                    </div>
-                                                </a>
-                                                <a href="https://www.clawsandfins.com" class="website align-center" target="_blank">
-                                                    <span class="material-icons">
-                                                        public
-                                                    </span>
-                                                    <div>
-                                                        www.clawsandfins.com
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="address d-flex">
-                                                <span>Address:</span>
-                                                4300 Central Ave SW, Albuquerque, NM 87105, United States
-                                            </div>
-                                            
-                                        </div>
-                                    </div>
-                                    <div class="distributor-item d-flex full-width" id="distributor3">
-                                        <div class="company-logo">
-                                            <img src="{{asset('images/logo.png')}}">
-                                        </div>
-                                        <div class="company-info equal-width">
-                                            <div class="info-header justify-between">
-                                                <div class="info-name">
-                                                    <span>Oregon</span>
-                                                    <h2>Company Name 3</h2>
-                                                    <h4>Contact Name</h4>
-                                                </div>
-                                                <div class="contact-button align-center">
-                                                    <div class="call-button">
-                                                        <a href="tel:+1234567890987">
-                                                            <span class="material-icons">
-                                                                call
-                                                            </span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="map-button">
-                                                        <a href="https://maps.google.com/?q=44.056177,-121.301805" target="_blank" class="map">
-                                                            <span class="material-icons">
-                                                                map
-                                                            </span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="contact-info align-center">
-                                                <a href="mailto:company@gmail.com" class="email align-center">
-                                                    <span class="material-icons">
-                                                        email
-                                                    </span>
-                                                    <div>
-                                                        company@gmail.com
-                                                    </div>
-                                                </a>
-                                                <a href="tel:+123456789087" class="phone align-center">
-                                                    <span class="material-icons">
-                                                        phone
-                                                    </span>
-                                                    <div>
-                                                        +1 2345 6789 0987
-                                                    </div>
-                                                </a>
-                                                <a href="https://www.clawsandfins.com" class="website align-center" target="_blank">
-                                                    <span class="material-icons">
-                                                        public
-                                                    </span>
-                                                    <div>
-                                                        www.clawsandfins.com
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="address d-flex">
-                                                <span>Address:</span>
-                                                4300 Central Ave SW, Albuquerque, NM 87105, United States
-                                            </div>
-                                            
-                                        </div>
-                                    </div>
-                                    <div class="distributor-item d-flex full-width" id="distributor4">
-                                        <div class="company-logo">
-                                            <img src="{{asset('images/logo.png')}}">
-                                        </div>
-                                        <div class="company-info equal-width">
-                                            <div class="info-header justify-between">
-                                                <div class="info-name">
-                                                    <span>New Mexico</span>
-                                                    <h2>Company Name 4</h2>
-                                                    <h4>Contact Name</h4>
-                                                </div>
-                                                <div class="contact-button align-center">
-                                                    <div class="call-button">
-                                                        <a href="tel:+1234567890987">
-                                                            <span class="material-icons">
-                                                                call
-                                                            </span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="map-button">
-                                                        <a href="https://maps.google.com/?q=33.557719,-105.601885" target="_blank" class="map">
-                                                            <span class="material-icons">
-                                                                map
-                                                            </span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="contact-info align-center">
-                                                <a href="mailto:company@gmail.com" class="email align-center">
-                                                    <span class="material-icons">
-                                                        email
-                                                    </span>
-                                                    <div>
-                                                        company@gmail.com
-                                                    </div>
-                                                </a>
-                                                <a href="tel:+123456789087" class="phone align-center">
-                                                    <span class="material-icons">
-                                                        phone
-                                                    </span>
-                                                    <div>
-                                                        +1 2345 6789 0987
-                                                    </div>
-                                                </a>
-                                                <a href="https://www.clawsandfins.com" class="website align-center" target="_blank">
-                                                    <span class="material-icons">
-                                                        public
-                                                    </span>
-                                                    <div>
-                                                        www.clawsandfins.com
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="address d-flex">
-                                                <span>Address:</span>
-                                                4300 Central Ave SW, Albuquerque, NM 87105, United States
-                                            </div>
-                                            
-                                        </div>
-                                    </div>
-                                    <div class="distributor-item d-flex full-width" id="distributor5">
-                                        <div class="company-logo">
-                                            <img src="{{asset('images/logo.png')}}">
-                                        </div>
-                                        <div class="company-info equal-width">
-                                            <div class="info-header justify-between">
-                                                <div class="info-name">
-                                                    <span>Texas</span>
-                                                    <h2>Company Name 5</h2>
-                                                    <h4>Contact Name</h4>
-                                                </div>
-                                                <div class="contact-button align-center">
-                                                    <div class="call-button">
-                                                        <a href="tel:+1234567890987">
-                                                            <span class="material-icons">
-                                                                call
-                                                            </span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="map-button">
-                                                        <a href="https://maps.google.com/?q=31.453586,-100.458361" target="_blank" class="map">
-                                                            <span class="material-icons">
-                                                                map
-                                                            </span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="contact-info align-center">
-                                                <a href="mailto:company@gmail.com" class="email align-center">
-                                                    <span class="material-icons">
-                                                        email
-                                                    </span>
-                                                    <div>
-                                                        company@gmail.com
-                                                    </div>
-                                                </a>
-                                                <a href="tel:+123456789087" class="phone align-center">
-                                                    <span class="material-icons">
-                                                        phone
-                                                    </span>
-                                                    <div>
-                                                        +1 2345 6789 0987
-                                                    </div>
-                                                </a>
-                                                <a href="https://www.clawsandfins.com" class="website align-center" target="_blank">
-                                                    <span class="material-icons">
-                                                        public
-                                                    </span>
-                                                    <div>
-                                                        www.clawsandfins.com
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="address d-flex">
-                                                <span>Address:</span>
-                                                4300 Central Ave SW, Albuquerque, NM 87105, United States
-                                            </div>
-                                            
-                                        </div>
-                                    </div> --}}
                                 </div>
                             </div>
                         </div>
@@ -386,11 +149,11 @@ page-no-arc
             </section>
         </div>
 @endsection
-    
+
 @section('head_extra')
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 @endsection
-        
+
 @section('script_extra')
         <script>
             if (Cookies.get('logged-in')) {
@@ -402,9 +165,9 @@ page-no-arc
                 $('.nav-visitor').addClass('display-none');
                 $('.nav-distributor-investor').removeClass('display-none');
             }
-        
+
         </script>
-        
+
 
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVckSdSfsjC7N1xkOULLyq38PbDiu9WvU&callback=initMap"
             defer></script>
@@ -455,6 +218,9 @@ page-no-arc
                     var id= prn.attr('id');
                     var cn= prn.find('.info-header h2').html();
                     var index = markers.findIndexBy('id', id);
+                    if(prn.hasClass('no-location')){
+                        return;
+                    }
                     $('.distributor-item').removeClass('card-highlight');
                     prn.addClass('card-highlight');
                     infoWindow.setContent(cn);
@@ -477,7 +243,7 @@ page-no-arc
 
                 getCurrentLocation();
             })
-            
+
             function initMap() {
                 latlng = { lat: 0, lng: 0 };
 
@@ -524,7 +290,7 @@ page-no-arc
                     .catch((e) => window.alert("Geocoder failed due to: " + e));
             }
 
-            function setMapAddress(address) { 
+            function setMapAddress(address) {
                 if (geocoder) {
                     geocoder.geocode({ 'address': address }, function (results, status) {
                         if (status == google.maps.GeocoderStatus.OK) {
@@ -543,7 +309,7 @@ page-no-arc
                                 map.setCenter(new google.maps.LatLng(loc.lat(), loc.lng(), 7));
                                 map.setZoom(13);
                             }
-                            
+
                             //setMapPosition();
                         }
                     });
@@ -571,12 +337,14 @@ page-no-arc
             const distributorMaps = [];
 
             @foreach($distributors as $distributor)
-            distributorMaps.push([
-                "{{$distributor->company_name}}",
-                {{$distributor->latitude}},
-                {{$distributor->longitude}},
-                {{$distributor->id}},
-            ]);
+                @if($distributor->latitude !=0 && $distributor->longitude !=0)
+                distributorMaps.push([
+                    "{{$distributor->company_name}}",
+                    {{$distributor->latitude}},
+                    {{$distributor->longitude}},
+                    {{$distributor->id}},
+                ]);
+                @endif
             @endforeach
 
             var markers=[];
@@ -633,8 +401,8 @@ page-no-arc
                 $('.distributor-item').removeClass('card-highlight');
             })
             */
-            
-            
+
+
         </script>
 @endsection
 

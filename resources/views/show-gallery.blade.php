@@ -4,6 +4,6 @@
         close
     </span>
 </div>
-<div class="image max-w700">
+<div class="image">
     <img src="{{asset('storage/'.$picture)}}">
 </div>
