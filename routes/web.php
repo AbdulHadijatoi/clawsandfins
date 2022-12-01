@@ -23,7 +23,7 @@ use Spatie\Permission\Models\Role;
 |
 */
 
-// Route::get('dashboard', [AuthController::class, 'dashboard']); 
+// Route::get('dashboard', [AuthController::class, 'dashboard']);
 
 Route::get('logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
 Route::get('admin/logout', [AuthController::class, 'logout'])->name('admin.logout')->middleware('auth');
@@ -67,6 +67,10 @@ Route::group(['middleware' => ['visitor']], function() {
         $pictures = Picture::where('role_id',$role->id)->get();
         return view('investor-picture-gallery',compact('pictures'));
     })->middleware('permission:investor-picture-gallery');
+    Route::get('/show-gallery/{id}', function ($id) {
+        $picture = Picture::find($id)->name;
+        return view('show-gallery',compact('picture'));
+    })->middleware('permission:investor-picture-gallery');
     Route::get('/future-ideas', function () {
         return view('future-ideas');
     })->middleware('permission:future-ideas');
@@ -80,7 +84,7 @@ Route::post('contact-us/send', [HomeController::class, 'sendMessage'])->name('co
 
 
 Route::group(['namespace' => 'App\Http\Controllers'], function()
-{   
+{
     /**
      * Home Routes
      */
@@ -96,22 +100,22 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         // Route::get('/register', 'RegisterController@show')->name('register.show');
         // Route::post('/register', 'RegisterController@register')->name('register.perform');
         Route::get('become-distributor', [AuthController::class, 'becomeDistributor'])->name('become-distributor')->middleware('permission:become-distributor');
-        Route::post('post-become-distributor', [AuthController::class, 'postBecomeDistributor'])->name('become-distributor.post'); 
+        Route::post('post-become-distributor', [AuthController::class, 'postBecomeDistributor'])->name('become-distributor.post');
         Route::get('become-investor', [AuthController::class, 'becomeInvestor'])->name('become-investor')->middleware('permission:become-investor');
         Route::get('forgot-password', [AuthController::class, 'forgotPassword'])->name('forgot-password');
-        Route::post('post-become-investor', [AuthController::class, 'postBecomeInvestor'])->name('become-investor.post'); 
+        Route::post('post-become-investor', [AuthController::class, 'postBecomeInvestor'])->name('become-investor.post');
         Route::get('confirm-email', [AuthController::class, 'confirmEmail'])->name('confirm-email')->middleware('permission:confirm-email');
         Route::get('confirm-email/activation/{token}', [AuthController::class, 'emailActivation'])->name('confirm-email.activation');
         // Route::post('confirm-email/resend/{token}', [AuthController::class, 'resendEmailActivation'])->name('confirm-email.resend');
-        
+
         /**
          * Login Routes
          */
         Route::get('login', [AuthController::class, 'login'])->name('login');
         Route::get('admin/login', [AuthController::class, 'adminLogin'])->name('admin.login');
-        Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post'); 
-        Route::post('admin/post-login', [AuthController::class, 'adminPostLogin'])->name('admin.login.post'); 
-    
+        Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post');
+        Route::post('admin/post-login', [AuthController::class, 'adminPostLogin'])->name('admin.login.post');
+
 
         Route::get('verification-notice', [AuthController::class, 'verificationNotice'])->name('verificationNotice')->middleware('auth');
         Route::get('verification/verified', [AuthController::class, 'getVerified'])->name('getVerified');
@@ -134,7 +138,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::get('/account/{id?}', [UsersController::class, 'accountInfo'])->name('account-info');
         Route::post('post-edit-distributor', [AuthController::class, 'postEditDistributor'])->name('edit-distributor.post');
         Route::post('post-edit-investor', [AuthController::class, 'postEditInvestor'])->name('edit-investor.post');
-        
+
         Route::get('/account/add-user', function () {
             return view('account/add-user');
         })->middleware('permission:account-add-user');
@@ -151,10 +155,10 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
             Route::get('/', [SettingsController::class, 'index'])->name('settings.index');
             Route::post('/update', [SettingsController::class, 'update'])->name('settings.update');
         });
-        
+
         // Route::resource('users', \Admin\UsersController::class);
-        
-        
+
+
         /**
          * User Routes
          */
@@ -172,7 +176,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
             Route::patch('/{user}/update', 'Admin\UsersController@update')->name('users.update');
             Route::delete('/{user}/delete', 'Admin\UsersController@destroy')->name('users.destroy');
         });
-        
+
         Route::group(['prefix' => 'send-email'], function() {
             Route::get('/', [EmailController::class,'index'])->name('email.index');
             Route::get('/view/{param?}/{id?}', [EmailController::class,'index'])->name('email.view');

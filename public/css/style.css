@@ -184,7 +184,7 @@ body.open #main-menu {
 } */
 
 body.open .main-menu-container {
-    height: calc(100vh - 100px);
+    height: calc(100vh - 96px);
 }
 
 /* MAIN PAGE */
@@ -1711,8 +1711,8 @@ body.open-popup-page {
         /* height: 100vh;
         height: 100%; */
     }
-    
-    /* 
+
+    /*
     .page-arrow {
         bottom: 10px;
     } */
@@ -1748,7 +1748,7 @@ body.open-popup-page {
         margin-right: 20px;
     }
 
-    
+
 }
 
 @media screen and (max-width: 800px) {
@@ -1924,5 +1924,5 @@ body.open-popup-page {
 }
 
 @media screen and (max-width: 425px) {
-    
+
 }

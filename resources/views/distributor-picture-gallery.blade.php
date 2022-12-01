@@ -18,7 +18,7 @@ page-no-arc
                                 @if($pictures)
                                     @foreach ($pictures as $index => $pic)
                                         <div id="img-{{$index}}" class="item">
-                                            <a class="popup-page-url" parent-id="img-{{$index}}" href="images.html #image_{{$index}}"><img src="{{url('storage/'.$pic->name)}}"></a>
+                                            <a class="popup-page-url" parent-id="img-{{$index}}" href="{{url('show-gallery/'.$pic->id)}}"><img src="{{url('storage/'.$pic->name)}}"></a>
                                         </div>
                                     @endforeach
                                 @endif
@@ -34,34 +34,10 @@ page-no-arc
 
 @section('style_extra')
 <style>
-    .visiting-address {
-        height: 300px;
-    }
-
-    .visiting-address #map {
-        height: 100%;
-    }
-
-    .map-marker-label {
+    .image img {
         display: block;
-        border-radius: 5px;
-        padding: 2px 8px;
     }
+
 </style>
 @endsection
 
-@section('script_extra')
-<!-- Temporary Script for Logged in User >>> -->
-<script>
-    if (Cookies.get('logged-in')) {
-        $('.distributor-investor-menu').removeClass('display-none');
-        $('.distributor-investor-menu').nextAll().hide();
-        $('.distributor-investor-menu').show();
-        $('.login-menu').hide();
-        $('.logout-menu').show();
-        $('.nav-visitor').addClass('display-none');
-        $('.nav-distributor-investor').removeClass('display-none');
-    }
-</script>
-<!-- >>> End -->
-@endsection
