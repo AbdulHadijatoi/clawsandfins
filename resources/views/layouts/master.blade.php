@@ -35,7 +35,7 @@ if( explode('/', request()->route()->getPrefix() ?? '')[0] == 'admin'){
         <script src="{{asset('js/jquery-3.6.0.min.js')}}"></script>
         <script src="{{asset('js/svg-inject.js')}}"></script>
         <script src="{{asset('js/js-cookie.js')}}"></script>
-        <script src="{{asset('js/main.js?v=8')}}"></script>
+        <script src="{{asset('js/main.js?v=9')}}"></script>
 
         @yield('head_extra')
 
