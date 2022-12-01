@@ -26,7 +26,7 @@ if( explode('/', request()->route()->getPrefix() ?? '')[0] == 'admin'){
         <!-- Style -->
         <link rel="stylesheet" href="{{asset('css/common.css')}}">
 
-        <link rel="stylesheet" href="{{asset('css/style.css?v=8')}}">
+        <link rel="stylesheet" href="{{asset('css/style.css?v=9')}}">
 
         <!-- Icon -->
         <link rel="stylesheet" href="{{asset('fonts/font-awesome-4.7.0/css/font-awesome.min.css')}}"> <!-- Font Awesome Icon 4.7.0 -->
