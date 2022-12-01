@@ -5,7 +5,7 @@ page-no-arc
 @endsection
 
 @section('content')
-        
+
         <!-- Content -->
         <div class="content-wrapper">
             <section class="section" data-clip-id="1" style="background-image: url('{{asset('bg/grey4.jpg')}}');">
@@ -13,13 +13,15 @@ page-no-arc
                     <div class="full-width align-in-center pb-120">
                         <div class="_75-width md_90-width md_align-center flex-column justify-center max-w700">
                             <h1 class="h1 text-yellow sm_font-size-35 sm_mt-60 text-center">Account Info</h1>
-                            <form action="{{route('edit-investor.post')}}" method="POST" onsubmit="return inputValidation(this)" enctype="multipart/form-data">
+                            <form action="{{route('edit-investor.post', ['id' => $user->id])}}" method="POST" onsubmit="return inputValidation(this)" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-container">
                                     <div class="full-width text-center mb-30">
+                                        @if($isAdmin)
                                         <div class="tile tile-info tile-no-border p-0">
                                             <livewire:user.index :userID="$id" :userStatus="true" :user="$user" :userRole="$userRole"/>
                                         </div>
+                                        @endif
                                     </div>
                                     <div class="full-width text-center mb-30">
                                         <div class="logo-container align-in-center flex-column mt-20">
@@ -203,7 +205,7 @@ page-no-arc
         </div>
 
         <iframe class="display-none" name="framesubmit" src=""></iframe>
-    
+
 
 @endsection
 
@@ -581,7 +583,7 @@ page-no-arc
             $('.logo').click(function(){
                 $('#logo-file').click();
             })
-            
+
             $('#remove-logo').click(function(e){
                 e.stopPropagation();
                 var logoImg=$('#logo-img');

@@ -15,7 +15,7 @@ $.ajaxSetup ({
 $.fn.delayKeyup = function(callback, ms){
     var timer = 0;
     var el = $(this);
-    $(this).keyup(function(){                   
+    $(this).keyup(function(){
         clearTimeout (timer);
         timer = setTimeout(function(){
             callback(el)
@@ -23,7 +23,7 @@ $.fn.delayKeyup = function(callback, ms){
     });
     return $(this);
 };
-  
+
 SVGInject.setOptions({
   useCache: false, // no caching
   copyAttributes: false, // do not copy attributes from `<img>` to `<svg>`
@@ -31,7 +31,7 @@ SVGInject.setOptions({
   afterInject: function(img, svg) {
     svgInjectElements[parseInt($(img).attr('img-arc'))]=svg;
 
-    if(tt > $('.img-arc').length){
+    if(tt >= $('.img-arc').length){
       svgInjectElements.forEach(function(svg){
         loadSVGInject(svg);
       })
@@ -54,7 +54,7 @@ function loadSVGInject(svg){
 
   var svgHeight=svgElm.height();
   parentSection.css({'background-position-y':'-'+svgHeight+'px'});
-  
+
   parentSection.find('svg').css({'top':'-'+(svgHeight-1)+'px',});
 
   if(prevSection.find('.pattern-prev-clip').length<=0){
@@ -81,7 +81,7 @@ function loadSVGInject(svg){
     var ppcPrevHeightBottom=parseInt(prevSection.find('svg #pattern_bottom')[0].getAttribute('height'))*basePrevHeight;
   }
 
-  
+
   // parentSection.css({'top':(svgElm.height()-ppcHeightTop)+'px'});
   prevSection.find('.pattern-prev-clip').css({'height':svgHeight+'px','top':'-'+(svgHeight-1)+'px'}).attr('height',svgHeight);
 
@@ -97,7 +97,7 @@ function loadSVGInject(svg){
   // console.log("prev section id: "+(ppcPrevHeightBottom ?? 0));
   // console.log(((svgElm.height()-ppcHeightTop) + prevSection.find('.pattern-prev-clip').height()));
   // prevSection.find('.content').css('min-height',prevSection.height() - ((svgElm.height()-ppcHeightTop)) );
-  // 
+  //
   // prevSection.css('min-height', (prevSection.find('.pattern-prev-clip').height() + prevSection.find('.content').outerHeight()) - (ppcPrevHeightBottom ?? 0) );
   var prevBlockContentHeight=(prevSection.find('.content').outerHeight() - ppcHeightTop) - (ppcPrevHeightBottom ?? 0);
   // prevBlockContentHeight=prevBlockContentHeight>200?prevBlockContentHeight:200;
@@ -108,8 +108,8 @@ function loadSVGInject(svg){
   // prevSection.find('.pattern-bottom-clip').css('background-size','auto '+(parseFloat(prevSection.find('.pattern-prev-clip').attr('height')) + parseFloat(prevSection.find('.block-content').attr('height')) )+'px');
   var bgPrevHeight=(
                   parseFloat(prevSection.find('.pattern-prev-clip').attr('height'))
-                  + 
-                  parseFloat(prevSection.find('.block-content').attr('height')) 
+                  +
+                  parseFloat(prevSection.find('.block-content').attr('height'))
                   +
                   parseFloat( (prevSection.find('.pattern-bottom-clip').attr('height') ?? 0) )
                 );
@@ -127,7 +127,7 @@ function loadSVGInject(svg){
     parentSection.find('.block-content').css('min-height',  lastBlockContent ).attr('height',lastBlockContent);
 
     var bgHeight=(
-                    parseFloat(parentSection.find('.block-content').attr('height')) 
+                    parseFloat(parentSection.find('.block-content').attr('height'))
                     +
                     parseFloat(parentSection.find('.pattern-bottom-clip').attr('height'))
                   );
@@ -146,8 +146,8 @@ function loadSVGInject(svg){
 
 }
 
-var headerHeight=0; 
-var footerHeight=0; 
+var headerHeight=0;
+var footerHeight=0;
 
 function initHeaderFooter(){
   headerHeight=$('#headerArc').height();
@@ -184,8 +184,8 @@ function smallPopup(content, callback, delay=0, autohide=0, mouseout=false,close
     $('body').append(sp);
     sp.find('.sp-content').html(content);
     var tmover;
-    setTimeout(function(){ 
-      sp.addClass('animate-sp'); 
+    setTimeout(function(){
+      sp.addClass('animate-sp');
     }, delay);
     if(autohide>0){
       setTimeout(function(){ sp.remove(); }, autohide);
@@ -313,12 +313,12 @@ function popupPage(elm, url){
     e.stopPropagation();
     prevNext('prev');
   })
-  
+
   pageElm.find('.arrow-right').click(function(e){
     e.stopPropagation();
     prevNext('next');
   })
-  
+
   appendChild();
 
   $('body').addClass('open-popup-page');
@@ -371,7 +371,7 @@ $(document).ready(function(){
   $('a[href]').click(function(e){
     e.stopPropagation();
   })
-  
+
   $('.img-arc').each(function(){
     SVGInject(this);
 
@@ -426,7 +426,7 @@ $(document).ready(function(){
     this.value = this.value
       .replace(/[^\d]/g, '').replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ');// numbers and decimals only
   });
-  
+
   $('.number-format').on('input', function() {
     this.value = this.value
       .replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');
@@ -449,7 +449,7 @@ $(document).ready(function(){
       $('.nav-top').removeClass('open-menu-dropdown');
     }
   );
-  
+
   $('.zoom-info-button').mouseover(
     function() {
       if( $('.zoom-notif').length == 0) zoomNotif(0);
@@ -481,7 +481,7 @@ function menuDropdownPosition(){
 
 $(window).on('resize',function(){
   initHeaderFooter();
-  
+
   svgInjectElements.forEach(function(svg){
     loadSVGInject(svg);
   })

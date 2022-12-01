@@ -13,18 +13,19 @@ use App\Models\Distributor;
 use App\Models\Investor;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use App\CentralLogics\Helpers;
 
 class UsersController extends Controller
 {
 
     /**
      * Display all users
-     * 
+     *
      * @return \Illuminate\Http\Response
      */
-    public function index() 
+    public function index()
     {
-        
+
         // if(Auth::user() -> hasPermissionTo('view users')) {
             $users = User::with(['distributor'])->whereHas(
                 'roles',
@@ -39,75 +40,75 @@ class UsersController extends Controller
         //     abort(403);
         // }
     }
-    
+
     /**
      * Show form for creating user
-     * 
+     *
      * @return \Illuminate\Http\Response
      */
-    public function create() 
+    public function create()
     {
         //
     }
 
     /**
      * Store a newly created user
-     * 
+     *
      * @param User $user
      * @param StoreUserRequest $request
-     * 
+     *
      * @return \Illuminate\Http\Response
     */
-    public function store(User $user, StoreUserRequest $request) 
+    public function store(User $user, StoreUserRequest $request)
     {
         //
     }
 
     /**
      * Show user data
-     * 
+     *
      * @param User $user
-     * 
+     *
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user) 
+    public function show(User $user)
     {
         //
     }
 
     /**
      * Edit user data
-     * 
+     *
      * @param User $user
-     * 
+     *
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user) 
+    public function edit(User $user)
     {
         //
     }
 
     /**
      * Update user data
-     * 
+     *
      * @param User $user
      * @param UpdateUserRequest $request
-     * 
+     *
      * @return \Illuminate\Http\Response
      */
-    public function update(User $user, UpdateUserRequest $request) 
+    public function update(User $user, UpdateUserRequest $request)
     {
         //
     }
 
     /**
      * Delete user data
-     * 
+     *
      * @param User $user
-     * 
+     *
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user) 
+    public function destroy(User $user)
     {
         //
     }
@@ -135,8 +136,9 @@ class UsersController extends Controller
             'userData'=> $userData,
             'userRole'=> $userRole,
             'other'=> (object) $other,
+            'isAdmin'=> Helpers::isAdmin(),
         ]);
     }
 
-    
+
 }
