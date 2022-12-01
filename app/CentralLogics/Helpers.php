@@ -6,13 +6,14 @@ use App\Models\Country;
 use App\Models\Settings;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
 
 class Helpers
 {
-    
+
     public static function getCountries(){
         return Country::select('id','name','dial_code')->orderBy('name')->get();
     }
@@ -20,7 +21,7 @@ class Helpers
     public static function getStates($country_id){
         return Country::select('id','name')->where('country_id',$country_id)->orderBy('name')->get();
     }
-    
+
     public static function getCities($state_id){
         return Country::select('id','name')->where('state_id',$state_id)->orderBy('name')->get();
     }
@@ -57,5 +58,10 @@ class Helpers
         return Settings::where('field', $field)->first()->value;
     }
 
-    
+    public static function isAdmin()
+    {
+        return Auth::user()->getRoleNames()[0] == 'admin';
+    }
+
+
 }

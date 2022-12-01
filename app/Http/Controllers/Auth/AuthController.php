@@ -1,5 +1,5 @@
 <?php
-  
+
 namespace App\Http\Controllers\Auth;
 
 use App\CentralLogics\Helpers;
@@ -34,12 +34,12 @@ class AuthController extends Controller
     public function login()
     {
         return view('auth.login.index');
-    }  
+    }
     public function adminLogin()
     {
         return view('admin.login');
-    }  
-      
+    }
+
     /**
      * Write code on Method
      *
@@ -58,7 +58,7 @@ class AuthController extends Controller
     {
         return view('auth.register.become-investor');
     }
-      
+
     /**
      * Write code on Method
      *
@@ -70,7 +70,7 @@ class AuthController extends Controller
             'email' => 'required',
             'password' => 'required',
         ]);
-   
+
         $credentials = $request->only('email', 'password');
         $user = User::where('email',$request->email)->first();
         if($user->status == '-1'){
@@ -84,7 +84,7 @@ class AuthController extends Controller
                             ->withSuccess('You have Successfully loggedin');
             }
         }
-  
+
         return redirect("login")->withInput()->withError('Oppes! You have entered invalid credentials');
     }
 
@@ -94,7 +94,7 @@ class AuthController extends Controller
             'email' => 'required',
             'password' => 'required',
         ]);
-   
+
         $credentials = $request->only('email', 'password');
         $user = User::where('email',$request->email)->first();
         if($user && $user->getRoleNames()[0] == 'admin'){
@@ -103,10 +103,10 @@ class AuthController extends Controller
                             ->withSuccess('You have Successfully loggedin');
             }
         }
-  
+
         return redirect("login")->withError('Oppes! You have entered invalid credentials');
     }
-      
+
     /**
      * Write code on Method
      *
@@ -148,7 +148,7 @@ class AuthController extends Controller
             return back()->withError('Something went wrong, please try again');
         }
     }
-      
+
     /**
      * Write code on Method
      *
@@ -159,7 +159,7 @@ class AuthController extends Controller
         if (User::where('email', $request->email)->first()) {
             return redirect()->back()->withInput()->withErrors(['mail_used' => 'Email has been used']);
         }
-        
+
         $request->request->add(['name' => $request->first_name]); //add request
         $request->request->add(['status' => 0]); //add request
         $data = $request->all();
@@ -179,7 +179,7 @@ class AuthController extends Controller
             $request->request->add(['user_id' => $user->id]); //add request
             $data = $request->all();
             $investor = Investor::create($data);
-            
+
             if($investor){
                 $this->sendConfirmEmail($user);
                 return redirect()->route("confirm-email", ['token' => $token]);
@@ -194,7 +194,7 @@ class AuthController extends Controller
     public static function generateToken($user){
         return sha1($user->id . '.' . $user->email);
     }
-    
+
     public static function getUserWithToken($token){
         return User::where(DB::raw('SHA1(CONCAT(id,".",email))'), $token)->first();
     }
@@ -210,7 +210,7 @@ class AuthController extends Controller
         return view('auth.register.confirm-email',compact('user'));
         // return view('mail.email-confirmation', ['name' => "Rahmat Dani Zaki", 'url' => url("confirm-email/activation/")]);
     }
-    
+
     public function emailActivation($token){
         $user = User::where(DB::raw('SHA1(CONCAT(id,".",email,".",updated_at))'), $token)->first();
         $status = 0;
@@ -273,7 +273,7 @@ class AuthController extends Controller
         $token= $this->generateToken($user);
         return view('auth.register.verification-notice', compact('token'));
     }
-    
+
     public function getVerified(Request $request)
     {
         $user = (auth()->user() ?? AuthController::getUserWithToken($request->token)) ?? null;
@@ -290,14 +290,14 @@ class AuthController extends Controller
      */
     public function postEditInvestor(UpdateInvestorRequest $request)
     {
-        $id= auth()->user()->id;
+        $id = Helpers::isAdmin() ? request()->id : auth()->user()->id;
         if($request->first_name){
             $request->request->add(['name' => $request->first_name]);
         }
 
         $data = $request->all();
         $image_name = 'users/default_user.jpg';
-        
+
         if ($request->hasfile('image')) {
             $file = $request->file('image');
             $image_name = $file->store('users', 'public');
@@ -313,10 +313,11 @@ class AuthController extends Controller
         $investor=Investor::find($investorId);
         $investor->update($data);
         if ($user && $investor) {
+            $redirectPath = "/account" . (Helpers::isAdmin() ? "/" . $id : null);
             if ($user->wasChanged() || $investor->wasChanged()) {
-                return redirect("/account")->withSuccess('Data has been updated');
+                return redirect($redirectPath)->withSuccess('Data has been updated');
             }else{
-                return redirect("/account");
+                return redirect($redirectPath);
             }
         } else {
             return back()->withError('Something went wrong, please try again');
@@ -330,7 +331,7 @@ class AuthController extends Controller
      */
     public function postEditDistributor(UpdateDistributorRequest $request)
     {
-        $id = auth()->user()->id;
+        $id = Helpers::isAdmin()? request()->id : auth()->user()->id;
         if ($request->first_name) {
             $request->request->add(['name' => $request->company_name]);
         }
@@ -359,16 +360,17 @@ class AuthController extends Controller
         $distributor = Distributor::find($distributorId);
         $distributor->update($data);
         if ($user && $distributor) {
+            $redirectPath = "/account" . ( Helpers::isAdmin()? "/".$id : null );
             if ($user->wasChanged() || $distributor->wasChanged()) {
-                return redirect("/account")->withSuccess('Data has been updated');
+                return redirect($redirectPath)->withSuccess('Data has been updated');
             } else {
-                return redirect("/account");
+                return redirect($redirectPath);
             }
         } else {
             return back()->withError('Something went wrong, please try again');
         }
     }
-    
+
     /**
      * Write code on Method
      *
@@ -379,10 +381,10 @@ class AuthController extends Controller
         if(Auth::check()){
             return view('index');
         }
-  
+
         return redirect("login")->withSuccess('Opps! You do not have access');
     }
-    
+
     /**
      * Write code on Method
      *
@@ -396,7 +398,7 @@ class AuthController extends Controller
         'password' => Hash::make($data['password'])
       ]);
     }
-    
+
     /**
      * Write code on Method
      *
@@ -405,7 +407,7 @@ class AuthController extends Controller
     public function logout() {
         Session::flush();
         Auth::logout();
-  
+
         return Redirect(request()->is('admin*')?'admin/login':'login');
     }
 
@@ -417,5 +419,5 @@ class AuthController extends Controller
     public function forgotPassword()
     {
         return view('auth.login.forgot-password');
-    }  
+    }
 }

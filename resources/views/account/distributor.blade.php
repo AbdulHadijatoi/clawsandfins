@@ -20,7 +20,7 @@ page-no-arc
 @endsection
 
 @section('content')
-        
+
         <!-- Content -->
         <div class="content-wrapper">
             <section class="section" data-clip-id="1" style="background-image: url('{{asset('bg/grey4.jpg')}}');">
@@ -28,11 +28,11 @@ page-no-arc
                     <div class="full-width align-in-center pb-120">
                         <div class="_75-width md_90-width md_align-center flex-column justify-center max-w700">
                             <h1 class="h1 text-yellow sm_font-size-35 sm_mt-60 text-center">Account Info</h1>
-                            <form action="{{route('edit-distributor.post')}}" method="POST" onsubmit="setInputForm(this);return inputValidation(this);" enctype="multipart/form-data">
+                            <form action="{{route('edit-distributor.post',['id' => $user->id])}}" method="POST" onsubmit="setInputForm(this);return inputValidation(this);" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-container">
                                     <div class="full-width text-center mb-30">
-                                        @if(isset($adminView))
+                                        @if($isAdmin)
                                         <div class="tile tile-info tile-no-border p-0">
                                             <livewire:user.index :userID="$id" :userStatus="true" :user="$user" :userRole="$userRole"/>
                                         </div>
@@ -680,7 +680,7 @@ page-no-arc
             })
         }*/
         var multiValue={};
-        
+
         function setInfoValue(){
             $('.tile-info').each(function(){
                 $(this).attr('id', 'ti'+Math.floor((Math.random()*1000) + 1));
@@ -760,7 +760,7 @@ page-no-arc
         function setInputForm(form){
             if(countrySelectedID && $('#country').attr('name')){ $(form).append('<input type="hidden" name="country" value="'+countrySelectedID+'">'); }
             if(citySelectedID && $('#city').attr('name')){ $(form).append('<input type="hidden" name="city" value="'+citySelectedID+'">'); }
-            if(locationIsCorrect=='yes' && latlng){ 
+            if(locationIsCorrect=='yes' && latlng){
                 $(form).append('<input type="hidden" name="latitude" value="'+getLat(latlng)+'">');
                 $(form).append('<input type="hidden" name="longitude" value="'+getLng(latlng)+'">');
             }
@@ -777,7 +777,7 @@ page-no-arc
         var currentCountryName='';
         var locationIsCorrect = '';
         var loader;
-        
+
         var getCountries= function (data) {
             $.each(data, function (key, val) {
                 countryKeyData.push({
@@ -940,9 +940,9 @@ page-no-arc
                 }else{
                     $('body').removeClass('dropdown-expanded');
                 }
-                
+
             })
-            
+
             $('#country .text, #city .text').click(function(e){
                 e.stopPropagation();
                 var parent= $(this).parents('.country-city-dropdown');
@@ -954,9 +954,9 @@ page-no-arc
                         $('body').addClass('dropdown-expanded');
                     }
                 }
-                
+
             })
-            
+
             $('body').on('click','#country.search-mode .expand-more, #city.search-mode .expand-more',function(e){
                 e.stopPropagation();
                 var parent= $(this).parents('.country-city-dropdown');
@@ -973,9 +973,9 @@ page-no-arc
                         $('body').addClass('dropdown-expanded');
                     }
                 }
-                
+
             })
-            
+
             $('#postal-address').on('keyup', function () {
                 if($('#same-address').is(':checked')){
                     $('#visiting-address').val( $(this).val() ).trigger('keyup');
@@ -996,7 +996,7 @@ page-no-arc
                     $('#visiting-address').val( '' );
                 }
             })
-            
+
             $('#no-disclose').on('change', function () {
                 var prnt=$(this).parents('.form-container');
                 if (this.checked) {
@@ -1013,8 +1013,8 @@ page-no-arc
                     $('.location-correct .radio-value').attr('value','');
                 }
             })
-            
-            
+
+
             $('input[type=radio][name=location_is_correct]').on('change', function () {
                 var prn= $(this).parents('.input-radio').find('.radio-value');
                 var errMsg= $(this).parents('.input-radio').find('.err-msg');
@@ -1041,36 +1041,36 @@ page-no-arc
                 locationIsCorrect='';
                 $('.radio-value').attr('value', '');
             }
-            
-            /*$('#visiting-address').delayKeyup(function (elm) { 
-                setMapAddress(elm.val()); 
+
+            /*$('#visiting-address').delayKeyup(function (elm) {
+                setMapAddress(elm.val());
             }, 2000);*/
 
-            /*$('#visiting-address').on('keypress', function (evt) { 
+            /*$('#visiting-address').on('keypress', function (evt) {
                 var elm=$(this);
                 var keyCode= evt.keyCode? evt.keyCode : evt.which;
                 if(keyCode == 13){
                     if (lockMap) { return; }
-                    setMapAddress(elm.val()); 
+                    setMapAddress(elm.val());
                 }
             });
-            
-            $('#visiting-address').on('blur', function (evt) { 
+
+            $('#visiting-address').on('blur', function (evt) {
                 if (lockMap) { return; }
                 var elm=$(this);
-                setMapAddress(elm.val()); 
+                setMapAddress(elm.val());
             });*/
-            
-            $('#update-map').click(function (evt) { 
+
+            $('#update-map').click(function (evt) {
                 if (lockMap) { return; }
                 var elm= $('#visiting-address');
-                setMapAddress(elm.val()); 
+                setMapAddress(elm.val());
             });
 
             $('.checkbox').click(function(){
                 $(this).find('input[type=checkbox]').prop('checked', !$(this).find('input[type=checkbox]').prop('checked')).change();
             })
-            
+
             $('.radio').click(function(){
                 $(this).find('input[type=radio]').prop('checked', !$(this).find('input[type=radio]').prop('checked')).change();
             })
@@ -1078,7 +1078,7 @@ page-no-arc
             $('.logo').click(function(){
                 $('#logo-file').click();
             })
-            
+
             /*$('#remove-logo').click(function(e){
                 e.stopPropagation();
                 $('#logo-img').attr('src','').parent().removeClass('image-opened');
@@ -1107,7 +1107,7 @@ page-no-arc
                     parent.attr('value','');
                 }
             })
-            
+
             $('#city .text').keyup(function () {
                 var parent=$(this).parents('#city');
                     parent.attr('value','').find('.city-item').removeClass('not-match');
@@ -1118,7 +1118,7 @@ page-no-arc
                     parent.removeClass('search-mode');
                 }
             })
-            
+
             /*$('.btn-edit').click(function () {
                 var parent=$(this).parents('.tile-info');
                     parent.toggleClass('edit-mode');
@@ -1197,7 +1197,7 @@ page-no-arc
             infoWindow.open(map, marker);*/
             map.setCenter(latlng);
         }
-        
+
 
         function initMap() {
             latlng = { lat: 0, lng: 0 };
@@ -1216,10 +1216,10 @@ page-no-arc
             });
 
             $('<div/>').addClass('centerMarker').appendTo(map.getDiv());
-            
+
             geocoder = new google.maps.Geocoder();
 
-            
+
             infoWindow = new google.maps.InfoWindow({content: infoWindowContent });
 
             //addMarker();
@@ -1233,7 +1233,7 @@ page-no-arc
             if(getMapLocation()){
                 setMapPosition();
                 map.setZoom(15);
-            }else{ 
+            }else{
                 getCurrentLocation();
             }
 
@@ -1243,7 +1243,7 @@ page-no-arc
                 infoWindow.close();
                 marker.setPosition(map.getCenter());
             });
-            
+
             google.maps.event.addListener(map, 'dragend', function () {
                 if (lockMap) { return; }
                 latlng = map.getCenter();
@@ -1267,7 +1267,7 @@ page-no-arc
             @if($userData->location_is_correct=='yes')
             setLocationIsCorrect(true);
             @endif
-            
+
             @if($userData->location_is_correct=='no')
             setLocationIsCorrect(false);
             @endif
@@ -1357,7 +1357,7 @@ page-no-arc
                 geocodeLatLng(geocoder, map);
             });
             */
-            
+
         }
 
         function geocodeLatLng(geocoder, map) {
@@ -1398,7 +1398,7 @@ page-no-arc
             infoWindow.open(map);
         }
 
-        function setMapAddress(address) {  // "London, UK" for example 
+        function setMapAddress(address) {  // "London, UK" for example
             if (geocoder) {
                 geocoder.geocode({ 'address': address }, function (results, status) {
                     if (status == google.maps.GeocoderStatus.OK) {
