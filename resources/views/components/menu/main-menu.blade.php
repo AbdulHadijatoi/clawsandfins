@@ -76,7 +76,7 @@
                 @endcan
                 @can('future-ideas')
                         <li class="distributor-investor-menu {{ (request()->is('future-ideas*')) ? 'active' : '' }}">
-                                <a href="{{url('more-about-soft-shell')}}">Future Ideas</a>
+                                <a href="{{url('future-ideas')}}">Future Ideas</a>
                         </li>
                 @endcan
 
