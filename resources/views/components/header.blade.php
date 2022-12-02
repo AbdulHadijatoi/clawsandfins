@@ -60,7 +60,7 @@
                     </div>
                     <div class="text-right">
                         <h3>{{ Auth::user()->name }}</h3>
-                        <span class="user-status">{{ ucfirst(trans(Auth::user()->getRoleNames()[0])) }} {{Auth::user()->status == 0?'candidate':null}}</span>
+                        <span class="user-status">{{ ucfirst(trans(Auth::user()->getRoleNames()[0])) }}</span>
                     </div>
                     <img src="{{url('storage/'.Auth::user()->image)}}">
                 </div>

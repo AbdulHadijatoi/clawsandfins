@@ -132,7 +132,7 @@ class AuthController extends Controller
         $user = User::create($data);
         if($user){
             $token = $this->generateToken($user);
-            $user->assignRole('distributor');
+            $user->assignRole('distributor candidate');
             $request->request->add(['user_id' => $user->id]); //add request
             $data = $request->all();
             $distributor = Distributor::create($data);
@@ -175,7 +175,7 @@ class AuthController extends Controller
 
         if($user){
             $token= $this->generateToken($user);
-            $user->assignRole('investor');
+            $user->assignRole('investor candidate');
             $request->request->add(['user_id' => $user->id]); //add request
             $data = $request->all();
             $investor = Investor::create($data);
