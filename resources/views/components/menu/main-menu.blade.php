@@ -1,7 +1,7 @@
 @if(Auth::check() && Auth::user()->getRoleNames()[0] == 'admin')
         @include('components.menu.admin')
 @else
-        @if(Auth::check() && auth()->user()->hasVerifiedEmail())
+        @if(Auth::check())
 
                 @can('soft-shelled-mudcrabs')
                         <li class="{{ (request()->is('soft-shelled-mudcrabs*')) ? 'active' : '' }}">
