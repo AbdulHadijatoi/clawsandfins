@@ -39,7 +39,8 @@ page-no-arc
                                             </div>
                                         </div>
                                         <div class="d-flex">
-                                            <div class="dropdown-button-group d-flex">
+                                            <a href="{{ route('email.send') }}" class="mr-10">Send Email</a>
+                                            {{-- <div class="dropdown-button-group d-flex">
                                                 <div class="button-primary">
                                                     <a href="{{ route('email.send',['selected']) }}"><button>Send Email</button></a>
                                                 </div>
@@ -50,7 +51,7 @@ page-no-arc
                                                         <li><a href="{{ route('email.send',['distributor-candidate']) }}">Distributor candidate</a></li>
                                                     </ul>
                                                 </div>
-                                            </div>
+                                            </div> --}}
                                         </div>
                                     </div>
                                     <div class="table-header d-flex">
@@ -63,9 +64,9 @@ page-no-arc
                                         <div style="min-width: 100px">Location</div>
                                         <div style="min-width: 100px">Status</div>
                                     </div>
-                                    
+
                                     <div><livewire:user.index :userType="$userType"/></div>
-                                    
+
                                 </div>
                                 {{-- <livewire:paging :users="[$users]" /> --}}
                                 {{-- <livewire:paging :view="[$users->links()]" :total="count($users)" /> --}}
@@ -283,12 +284,12 @@ page-no-arc
         }
          /*Dropdown Button*/
         .dropdown-button-group{
-    
+
         }
 
         .dropdown-button-group > *{
-            margin-left: 0px; 
-            margin-right: 0px; 
+            margin-left: 0px;
+            margin-right: 0px;
         }
 
         .dropdown-button-group > *:first-child,
@@ -414,14 +415,18 @@ page-no-arc
             background: #FFF;
             z-index: 1;
             padding: 10px;
-            padding-top: 0;
-            border-radius: 0 0 10px 10px;
+            border-radius: 10px;
             box-shadow: 0 3px 5px rgba(0,0,0,0.2);
             cursor: default;
+            max-width: 500px;
         }
 
         .table-row-detail .table-header{
             background: #cecccc;
+            color: #3c3c3c;
+        }
+        .table-row-detail .table-row{
+            color: #3c3c3c;
         }
 
         .table-row-detail .fa-check-circle{
@@ -435,25 +440,26 @@ page-no-arc
         }
 
         .show-table-row-detail.table-row *{
-            color: #3c3c3c;
+            /* color: #3c3c3c; */
         }
 
         .show-table-row-detail.table-row .checkbox{
-            display: none;
+            /* display: none; */
         }
 
         .show-table-row-detail{
             position: relative;
-            background: #FFF !important;
+            background: #686868 !important;
+            /* background: #FFF !important;
             border-radius: 10px 10px 0 0;
-            box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+            box-shadow: 0 3px 5px rgba(0,0,0,0.2); */
         }
         .show-table-row-detail .table-row-detail{
             display: block;
-            left: 0;
-            top: 100%;
+            top: 50%;
             width: 100%;
-            
+            left: 50%;
+            transform: translatex(-50%);
         }
         /* Approved/Rejected*/
         .approved,
@@ -464,11 +470,38 @@ page-no-arc
             border-radius: 10px;
             color: #FFF;
         }
+        .switch-button{
+            background: #2a2a2a;
+            padding: 5px 2.5px;
+            border-radius: 20px;
+            cursor: default;
+            box-shadow: 0 0 5px 0 rgba(0,0,0,0.2);
+        }
+
+        .switch-button > span{
+            padding: 5px;
+            border-radius: 50%;
+            margin: 0 2.5px;
+            background: #646464;
+            cursor: pointer;
+            color: #cccccc;
+        }
+
+        .switch-button > span span{
+            display: block;
+            font-size: 15px;
+        }
+        .approve-btn:hover{
+        background: #F85405 !important;
+        }
+        .reject-btn:hover{
+        background: #EF280E !important;
+        }
         .approved{
-            background: #F85405;
+            background: #F85405 !important;
         }
         .rejected{
-            background: #EF280E;
+            background: #EF280E !important;
         }
 </style>
 @endsection
@@ -492,7 +525,7 @@ page-no-arc
             $('#edit-button').attr( 'href', baseUrl + '/' + val );
             Livewire.emit('setFilter', $(this).val());
         })
-        
+
         var autosearch;
         $('#distributor-search').keyup(function(){
             let val= $(this).val();
@@ -501,7 +534,7 @@ page-no-arc
                 Livewire.emit('setSearch', val);
             }, 2000);
         })
-        
+
         $('#edit-selected-button').click(function(e){
             if($('.user-checked').length == 0){
                 e.preventDefault();

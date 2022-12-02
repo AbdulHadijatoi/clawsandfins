@@ -87,13 +87,19 @@
                 @endif
                 <div class="d-flex" style="min-width: 100px">
                     <div class="equal-width">
-                        @if ($user->status == 1)
+                        <div class="inline-block">
+                            <div class="switch-button d-flex" onclick="event.stopPropagation()">
+                                <span class="font-size-12 text-light reject-btn @if ($user->status == 2) rejected @endif" wire:click="$emit('reject','{{$user->id}}')"><span class="material-icons">close</span></span>
+                                <span class="font-size-12 text-light approve-btn @if ($user->status == 1) approved @endif" wire:click="$emit('approve','{{$user->id}}')"><span class="material-icons">check</span></span>
+                            </div>
+                        </div>
+                        {{-- @if ($user->status == 1)
                             <span class="font-size-12 text-light approved">Approved</span>
                         @elseif ($user->status == 2)
                             <span class="font-size-12 text-light rejected">Rejected</span>
                         @else
                             <span class="font-size-12 text-light">Candidate</span>
-                        @endif
+                        @endif --}}
                     </div>
                     <div class="more-menu">
                         <button onclick="event.stopPropagation();openContextMenu($(this).parent())">
@@ -103,12 +109,12 @@
                         </button>
                         <div class="context-menu">
                             <ul>
-                                @if ($user->status != 1 || $user->status == 2)
+                                {{-- @if ($user->status != 1 || $user->status == 2)
                                 <li class="context-menu-item" wire:click="$emit('approve','{{$user->id}}')">Approve</li>
                                 @endif
                                 @if ($user->status != 2 || $user->status == 1)
                                 <li class="context-menu-item" wire:click="$emit('reject','{{$user->id}}')">Reject</li>
-                                @endif
+                                @endif --}}
                                 <li class="context-menu-item" wire:click="$emit('sendEmail','{{$user->id}}')">Send Email</li>
                                 <li class="context-menu-item" onclick="location.href='{{url('account/'.$user->id)}}'">Edit</li>
                             </ul>
