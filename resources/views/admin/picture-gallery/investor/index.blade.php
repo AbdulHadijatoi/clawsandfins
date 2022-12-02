@@ -139,5 +139,16 @@ page-no-arc
     right: 10px;
     box-shadow: 0 0 5px 0 rgba(0,0,0,0.3);
     }
+
+    .thumbnail-preview{
+    width: 20%;
+    min-width: 300px;
+    }
+
+    .thumbnail-preview img{
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+    }
 </style>
 @endsection

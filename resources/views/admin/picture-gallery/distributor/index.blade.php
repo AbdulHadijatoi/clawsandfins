@@ -125,6 +125,7 @@ page-no-arc
     margin: 5px;
     border-radius: 10px;
     overflow: hidden;
+    object-fit: cover;
     }
 
     .thumbnail-preview img{
@@ -136,6 +137,17 @@ page-no-arc
     top: 10px;
     right: 10px;
     box-shadow: 0 0 5px 0 rgba(0,0,0,0.3);
+    }
+
+    .thumbnail-preview{
+    width: 19%;
+    min-width: 200px;
+    }
+
+    .thumbnail-preview img{
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
     }
 </style>
 @endsection
