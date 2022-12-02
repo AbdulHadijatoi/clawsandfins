@@ -35,7 +35,7 @@ page-no-arc
                                             <div class="justify-center align-center">
                                                 <label for="picture" class="form-label">Upload Images</label>
                                                 {{-- <input type="file" name="pictures[]" accept="image/*" multiple> --}}
-                                                <input id="files" type="file" multiple="" name="picture[]" data-filename="multiple_file_selection">
+                                                <input id="files" type="file" multiple="" name="picture[]" data-filename="multiple_file_selection" accept=".png, .gif, .jpeg, .jpg">
                                             </div>
                                             <div class="justify-center align-center">
                                                 <div class="button-secondary">
