@@ -24,7 +24,7 @@ page-no-arc
                         <h1 class="h1 text-yellow sm_font-size-35 sm_mt-60 text-center">Become a Distributor</h1>
                         <span class="h4 text-white text-center mb-30">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
                             tempor incididunt ut labore et dolore magna</span>
-                        <form action="{{route('become-distributor.post')}}" method="POST" onsubmit="setInputForm(this);return inputValidation(this)" enctype="multipart/form-data" target="blank">
+                        <form action="{{route('become-distributor.post')}}" method="POST" onsubmit="setInputForm(this);return inputValidation(this)" enctype="multipart/form-data">
                             @csrf
                             <div class="form-container">
                                 <div class="full-width text-center">
@@ -49,7 +49,7 @@ page-no-arc
                                         <input type="text" id="contact-name" placeholder="Contact Name" name="contact_name" value="{{old('contact_name')}}">
                                     </div>
                                 </div>
-                                
+
                                 <div class="d-flex full-width form-responsive">
                                     <div class="input-text" required>
                                         <label label="(Must be filled in)">Country</label>
@@ -68,11 +68,11 @@ page-no-arc
                                             <div class="lds-dual-ring"></div>
                                         </div>
                                         <select id="city-dropdown" name="city" style="outline:none">
-                                            
+
                                         </select>
                                     </div>
                                 </div>
-                                
+
                                 <div class="d-flex full-width form-responsive">
                                     <div class="input-textarea" required>
                                         <label style="font-size: 14px" label="(Must be filled in)">Postal Address</label>
@@ -103,7 +103,7 @@ page-no-arc
                                         <label label="(Must be filled in)">Administration Email</label>
                                         <input type="email" id="administration-email" placeholder="Administration Email" name="email" value="{{old('email')}}">
                                     </div>
-                                    
+
                                     <div class="input-text">
                                         <label>Order Email</label>
                                         <input type="email" id="order-email" placeholder="Order Email" name="order_email" value="{{old('order_email')}}">
@@ -142,7 +142,7 @@ page-no-arc
                                             <textarea id="visiting-address" placeholder="Visiting Address" name="visiting_address">{{old('visiting_address')}}</textarea>
                                             <button type="button" id="update-map">Update Map</button>
                                         </div>
-                                        
+
                                         <div class="mt-10">
                                             <div class="d-flex-important align-center">
                                                 <span class="checkbox align-in-center">
@@ -156,7 +156,7 @@ page-no-arc
                                             <div id="map" tabindex="-1"></div>
                                             <!-- <span title="Drive Direction" onclick="driveDirection()" class="material-icons drive-direction-button">directions_car</span> -->
                                         </div>
-                                        
+
                                     </div>
                                 </div>
                                 <div class="d-flex full-width flex-column px-5 form-responsive">
@@ -250,7 +250,7 @@ page-no-arc
         function setInputForm(form){
             /*if(countrySelectedID && $('#country').attr('name')){ $(form).append('<input type="hidden" name="country" value="'+countrySelectedID+'">'); }
             if(citySelectedID && $('#city').attr('name')){ $(form).append('<input type="hidden" name="city" value="'+citySelectedID+'">'); }*/
-            if(locationIsCorrect=='yes' && latlng){ 
+            if(locationIsCorrect=='yes' && latlng){
                 $(form).append('<input type="hidden" name="latitude" value="'+getLat(latlng)+'">');
                 $(form).append('<input type="hidden" name="longitude" value="'+getLng(latlng)+'">');
             }
@@ -276,7 +276,7 @@ page-no-arc
                                         .id + '">' + city.name + '</option>');
                         });
                         // document.getElementById('dial_code').innerHTML = '<option>' + result.dial_code + '</option>';
-                        $("#dial_code").html('<option>' + result.dial_code + '</option>');    
+                        $("#dial_code").html('<option>' + result.dial_code + '</option>');
                     },
                     complete: function(){
                         $('#loading').hide();
@@ -331,7 +331,7 @@ page-no-arc
                         $(this).nextAll('.err-msg').remove();
                     })
                     if(errMsgCount>0 && !errFocused){
-                        
+
                         window.scrollTo(0, parentElm[0].offsetTop - 150);
                         errFocused=true;
                     }
@@ -361,7 +361,7 @@ page-no-arc
         var countryKeyData=[];
         var currentCountryName='';
         var locationIsCorrect = '';
-        
+
         $.getJSON('{{asset('library/country-city/countries+cities.json')}}', function (data) {
             data = countryFilter(data);
             $.each(data, function (key, val) {
@@ -466,9 +466,9 @@ page-no-arc
                 }else{
                     $('body').removeClass('dropdown-expanded');
                 }
-                
+
             })
-            
+
             $('#country .text, #city .text').click(function(e){
                 e.stopPropagation();
                 var parent= $(this).parents('.country-city-dropdown');
@@ -480,9 +480,9 @@ page-no-arc
                         $('body').addClass('dropdown-expanded');
                     }
                 }
-                
+
             })
-            
+
             $('body').on('click','#country.search-mode .expand-more, #city.search-mode .expand-more',function(e){
                 e.stopPropagation();
                 var parent= $(this).parents('.country-city-dropdown');
@@ -497,9 +497,9 @@ page-no-arc
                         $('body').addClass('dropdown-expanded');
                     }
                 }
-                
+
             })
-            
+
             $('#postal-address').on('keyup', function () {
                 if($('#same-address').is(':checked')){
                     $('#visiting-address').val( $(this).val() ).trigger('keyup');
@@ -520,7 +520,7 @@ page-no-arc
                     $('#visiting-address').val( '' );
                 }
             })
-            
+
             $('#no-disclose').on('change', function () {
                 if (this.checked) {
                     lockMap = true;
@@ -530,8 +530,8 @@ page-no-arc
                     addRemoveMarker(1);
                 }
             })
-            
-            
+
+
             $('input[type=radio][name=location_is_correct]').on('change', function () {
                 var prn= $(this).parents('.input-radio').find('.radio-value');
                 var errMsg= $(this).parents('.input-radio').find('.err-msg');
@@ -564,36 +564,36 @@ page-no-arc
                 }
                 errMsg.remove();
             })
-            
-            /*$('#visiting-address').delayKeyup(function (elm) { 
-                setMapAddress(elm.val()); 
+
+            /*$('#visiting-address').delayKeyup(function (elm) {
+                setMapAddress(elm.val());
             }, 2000);*/
 
-            /*$('#visiting-address').on('keypress', function (evt) { 
+            /*$('#visiting-address').on('keypress', function (evt) {
                 var elm=$(this);
                 var keyCode= evt.keyCode? evt.keyCode : evt.which;
                 if(keyCode == 13){
                     if (lockMap) { return; }
-                    setMapAddress(elm.val()); 
+                    setMapAddress(elm.val());
                 }
             });
-            
-            $('#visiting-address').on('blur', function (evt) { 
+
+            $('#visiting-address').on('blur', function (evt) {
                 if (lockMap) { return; }
                 var elm=$(this);
-                setMapAddress(elm.val()); 
+                setMapAddress(elm.val());
             });*/
-            
-            $('#update-map').click(function (evt) { 
+
+            $('#update-map').click(function (evt) {
                 if (lockMap) { return; }
                 var elm= $('#visiting-address');
-                setMapAddress(elm.val()); 
+                setMapAddress(elm.val());
             });
 
             $('.checkbox').click(function(){
                 $(this).find('input[type=checkbox]').prop('checked', !$(this).find('input[type=checkbox]').prop('checked')).change();
             })
-            
+
             $('.radio').click(function(){
                 $(this).find('input[type=radio]').prop('checked', !$(this).find('input[type=radio]').prop('checked')).change();
             })
@@ -601,7 +601,7 @@ page-no-arc
             $('.logo').click(function(){
                 $('#logo-file').click();
             })
-            
+
             $('#remove-logo').click(function(e){
                 e.stopPropagation();
                 $('#logo-img').attr('src','').parent().removeClass('image-opened');
@@ -617,7 +617,7 @@ page-no-arc
                     parent.removeClass('search-mode');
                 }
             })
-            
+
             $('#city .text').keyup(function () {
                 var parent=$(this).parents('#city');
                     parent.find('.city-item').removeClass('not-match');
@@ -672,7 +672,7 @@ page-no-arc
             infoWindow.open(map, marker);*/
             map.setCenter(latlng);
         }
-        
+
 
         function initMap() {
             latlng = { lat: 0, lng: 0 };
@@ -691,7 +691,7 @@ page-no-arc
             });
 
             $('<div/>').addClass('centerMarker').appendTo(map.getDiv());
-            
+
             geocoder = new google.maps.Geocoder();
 
             infoWindow = new google.maps.InfoWindow({content: infoWindowContent });
@@ -716,7 +716,7 @@ page-no-arc
                 //infoWindow.close();
                 marker.setPosition(map.getCenter());
             });
-            
+
             /*
             google.maps.event.addListener(map, 'dragend', function () {
                 if (lockMap) { return; }
@@ -808,7 +808,7 @@ page-no-arc
             });
             */
 
-            
+
         }
 
         function geocodeLatLng(geocoder, map) {
@@ -878,7 +878,7 @@ page-no-arc
             */
         }
 
-        function setMapAddress(address) {  // "London, UK" for example 
+        function setMapAddress(address) {  // "London, UK" for example
             if (geocoder) {
                 geocoder.geocode({ 'address': address }, function (results, status) {
                     if (status == google.maps.GeocoderStatus.OK) {
