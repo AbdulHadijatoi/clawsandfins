@@ -196,7 +196,7 @@ class AuthController extends Controller
     }
 
     public static function getUserWithToken($token){
-        return User::where(DB::raw('SHA1(CONCAT(id,".",email))'), $token)->first();
+        return User::where(DB::raw('SHA1(CONCAT(id,".",email))'),'=', $token)->first();
     }
 
     public function confirmEmail(Request $request){
@@ -276,7 +276,7 @@ class AuthController extends Controller
 
     public function getVerified(Request $request)
     {
-        $user = (auth()->user() ?? AuthController::getUserWithToken($request->token)) ?? null;
+        $user = (AuthController::getUserWithToken($request->token)) ?? null;
         if ($request->listenEmailVerified && $user) {
             $data['verified'] = $user->email_verified_at;
             return response()->json($data);

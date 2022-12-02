@@ -72,7 +72,7 @@ page-no-arc
                     openDialog('Confirm Email', 'Confirmation email has been sent successfully');
                 }else if(result.error){
                     if(result.error == 1){
-                        openDialog('Confirm Email', 'Confirmation email not sent, check yout connection');
+                        openDialog('Confirm Email', 'Confirmation email not sent, check your connection');
                     }else{
                         openDialog('Error', 'Something went wrong, please try again');
                     }
