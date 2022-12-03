@@ -27,10 +27,13 @@ page-no-arc
                                                 </select>
                                             </div>
                                             <div class="button-secondary">
-                                                <a id="edit-button" href="{{ route('users.investors.edit',['all']) }}"><button class="no-wrap">Edit</button></a>
+                                                <a id="edit-button" href="{{ route('users.investors.edit',['all']) }}"><button class="no-wrap">Edit All</button></a>
                                             </div>
                                             <div class="button-secondary">
                                                 <a id="edit-selected-button" href="{{ route('users.investors.edit',['selected']) }}"><button class="no-wrap">Edit Selected</button></a>
+                                            </div>
+                                            <div class="button-secondary">
+                                                <a id="edit-selected-button" href="{{ route('email.send',['selected']) }}"><button class="no-wrap">Email Selected</button></a>
                                             </div>
                                         </div>
                                         <div class="equal-width mr-10">
@@ -39,7 +42,7 @@ page-no-arc
                                             </div>
                                         </div>
                                         <div class="d-flex">
-                                            <a href="{{ route('email.send') }}" class="mr-10">Send Email</a>
+                                            {{-- <a href="{{ route('email.send') }}" class="mr-10">Send Email</a> --}}
                                             {{-- <div class="dropdown-button-group d-flex">
                                                 <div class="button-primary">
                                                     <a href="{{ route('email.send',['selected']) }}"><button>Send Email</button></a>
@@ -60,7 +63,7 @@ page-no-arc
                                         <div class="equal-width">Address</div>
                                         <div class="px-10 min-max-width-200">Size of investment</div>
                                         <div class="px-10 min-max-width-200">Special Skills</div>
-                                        <div class="px-10 min-max-width-70">Status</div>
+                                        <div class="px-10 min-max-width-100">Status</div>
                                     </div>
 
                                     <div><livewire:user.index :userType="$userType"/></div>
@@ -469,21 +472,66 @@ page-no-arc
         color: #FFF;
         }
         .switch-button{
-        background: #2a2a2a;
-        padding: 5px 2.5px;
+        position: relative;
+        background: #e4e4e4;
+        padding: 0px 2.5px;
         border-radius: 20px;
-        cursor: default;
+        cursor: pointer;
         box-shadow: 0 0 5px 0 rgba(0,0,0,0.2);
+        width: 100px;
         }
 
         .switch-button > span{
         padding: 5px;
-        border-radius: 50%;
-        margin: 0 2.5px;
-        background: #646464;
         cursor: pointer;
-        color: #cccccc;
+        color: #535353;
         }
+
+        .switch-button label{
+        cursor: pointer;
+        }
+
+        .switch-button.candidate{
+        padding-left: 25px;
+        }
+
+        .switch-button.candidate::after{
+        content: "";
+        position: absolute;
+        left: 3px;
+        top: 50%;
+        transform: translatey(-50%);
+        width: 19px;
+        height: 19px;
+        background: #b1afaf;
+        border-radius: 50%;
+        border: 2px solid #6d6d6d;
+        transition: left .1s ease;
+        }
+
+        .switch-button.distributor{
+        padding-right: 25px;
+        background: #F85405;
+        }
+
+        .switch-button.distributor span{
+        color: #FFF;
+        }
+
+        .switch-button.distributor::after{
+        content: "";
+        position: absolute;
+        right: 3px;
+        top: 50%;
+        transform: translatey(-50%);
+        width: 19px;
+        height: 19px;
+        background: #ff7e34;
+        border-radius: 50%;
+        border: 2px solid #FFF;
+        transition: right .1s ease;
+        }
+
 
         .switch-button > span span{
         display: block;
@@ -521,6 +569,9 @@ page-no-arc
         max-width: 250px;
         min-width: 250px;
         }
+        .button-secondary button{
+        font-size: 14px;
+        }
 </style>
 @endsection
 
@@ -535,8 +586,9 @@ page-no-arc
         $('#investor-dropdown').change(function(){
             let val = $(this).val();
             let baseUrl = "{{ route('users.investors.edit') }}";
+            let textVal = ( val=='1' ) ? 'Investors' : ( val == '2' ) ? 'Investor Candidate' : 'All';
                 val  = ( val=='1' ) ? 'investors' : ( val == '2' ) ? 'investor-candidate' : 'all';
-            $('#edit-button').attr( 'href', baseUrl + '/' + val );
+            $('#edit-button').attr( 'href', baseUrl + '/' + val ).find('button').html('Edit ' + textVal);
             Livewire.emit('setFilter', $(this).val());
         })
 
@@ -556,6 +608,10 @@ page-no-arc
             }
         })
     })
+
+    function scrollBody(){
+
+    }
 </script>
 
 

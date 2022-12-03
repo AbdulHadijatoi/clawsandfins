@@ -120,7 +120,7 @@ page-no-arc
                                                 @php
                                                     $website_url = $distributor->website_url;
                                                     $url = parse_url($website_url);
-                                                    if(!isset($url['schema'])){
+                                                    if(!isset($url['scheme'])){
                                                         $website_url = 'http://' . $url['path'];
                                                     }
                                                 @endphp

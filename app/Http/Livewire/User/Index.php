@@ -40,6 +40,7 @@ class Index extends Component
         'setSearch',
         'approve',
         'reject',
+        'candidate',
         'sendEmail',
     ];
 
@@ -54,6 +55,13 @@ class Index extends Component
 
         if ($this->userStatus) {
             $this->user = User::find($this->userID);
+        }
+    }
+
+    public function dehydrate()
+    {
+        if(!isset($this->userchecked)){
+            $this->emit('js', 'scrollBody()');
         }
     }
 
@@ -169,6 +177,18 @@ class Index extends Component
         if ($user->save()) {
             $this->user = $user;
             $this->smallPopup('Rejected');
+        } else {
+            $this->dispatchBrowserEvent('openDialog', ['title' => 'Error', 'content' => 'Something went wrong, please try again']);
+        }
+    }
+
+    public function candidate($id)
+    {
+        $user = User::find($id);
+        $user->status = 0;
+        if ($user->save()) {
+            $this->user = $user;
+            $this->smallPopup('Candidate');
         } else {
             $this->dispatchBrowserEvent('openDialog', ['title' => 'Error', 'content' => 'Something went wrong, please try again']);
         }
