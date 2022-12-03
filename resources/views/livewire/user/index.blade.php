@@ -20,6 +20,7 @@
     @endif
 
 @if(!isset($userchecked))
+    <div id="scroll-body" class="overflow-x-auto">
     @foreach($users as $key => $value )
     @php
     $user=((object) $value);
@@ -30,13 +31,13 @@
         <div data-instance="{{ $iteration }}">
             {{-- <div class="table-row table-row-hover d-flex" wire:ignore wire:key="distributor{{$user->id}}"> --}}
             <div class="table-row table-row-hover d-flex" wire:key="distributor{{$user->id}}">
-                <div class="pr-10">
+                <div class="fixed-left pr-10" style="min-width: 30px">
                     <span class="checkbox align-in-center">
                         <input type="checkbox" class="checkbox-row" onchange="addChecked(this,'{{$user->email}}')" {{in_array($user->email, $usercheckedValue)?'checked':null}}>
                         <span class="material-icons">check</span>
                     </span>
                 </div>
-                <div class="equal-width">
+                <div class="equal-width min-max-width-250">
                     <div class="d-flex">
                         <div><span class="user-avatar">{{Str::upper(substr($user->name, 0, 1))}}</span></div>
                         <div class="flex-column">
@@ -50,19 +51,22 @@
                 $country=$distributor->getCountry ?? ((object)$distributor->get_country);
                 $city=$distributor->getCity ?? ((object)$distributor->get_city);
                 @endphp
-                <div style="min-width: 150px">
+                <div class="px-10 min-max-width-150">
                     <span class="font-size-12 text-light">{{$distributor->contact_name}}</span>
                 </div>
-                <div style="min-width: 150px">
+                <div class="px-10 min-max-width-150">
                     <span class="font-size-12 text-light">{{$country->dial_code.$distributor->phone_number}}</span>
                 </div>
-                <div style="min-width: 120px">
+                <div class="px-10 min-max-width-200">
+                    <span class="font-size-12 text-light">{{$distributor->order_email}}</span>
+                </div>
+                <div class="px-10 min-max-width-100">
                     <span class="font-size-12 text-light">{{$country->name}}</span>
                 </div>
-                <div style="min-width: 120px">
+                <div class="px-10 min-max-width-100">
                     <span class="font-size-12 text-light">{{$city->name}}</span>
                 </div>
-                <div style="min-width: 100px">
+                <div class="px-10 min-max-width-100">
                     @if($distributor->latitude && $distributor->longitude)
                     <a href="https://maps.google.com/?q={{$distributor->latitude}},{{$distributor->longitude}}" tooltip="Location" target="_blank">
                         <span class="material-icons text-gold">
@@ -73,55 +77,75 @@
                     <span class="font-size-12 text-light"><em>Not set</em></span>
                     @endif
                 </div>
+                <div class="px-10 min-max-width-200">
+                    <span class="font-size-12 text-light">{{$distributor->website_url}}</span>
+                </div>
+                <div class="px-10 min-max-width-150">
+                    <span class="font-size-12 text-light">{{$distributor->postal_address}}</span>
+                </div>
+                <div class="px-10 min-max-width-150">
+                    <span class="font-size-12 text-light">{{$distributor->visiting_address}}</span>
+                </div>
+                <div class="px-10 min-max-width-150">
+                    <span class="font-size-12 text-light">{{$distributor->location_disclose}}</span>
+                </div>
+                <div class="px-10 min-max-width-150">
+                    <span class="font-size-12 text-light">{{$distributor->location_is_correct}}</span>
+                </div>
+                <div class="px-10 min-max-width-150">
+                    <span class="font-size-12 text-light">{{$distributor->need_support}}</span>
+                </div>
                 @endif
                 @if($investor)
                 <div class="equal-width">
                     <span class="font-size-12 text-light">{{$investor->address}}</span>
                 </div>
-                <div style="min-width: 150px">
-                    <span class="font-size-12 text-light text-right full-width inline-block px-20 font-weight-bold">{{ str_replace(' ',',',$investor->size_of_investment).' USD'}}</span>
+                <div class="px-10 min-max-width-200">
+                    <span class="font-size-12 text-light full-width inline-block font-weight-bold">{{ str_replace(' ',',',$investor->size_of_investment).' USD'}}</span>
                 </div>
-                <div style="min-width: 150px">
+                <div class="px-10 min-max-width-200">
                     <span class="font-size-12 text-light">{{$investor->special_skills}}</span>
                 </div>
                 @endif
-                <div class="d-flex" style="min-width: 100px">
-                    <div class="equal-width">
-                        <div class="inline-block">
-                            <div class="switch-button d-flex" onclick="event.stopPropagation()">
-                                <span class="font-size-12 text-light reject-btn @if ($user->status == 2) rejected @endif" wire:click="$emit('reject','{{$user->id}}')"><span class="material-icons">close</span></span>
-                                <span class="font-size-12 text-light approve-btn @if ($user->status == 1) approved @endif" wire:click="$emit('approve','{{$user->id}}')"><span class="material-icons">check</span></span>
+                <div class="d-flex min-max-width-70">
+                    <div class="fixed-right min-max-width-70 d-flex">
+                        <div class="equal-width">
+                            <div class="inline-block">
+                                <div class="switch-button d-flex" onclick="event.stopPropagation()">
+                                    <span class="font-size-12 text-light reject-btn @if ($user->status == 2) rejected @endif" wire:click="$emit('reject','{{$user->id}}')"><span class="material-icons">close</span></span>
+                                    <span class="font-size-12 text-light approve-btn @if ($user->status == 1) approved @endif" wire:click="$emit('approve','{{$user->id}}')"><span class="material-icons">check</span></span>
+                                </div>
                             </div>
+                            {{-- @if ($user->status == 1)
+                                <span class="font-size-12 text-light approved">Approved</span>
+                            @elseif ($user->status == 2)
+                                <span class="font-size-12 text-light rejected">Rejected</span>
+                            @else
+                                <span class="font-size-12 text-light">Candidate</span>
+                            @endif --}}
                         </div>
-                        {{-- @if ($user->status == 1)
-                            <span class="font-size-12 text-light approved">Approved</span>
-                        @elseif ($user->status == 2)
-                            <span class="font-size-12 text-light rejected">Rejected</span>
-                        @else
-                            <span class="font-size-12 text-light">Candidate</span>
-                        @endif --}}
-                    </div>
-                    <div class="more-menu">
-                        <button onclick="event.stopPropagation();openContextMenu($(this).parent())">
-                            <span class="material-icons">
-                                more_vert
-                            </span>
-                        </button>
-                        <div class="context-menu">
-                            <ul>
-                                {{-- @if ($user->status != 1 || $user->status == 2)
-                                <li class="context-menu-item" wire:click="$emit('approve','{{$user->id}}')">Approve</li>
-                                @endif
-                                @if ($user->status != 2 || $user->status == 1)
-                                <li class="context-menu-item" wire:click="$emit('reject','{{$user->id}}')">Reject</li>
-                                @endif --}}
-                                <li class="context-menu-item" wire:click="$emit('sendEmail','{{$user->id}}')">Send Email</li>
-                                <li class="context-menu-item" onclick="location.href='{{url('account/'.$user->id)}}'">Edit</li>
-                            </ul>
-                        </div>
+                        {{-- <div class="more-menu">
+                            <button onclick="event.stopPropagation();openContextMenu($(this).parent())">
+                                <span class="material-icons">
+                                    more_vert
+                                </span>
+                            </button>
+                            <div class="context-menu">
+                                <ul>
+                                    @if ($user->status != 1 || $user->status == 2)
+                                    <li class="context-menu-item" wire:click="$emit('approve','{{$user->id}}')">Approve</li>
+                                    @endif
+                                    @if ($user->status != 2 || $user->status == 1)
+                                    <li class="context-menu-item" wire:click="$emit('reject','{{$user->id}}')">Reject</li>
+                                    @endif
+                                    <li class="context-menu-item" wire:click="$emit('sendEmail','{{$user->id}}')">Send Email</li>
+                                    <li class="context-menu-item" onclick="location.href='{{url('account/'.$user->id)}}'">Edit</li>
+                                </ul>
+                            </div>
+                        </div> --}}
                     </div>
                 </div>
-                @if($distributor)
+                {{-- @if($distributor)
                 <div class="table-row-detail" onclick="event.stopPropagation()">
                     <div>
                         <div class="table-header d-flex">
@@ -148,10 +172,11 @@
                         </div>
                     </div>
                 </div>
-                @endif
+                @endif --}}
             </div>
         </div>
     @endforeach
+    </div>
     <div class="d-flex justify-between align-center page-navigation">
         {!! $userPaginate->links() !!}
         <p class="text-light">Showing out of {{count($users)}} users</p>
@@ -159,6 +184,7 @@
 @endif
 </div>
 
+@push('scripts')
 @if(!isset($userchecked))
 <script>
     function addChecked(elm,email){
@@ -168,11 +194,12 @@
         ]);
     }
 
-    $('body').on('click','.table-row-hover',function(){
-        if(!$(this).hasClass('show-table-row-detail')){
-            $('.table-row-hover').removeClass('show-table-row-detail');
-        }
-        $(this).toggleClass('show-table-row-detail');
-    })
+    // $('body').on('click','.table-row-hover',function(){
+    //     if(!$(this).hasClass('show-table-row-detail')){
+    //         $('.table-row-hover').removeClass('show-table-row-detail');
+    //     }
+    //     $(this).toggleClass('show-table-row-detail');
+    // })
 </script>
 @endif
+@endpush

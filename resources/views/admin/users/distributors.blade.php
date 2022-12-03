@@ -8,9 +8,9 @@ page-no-arc
         <!-- Content -->
         <div class="content-wrapper">
             <section class="section" data-clip-id="1" style="background-image: url('{{asset('bg/grey4.jpg')}}');">
-                <div class="content">
+                <div class="content px-70">
                     <div class="full-width align-in-center pb-120">
-                        <div class="_75-width md_90-width md_align-center flex-column justify-center max-w700">
+                        <div class="md_align-center flex-column justify-center full-width">
                             <div class="full-width">
                                 <h1 class="h1 text-yellow sm_font-size-35 sm_mt-60 text-center">Manage Distributors</h1>
                                 <div class="form-container">
@@ -54,17 +54,25 @@ page-no-arc
                                             </div> --}}
                                         </div>
                                     </div>
-                                    <div class="table-header d-flex">
-                                        <div class="pr-10">#</div>
-                                        <div class="equal-width">User</div>
-                                        <div style="min-width: 150px">Contact Name</div>
-                                        <div style="min-width: 150px">Phone</div>
-                                        <div style="min-width: 120px">Country</div>
-                                        <div style="min-width: 120px">City</div>
-                                        <div style="min-width: 100px">Location</div>
-                                        <div style="min-width: 100px">Status</div>
+                                    <div id="scroll-header" class="overflow-x-hidden">
+                                        <div class="table-header d-flex">
+                                            <div class="pr-10" style="min-width: 30px">#</div>
+                                            <div class="equal-width min-max-width-250">User</div>
+                                            <div class="px-10 min-max-width-150">Contact Name</div>
+                                            <div class="px-10 min-max-width-150">Phone</div>
+                                            <div class="px-10 min-max-width-200">Order Email</div>
+                                            <div class="px-10 min-max-width-100">Country</div>
+                                            <div class="px-10 min-max-width-100">City</div>
+                                            <div class="px-10 min-max-width-100">Location</div>
+                                            <div class="px-10 min-max-width-200">Website Url</div>
+                                            <div class="px-10 min-max-width-150">Postal Address</div>
+                                            <div class="px-10 min-max-width-150">Visiting Address</div>
+                                            <div class="px-10 min-max-width-150">Location Disclose</div>
+                                            <div class="px-10 min-max-width-150">Location is Correct</div>
+                                            <div class="px-10 min-max-width-150">Need Support</div>
+                                            <div class="min-max-width-70"></div>
+                                        </div>
                                     </div>
-
                                     <div><livewire:user.index :userType="$userType"/></div>
 
                                 </div>
@@ -206,6 +214,7 @@ page-no-arc
             font-size: 12px;
             padding: 5px 10px;
             border-bottom: 1px solid #6f6f6f;
+            width: fit-content;
         }
 
         .table-row{
@@ -213,6 +222,7 @@ page-no-arc
             font-size: 14px;
             padding: 10px;
             border-bottom: 1px solid #6f6f6f;
+            width: fit-content;
         }
 
         .user-avatar{
@@ -503,6 +513,48 @@ page-no-arc
         .rejected{
             background: #EF280E !important;
         }
+        .min-max-width-70{
+            max-width: 70px;
+            min-width: 70px;
+        }
+        .min-max-width-100{
+            max-width: 100px;
+            min-width: 100px;
+        }
+        .min-max-width-150{
+            max-width: 150px;
+            min-width: 150px;
+        }
+        .min-max-width-200{
+            max-width: 200px;
+            min-width: 200px;
+        }
+        .min-max-width-250{
+        max-width: 250px;
+        min-width: 250px;
+        }
+        #scroll-body > div{
+        position: relative;
+        }
+        .fixed-right{
+        position: fixed;
+        right: 78px;
+        background: #4b4b4b;
+        padding: 5px;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+        }
+
+        .fixed-left{
+        background: #4b4b4b;
+        position: sticky;
+        left: 0px;
+        }
+
+        .table-row-hover:hover .fixed-left,
+        .table-row-hover:hover .fixed-right{
+        background: #444444;
+        }
 </style>
 @endsection
 
@@ -541,6 +593,10 @@ page-no-arc
                 openDialog('Select Distributor', 'No distributor selected');
             }
         })
+    })
+
+    $('#scroll-body').scroll(function(){
+        $('#scroll-header').scrollLeft($('#scroll-body').scrollLeft());
     })
 </script>
 
