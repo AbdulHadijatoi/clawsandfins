@@ -2710,6 +2710,10 @@ main {
     overflow-x: scroll !important;
 }
 
+.overflow-x-auto {
+    overflow-x: auto !important;
+}
+
 .bg-darkcard {
     background-color: #181818;
 }

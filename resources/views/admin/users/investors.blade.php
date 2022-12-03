@@ -55,12 +55,12 @@ page-no-arc
                                         </div>
                                     </div>
                                     <div class="table-header d-flex">
-                                        <div class="pr-10">#</div>
-                                        <div class="equal-width">User</div>
+                                        <div class="pr-10" style="min-width: 30px">#</div>
+                                        <div class="equal-width min-max-width-250">User</div>
                                         <div class="equal-width">Address</div>
-                                        <div style="min-width: 150px">Size of investment</div>
-                                        <div style="min-width: 150px">Special Skills</div>
-                                        <div style="min-width: 100px">Status</div>
+                                        <div class="px-10 min-max-width-200">Size of investment</div>
+                                        <div class="px-10 min-max-width-200">Special Skills</div>
+                                        <div class="px-10 min-max-width-70">Status</div>
                                     </div>
 
                                     <div><livewire:user.index :userType="$userType"/></div>
@@ -500,6 +500,26 @@ page-no-arc
         }
         .rejected{
         background: #EF280E !important;
+        }
+        .min-max-width-70{
+        max-width: 70px;
+        min-width: 70px;
+        }
+        .min-max-width-100{
+        max-width: 100px;
+        min-width: 100px;
+        }
+        .min-max-width-150{
+        max-width: 150px;
+        min-width: 150px;
+        }
+        .min-max-width-200{
+        max-width: 200px;
+        min-width: 200px;
+        }
+        .min-max-width-250{
+        max-width: 250px;
+        min-width: 250px;
         }
 </style>
 @endsection
