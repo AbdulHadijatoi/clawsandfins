@@ -17,7 +17,7 @@ page-no-arc
                                     <div class="d-flex full-width justify-between align-center">
                                         <div class="d-flex align-center">
                                             <div class="button-secondary">
-                                                <a href="{{ route('users.create') }}"><button class="no-wrap">Add</button></a>
+                                                <a href="{{ route('users.create') }}"><button class="no-wrap">Add Distributor</button></a>
                                             </div>
                                             <div class="input-text">
                                                 <select id="distributor-dropdown" name="country" style="outline:none">
@@ -27,10 +27,13 @@ page-no-arc
                                                 </select>
                                             </div>
                                             <div class="button-secondary">
-                                                <a id="edit-button" href="{{ route('users.distributors.edit',['all']) }}"><button class="no-wrap">Edit</button></a>
+                                                <a id="edit-button" href="{{ route('users.distributors.edit',['all']) }}"><button class="no-wrap">Edit All</button></a>
                                             </div>
                                             <div class="button-secondary">
                                                 <a id="edit-selected-button" href="{{ route('users.distributors.edit',['selected']) }}"><button class="no-wrap">Edit Selected</button></a>
+                                            </div>
+                                            <div class="button-secondary">
+                                                <a id="edit-selected-button" href="{{ route('email.send',['selected']) }}"><button class="no-wrap">Email Selected</button></a>
                                             </div>
                                         </div>
                                         <div class="equal-width mr-10">
@@ -39,7 +42,7 @@ page-no-arc
                                             </div>
                                         </div>
                                         <div class="d-flex">
-                                            <a href="{{ route('email.send') }}" class="mr-10">Send Email</a>
+                                            {{-- <a href="{{ route('email.send') }}" class="mr-10">Send Email</a> --}}
                                             {{-- <div class="dropdown-button-group d-flex">
                                                 <div class="button-primary">
                                                     <a href="{{ route('email.send',['selected']) }}"><button>Send Email</button></a>
@@ -70,7 +73,7 @@ page-no-arc
                                             <div class="px-10 min-max-width-150">Location Disclose</div>
                                             <div class="px-10 min-max-width-150">Location is Correct</div>
                                             <div class="px-10 min-max-width-150">Need Support</div>
-                                            <div class="min-max-width-70"></div>
+                                            <div class="min-max-width-150"></div>
                                         </div>
                                     </div>
                                     <div><livewire:user.index :userType="$userType"/></div>
@@ -292,84 +295,95 @@ page-no-arc
             padding: 5px 20px;
             color: #2d2d2d;
         }
-         /*Dropdown Button*/
+
+        /*Dropdown Button*/
         .dropdown-button-group{
 
         }
 
         .dropdown-button-group > *{
-            margin-left: 0px;
-            margin-right: 0px;
+        margin-left: 0px;
+        margin-right: 0px;
         }
 
         .dropdown-button-group > *:first-child,
         .dropdown-button-group > *:first-child button
         {
-            border-top-right-radius: 0;
-            border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
         }
 
         .dropdown-button-group > *:last-child,
         .dropdown-button-group > *:last-child button
         {
-            border-top-left-radius: 0;
-            border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        }
+
+        .dropdown-button-group .button-primary button{
+        padding: 5px 10px;
+        font-size: 14px;
+        }
+
+        .dropdown-button-group .button-primary{
+        margin: 0;
         }
 
         .dropdown-button{
-            position: relative;
+        position: relative;
         }
 
         .dropdown-button button{
-            padding-left: 10px;
-            padding-right: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
         }
 
+
         .dropdown-button button:focus + ul{
-            visibility: visible;
+        visibility: visible;
         }
 
         .dropdown-button ul{
-            visibility: hidden;
-            position: absolute;
-            background: #FFF;
-            border-radius: 10px;
-            top: 100%;
-            right: 0;
-            z-index: 1000;
-            font-size: 14px;
-            padding: 10px 0;
-            overflow: hidden;
-            height: auto;
+        visibility: hidden;
+        position: absolute;
+        background: #FFF;
+        border-radius: 10px;
+        top: 0px;
+        right: -10px;
+        z-index: 1000;
+        font-size: 14px;
+        padding: 10px 0;
+        overflow: hidden;
+        height: auto;
         }
 
         .dropdown-button ul:hover{
-            visibility: visible;
+        visibility: visible;
         }
 
         .dropdown-button ul:focus{
-            padding: 0px;
-            background: transparent;
-            transition: all 0.5s 0.2s ease;
+        padding: 0px;
+        background: transparent;
+        transition: all 0.5s 0.2s ease;
         }
         .dropdown-button ul:focus li{
-            margin-top: -100%;
-            transition: all 0.5s 0.2s ease;
+        margin-top: -100%;
+        transition: all 0.5s 0.2s ease;
         }
 
         .dropdown-button ul li{
-            cursor: pointer;
+        cursor: pointer;
         }
 
         .dropdown-button ul li a{
-            padding: 3px 20px;
-            display: block;
-            color: #363636;
-            white-space: nowrap;
+        padding: 3px 20px;
+        display: block;
+        color: #363636;
+        white-space: nowrap;
         }
 
         .dropdown-button ul li:hover{
-            background: #eae8e8;
+        background: #eae8e8;
         }
 
         .user-checked{
@@ -439,13 +453,13 @@ page-no-arc
             color: #3c3c3c;
         }
 
-        .table-row-detail .fa-check-circle{
+        .fa-check-circle{
             color: #0cb431 !important;
             font-size: 20px;
         }
 
-        .table-row-detail .fa-times-circle{
-            color: #E50B00 !important;
+        .fa-times-circle{
+            color: #ff756e !important;
             font-size: 20px;
         }
 
@@ -480,26 +494,72 @@ page-no-arc
             border-radius: 10px;
             color: #FFF;
         }
+
         .switch-button{
-            background: #2a2a2a;
-            padding: 5px 2.5px;
-            border-radius: 20px;
-            cursor: default;
-            box-shadow: 0 0 5px 0 rgba(0,0,0,0.2);
+        position: relative;
+        background: #e4e4e4;
+        padding: 0px 2.5px;
+        border-radius: 20px;
+        cursor: pointer;
+        box-shadow: 0 0 5px 0 rgba(0,0,0,0.2);
+        width: 100px;
         }
 
         .switch-button > span{
-            padding: 5px;
-            border-radius: 50%;
-            margin: 0 2.5px;
-            background: #646464;
-            cursor: pointer;
-            color: #cccccc;
+        padding: 5px;
+        cursor: pointer;
+        color: #535353;
         }
 
+        .switch-button label{
+        cursor: pointer;
+        }
+
+        .switch-button.candidate{
+        padding-left: 25px;
+        }
+
+        .switch-button.candidate::after{
+        content: "";
+        position: absolute;
+        left: 3px;
+        top: 50%;
+        transform: translatey(-50%);
+        width: 19px;
+        height: 19px;
+        background: #b1afaf;
+        border-radius: 50%;
+        border: 2px solid #6d6d6d;
+        transition: left .1s ease;
+        }
+
+        .switch-button.distributor{
+        padding-right: 25px;
+        background: #F85405;
+        }
+
+        .switch-button.distributor span{
+        color: #FFF;
+        }
+
+        .switch-button.distributor::after{
+        content: "";
+        position: absolute;
+        right: 3px;
+        top: 50%;
+        transform: translatey(-50%);
+        width: 19px;
+        height: 19px;
+        background: #ff7e34;
+        border-radius: 50%;
+        border: 2px solid #FFF;
+        transition: right .1s ease;
+        }
+
+
         .switch-button > span span{
-            display: block;
-            font-size: 15px;
+        display: block;
+        font-size: 15px;
         }
         .approve-btn:hover{
         background: #F85405 !important;
@@ -537,8 +597,8 @@ page-no-arc
         position: relative;
         }
         .fixed-right{
-        position: fixed;
-        right: 78px;
+        position: absolute;
+        right: 0px;
         background: #4b4b4b;
         padding: 5px;
         border-top-left-radius: 20px;
@@ -554,6 +614,10 @@ page-no-arc
         .table-row-hover:hover .fixed-left,
         .table-row-hover:hover .fixed-right{
         background: #444444;
+        }
+
+        .button-secondary button{
+        font-size: 14px;
         }
 </style>
 @endsection
@@ -573,8 +637,9 @@ page-no-arc
         $('#distributor-dropdown').change(function(){
             let val = $(this).val();
             let baseUrl = "{{ route('users.distributors.edit') }}";
+            let textVal  = ( val=='1' ) ? 'Distributors' : ( val == '2' ) ? 'Distributor Candidate' : 'All';
                 val  = ( val=='1' ) ? 'distributors' : ( val == '2' ) ? 'distributor-candidate' : 'all';
-            $('#edit-button').attr( 'href', baseUrl + '/' + val );
+            $('#edit-button').attr( 'href', baseUrl + '/' + val ).find('button').html('Edit ' + textVal);
             Livewire.emit('setFilter', $(this).val());
         })
 
@@ -593,10 +658,17 @@ page-no-arc
                 openDialog('Select Distributor', 'No distributor selected');
             }
         })
+
     })
 
+    function scrollBody(){
+        let scrollLeft = $('#scroll-body').scrollLeft();
+        $('#scroll-header').scrollLeft(scrollLeft);
+        $('.fixed-right').css({'right': -scrollLeft});
+    }
+
     $('#scroll-body').scroll(function(){
-        $('#scroll-header').scrollLeft($('#scroll-body').scrollLeft());
+        scrollBody();
     })
 </script>
 

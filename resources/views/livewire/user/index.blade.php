@@ -30,7 +30,7 @@
     @endphp
         <div data-instance="{{ $iteration }}">
             {{-- <div class="table-row table-row-hover d-flex" wire:ignore wire:key="distributor{{$user->id}}"> --}}
-            <div class="table-row table-row-hover d-flex" wire:key="distributor{{$user->id}}">
+            <div class="table-row d-flex" wire:key="distributor{{$user->id}}">
                 <div class="fixed-left pr-10" style="min-width: 30px">
                     <span class="checkbox align-in-center">
                         <input type="checkbox" class="checkbox-row" onchange="addChecked(this,'{{$user->email}}')" {{in_array($user->email, $usercheckedValue)?'checked':null}}>
@@ -58,7 +58,7 @@
                     <span class="font-size-12 text-light">{{$country->dial_code.$distributor->phone_number}}</span>
                 </div>
                 <div class="px-10 min-max-width-200">
-                    <span class="font-size-12 text-light">{{$distributor->order_email}}</span>
+                    <a href="mailto:{{$distributor->order_email}}"><span class="font-size-12 text-gold">{{$distributor->order_email}}</span></a>
                 </div>
                 <div class="px-10 min-max-width-100">
                     <span class="font-size-12 text-light">{{$country->name}}</span>
@@ -78,7 +78,14 @@
                     @endif
                 </div>
                 <div class="px-10 min-max-width-200">
-                    <span class="font-size-12 text-light">{{$distributor->website_url}}</span>
+                    @php
+                    $website_url = $distributor->website_url;
+                    $url = parse_url($website_url);
+                    if(!isset($url['scheme'])){
+                        $website_url = 'http://' . $url['path'];
+                    }
+                    @endphp
+                    <a href="{{$website_url}}" target="blank"><span class="font-size-12 text-gold">{{$distributor->website_url}}</span></a>
                 </div>
                 <div class="px-10 min-max-width-150">
                     <span class="font-size-12 text-light">{{$distributor->postal_address}}</span>
@@ -87,13 +94,29 @@
                     <span class="font-size-12 text-light">{{$distributor->visiting_address}}</span>
                 </div>
                 <div class="px-10 min-max-width-150">
-                    <span class="font-size-12 text-light">{{$distributor->location_disclose}}</span>
+                    <div class="equal-width"><span class="fa fa-{{$distributor->location_disclose=='on'?'check-circle':'times-circle'}}"></span></div>
                 </div>
                 <div class="px-10 min-max-width-150">
-                    <span class="font-size-12 text-light">{{$distributor->location_is_correct}}</span>
+                    <div class="equal-width"><span class="fa fa-{{$distributor->location_is_correct=='yes'?'check-circle':'times-circle'}}"></span></div>
                 </div>
                 <div class="px-10 min-max-width-150">
-                    <span class="font-size-12 text-light">{{$distributor->need_support}}</span>
+                    @if ($distributor->need_support==1 || $distributor->need_support=='on')
+                    <div class="dropdown-button-group d-flex">
+                        <div class="button-primary">
+                            <button class="d-flex">Yes</button>
+                        </div>
+                        <div class="button-primary dropdown-button">
+                            <button><span class="fa fa-caret-down"></span></button>
+                            <ul class="d-flex" tabindex="-1">
+                                <li><a href="tel:{{$country->dial_code.$distributor->phone_number}}">Call</a>
+                                </li>
+                                <li><a href="mailto:{{$distributor->order_email}}">Send Email</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    @else
+                    <span class="font-size-12 text-light">No</span>
+                    @endif
                 </div>
                 @endif
                 @if($investor)
@@ -107,13 +130,13 @@
                     <span class="font-size-12 text-light">{{$investor->special_skills}}</span>
                 </div>
                 @endif
-                <div class="d-flex min-max-width-70">
-                    <div class="fixed-right min-max-width-70 d-flex">
+                <div class="d-flex min-max-width-100">
+                    <div class="fixed-right d-flex">
                         <div class="equal-width">
                             <div class="inline-block">
-                                <div class="switch-button d-flex" onclick="event.stopPropagation()">
-                                    <span class="font-size-12 text-light reject-btn @if ($user->status == 2) rejected @endif" wire:click="$emit('reject','{{$user->id}}')"><span class="material-icons">close</span></span>
-                                    <span class="font-size-12 text-light approve-btn @if ($user->status == 1) approved @endif" wire:click="$emit('approve','{{$user->id}}')"><span class="material-icons">check</span></span>
+                                <div class="switch-button @if ($user->status == 0) candidate @else distributor @endif d-flex" onclick="event.stopPropagation()">
+                                    <span class="font-size-12 text-light" wire:click="$emit('{{(($user->status == 0)?'approve':'candidate')}}','{{$user->id}}')">{{(($user->status == 1)?(($investor)?'Investor':'Distributor'):'Candidate')}}</span>
+                                    {{-- <span class="font-size-12 text-light approve-btn @if ($user->status == 1) approved @endif" wire:click="$emit('approve','{{$user->id}}')">Distributor</span> --}}
                                 </div>
                             </div>
                             {{-- @if ($user->status == 1)
