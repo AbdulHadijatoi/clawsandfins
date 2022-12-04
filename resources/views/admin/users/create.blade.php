@@ -12,7 +12,7 @@ page-no-arc
                     <div class="full-width align-in-center pb-120">
                         <div class="_75-width md_90-width md_align-center flex-column justify-center max-w700">
                             <h1 class="h1 text-yellow sm_font-size-35 sm_mt-60 text-center">Add User</h1>
-                            <form class="full-width" action="{{ route('users.store') }}" method="POST" onsubmit="return inputValidation(this)">
+                            <form class="full-width" action="@if($type == 'distributor') {{ route('users.addDistributor') }} @else {{ route('users.addInvestor') }} @endif" method="POST" onsubmit="return inputValidation(this)">
                                 @csrf
                                 <div class="form-container">
                                     <div class="d-flex full-width form-responsive mt-20">
