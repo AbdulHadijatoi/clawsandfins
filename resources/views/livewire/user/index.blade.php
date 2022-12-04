@@ -55,16 +55,16 @@
                     <span class="font-size-12 text-light">{{$distributor->contact_name}}</span>
                 </div>
                 <div class="px-10 min-max-width-150">
-                    <span class="font-size-12 text-light">{{$country->dial_code.$distributor->phone_number}}</span>
+                    <span class="font-size-12 text-light">{{$country->dial_code??''.$distributor->phone_number??''}}</span>
                 </div>
                 <div class="px-10 min-max-width-200">
                     <a href="mailto:{{$distributor->order_email}}"><span class="font-size-12 text-gold">{{$distributor->order_email}}</span></a>
                 </div>
                 <div class="px-10 min-max-width-100">
-                    <span class="font-size-12 text-light">{{$country->name}}</span>
+                    <span class="font-size-12 text-light">{{$country->name??''}}</span>
                 </div>
                 <div class="px-10 min-max-width-100">
-                    <span class="font-size-12 text-light">{{$city->name}}</span>
+                    <span class="font-size-12 text-light">{{$city->name??''}}</span>
                 </div>
                 <div class="px-10 min-max-width-100">
                     @if($distributor->latitude && $distributor->longitude)
@@ -108,7 +108,7 @@
                         <div class="button-primary dropdown-button">
                             <button><span class="fa fa-caret-down"></span></button>
                             <ul class="d-flex" tabindex="-1">
-                                <li><a href="tel:{{$country->dial_code.$distributor->phone_number}}">Call</a>
+                                <li><a href="tel:{{$country->dial_code??''.$distributor->phone_number??''}}">Call</a>
                                 </li>
                                 <li><a href="mailto:{{$distributor->order_email}}">Send Email</a></li>
                             </ul>

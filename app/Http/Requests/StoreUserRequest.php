@@ -25,7 +25,7 @@ class StoreUserRequest extends FormRequest
     {
         return [
             // 'image' => 'required',
-            'email' => 'required|email:rfc,dns|unique:users,email',
+            'email' => 'required|unique:users,email',
             'password' => 'required|confirmed|min:8',
         ];
     }

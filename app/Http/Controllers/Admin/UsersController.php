@@ -43,9 +43,10 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($type)
     {
-        return view('admin.users.create');
+
+        return view('admin.users.create',['type'=>$type]);
     }
 
     /**
@@ -65,6 +66,75 @@ class UsersController extends Controller
         return redirect()->route('users.home')
             ->withSuccess(__('User created successfully.'));
     }
+
+    public function addDistributor(Request $request)
+    {
+        if (User::where('email', $request->email)->first()) {
+            return redirect()->back()->withInput()->withErrors(['mail_used' => 'Email has been used']);
+        }
+
+        $request->request->add(['name' => $request->first_name]); //add request
+        $request->request->add(['email_verified_at' => '2022-10-01 08:30:07']); //add request
+        $request->request->add(['image' => 'users/default_user.jpg']); //add request
+        $request->request->add(['status' => 1]); //add request
+        $data = $request->all();
+        $user = User::create($data);
+        if($user){
+            $user->assignRole('distributor');
+            $distributor = Distributor::create(
+                [
+                    'user_id' => $user->id, 
+                    'company_name' => $request->first_name, 
+                    'contact_name' => $request->first_name,
+                ]
+            );
+            if($distributor){
+                return redirect()->route('users.distributors',[
+                    'userType' => 'distributor'
+                ])
+                    ->withSuccess(__('User created successfully.'));
+            }else{
+                return back()->withError('Something went wrong, please try again');
+            }
+        }else{
+            return back()->withError('Something went wrong, please try again');
+        }
+    }
+    
+    public function addInvestor(Request $request)
+    {
+        if (User::where('email', $request->email)->first()) {
+            return redirect()->back()->withInput()->withErrors(['mail_used' => 'Email has been used']);
+        }
+
+        $request->request->add(['name' => $request->first_name]); //add request
+        $request->request->add(['email_verified_at' => '2022-10-01 08:30:07']); //add request
+        $request->request->add(['image' => 'users/default_user.jpg']); //add request
+        $request->request->add(['status' => 1]); //add request
+        $data = $request->all();
+        $user = User::create($data);
+        if($user){
+            $user->assignRole('investor');
+            $distributor = Investor::create(
+                [
+                    'user_id' => $user->id, 
+                    'first_name' => $request->first_name, 
+                    'last_name' => $request->last_name,
+                ]
+            );
+            if($distributor){
+                return redirect()->route('users.investors',[
+                    'userType' => 'investor'
+                ])
+                    ->withSuccess(__('User created successfully.'));
+            }else{
+                return back()->withError('Something went wrong, please try again');
+            }
+        }else{
+            return back()->withError('Something went wrong, please try again');
+        }
+    }
+    
 
     /**
      * Show user data

@@ -23,7 +23,7 @@ page-no-arc
                                                 <a id="edit-selected-button" href="{{ route('users.distributors.edit',['selected']) }}"><button class="no-wrap">Edit Selected</button></a>
                                             </div>
                                             <div class="button-secondary">
-                                                <a href="{{ route('users.create') }}"><button class="no-wrap">Add Distributor</button></a>
+                                                <a href="{{ route('users.create',['distributor']) }}"><button class="no-wrap">Add Distributor</button></a>
                                             </div>
                                             <div class="input-text">
                                                 <select id="distributor-dropdown" name="country" style="outline:none">

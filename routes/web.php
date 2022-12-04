@@ -170,8 +170,10 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
             Route::get('/distributors/edit/{option?}', 'Admin\UsersController@editDistributors')->name('users.distributors.edit');
             Route::get('/investors', 'Admin\UsersController@investors')->name('users.investors');
             Route::get('/investors/edit/{option?}', 'Admin\UsersController@editInvestors')->name('users.investors.edit');
-            Route::get('/create', 'Admin\UsersController@create')->name('users.create');
+            Route::get('/create/{type}', 'Admin\UsersController@create')->name('users.create');
             Route::post('/create', 'Admin\UsersController@store')->name('users.store');
+            Route::post('/add/distributor', 'Admin\UsersController@addDistributor')->name('users.addDistributor');
+            Route::post('/add/investor', 'Admin\UsersController@addInvestor')->name('users.addInvestor');
             Route::get('/{user}/show', 'Admin\UsersController@show')->name('users.show');
             Route::get('/{user}/edit', 'Admin\UsersController@edit')->name('users.edit');
             Route::patch('/{user}/update', 'Admin\UsersController@update')->name('users.update');
