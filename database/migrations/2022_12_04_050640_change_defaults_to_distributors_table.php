@@ -19,6 +19,8 @@ class ChangeDefaultsToDistributorsTable extends Migration
             $table->string('postal_address')->nullable()->change();
             $table->string('phone_number')->nullable()->change();
             $table->string('visiting_address')->nullable()->change();
+            $table->double('latitude')->nullable()->change();
+            $table->double('longitude')->nullable()->change();
         });
     }
 
@@ -35,6 +37,8 @@ class ChangeDefaultsToDistributorsTable extends Migration
             $table->string('postal_address')->change();
             $table->string('phone_number')->change();
             $table->string('visiting_address')->change();
+            $table->double('latitude')->change();
+            $table->double('longitude')->change()
         });
     }
 }
