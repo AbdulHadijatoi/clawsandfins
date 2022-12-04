@@ -60,11 +60,9 @@ class UsersController extends Controller
     {
         //For demo purposes only. When creating user or inviting a user
         // you should create a generated random password and email it to the user
-        $user->create(array_merge($request->validated(), [
-            'password' => 'test'
-        ]));
+        $user->create(array_merge($request->validated(), $request->all()));
 
-        return redirect()->route('users.index')
+        return redirect()->route('users.home')
             ->withSuccess(__('User created successfully.'));
     }
 
