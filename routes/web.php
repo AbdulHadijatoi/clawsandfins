@@ -79,6 +79,7 @@ Route::group(['middleware' => ['visitor']], function() {
     })->middleware('permission:financial-updates');
 });
 // Navigation menu url routes:ends
+
 Route::post('api/fetch-cities', [HomeController::class, 'fetchCity']);
 Route::post('contact-us/send', [HomeController::class, 'sendMessage'])->name('contact-us.send');
 

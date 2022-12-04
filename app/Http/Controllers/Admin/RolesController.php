@@ -111,7 +111,7 @@ class RolesController extends Controller
     
         $role->syncPermissions($request->get('permission'));
     
-        return redirect()->route('admin.roles.index')
+        return redirect()->route('roles.index')
                         ->with('success','Role updated successfully');
     }
 
@@ -125,7 +125,7 @@ class RolesController extends Controller
     {
         $role->delete();
 
-        return redirect()->route('admin.roles.index')
+        return redirect()->route('roles.index')
                         ->with('success','Role deleted successfully');
     }
 }
