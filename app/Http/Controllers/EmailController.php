@@ -25,12 +25,12 @@ class EmailController extends Controller
         }
         return view("admin.email.index", compact('recent', 'draft', 'id', 'mailItem', 'showAll'));
     }
-    
+
     public function send($option=null, $draftId=null){
-        
+
 
         $pageWasRefreshed = isset($_SERVER['HTTP_CACHE_CONTROL']) && $_SERVER['HTTP_CACHE_CONTROL'] === 'max-age=0';
-        
+
         if(!$pageWasRefreshed ) {
             if(session()->has('mail-draft-id')){
                 Session::remove('mail-draft-id');
@@ -47,6 +47,7 @@ class EmailController extends Controller
             }
             Session::put('mail-draft-id', $draftId);
         }
+
         return view("admin.email.send", compact('option', 'draftId'));
     }
 
@@ -60,7 +61,7 @@ class EmailController extends Controller
             Session::put('mail-subject', $sm->subject);
             Session::put('mail-message', $sm->message);
             return redirect()->route('email.send',[ (is_array($recipient)?'selected': $recipient) ]);
-        } 
+        }
         if($param=='delete-draft' && isset($id)){
             $del= SendEmail::destroy($id);
             if($del){
@@ -68,7 +69,7 @@ class EmailController extends Controller
             }else{
                 $respone = ['error' => 'Something went wrong, please try again'];
             }
-        } 
+        }
         else if ($param == 'clear-draft') {
             if(SendEmail::truncate()){
                 $respone = ['success' => 'Draft cleared'];

@@ -294,9 +294,10 @@ class Index extends Component
                 $q=$users->get()->toQuery();
                 $q->whereIn('email', $this->usercheckedValue);
                 $this->usercheckedValue = $q->pluck('email')->toArray();
-            }else{
-                $this->usercheckedValue = [];
             }
+            // else{
+            //     $this->usercheckedValue = [];
+            // }
         }
 
         if($this->userStatus){
