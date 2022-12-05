@@ -103,8 +103,6 @@ class Email extends Component
             return;
         }
 
-        dd($recipientsData);
-
         $recipients = ($this->option && $this->option != 'selected') ? $this->option : json_encode($recipientsData);
         $isDraft= $this->draftId?true:false;
         $mail_data = [
