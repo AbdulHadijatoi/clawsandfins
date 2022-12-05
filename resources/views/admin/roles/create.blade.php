@@ -41,7 +41,7 @@ page-no-arc
                                             <div class="align-center">
                                                 <div class="d-flex">
                                                     <div class="button-primary">
-                                                        <a href="{{ route('roles.index') }}"><button>Back</button></a>
+                                                        <a href="{{ route('roles.index') }}"><button type="button">Back</button></a>
                                                     </div>
                                                     <div class="button-secondary">
                                                         <button type="submit">Save role</button>
