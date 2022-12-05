@@ -8,6 +8,8 @@ page-no-arc
 if(isset($option)){
     $sendOption=ucfirst(str_replace('-',' ',$option));
 }
+$userType=(request()->userType??null);
+$selectedUserType=(isset($option) && $option=='selected' && $userType)??null;
 @endphp
 
 @section('content')
@@ -38,11 +40,17 @@ if(isset($option)){
                                     </div>
                                     <div>
                                         <div class="full-width form-responsive relative">
-                                            <div class="{{!isset($option)?'to-recipients':''}} input-text d-flex">
-                                                <label class="mr-10 mb-0 text-white">To</label>
+                                            <div class="{{!isset($option)?'to-recipients':''}} input-text d-flex @if($selectedUserType) flex-column @endif">
+                                                <label class="mr-10 mb-0 text-white">
+                                                    To
+                                                    @if($selectedUserType)
+                                                    selected {{$userType}}s
+                                                    @endif
+
+                                                </label>
                                                 @if(isset($option))
                                                     @if($option=='selected')
-                                                        <livewire:user.index :userchecked="true" :draftId="$draftId"/>
+                                                        <livewire:user.index :userchecked="true" :draftId="$draftId" :userType="$userType"/>
                                                     @else
                                                     <span class="fixed-recipients">{{$sendOption}}</span>
                                                     @endif
@@ -62,7 +70,7 @@ if(isset($option)){
                                             <livewire:user.index :findUser="true"/>
                                             @endif
                                         </div>
-                                        <livewire:email :option="$option" :draftId="$draftId"/>
+                                        <livewire:email :option="$option" :draftId="$draftId" :userType="$userType"/>
                                     </div>
                                 </div>
                             </div>
@@ -454,11 +462,11 @@ if(isset($option)){
         $('.content-text').on('focus',function(){
             $(this).parents('.to-recipients').addClass('show-user-list');
         })
-        
+
         $('.content-text').on('click',function(){
             set_mouse();
         })
-        
+
         $('body').on('click','.user-item',function(){
             let elm=$(this);
             let email=elm.attr('data-email');
@@ -480,7 +488,7 @@ if(isset($option)){
             elm.hide();
         })
 
-        
+
     })
 
     $(document).bind("DOMNodeRemoved", function(e)

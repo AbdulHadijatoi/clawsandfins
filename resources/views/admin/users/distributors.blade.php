@@ -17,7 +17,7 @@ page-no-arc
                                     <div class="d-flex full-width justify-between align-center">
                                         <div class="d-flex align-center">
                                             <div class="button-secondary">
-                                                <a id="edit-selected-button" href="{{ route('email.send',['selected']) }}"><button class="no-wrap">Email Selected</button></a>
+                                                <a id="edit-selected-button" href="{{ route('email.send',['selected','userType'=>'distributor']) }}"><button class="no-wrap">Email Selected</button></a>
                                             </div>
                                             <div class="button-secondary">
                                                 <a id="edit-selected-button" href="{{ route('users.distributors.edit',['selected']) }}"><button class="no-wrap">Edit Selected</button></a>
@@ -35,7 +35,7 @@ page-no-arc
                                             <div class="button-secondary">
                                                 <a id="edit-button" href="{{ route('users.distributors.edit',['all']) }}"><button class="no-wrap">Edit All</button></a>
                                             </div>
-                                            
+
                                         </div>
                                         <div class="equal-width mr-10">
                                             <div class="input-text">

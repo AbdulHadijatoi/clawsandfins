@@ -15,6 +15,7 @@ use Spatie\Permission\Models\Role;
 class Email extends Component
 {
     public $load=true;
+    public $userType;
     public $option;
     public $subject;
     public $message;
@@ -81,13 +82,26 @@ class Email extends Component
 
             $recipientsData=$users->get()->pluck('email')->toArray();
         } else if ( ($this->option == 'selected' && $hasUserChecked) || $hasUserChecked ){
-            $recipientsData= session()->get('userchecked');
+            if ($this->userType){
+                $users = $users->whereHas(
+                    'roles',
+                    function ($q) {
+                        $q->where('name', '=', $this->userType)->orWhere('name', '=', $this->userType . ' candidate');
+                    }
+                )->whereHas($this->userType);
+
+                if($users->get()->count() > 0) {
+                    $q = $users->get()->toQuery();
+                    $q->whereIn('email', session()->get('userchecked'));
+                    $recipientsData = $q->pluck('email')->toArray();
+                }
+            }else{
+                $recipientsData= session()->get('userchecked');
+            }
         } else {
             $this->dispatchBrowserEvent('openDialog', ['title' => 'Error', 'content' => 'Please specify at least one recipient.']);
             return;
         }
-
-        // dd($recipientsData);
 
         $recipients = ($this->option && $this->option != 'selected') ? $this->option : json_encode($recipientsData);
         $isDraft= $this->draftId?true:false;
