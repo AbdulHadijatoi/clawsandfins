@@ -82,3 +82,14 @@ if (!function_exists('syncPagesPermissions')) {
         //     ->withSuccess(__('All pages permissions are synced successfully.'));
     }
 }
+
+if (!function_exists('error_processor')) {
+    function error_processor($validator)
+    {
+        $err_keeper = [];
+        foreach ($validator->errors()->getMessages() as $index => $error) {
+            array_push($err_keeper, ['code' => $index, 'message' => $error[0]]);
+        }
+        return $err_keeper;
+    }
+}

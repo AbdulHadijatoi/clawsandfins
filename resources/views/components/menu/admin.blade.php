@@ -25,3 +25,6 @@
 <li class="{{ (request()->is('admin/send-email*')) ? 'active' : '' }}">
     <a href="{{url('admin/send-email')}}">Send Email</a>
 </li>
+<li class="{{ (request()->is('admin/change-credentials*')) ? 'active' : '' }}">
+    <a href="{{url('admin/change-credentials')}}">Update Credentials</a>
+</li>

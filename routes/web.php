@@ -147,6 +147,10 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
 
     // Later will remove the distributor role and just limit access of distributor to only users
     Route::group(['middleware' => ['auth','verified', 'role:admin'],'prefix'=>'admin'], function() {
+
+        Route::get('/change-credentials', 'Admin\UsersController@changeCredentials')->name('admin.changeCredentials');
+        Route::post('/change-credentials/update', 'Admin\UsersController@updateCredentials')->name('admin.changeCredentials.update');
+
         Route::get('/', 'Admin\UsersController@distributors')->name('admin.home');
         Route::get('/dashboard', function () {
             return redirect()->route('users.distributors');
