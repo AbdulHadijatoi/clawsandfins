@@ -63,5 +63,22 @@ class Helpers
         return Auth::user()->getRoleNames()[0] == 'admin';
     }
 
+    public static function upload(string $dir, string $format, $image = null, $uploadedFileName = null)
+    {
+        if ($image != null) {
+            $imageName = \Carbon\Carbon::now()->toDateString() . "-" . uniqid();
+            if($uploadedFileName){
+                $imageName = $uploadedFileName;
+            }
+            if (!Storage::disk('public')->exists($dir)) {
+                Storage::disk('public')->makeDirectory($dir);
+            }
+            Storage::disk('public')->put($dir . $imageName, file_get_contents($image));
+        } else {
+            $imageName = 'def.png';
+        }
+
+        return $imageName;
+    }
 
 }

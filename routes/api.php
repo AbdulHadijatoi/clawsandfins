@@ -1,5 +1,6 @@
 <?php
 
+use App\CentralLogics\Helpers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,4 +17,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+
+Route::post('uploadFiles', function(Request $request){
+    $tam_file = $request->file('tam_file');
+    if ($request->has('tam_file')) {
+        $tam_fileName = Helpers::upload('temp_files/', 'png', $tam_file,$request->file('tam_file')->getClientOriginalName());
+        return response()->json(['message' => 'uploaded Successfully', 'file_name'=> $tam_fileName], 200);
+    }
 });

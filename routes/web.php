@@ -11,6 +11,7 @@ use App\Models\Picture;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Spatie\Permission\Models\Role;
+use \Mpdf\Mpdf as PDF;
 
 /*
 |--------------------------------------------------------------------------
@@ -200,4 +201,23 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::get('pages-permission', 'Admin\PermissionsController@viewPagesPermission');
         Route::post('permissions/assign-permission/{role?}/{permission?}', 'Admin\PermissionsController@assignPermissionToRole')->name('permissions.savePagePermissions');
     });
+});
+
+Route::get('testingRoute', function(){
+    $mpdf = new  PDF([
+        'mode' => 'utf-8',
+        // 'format' => 'A4-L',
+    ]);
+    $mpdf->SetDisplayMode('fullpage');
+    $mpdf->autoScriptToLang = true;
+    $mpdf->autoLangToFont = true;
+
+    //define the code that will be converted to pdf
+    // $contant = view('operations.import-excel.printtambill', compact("orders"));
+    $contant = view('printtambill');
+    $mpdf->WriteHTML($contant);
+
+    return response()->streamDownload(function () use ($mpdf) {
+        $mpdf->Output();
+    }, 'printtambill.pdf');
 });
