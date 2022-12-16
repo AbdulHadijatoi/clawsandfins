@@ -13,7 +13,9 @@ use App\Models\Country;
 use App\Models\Distributor;
 use App\Models\Investor;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
 
 class UsersController extends Controller
 {
@@ -279,4 +281,35 @@ class UsersController extends Controller
             Session::remove('mail-message');
         }
     }
+
+    public function changeCredentials()
+    {
+        $user = User::with(['roles' => function($q){
+            $q->where('name', 'admin');
+        }])->first();
+        return view('admin.change-credentials',['admin'=>$user]);
+    }
+
+    public function updateCredentials(Request $request){
+        
+        $request->validate([
+            'email' => 'required|unique:users,email,'.'1',
+            'current_password'=>'required',
+            'password' => 'required|confirmed|min:8',
+        ]);
+
+        $user = User::with(['roles' => function($q){
+            $q->where('name', 'admin');
+        }])->first();
+
+        if($user && Hash::check($request->current_password,$user->password)){
+            $user->email = $request->email;
+            $user->password = $request->password;
+            $user->save();
+        }else{
+            return back()->withErrors('Current password is wrong');
+        }
+        return back()->withSuccess('Credentials updated successfully!');
+    }
+
 }
