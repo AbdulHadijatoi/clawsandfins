@@ -20,8 +20,8 @@ class Distributor extends Component
     public $users;
     public $sort_column = ['', ''];
     public $listeners = ['emitAll', 'set', 'setCountry', 'setLocation', 'removeLocation', 'update'];
-    public 
-        $company_name = [], 
+    public
+        $company_name = [],
         $contact_name= [],
         $order_email= [],
         $dial_code= [],
@@ -85,14 +85,14 @@ class Distributor extends Component
         $this->country_name[$id]= $country_name;
         $this->city_name[$id]= null;
     }
-    
+
     public function setLocation($id, $lat, $lng)
     {
         // dd('location'.$lat);
         $this->latitude[$id]= $lat;
         $this->longitude[$id]= $lng;
     }
-    
+
     public function removeLocation($id)
     {
         // dd('location'.$lat);
@@ -110,7 +110,7 @@ class Distributor extends Component
         $this->users = User::whereHas(
             'roles',
             function ($q) {
-                $q->where('name', '=', $this->userType);
+                $q->where('name', '=', $this->userType)->orWhere('name', '=', $this->userType . ' candidate');
             }
         )->whereHas($this->userType);
 
@@ -152,7 +152,7 @@ class Distributor extends Component
         }else{
             $this->users = $this->users->latest();
         }
-        
+
         $this->users = $this->users->get();
 
         // dd($this->users);
@@ -182,7 +182,7 @@ class Distributor extends Component
                     $userDistributor = $userDistributor->getCity;
                     $field2 = 'name';
                 }
-                
+
                 $this->{$field}[$user->id] = $userDistributor->{ ($field2 ?? $field) };
 
                 if($field == 'updated_at'){
@@ -220,7 +220,7 @@ class Distributor extends Component
         $this->iteration++;
 
         $this->load = true;
-        
+
     }
 
     public function getSort(){
@@ -239,7 +239,7 @@ class Distributor extends Component
     {
         $this->dispatchBrowserEvent('initRender');
     }
-    
+
     public function getData($id){
         $data = [];
         foreach ($this->fields as $field) {

@@ -63,7 +63,7 @@ class Investor extends Component
         $this->users = User::whereHas(
             'roles',
             function ($q) {
-                $q->where('name', '=', $this->userType);
+                $q->where('name', '=', $this->userType)->orWhere('name', '=', $this->userType . ' candidate');
             }
         )->whereHas($this->userType);
 
