@@ -57,15 +57,28 @@ class User extends Authenticatable implements MustVerifyEmail
         $this->attributes['password'] = bcrypt($value);
     }
 
-    
+
 
     public function investor()
     {
         return $this->hasOne(Investor::class,'user_id', 'id');
     }
-   
+
     public function distributor()
     {
         return $this->hasOne(Distributor::class,'user_id', 'id');
+    }
+
+    public static function boot()
+    {
+        parent::boot();
+        self::deleting(function ($user) {
+            $user->investor()->each(function ($investor) {
+                $investor->delete();
+            });
+            $user->distributor()->each(function ($distributor) {
+                $distributor->delete();
+            });
+        });
     }
 }
