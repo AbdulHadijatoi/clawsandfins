@@ -128,6 +128,14 @@ class Index extends Component
         }
     }
 
+    public function deleteChecked(){
+        $user_ids = User::whereIn('email', $this->usercheckedValue)->get()->pluck('id')->toArray();
+        foreach ($user_ids as $value) {
+            User::find($value)->delete();
+        }
+        $this->clearChecked();
+    }
+
     public function removeChecked($email)
     {
         $recipients = session()->has('userchecked') ? Session::get('userchecked') : [];

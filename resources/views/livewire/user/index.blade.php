@@ -2,9 +2,12 @@
     @if(session()->has('userchecked') && count($usercheckedValue) > 0 )
     @if(!isset($userchecked))
         <div class="user-checked {{$userCheckedExpand?'expand-uc':''}}" onclick="$('.user-checked').toggleClass('expand-uc')" wire:click="$toggle('userCheckedExpand')">
-            <div class="d-flex justify-between">
-                <span class="text-white">{{count($usercheckedValue)}} Selected</span>
-                <a href="javascript:Livewire.emit('clearChecked');event.stopPropagation()">Clear</a>
+            <div class="d-flex justify-between align-center">
+                <div>
+                    <span class="text-white mr-5">{{count($usercheckedValue)}} Selected</span>
+                    <a href="javascript:Livewire.emit('clearChecked');event.stopPropagation()">Clear</a>
+                </div>
+                <a class="del-button" href="javascript:;" onclick="if(!confirm('Delete checked?')){ event.stopImmediatePropagation();event.preventDefault();return; }" wire:click.prevent="deleteChecked"><i class="fa fa-trash"></i> Delete Selected</a>
             </div>
         </div>
     @endif

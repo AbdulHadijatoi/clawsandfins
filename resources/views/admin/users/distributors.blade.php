@@ -620,6 +620,13 @@ page-no-arc
         .button-secondary button{
         font-size: 14px;
         }
+
+        .del-button{
+        background: red;
+        color: #FFF;
+        padding: 3px 10px;
+        border-radius: 10px;
+        }
 </style>
 @endsection
 
