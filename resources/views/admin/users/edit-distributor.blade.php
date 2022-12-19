@@ -21,7 +21,7 @@ page-no-arc
 @endsection
 
 @section('content')
-        
+
         <!-- Content -->
         <div class="content-wrapper">
             <section class="section" data-clip-id="1" style="background-image: url('{{asset('bg/grey4.jpg')}}');">
@@ -54,7 +54,7 @@ page-no-arc
     {
         margin: 0px;
     }
-    
+
     .button-primary button,
     .button-secondary button
     {
@@ -350,7 +350,7 @@ page-no-arc
         }
 
         .tr-detail .input-textarea textarea,
-        .tr-detail .checkbox 
+        .tr-detail .checkbox
         {
             background-color: #FFF;
             color: #000;
@@ -481,19 +481,19 @@ page-no-arc
         .show-map-location .remove-map-location{
             visibility: visible;
         }
-        
+
         .show-map-location .last-updated{
             display: none;
         }
 
          /*Dropdown Button*/
         .dropdown-button-group{
-    
+
         }
 
         .dropdown-button-group > *{
-            margin-left: 0px; 
-            margin-right: 0px; 
+            margin-left: 0px;
+            margin-right: 0px;
         }
 
         .dropdown-button-group > *:first-child,
@@ -572,7 +572,7 @@ page-no-arc
             cursor: not-allowed;
         }
 
-        .dropdown-button-group[disabled] 
+        .dropdown-button-group[disabled]
         button{
             background: #323232;
             border-color: #FFFFFF30;
@@ -619,7 +619,7 @@ page-no-arc
 @endsection
 
 @section('script_extra')
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVckSdSfsjC7N1xkOULLyq38PbDiu9WvU&callback=initMap" defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAf78uR8ImORRcUcnDg2gnHUO0m3fpjSHA&callback=initMap" defer></script>
 
     <script>
         let map, curLatlng, latlng, marker, infoWindow, geocoder;
@@ -668,7 +668,7 @@ page-no-arc
             });
 
             $('<div/>').addClass('centerMarker').appendTo(map.getDiv());
-            
+
             geocoder = new google.maps.Geocoder();
 
             google.maps.event.addListener(map, 'dragend', function () {
@@ -678,7 +678,7 @@ page-no-arc
                 $('#location-set-' + uid).addClass('location-set');
                 Livewire.emit('emitAll', [
                     {
-                        event: 'setLocation', 
+                        event: 'setLocation',
                         params: [uid, loc.lat, loc.lng]
                     }
                 ]);
@@ -738,7 +738,7 @@ page-no-arc
             $('#longitude-' + uid ).val(lng);
 
         }
-        
+
         function getInputLocation(uid){
             return {
                 lat: $('#latitude-' + uid ).val(),
@@ -778,7 +778,7 @@ page-no-arc
             $('#location-set-' + id).removeClass('location-set');
         })
     </script>
-    
+
     <script>
         var loadFile = function (event) {
             var output = $('#logo-img');
@@ -801,7 +801,7 @@ page-no-arc
                 getCities( id, $('#country-dropdown-'+ id).val(), $( $(this).children()[0] ).attr('value'));
             }
         })
-        
+
         $('.cities').change(function(){
             let id=$(this).attr('data-id');
             let cityName = $('#city-dropdown-' + id + ' option:selected').text();
@@ -810,7 +810,7 @@ page-no-arc
                 setMapAddress( cityName + ', ' + $('#country-dropdown-' + id + ' option:selected').text() );
             }
         })
-        
+
         $('body').on('change', '.countries', function(){
             let id=$(this).attr('data-id');
             let dial_code = getPhoneCode($(this).val()) ?? '+';
@@ -821,11 +821,11 @@ page-no-arc
                     $('#location-set-' + id).addClass('location-set');
                     Livewire.emit('emitAll', [
                         {
-                            event: 'setCountry', 
+                            event: 'setCountry',
                             params: [id, dial_code, countryName]
                         },
                         {
-                            event: 'setLocation', 
+                            event: 'setLocation',
                             params: [id, loc.lat, loc.lng]
                         }
                     ]);
@@ -909,18 +909,18 @@ page-no-arc
     </script>
 
     <script>
-        
+
 
         $(function(){
 
             $('body').on('click','.checkbox', function(){
                 $(this).find('input[type=checkbox]').prop('checked', !$(this).find('input[type=checkbox]').prop('checked')).change();
             })
-            
+
             $('.logo').click(function(){
                 $('#logo-file').click();
             })
-            
+
             $('#remove-logo').click(function(e){
                 e.stopPropagation();
                 var logoImg=$('#logo-img');
