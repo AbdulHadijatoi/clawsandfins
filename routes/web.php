@@ -81,7 +81,8 @@ Route::group(['middleware' => ['visitor']], function() {
 // Navigation menu url routes:ends
 
 Route::post('api/fetch-cities', [HomeController::class, 'fetchCity']);
-Route::post('contact-us/send', [HomeController::class, 'sendMessage'])->name('contact-us.send');
+Route::post('contact-us/send', [HomeController::class, 'sendContact'])->name('contact-us.send');
+Route::get('/reload-captcha', [HomeController::class, 'reloadCaptcha']);
 
 
 Route::group(['namespace' => 'App\Http\Controllers'], function()

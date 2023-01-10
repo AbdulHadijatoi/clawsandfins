@@ -44,6 +44,13 @@ page-no-arc
                                             <textarea id="message" placeholder="Type message" name="message"></textarea>
                                         </div>
                                     </div>
+                                    <div class="d-flex full-width form-responsive">
+                                        <div class="captcha-img align-center"><span class="d-flex">{!! captcha_img() !!}</span></div>
+                                        <div class="reload-captcha align-center"><button id="reload-captcha" type="button"><i class="material-icons">refresh</i></button></div>
+                                        <div class="input-text">
+                                            <input type="text" placeholder="Enter Captcha" name="captcha">
+                                        </div>
+                                    </div>
                                     <div class="d-flex full-width justify-center">
                                         <div class="button-secondary">
                                             <button type="submit">Send Message</button>
@@ -81,6 +88,33 @@ page-no-arc
         background: #4b4b4b !important;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     }
+
+    .captcha-img{
+        padding: 5px;
+    }
+
+    .captcha-img img{
+        margin-top: 0;
+        min-width: 140px;
+    }
+
+    .captcha-img span{
+        min-width: 140px;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+
+    .reload-captcha button{
+        height: 40px;
+        padding: 5px;
+        border-radius: 5px;
+        border: 0;
+        line-height: 45px;
+        vertical-align: middle;
+        background: #d71319;
+        color: #FFF;
+        cursor: pointer;
+    }
 </style>
 @endsection
 
@@ -98,7 +132,7 @@ page-no-arc
         $('.nav-visitor').addClass('display-none');
         $('.nav-distributor-investor').removeClass('display-none');
     }
-    
+
 </script>
 <script>
     var loader;
@@ -133,6 +167,20 @@ page-no-arc
 
         return true;
     }
+
+    function reloadCaptcha() {
+        $.ajax({
+            type: 'GET',
+            url: 'reload-captcha',
+            success: function (data) {
+                $(".captcha-img span").html(data.captcha);
+            }
+        });
+    }
+
+    $('#reload-captcha').click(function () {
+        reloadCaptcha();
+    });
 
 </script>
 <!-- >>> End -->
