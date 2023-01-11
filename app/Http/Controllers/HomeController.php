@@ -25,16 +25,16 @@ class HomeController extends Controller
     {
         return view('index');
     }
-    
+
     public function whereToBuy()
     {
         $countries = Helpers::getCountries()->toQuery()->withCount('distributors')->get();
         return view('where-to-buy/index', compact('countries'));
     }
-    
+
     public function distributors($countryId)
     {
-        
+
         $country=Country::where('id',$countryId);
         if(!$country){
             return redirect()->route('home.where-to-buy');
@@ -122,20 +122,33 @@ class HomeController extends Controller
     {
         $country = Country::where('id',$request->country_id)->first(['dial_code']);
         $data = [];
-        
+
         $cities = DB::table('countries')
                     ->rightJoin('states', 'countries.id', '=', 'states.country_id')
                     ->rightJoin('cities', 'states.id', '=', 'cities.state_id')
                     ->where('countries.id','=',$request->country_id)
                     ->select('cities.id', 'cities.name')
                     ->orderBy('name')
-                    ->get();                           
-        $data['dial_code'] = $country->dial_code;             
-        $data['cities'] = $cities;             
+                    ->get();
+        $data['dial_code'] = $country->dial_code;
+        $data['cities'] = $cities;
         return response()->json($data);
     }
 
+    public static function sendContact(Request $request){
+        $rules = ['captcha' => 'required|captcha'];
+        $validator = validator()->make(request()->all(), $rules);
+        if ($validator->fails()) {
+            Helpers::js("parent.loader.remove();parent.openDialog('Captcha error', 'You enter invalid captcha')");
+            return;
+        }
+
+        HomeController::sendMessage($request);
+        Helpers::js("parent.reloadCaptcha()");
+    }
+
     public static function sendMessage(Request $request, $return = false, $from = true, $replyTo = true, $queue = false){
+
         $address = config("mail.from.address");
         $mailer= $request->recipient ?? Helpers::getSettingValue('contact_us_mailer');
 
@@ -167,5 +180,10 @@ class HomeController extends Controller
                 Helpers::js("parent.loader.remove();parent.openDialog('Message error', 'Message cant send, Please try again')");
             }
         }
+    }
+
+    public function reloadCaptcha()
+    {
+        return response()->json(['captcha' => captcha_img()]);
     }
 }
