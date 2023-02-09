@@ -139,7 +139,7 @@ class HomeController extends Controller
         $rules = ['captcha' => 'required|captcha'];
         $validator = validator()->make(request()->all(), $rules);
         if ($validator->fails()) {
-            Helpers::js("parent.loader.remove();parent.openDialog('Captcha error', 'You enter invalid captcha')");
+            Helpers::js("parent.loader.remove();parent.openDialog('Captcha error', 'We are so sorry, we got a captcha error, please close this message and try again.')");
             return;
         }
 
