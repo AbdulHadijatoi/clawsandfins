@@ -168,6 +168,12 @@ page-no-arc
         return true;
     }
 
+    $('body').on('click', '#popup .close', function(){
+        if($(this).parent().find('h2').html() == 'Captcha error'){
+            reloadCaptcha();
+        }
+    })
+
     function reloadCaptcha() {
         $.ajax({
             type: 'GET',
