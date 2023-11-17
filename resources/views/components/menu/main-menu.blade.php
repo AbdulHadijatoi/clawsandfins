@@ -5,13 +5,13 @@
 
                 @can('soft-shelled-mudcrabs')
                         <li class="{{ (request()->is('soft-shelled-mudcrabs*')) ? 'active' : '' }}">
-                                <a href="{{url('soft-shelled-mudcrabs/')}}">Soft-shelled mudcrabs</a>
+                                <a href="{{url('soft-shelled-mudcrabs/')}}">Soft-shelled mud crabs</a>
                         </li>
                 @endcan
                 @include('components.menu.popup-links')
                 @can('hard-shelled-mudcrabs')
                         <li class="{{ (request()->is('hard-shelled-mudcrabs*')) ? 'active' : '' }}">
-                                <a href="{{url('hard-shelled-mudcrabs/')}}">Hard-shelled mudcrabs</a>
+                                <a href="{{url('hard-shelled-mudcrabs/')}}">Hard-shelled mud crabs</a>
                         </li>
                 @endcan
 
@@ -48,7 +48,7 @@
 
                 @can('more-about-soft-shell')
                         <li class="distributor-investor-menu {{ (request()->is('more-about-soft-shell*')) ? 'active' : '' }}">
-                                <a href="{{url('more-about-soft-shell')}}">More About Soft-shell</a>
+                                <a href="{{url('more-about-soft-shell')}}">More about soft-shell</a>
                         </li>
                 @endcan
 
@@ -66,23 +66,23 @@
 
                 @can('distributor-picture-gallery')
                         <li class="distributor-investor-menu {{ (request()->is('distributor-picture-gallery*')) ? 'active' : '' }}">
-                                <a href="{{url('distributor-picture-gallery')}}">Distributor Picture Gallery</a>
+                                <a href="{{url('distributor-picture-gallery')}}">Distributor picture gallery</a>
                         </li>
                 @endcan
                 @can('investor-picture-gallery')
                         <li class="distributor-investor-menu {{ (request()->is('investor-picture-gallery*')) ? 'active' : '' }}">
-                                <a href="{{url('investor-picture-gallery')}}">Investor Picture Gallery</a>
+                                <a href="{{url('investor-picture-gallery')}}">Investor picture gallery</a>
                         </li>
                 @endcan
                 @can('future-ideas')
                         <li class="distributor-investor-menu {{ (request()->is('future-ideas*')) ? 'active' : '' }}">
-                                <a href="{{url('future-ideas')}}">Future Ideas</a>
+                                <a href="{{url('future-ideas')}}">Future ideas</a>
                         </li>
                 @endcan
 
                 @can('financial-updates')
                         <li class="distributor-investor-menu {{ (request()->is('financial-updates*')) ? 'active' : '' }}">
-                                <a href="{{url('financial-updates')}}">Financial Updates</a>
+                                <a href="{{url('financial-updates')}}">Financial updates</a>
                         </li>
                 @endcan
         @endif

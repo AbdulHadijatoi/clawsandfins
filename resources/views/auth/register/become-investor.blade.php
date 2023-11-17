@@ -16,10 +16,9 @@ page-no-arc
                 <div class="content">
                     <div class="full-width align-in-center pb-120">
                         <div class="_75-width md_90-width md_align-center flex-column justify-center max-w700">
-                            <h1 class="h1 text-yellow sm_font-size-35 sm_mt-60 text-center">Become an Investor
+                            <h1 class="h1 text-yellow sm_font-size-35 sm_mt-60 text-center">Become an investor
                             </h1>
-                            <span class="h4 text-white text-center mb-30">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                            aliqua.</span>
+                            <span class="h4 text-white text-center mb-30">If you are interested to become an investor in your project, please fill out the form below and we will reply back to you as soon as possible.</span>
                             <form action="{{route('become-investor.post')}}" method="POST" onsubmit="return inputValidation(this)" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-container">
@@ -81,7 +80,7 @@ page-no-arc
                                     </div>
                                     <div class="d-flex full-width form-responsive">
                                         <div class="input-textarea" required>
-                                            <label label="(Must be filled in)">Do you have any "special skills" that you would be happy offer us? Or anything else, please write us a few lines below.</label>
+                                            <label label="(Must be filled in)">Do you have any "special skills" or connections that you think could benefit our project? Or anything else, please write us a few lines below.</label>
                                             <textarea id="skills" placeholder="Special skills" name="special_skills">{{old('special_skills')}}</textarea>
                                         </div>
                                     </div>

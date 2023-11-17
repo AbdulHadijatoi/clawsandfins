@@ -70,7 +70,7 @@
                             <div class="login-form">
                                 <h1 class="h1 text-yellow sm_font-size-35 text-center mb-30">Login to your account</h1>
                                 <div class="info primary-info d-flex-important">
-                                    <label>Don't have an account, please register as a distributor <strong><a href="{{route('become-distributor')}}">Become a Distributor</a></strong></label>
+                                    <label>Don't have an account, please register as a distributor <strong><a href="{{route('become-distributor')}}">Become a distributor</a></strong></label>
                                 </div>
                                 @include('auth.login.login-form')
                             </div>

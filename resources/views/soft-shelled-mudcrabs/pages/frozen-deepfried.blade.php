@@ -8,5 +8,5 @@
     Frozen - Deep Fried
 </div>
 <div class="image">
-    <img src="{{asset('images/image_6.jpg')}}">
+    <img src="{{asset('images/Frozen/IMG_6705-SharpenAI-focus.jpg')}}">
 </div>

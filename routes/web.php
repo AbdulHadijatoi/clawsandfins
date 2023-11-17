@@ -30,6 +30,9 @@ Route::get('admin/logout', [AuthController::class, 'logout'])->name('admin.logou
 
 // Navigation menu url routes:begins
 Route::group(['middleware' => ['visitor']], function() {
+    Route::get('/popup/{content}', function ($content) {
+        return view('popup/index',['content'=>$content]);
+    })->middleware('permission:home');
     Route::get('/soft-shelled-mudcrabs', function () {
         return view('soft-shelled-mudcrabs/index');
     })->middleware('permission:soft-shelled-mudcrabs');

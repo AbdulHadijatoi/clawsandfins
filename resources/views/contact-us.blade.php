@@ -18,7 +18,7 @@ page-no-arc
                             <div class="confirm-box">
                                 <h1 class="h1 text-yellow sm_font-size-35 text-center mb-10">Contact us</h1>
                                 <div class="text-white p-20 text-center mb-20">
-                                    Fill out the form and well get back to you as soon as possible
+                                    If you wish to contact us, please fill out the form below and we will reply back to you as soon as possible
                                 </div>
                                 <form id="form" action="{{route('contact-us.send')}}" method="POST" onsubmit="return inputValidation(this,function(){ loader=showLoader(); });" target="framesubmit">
                                     @csrf

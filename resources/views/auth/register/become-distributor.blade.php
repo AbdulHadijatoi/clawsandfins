@@ -21,9 +21,8 @@ page-no-arc
             <div class="content">
                 <div class="full-width align-in-center pb-120">
                     <div class="_75-width md_90-width md_align-center flex-column justify-center max-w700">
-                        <h1 class="h1 text-yellow sm_font-size-35 sm_mt-60 text-center">Become a Distributor</h1>
-                        <span class="h4 text-white text-center mb-30">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna</span>
+                        <h1 class="h1 text-yellow sm_font-size-35 sm_mt-60 text-center">Become a distributor</h1>
+                        <span class="h4 text-white text-center mb-30">If you are interested to become a distributor of our products, please fill out the form below and we will reply back to you as soon as possible.</span>
                         <form action="{{route('become-distributor.post')}}" method="POST" onsubmit="setInputForm(this);return inputValidation(this)" enctype="multipart/form-data">
                             @csrf
                             <div class="form-container">

@@ -1,5 +1,5 @@
 <div class="header align-center justify-between">
-    <h2>Frozen - Whole</h2>
+    <h2>Frozen soft-shelled crabs</h2>
     <span class="material-icons close cursor-pointer">
         close
     </span>
