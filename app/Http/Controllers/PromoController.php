@@ -13,5 +13,10 @@ class PromoController extends Controller
     {
         return view('boxpromo.index');
     }
+    
+    public function timeline()
+    {
+        return view('boxpromo.timeline');
+    }
 
 }
