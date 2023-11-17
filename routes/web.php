@@ -30,6 +30,7 @@ Route::get('logout', [AuthController::class, 'logout'])->name('logout')->middlew
 Route::get('admin/logout', [AuthController::class, 'logout'])->name('admin.logout')->middleware('auth');
 
 Route::get('/boxpromo', [PromoController::class,'index'])->name('promo.index');
+Route::get('/timeline', [PromoController::class,'timeline'])->name('promo.timeline');
 
 // Navigation menu url routes:begins
 Route::group(['middleware' => ['visitor']], function() {
