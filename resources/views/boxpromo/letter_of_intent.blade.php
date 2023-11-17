@@ -43,7 +43,7 @@ page-no-arc
                 <div class="content">
                     <div class="full-width align-in-center pb-60">
                         <div class="_75-width md_90-width flex-column justify-center max-w700">
-                            <h1 class="h1 text-default sm_font-size-35 text-center mb-10">Peter’s CV</h1>
+                            <h1 class="h1 text-default sm_font-size-35 text-center mb-10">Letter of intent for Korean distributor</h1>
                             <div class="text-default font-size-12 p-10 mb-20">
                                 <iframe src="{{url('storage/docs/korean_exclusive_distributor_request_for_year_2024_2027.pdf')}}" width="100%" height="600px"></iframe>
                             </div>
