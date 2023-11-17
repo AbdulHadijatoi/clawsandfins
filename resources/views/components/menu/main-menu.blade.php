@@ -1,5 +1,25 @@
-@if(Auth::check() && Auth::user()->getRoleNames()[0] == 'admin')
+@if (request()->is('boxpromo*'))
+        <li class="{{ (request()->is('boxpromo*')) ? 'active' : '' }}">
+                <a href="{{url('boxpromo/')}}">Introduction</a>
+        </li>
+        <li class="{{ (request()->is('timeline*')) ? 'active' : '' }}">
+                <a href="{{url('timeline/')}}">Timeline with photos</a>
+        </li>
+        <li class="{{ (request()->is('customer-letter-of-intent*')) ? 'active' : '' }}">
+                <a href="{{url('customer-letter-of-intent/')}}">Customer letter of intent</a>
+        </li>
+        <li class="{{ (request()->is('cv*')) ? 'active' : '' }}">
+                <a href="{{url('cv/')}}">Peter’s CV</a>
+        </li>
+        <li class="{{ (request()->is('rental-calculator*')) ? 'active' : '' }}">
+                <a href="{{url('rental-calculator/')}}">Rental calculator</a>
+        </li>
+        <li class="{{ (request()->is('market-research*')) ? 'active' : '' }}">
+                <a href="{{url('market-research/')}}">Market research notes and links</a>
+        </li>
+@elseif(Auth::check() && Auth::user()->getRoleNames()[0] == 'admin')
         @include('components.menu.admin')
+
 @else
         @if(Auth::check())
 
