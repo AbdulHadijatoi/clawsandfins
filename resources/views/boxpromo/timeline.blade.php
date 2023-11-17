@@ -52,7 +52,7 @@ page-no-arc
 
                                 
 
-                                <a class="text-default text-center mt-40 mb-20 expand-link" data-target="offerings" style="width: 100% !important; display: block; font-size: 1.2rem;">
+                                <a href="#" class="sm_font-size-11 text-default text-center mt-40 mb-20 expand-link" data-target="offerings" style="width: 100% !important; display: block; font-size: 1.2rem;">
                                     <strong>Offerings</strong> 
                                     <span class="text-blue">(Click to expand down)</span>
                                 </a>
@@ -73,24 +73,14 @@ page-no-arc
                                     <strong>Time Plan</strong> -The estimated time plan for the first full-length machine to be in full production is slightly more than a year from now, at around the beginning of 2025. You will receive your first rental fees as soon as the machine has been in full production for at least half a year, maybe even a bit earlier depending on how smooth things develop. It will be my priority to honor our rental agreement as soon as production income allows for it. The current estimate is that you will get your first rental payment sometime around quarter 3 2025. But remember, these time frames are just rough estimates.
                                 </p>
 
-                                <p class="text-default text-center mt-40 mb-20" style="width: 100% !important; display: block; font-size: 1.2rem;">
+                                <p class="para sm_font-size-11 text-default mt-20 mb-20">
                                     <strong>Crab box promo video</strong> 
                                 </p>
-                                <video controls width="100%">
-                                    <source src="{{url('storage/videos/crab_box_promo.mp4')}}" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                  </video>
-
-                                <p class="text-default text-center mt-40 mb-20" style="width: 100% !important; display: block; font-size: 1.2rem;">
+                                <p class="para sm_font-size-11 text-default mt-20 mb-20">
                                     <strong>Video for distributors Video</strong> 
                                 </p>
-                                <video controls width="100%">
-                                    <!-- Specify the video source using the src attribute -->
-                                    <source src="{{url('storage/videos/ssc_for_distributors.mp4')}}" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                  </video>
                                 
-                                <a class="text-default text-center mt-40 mb-20 expand-link" data-target="important_notes" style="width: 100% !important; display: block; font-size: 1.2rem;">
+                                <a class="sm_font-size-11 text-default text-center mt-40 mb-20 expand-link" data-target="important_notes" style="width: 100% !important; display: block; font-size: 1.2rem;">
                                     <strong>Important notes</strong> 
                                     <span class="text-blue">(Click to expand down)</span>
                                 </a>
