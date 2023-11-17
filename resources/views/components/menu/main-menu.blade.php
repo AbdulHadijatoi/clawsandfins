@@ -1,4 +1,4 @@
-@if (request()->is('boxpromo*'))
+@if (request()->is('boxpromo*') || request()->is('timeline*') || request()->is('cv*') || request()->is('customer-letter-of-intent*'))
         <li class="{{ (request()->is('boxpromo*')) ? 'active' : '' }}">
                 <a href="{{url('boxpromo/')}}">Introduction</a>
         </li>
@@ -6,20 +6,21 @@
                 <a href="{{url('timeline/')}}">Timeline with photos</a>
         </li>
         <li class="{{ (request()->is('customer-letter-of-intent*')) ? 'active' : '' }}">
-                <a href="{{url('customer-letter-of-intent/')}}">Customer letter of intent</a>
+                <a href="{{url('customer-letter-of-intent')}}">Letter of intent for Korean distributor</a>
         </li>
+        {{-- cv_portfolio_peter_persson_2023.pdf --}}
         <li class="{{ (request()->is('cv*')) ? 'active' : '' }}">
                 <a href="{{url('cv/')}}">Peter’s CV</a>
         </li>
-        <li class="{{ (request()->is('rental-calculator*')) ? 'active' : '' }}">
-                <a href="{{url('rental-calculator/')}}">Rental calculator</a>
+        <li>
+                <a href="{{url('storage/docs/box_rental_calculator_and_very_simple_project_budget.xlsx')}}" target="_blank">Rental calculator</a>
         </li>
-        <li class="{{ (request()->is('market-research*')) ? 'active' : '' }}">
-                <a href="{{url('market-research/')}}">Market research notes and links</a>
+        <li>
+                <a href="{{url('storage/docs/market_size_reseach_1_ssc.xlsx')}}" target="_blank">Market research notes and links</a>
         </li>
+
 @elseif(Auth::check() && Auth::user()->getRoleNames()[0] == 'admin')
         @include('components.menu.admin')
-
 @else
         @if(Auth::check())
 

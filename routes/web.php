@@ -31,6 +31,8 @@ Route::get('admin/logout', [AuthController::class, 'logout'])->name('admin.logou
 
 Route::get('/boxpromo', [PromoController::class,'index'])->name('promo.index');
 Route::get('/timeline', [PromoController::class,'timeline'])->name('promo.timeline');
+Route::get('/cv', [PromoController::class,'cv'])->name('promo.cv');
+Route::get('/customer-letter-of-intent', [PromoController::class,'letter_of_intent'])->name('promo.letter_of_intent');
 
 // Navigation menu url routes:begins
 Route::group(['middleware' => ['visitor']], function() {
