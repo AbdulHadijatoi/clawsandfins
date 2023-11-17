@@ -6,6 +6,7 @@ use App\Http\Controllers\UsersController;
 use App\Http\Controllers\Admin\PermissionsController;
 use App\Http\Controllers\Admin\RolesController;
 use App\Http\Controllers\EmailController;
+use App\Http\Controllers\PromoController;
 use App\Http\Controllers\SettingsController;
 use App\Models\Picture;
 use Illuminate\Support\Facades\Auth;
@@ -27,6 +28,8 @@ use Spatie\Permission\Models\Role;
 
 Route::get('logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
 Route::get('admin/logout', [AuthController::class, 'logout'])->name('admin.logout')->middleware('auth');
+
+Route::get('/boxpromo', [PromoController::class,'index'])->name('promo.index');
 
 // Navigation menu url routes:begins
 Route::group(['middleware' => ['visitor']], function() {
