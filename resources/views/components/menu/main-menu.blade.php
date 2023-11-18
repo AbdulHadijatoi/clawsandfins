@@ -9,6 +9,9 @@
                                 <li class="{{ (request()->is('boxpromo/offerings*')) ? 'active' : '' }}">
                                         <a href="{{url('boxpromo/offerings')}}">Offerings</a>
                                 </li>
+                                <li class="{{ (request()->is('boxpromo/time-plan*')) ? 'active' : '' }}">
+                                        <a href="{{url('boxpromo/time-plan')}}">Time Plan</a>
+                                </li>
                                 <li class="{{ (request()->is('boxpromo/crab-box-promo-video*')) ? 'active' : '' }}">
                                         <a href="{{url('boxpromo/crab-box-promo-video')}}">Crab box promo video</a>
                                 </li>

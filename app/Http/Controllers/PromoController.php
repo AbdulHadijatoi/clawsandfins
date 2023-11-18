@@ -48,5 +48,10 @@ class PromoController extends Controller
     {
         return view('boxpromo.important-notes');
     }
+    
+    public function time_plan()
+    {
+        return view('boxpromo.time-plan');
+    }
 
 }

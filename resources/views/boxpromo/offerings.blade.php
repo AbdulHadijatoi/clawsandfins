@@ -36,6 +36,11 @@ page-no-arc
                                         <span style="font-weight: bold; text-decoration: underline">This offering's price and benefits can be changed or even be canceled at anytime without any prior notice depending of how things develops. Your prebooked boxes will still be available for you in this current state though. </span>
                                     </span>
                                 </p>
+
+                                <a href="{{url('/boxpromo/time-plan')}}" class="text-yellow text-center mb-20 expand-link" data-target="short-introduction" style="width: 100% !important; display: block; font-size: 1.2rem;">
+                                    <strong>Time Plan</strong><br>
+                                    <span class="text-blue font-size-12">(Click to open)</span>
+                                </a>
                             </div>
                         </div>
                     </div>

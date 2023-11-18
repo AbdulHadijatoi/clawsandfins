@@ -36,7 +36,18 @@ page-no-arc
                                     Why only one customer? As it will take us about 1-2 years to just satisfy this single customer's demands at the beginning. I have communicated with a few others, but it feels meaningless to engage them any further now as we will not be able to deliver to them for a while. But as soon as we are ready and have production capacity for it, we will, for sure.
                                 </p>
 
-                                
+                                <a href="{{url('/boxpromo/offerings')}}" class="text-yellow text-center mb-20 expand-link" data-target="short-introduction" style="width: 100% !important; display: block; font-size: 1.2rem;">
+                                    <strong>Offering</strong><br>
+                                    <span class="text-blue font-size-12">(Click to open)</span>
+                                </a>
+
+                                <p class="text-center mt-40 mb-20" style="width: 100% !important; display: block; font-size: 1.2rem;">
+                                    <strong>Crab box promo video</strong> 
+                                </p>
+                                <video controls width="100%">
+                                    <source src="{{url('storage/videos/crab_box_promo.mp4')}}" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                  </video>
 
                                 
                             </div>

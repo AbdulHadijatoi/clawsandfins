@@ -29,8 +29,11 @@ page-no-arc
                                     <source src="{{url('storage/videos/ssc_for_distributors.mp4')}}" type="video/mp4">
                                     Your browser does not support the video tag.
                                   </video>
-                                
-                                
+                                  <br><br>
+                                  <a href="{{url('/boxpromo/important-notes')}}" class="text-yellow text-center mb-20 expand-link" data-target="short-introduction" style="width: 100% !important; display: block; font-size: 1.2rem;">
+                                    <strong>important-notes</strong><br>
+                                    <span class="text-blue font-size-12">(Click to open)</span>
+                                </a>
                             </div>
                         </div>
                     </div>
