@@ -33,6 +33,11 @@ Route::get('/boxpromo', [PromoController::class,'index'])->name('promo.index');
 Route::get('/timeline', [PromoController::class,'timeline'])->name('promo.timeline');
 Route::get('/cv', [PromoController::class,'cv'])->name('promo.cv');
 Route::get('/customer-letter-of-intent', [PromoController::class,'letter_of_intent'])->name('promo.letter_of_intent');
+Route::get('/boxpromo/long-version', [PromoController::class,'long_version']);
+Route::get('/boxpromo/offerings', [PromoController::class,'offerings']);
+Route::get('/boxpromo/crab-box-promo-video', [PromoController::class,'crab_box_promo_video']);
+Route::get('/boxpromo/video-for-distributers', [PromoController::class,'video_for_distributers']);
+Route::get('/boxpromo/important-notes', [PromoController::class,'important_notes']);
 
 // Navigation menu url routes:begins
 Route::group(['middleware' => ['visitor']], function() {

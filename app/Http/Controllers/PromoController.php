@@ -28,5 +28,25 @@ class PromoController extends Controller
     {
         return view('boxpromo.letter_of_intent');
     }
+    public function long_version()
+    {
+        return view('boxpromo.long-version');
+    }
+    public function offerings()
+    {
+        return view('boxpromo.offerings');
+    }
+    public function crab_box_promo_video()
+    {
+        return view('boxpromo.crab-box-promo-video');
+    }
+    public function video_for_distributers()
+    {
+        return view('boxpromo.video-for-distributers');
+    }
+    public function important_notes()
+    {
+        return view('boxpromo.important-notes');
+    }
 
 }
