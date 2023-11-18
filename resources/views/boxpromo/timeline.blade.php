@@ -43,9 +43,13 @@ page-no-arc
                 <div class="content">
                     <div class="full-width align-in-center pb-60">
                         <div class="_75-width md_90-width flex-column justify-center max-w700">
-                            <h1 class="h1 text-yellow sm_font-size-35 text-center mb-10">The soft-shell crab project timeline.</h1>
+                            <h1 class="h1 text-yellow sm_font-size-35 text-center mb-10">Project timeline.</h1>
                             <div class="text-white font-size-12 p-10 mb-20">
-                                <h3 class="text-yellow font-size-25 sm_font-size-18 text-center mb-10">Past Achievements</h3>
+                                <h3 class="text-yellow font-size-25 sm_font-size-18 text-center mb-10">Past Achievements</h3><br>
+                                <h3 class="text-yellow font-size-25 sm_font-size-18 text-center mb-10">2016 – Why soft-shelled crabs?</h3>
+                                <p class="para sm_font-size-11">After having finalized a large project for a customer, I wanted to build something for myself this time. I began brainstorming new and old product ideas for about a year when my girlfriend at the time told me that anyone who could come up with a solution for farming a tiny crab used in a traditional Thai dish, Somtam, or Papaya-salad as most know it, would make a fortune.
+                                <br>I researched this crab and other crabs for a while, and I stumbled on an article about soft-shelled crabs and how they are made, and how enormously labor intensive it was to produce, and that there were no machines developed for it, at all.
+                                <br>As a seasoned automation and machine designer and builder, I thought this was a very fascinating problem to investigate further.</p><br>
                                 
                                 <h3 class="text-yellow font-size-25 sm_font-size-18 text-center mb-10">2016 - 2017 - Beginning</h3>
                                 <p class="para sm_font-size-11">Lose ideas, research, brainstorming and concept designs, pond farm surveys in Thailand, customer, and market research etc.</p>
@@ -77,6 +81,7 @@ page-no-arc
                                 <p class="para sm_font-size-11">Began 3D printing concept part for testing</p>
                                 <div><img src="{{asset('timeline_images/image104.png')}}"></div>
                                 <div><img src="{{asset('timeline_images/image111.png')}}"></div>
+                                <p class="para sm_font-size-11">Our first 3D-printed part. Here are fixtures printed for accuratly bending our acrylic boxes.</p>
                                 <h3 class="text-yellow mt-20 font-size-25 sm_font-size-18 text-center mb-10">2018 - Prototyping</h3>
                                 <p class="para sm_font-size-11">After my concept seemed to work, I had a clear picture of how to design our test equipment with real crabs.</p>
                                 <div><img src="{{asset('timeline_images/image108.png')}}"></div>
@@ -103,7 +108,7 @@ page-no-arc
                                 <p class="para sm_font-size-11">Crabs, The one on the green box is an empty shell from a newly molted soft-shell crab which resides inside the box. </p>
                                 
                                 <h3 class="text-yellow mt-20 font-size-25 sm_font-size-18 text-center mb-10">2019 June - Our first potential customer</h3>
-                                <p class="para sm_font-size-11">Our first potential customer, from Korea, loved our new high-tech concept and was very eager to come visit us. They told us that it was impossible to find enough supply for their current demand of 20-30 ton soft-shell crabs per month, and that they mostly could only find 10 ton. With more supply, they said they could sell much more, and even offered us to buy at a price of 10-15% over market price, just to secure supply.</p>
+                                <p class="para sm_font-size-11">Our first potential customer, from Korea, loved our new high-tech concept and was very eager to come and visit us. They told us that it was impossible to find enough supply for their current demand of 20-30 ton soft-shell crabs per month, and that they mostly could only find 10 ton. With more supply, they said they could sell much more, and even offered us to buy at a price of 10-15% over market price, just to secure supply.</p>
                                 <div><img src="{{asset('timeline_images/image84.jpg')}}"></div>
                                 <p class="para sm_font-size-11">Our first and only customer meeting as they wanted to buy everything we could produce. Daniel, Minh, customer and me. </p>
 

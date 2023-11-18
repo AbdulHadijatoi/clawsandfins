@@ -21,16 +21,16 @@ page-no-arc
                             <h1 class="h1 font-size-25 sm_font-size-20 text-center mb-10 text-yellow">Investment Proposal - Soft-Shelled Crabs</h1>
                             <div class="text-white font-size-12 p-10 mb-20">
                                 <a class="text-yellow text-center mt-40 mb-20" style="width: 100% !important; display: block; font-size: 1.2rem;">
-                                    <strong>Time Plan</strong> 
+                                    <strong>Time plan</strong> 
                                 </a>
 
                                 <p class="para sm_font-size-11 text-white mt-20 mb-20 expandable-content" id="time_plan">
                                     <strong class="text-yellow">Time Plan</strong> -The estimated time plan for the first full-length machine to be in full production is slightly more than a year from now, at around the beginning of 2025. You will receive your first rental fees as soon as the machine has been in full production for at least half a year, maybe even a bit earlier depending on how smooth things develop. It will be my priority to honor our rental agreement as soon as production income allows for it. The current estimate is that you will get your first rental payment sometime around quarter 3 2025. But remember, these time frames are just rough estimates.
                                 </p>
 
-                                <a href="{{url('/boxpromo/crab-box-promo-video')}}" class="text-yellow text-center mb-20 expand-link" data-target="short-introduction" style="width: 100% !important; display: block; font-size: 1.2rem;">
-                                    <strong>Crab Box Promo Video</strong><br>
-                                    <span class="text-blue font-size-12">(Click to open)</span>
+                                <a href="{{url('/boxpromo/important-notes')}}" class="text-yellow text-center mb-20 expand-link" data-target="important-notes" style="width: 100% !important; display: block; font-size: 1.2rem;">
+                                    <strong><u>Click for important notes</strong></u><br>
+                                    <span class="text-blue font-size-12"></span>
                                 </a>
                                 
                             </div>
