@@ -39,13 +39,13 @@ page-no-arc
             }
         </style>
         <div class="content-wrapper">
-            <section class="section bg-white" data-clip-id="1">
+            <section class="section bg-white" data-clip-id="1" style="background-color: #1f2120">
                 <div class="content">
                     <div class="full-width align-in-center pb-60">
-                        <div class="_75-width md_90-width flex-column justify-center max-w700">
-                            <h1 class="h1 text-default sm_font-size-35 text-center mb-10">Peter’s CV</h1>
+                        <div class="_90-width md_90-width flex-column justify-center">
+                            <h1 class="h1 text-yellow sm_font-size-35 text-center mb-10">Peter’s CV</h1>
                             <div class="text-default font-size-12 p-10 mb-20">
-                                <iframe src="{{url('storage/docs/cv_portfolio_peter_persson_2023.pdf')}}" width="100%" height="600px"></iframe>
+                                <iframe src="{{url('storage/docs/cv_portfolio_peter_persson_2023.pdf')}}" width="100%" height="1100px"></iframe>
                             </div>
                         </div>
                     </div>
