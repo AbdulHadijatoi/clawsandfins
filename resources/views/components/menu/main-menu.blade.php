@@ -10,10 +10,10 @@
                                         <a href="{{url('boxpromo/offerings')}}">Offerings</a>
                                 </li>
                                 <li class="{{ (request()->is('boxpromo/time-plan*')) ? 'active' : '' }}">
-                                        <a href="{{url('boxpromo/time-plan')}}">Time Plan</a>
+                                        <a href="{{url('boxpromo/time-plan')}}">Time plan</a>
                                 </li>
                                 <li class="{{ (request()->is('boxpromo/crab-box-promo-video*')) ? 'active' : '' }}">
-                                        <a href="{{url('boxpromo/crab-box-promo-video')}}">Crab box promo video</a>
+                                        <a href="{{url('boxpromo/crab-box-promo-video')}}">Video Crab box promo</a>
                                 </li>
                                 <li class="{{ (request()->is('boxpromo/video-for-distributers*')) ? 'active' : '' }}">
                                         <a href="{{url('boxpromo/video-for-distributers')}}">Video for distributors</a>
@@ -28,17 +28,17 @@
                 <a href="{{url('timeline/')}}">Timeline with photos</a>
         </li>
         <li class="{{ (request()->is('customer-letter-of-intent*')) ? 'active' : '' }}">
-                <a href="{{url('customer-letter-of-intent')}}">Letter of intent for Korean distributor</a>
+                <a href="{{url('customer-letter-of-intent')}}">Distributor request (PDF)</a>
         </li>
         {{-- cv_portfolio_peter_persson_2023.pdf --}}
         <li class="{{ (request()->is('cv*')) ? 'active' : '' }}">
-                <a href="{{url('cv/')}}">Peter’s CV</a>
+                <a href="{{url('cv/')}}">Peter’s CV (PDF)</a>
         </li>
         <li>
-                <a href="{{url('storage/docs/box_rental_calculator_and_very_simple_project_budget.xlsx')}}" target="_blank">Rental calculator</a>
+                <a href="{{url('storage/docs/box_rental_calculator_and_very_simple_project_budget.xlsx')}}" target="_blank">Rental calculator (Excel)</a>
         </li>
         <li>
-                <a href="{{url('storage/docs/market_size_reseach_1_ssc.xlsx')}}" target="_blank">Market research notes and links</a>
+                <a href="{{url('storage/docs/market_size_reseach_1_ssc.xlsx')}}" target="_blank">Market research notes and links (Excel)</a>
         </li>
 
 @elseif(Auth::check() && Auth::user()->getRoleNames()[0] == 'admin')
