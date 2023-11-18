@@ -1,6 +1,25 @@
 @if (request()->is('boxpromo*') || request()->is('timeline*') || request()->is('cv*') || request()->is('customer-letter-of-intent*'))
         <li class="{{ (request()->is('boxpromo*')) ? 'active' : '' }}">
                 <a href="{{url('boxpromo/')}}">Introduction</a>
+                <li class="sub-menu display-block">
+                        <ul>
+                                <li class="{{ (request()->is('boxpromo/long-version*')) ? 'active' : '' }}">
+                                        <a href="{{url('boxpromo/long-version')}}">Long version</a>
+                                </li>
+                                <li class="{{ (request()->is('boxpromo/offerings*')) ? 'active' : '' }}">
+                                        <a href="{{url('boxpromo/offerings')}}">Offerings</a>
+                                </li>
+                                <li class="{{ (request()->is('boxpromo/crab-box-promo-video*')) ? 'active' : '' }}">
+                                        <a href="{{url('boxpromo/crab-box-promo-video')}}">Crab box promo video</a>
+                                </li>
+                                <li class="{{ (request()->is('boxpromo/video-for-distributers*')) ? 'active' : '' }}">
+                                        <a href="{{url('boxpromo/video-for-distributers')}}">Video for distributors</a>
+                                </li>
+                                <li class="{{ (request()->is('boxpromo/important-notes*')) ? 'active' : '' }}">
+                                        <a href="{{url('boxpromo/important-notes')}}">Important notes</a>
+                                </li>
+                        </ul>
+                </li>
         </li>
         <li class="{{ (request()->is('timeline*')) ? 'active' : '' }}">
                 <a href="{{url('timeline/')}}">Timeline with photos</a>
