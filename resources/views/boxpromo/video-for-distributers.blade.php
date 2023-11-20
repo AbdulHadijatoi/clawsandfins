@@ -18,7 +18,7 @@ page-no-arc
                 <div class="content">
                     <div class="full-width align-in-center pb-60">
                         <div class="_75-width md_90-width flex-column justify-center max-w700">
-                            <h1 class="h1 font-size-25 sm_font-size-20 text-center mb-10 text-yellow">Investment Proposal - Soft-Shelled Crabs</h1>
+                            <h1 class="h1 font-size-25 sm_font-size-20 text-center mb-10 text-yellow">Earn a good income from your own crab box</h1>
                             <div class="text-white font-size-12 p-10 mb-20">
                                 
                                 <p class="text-center text-yellow mb-20" style="width: 100% !important; display: block; font-size: 1.2rem;">
