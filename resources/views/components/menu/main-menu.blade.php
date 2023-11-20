@@ -1,6 +1,6 @@
 @if (request()->is('boxpromo*') || request()->is('timeline*') || request()->is('cv*') || request()->is('customer-letter-of-intent*'))
         <li class="{{ (request()->is('boxpromo*')) ? 'active' : '' }}">
-                <a href="{{url('boxpromo/')}}">Introduction</a>
+                <a href="{{url('boxpromo/')}}">Short version</a>
                 <li class="sub-menu display-block">
                         <ul>
                                 <li class="{{ (request()->is('boxpromo/long-version*')) ? 'active' : '' }}">

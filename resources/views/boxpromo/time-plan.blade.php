@@ -18,14 +18,14 @@ page-no-arc
                 <div class="content">
                     <div class="full-width align-in-center pb-60">
                         <div class="_75-width md_90-width flex-column justify-center max-w700">
-                            <h1 class="h1 font-size-25 sm_font-size-20 text-center mb-10 text-yellow">Investment Proposal - Soft-Shelled Crabs</h1>
+                            <h1 class="h1 font-size-25 sm_font-size-20 text-center mb-10 text-yellow">Earn a good income from your own crab box</h1>
                             <div class="text-white font-size-12 p-10 mb-20">
-                                <a class="text-yellow text-center mt-40 mb-20" style="width: 100% !important; display: block; font-size: 1.2rem;">
+                                <a class="text-yellow text-center mb-20" style="width: 100% !important; display: block; font-size: 1.2rem;">
                                     <strong>Time plan</strong> 
                                 </a>
 
                                 <p class="para sm_font-size-11 text-white mt-20 mb-20 expandable-content" id="time_plan">
-                                    <strong class="text-yellow">Time Plan</strong> -The estimated time plan for the first full-length machine to be in full production is slightly more than a year from now, at around the beginning of 2025. You will receive your first rental fees as soon as the machine has been in full production for at least half a year, maybe even a bit earlier depending on how smooth things develop. It will be my priority to honor our rental agreement as soon as production income allows for it. The current estimate is that you will get your first rental payment sometime around quarter 3 2025. But remember, these time frames are just rough estimates.
+                                    <strong class="text-yellow">Time Plan</strong> -The estimated time plan for the first full-length machine to be in production, is slightly more than a year from now, at around the beginning of 2025. Normally you will receive your rental fees after your boxes have been in full production for a full year, BUT, as you may have been waiting for a long time then, I will try to prioritize your first rental fee as soon as production income allows for it. The current estimate is that you will get your first rental payment sometime around mid 2025. But remember, these time frames are just rough estimates.
                                 </p>
 
                                 <a href="{{url('/boxpromo/important-notes')}}" class="text-yellow text-center mb-20 expand-link" data-target="important-notes" style="width: 100% !important; display: block; font-size: 1.2rem;">
