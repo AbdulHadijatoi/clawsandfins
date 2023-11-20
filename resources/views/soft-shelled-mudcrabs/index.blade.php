@@ -9,14 +9,7 @@
                         <div class="_75-width flex-column z-index-1 justify-center md_90-width md_align-center">
                             <h1 class="h1 text-yellow sm_font-size-35 sm_mt-30 text-center mt-0">Soft-shelled mud crabs</h1>
                             <h1 class="h2 text-yellow sm_font-size-35 sm_mt-30 text-center mt-40">*No more chewy or leathery soft-shelled crabs*</h1>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section class="section" data-clip-id="2" style="background-image: url({{asset('bg/Grey_Background_3.png')}});">
-                <div class="content">
-                    <div class="full-width align-in-center pb-40 mt-50">
-                        <div class="_75-width flex-column z-index-1 justify-center sm_90-width sm_align-center mt-20 sm_mt-10 pb-100">
+
                             <h1 class="h1 mt-40 sm_font-size-25 text-yellow text-center">What is a Soft-shelled mud crab?</h1>
                             <p class="para text-white sm_font-size-11 sm_text-center mb-20">
                                 Soft-shelled mud crab is a highly sought-after delicacy that is eaten whole. There is no need to peel off any hard-shell parts, The entire crab is as soft and tender as its meat.
@@ -26,29 +19,18 @@
                                     <div><img class="full-width shadow_1" src="{{asset('images/soft-shelled/1.jpg')}}"></div>
                                     <div><img class="full-width shadow_1" src="{{asset('images/soft-shelled/2.jpg')}}"></div>
                                 </div>
-                                {{-- <div class="w400 p-30 sm_p-10 sm_w250">
-                                </div>
-                                <div class="flex-column _50-width sm_text-center sm_90-width">
-                                    <p class="para text-white sm_font-size-11">
-                                        We recycle all organic waste we produce, also, we obtain organic waste from
-                                        other farms, restaurants,
-                                        and food markets. The organic waste we collect allows a particular larva from
-                                        the <em class="text-yellow"><a class="popup-page-url" parent-id="hermetia-illucens" href="{{url('popup/hermetia-illucens')}}">Hermetia illucens</a></em> species, known commonly as
-                                        black soldier fly larva
-                                        (BSFL), to feeds on it and grow fatter. When the larva has developed to a pupa,
-                                        it is cleaned, cooked
-                                        and grided to a paste used as a high-quality protein and lipids perfectly suited
-                                        as ecological animal
-                                        feed, reducing the need for wild-sourced feed ingredients such as fishmeal which
-                                        contributes to the
-                                        global overfishing.
-                                    </p>
-                                </div> --}}
                             </div>
-                            <h1 class="h1 mt-40 sm_font-size-25 text-yellow text-center">Does your expensive crabs end up like this?</h1>
-                            <p class="para text-white sm_font-size-11 sm_text-center mb-10">
-                                
-                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="section" data-clip-id="2" style="background-image: url({{asset('bg/Grey_Background_3.png')}});">
+                <div class="content">
+                    <div class="full-width align-in-center pb-40 mt-50">
+                        <div class="_75-width flex-column z-index-1 justify-center sm_90-width sm_align-center mt-20 sm_mt-10 pb-100">
+                            <h1 class="h1 mt-60 mb-20 sm_font-size-25 text-yellow text-center">Does your expensive crabs end up like this?</h1>
+
+                            
                             <div class="full-width justify-between align-center sm_flex-column sm_justify-center mb-20">
                                 <div class="d-flex justify-center full-width">
                                     <div class="text-center"><img class="full-width shadow_1" src="{{asset('images/soft-shelled/3.png')}}"></div>
@@ -63,6 +45,7 @@
                             <p class="para text-white sm_font-size-11 sm_text-center mb-50">
                                 Like many other exoskeleton animals (having the skeleton outside of the body), a crab needs to shed their old shell to grow a new, larger one, to be able to increase in size. This process is known as molting. During the short molting process, the crabs must be harvested quickly to ensure their shells do not harden. The sooner you harvest the crab after molting (preferably within the first hour), the softer and more tender it will be, as the new shell membrane gets harder over time.
                             </p>
+                            <div class="sm_display-none"><br><br><br></div>
                         </div>
                     </div>
                 </div>
@@ -248,6 +231,18 @@
         loaded = true;
     });
 
+    $(document).ready(function() {
+        // Event listener for the play button
+        $(".play-button").on('click', function () {
+            // Trigger the click event on the associated video element
+            $(this).prev("video")[0].click();
+        });
+
+        // Event listener to hide the play button when the video is ended
+        $("video").on('ended', function () {
+            $(this).next(".play-button").show();
+        });
+    });
 </script>
 <!-- >>> End -->
 @endsection
