@@ -9,8 +9,9 @@
                     <div class="_75-width flex-column z-index-1 justify-center md_90-width md_align-center">
                         <h1 class="h1 text-yellow sm_font-size-35 sm_mt-35 text-center">Pete's Claws and Fins</h1>
                         <p class="sub-heading mb-20 text-center sm_mb-0 sm_font-size-20" style="font-weight: 600;font-size: 20px;">High-Tech Ecological Seafood</p>
-                        <h1 class="h1 text-yellow sm_font-size-35 sm_mt-30 text-center mt-60">We produce ecological food</h1>
+                        <!--<h1 class="h1 text-yellow sm_font-size-35 sm_mt-30 text-center mt-60">We produce ecological food</h1>
                         <p class="sub-heading mb-20 text-center sm_mb-0 sm_font-size-20" style="font-weight: 600;font-size: 20px;">using high-tech and artificial intelligence (AI).</p>
+                        -->
                         <div class="full-width justify-between md_flex-column md_align-center md_justify-center">
                             <div class="w400 p-30 sm_p-10 md_w350 sm_w250">
                                 <img class="full-width circle border-15-orange sm_border-10 shadow_1" src="{{asset('images/image_2.jpg')}}">

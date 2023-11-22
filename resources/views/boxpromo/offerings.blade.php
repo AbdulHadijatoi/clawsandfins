@@ -37,17 +37,27 @@ page-no-arc
                                             <strong class="text-yellow">Offering B - $XX box with $1.2 return. The number of free boxes will be limited. - Not available yet.</strong><br></a>
                                             <u> </u>
                                         </li>
-                                        
-
                                         <br>
                                         <li>
                                             <strong class="text-yellow">Offering C - $12 box with $1.2 return, limited to 14 free boxes – For more careful adopters. Available quarter 3, 2024 but can be booked now (10% deposit).</strong><br>
-                                            100 bundles will be available quarter 3, 2024. Machine fully tested and operational so less risk, shorter waiting till you first rental payment. You and earlier box holders will be invited to visit us here on site in Vietnam, and you be shown our full size but short version of our production machine in action with live crabs. 4 weeks later you will be asked to pay for your booked bundles in full at $6000 per bundle.  This offer will come with a limit of a maximum of 14 free boxes, which will limit your maximal returns to 150% per year, regardless of how many machines we will have in production. 
-                                        </li>
-                                        <span style="font-weight: bold; text-decoration: underline">This offering's price and benefits can be changed or even be canceled at anytime without any prior notice depending of how things develops. Your prebooked boxes will still be available for you in this current state though. </span>
+                                            33 bundles will be available. Machine fully tested and operational so less risk, shorter waiting till you first rental payment. Shortly after mid 2024 you will be asked to pay 40% of your total bundle value within 14 days. After that you and all the other box holders will be invited to visit us here on site in Vietnam, and you will be shown our full size but short version of our production machine in action with live crabs. 4 weeks later you will be asked to pay for your booked bundles in full at $6000 per bundle.  This offer will come with a limit of a maximum of 14 free boxes, which will limit your maximal returns to 150% per year, regardless of how many machines we will have in production.
+                                            
+                                        
+                                       
+                                        <span style="font-weight: bold; text-decoration: underline">This offering's price and benefits can be changed or even be canceled at anytime without any prior notice depending of how things develops. Your prebooked boxes will still be available for you in this current state though. 
+                                         </li>
+                                        </span>
                                     </ul>
-                                </p>
-
+                                   
+                                    </p>
+                                 
+                                   
+                                 <p class="para sm_font-size-11 mt-20 mb-20 expandable-content text-yellow " id="offerings">
+                                    <strong>If you wish to become a significant parter and having the means >$500k for it, feel free to email me at tramsrepus@gmail.com </strong>
+                                
+                                    <br>
+                                    <br>
+                                   
                                 <a href="{{url('/boxpromo/time-plan')}}" class="text-yellow text-center mb-20 expand-link" data-target="short-introduction" style="width: 100% !important; display: block; font-size: 1.2rem;">
                                     <strong><u>Click for time plan</u></strong><br>
                                     <span class="text-blue font-size-12"></span>

@@ -27,7 +27,7 @@ page-no-arc
                                     <span class="text-blue font-size-12 expand-indicator hidden">(Click to expand down)</span>
                                 </a>
                                 <p class="para sm_font-size-11 mt-20 mb-20 expandable-content expanded" id="short-introduction">
-                                    <strong class="text-yellow">My project</strong> - I have been working on a large AI-driven high-tech soft-shell crab project for a while. Now the project is reaching its final phase and I need your help to speed things up, and therefore invite you to be a part of it.<br><br>
+                                    <strong class="text-yellow">My project</strong> - I have been working on a large AI-driven high-tech soft-shell crab project for a while. Now the project is reaching a final phase and I need your help to speed things up, and therefore invite you to be a part of it.<br><br>
                                     <strong class="text-yellow">Buy a crab box for $8 </strong> - Rent it out to me for use in my machine later for $1.2. And as the project grows, I will give you many additional boxes for free, and you will earn $1.2 rental income from each of them as well. So, your initial $8 can grow to 10 boxes and earn you $12 which equals to 150% yearly return, or 20 boxes and earn you $24 which equals to a 300% yearly return, and so on.<br><br>
                                    
                                     

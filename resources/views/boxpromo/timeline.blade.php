@@ -400,6 +400,7 @@ page-no-arc
                                 <p class="para sm_font-size-11"><span class="text-bold">2024 Q2</span> - Order a plastic injection machine and all plastic injection tools for all boxes and peripherals. </p>
                                 <p class="para sm_font-size-11"><span class="text-bold">2024 Q2</span> - Test my theory of a “cryo chamber” for transportation of seed crabs. If it works, build a full scale one and test it further. This would be better than tying each and every crab as everyone do all do today which is very time consuming.</p>
                                 <p class="para sm_font-size-11"><span class="text-red text-bold">2024 Q3</span> - A fully functional short production line is expected to be completed and shown for “Offering B” box buyers.</p>
+                                <p class="para sm_font-size-11"><span class="text-bold">2024 Q3</span> - Project and machine ready to be presented to larger investors.</p>
                                 <p class="para sm_font-size-11"><span class="text-bold">2024 Q3</span> - Start planning workflows and get it working with building layouts.</p>
                                 <p class="para sm_font-size-11"><span class="text-bold">2024 Q3</span> - Order the freezer rooms.</p>
                                 <p class="para sm_font-size-11"><span class="text-bold">2024 Q3</span> - Design and build worktables, and material handling equipment.</p>

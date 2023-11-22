@@ -90,18 +90,18 @@ page-no-arc
                                    
                                     <span style="display: block" class="para sm_font-size-11 mt-20 mb-20 ml-20">
                                         <strong class="text-yellow">Me and I and my company</strong>
-                                         - ADoes not refer to me as an individual, but to my company in Hong Kong, Yat Fung International Holding Ltd., which I manages and legally owns the machines and with whom you will have your rental agreement with. All your rental fees will be paid by this company as well. 
+                                         - Do not refer to me as an individual, but to my company in Hong Kong, which I manage, Yat Fung International Holding Ltd., who legally owns the machines and with whom you will have your rental agreement. All your rental fees will be paid by this company as well. 
                                     </span>
                                     <a class="text-yellow text-center mb-20 expand-link" data-target="important_notes" style="width: 100% !important; display: block; font-size: 1.2rem;">
                                     <strong>In case of bad times</strong>
                                     </a>
                                     
                                       <p class="para sm_font-size-11 mt-20 mb-20 expandable-content">
-                                    Please remember that in good times, you might have doubled your earnings again and again, so in bad times, you might have to accept that your earnings slow down a bit too.  </p>
+                                    Please remember that in good times, you might have doubled your earnings again and again, so in bad times, you might have to accept that your earnings slow down a bit too. We will have a third-party auditor monitoring our performance and report back to you in any case of serious trouble. </p>
                                     
                                     <span style="display: block" class="para sm_font-size-11 mt-20 mb-20 ml-20">
                                         <strong class="text-yellow">Drop in demand</strong>
-                                         - You will still earn a full $1.2 per year from each box as long as that box’ machine runs at 80% or more of full production capacity. If it drops to below 80%, those boxes’ rental income and accountable time for free boxes will also be reduced to the same percentage, but only for that specific machine. Let’s say we have 25 machines in full production, your initial $8 box will have earned you 24 free boxes after many years, which will earn you a yearly rental income of $30 (375%). But bad times might force us to pause 4.5 machines for a while, then you will only earn a full income and accountable time from boxes in 20 machines and 50% from the machine that runs at half capacity = 20.5 boxes x $1.2 = $24.6 (307.5%). This also applies in the case of any kind of accident or disaster that might limit a machine’s production capacity.
+                                         - You will still earn a full $1.2 per year from each box as long as that box’ machine runs at 80% or more of full production capacity. If it drops to below 80%, those boxes’ rental income and accountable time for free boxes will also be reduced to the same percentage, but only for that specific machine. Let’s say we have 25 machines in full production, your initial $8 box will have earned you 24 free boxes after many years, which will earn you a yearly rental income of $30. But bad times might force us to pause 4.5 machines for a while, then you will only earn a full income and accountable time from boxes in 20 machines and 50% from the machine that runs at half capacity = 20.5 boxes x $1.2 = $24.6. This also applies in the case of any kind of accident or disaster that might limit a machine’s production capacity.
                                     </span>
                                     
                                     <span style="display: block" class="para sm_font-size-11 mt-20 mb-20 ml-20">
@@ -111,7 +111,7 @@ page-no-arc
                                     
                                     <span style="display: block" class="para sm_font-size-11 mt-20 mb-20 ml-20">
                                         <strong class="text-yellow">Accountable for your loss </strong>
-                                         -  I will work my ass off to do my best to protect your investment, the company, and my own honor and reputation, but me, Peter Persson can NEVER personally be accountable for any of your financial losses, neither directly nor indirectly. You have agreed to be involved in a business venture associated with a high risk, but also very high returns, so you should be well aware that you can lose all your invested money. If you can't accept that, please don't get involved in this project. But if you do, let's make money together. 
+                                         -  All money from the sale of boxes will go entirely to finalizing your boxes and compartments. I will work my ass off to protect your investment, the company, and my own honor and reputation, but me, Peter Persson can NEVER personally be accountable for any of your financial losses, neither directly nor indirectly. You have agreed to be involved in a business venture associated with a high risk, but also very high returns, so you should be well aware that you can lose all your invested money. If you can't accept that, please don't get involved in this project. But if you do, let’s make money together. 
                                     </span>
                                     
                                     <a href="{{url('/timeline')}}" class="text-yellow text-center mb-20 expand-link" data-target="short-introduction" style="width: 100% !important; display: block; font-size: 1.2rem;">

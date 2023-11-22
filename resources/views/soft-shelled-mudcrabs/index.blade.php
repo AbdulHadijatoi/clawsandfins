@@ -8,7 +8,7 @@
                     <div class="full-width align-in-center pb-50">
                         <div class="_75-width flex-column z-index-1 justify-center md_90-width md_align-center">
                             <h1 class="h1 text-yellow sm_font-size-35 sm_mt-30 text-center mt-0">Soft-shelled mud crabs</h1>
-                            <h1 class="h2 text-yellow sm_font-size-35 sm_mt-30 text-center mt-40">*No more chewy or leathery soft-shelled crabs*</h1>
+                            <h1 class="h3 text-white sm_font-size-35 sm_mt-30 text-center mt-5">* No more chewy or leathery soft-shelled crabs *</h1>
 
                             <h1 class="h1 mt-40 sm_font-size-25 text-yellow text-center">What is a Soft-shelled mud crab?</h1>
                             <p class="para text-white sm_font-size-11 sm_text-center mb-20">
@@ -28,7 +28,7 @@
                 <div class="content">
                     <div class="full-width align-in-center pb-40 mt-50">
                         <div class="_75-width flex-column z-index-1 justify-center sm_90-width sm_align-center mt-20 sm_mt-10 pb-100">
-                            <h1 class="h1 mt-60 mb-20 sm_font-size-25 text-yellow text-center">Does your expensive crabs end up like this?</h1>
+                            <h1 class="h1 mt-60 mb-20 sm_font-size-25 text-yellow text-center">Do your expensive crabs end up like this?</h1>
 
                             
                             <div class="full-width justify-between align-center sm_flex-column sm_justify-center mb-20">
@@ -55,7 +55,7 @@
                 <div class="content">
                     <div class="full-width align-in-center pt-0 pb-60">
                         <div class="_75-width flex-column z-index-1 justify-center sm_90-width sm_align-center sm_mt_0">
-                            <h1 class="h1 text-yellow sm_font-size-30 text-center mt-60">What makes our Soft-shelled crabs so unique? </h1>
+                            <h1 class="h1 text-yellow sm_font-size-30 text-center mt-60">What makes our soft-shelled crabs so special? </h1>
                             <p class="para text-white sm_font-size-11 text-left sm_text-center">
                                 You will never get a chewy and leathery soft-shelled crab from us. Our crabs are harvested within the first hours after being molted, by an automated robot and cryogenically frozen. In a traditional soft-shell mud crab production, the molting process is monitored manually by people, every 1-4 hours, 24 hours a day, 7 days a week. Such dull, mundane, and repetitive working conditions increase the likelihood of mistakes and errors being made in the regulation of harvesting the molting crabs at precisely the right time. By the time these crabs are collected they can be up to 8 hours old, by which point the crabs have already developed a hard, chewy, leathery shell texture. 
                             </p>
