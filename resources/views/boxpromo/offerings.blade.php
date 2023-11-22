@@ -44,16 +44,24 @@ page-no-arc
                                             
                                         
                                        
-                                        <span style="font-weight: bold; text-decoration: underline">This offering's price and benefits can be changed or even be canceled at anytime without any prior notice depending of how things develops. Your prebooked boxes will still be available for you in this current state though. 
+                                            <span style="font-weight: bold; text-decoration: underline">
+                                                This offering's price and benefits can be changed or even be canceled at anytime without any prior notice depending of how things develops. Your prebooked boxes will still be available for you in this current state though. 
+                                            </span>
                                          </li>
-                                        </span>
+                                         <br>
+                                         <li>
+                                            <strong class="text-yellow">
+                                                If you wish to become a significant partner and have the means >$500k for it,
+                                                feel free to email me at
+                                                <a href="mailto:tramsrepus@gmail.com" class="text-yellow">tramsrepus@gmail.com</a>
+                                              </strong>                                              
+                                         </li>
                                     </ul>
                                    
                                     </p>
                                  
                                    
-                                 <p class="para sm_font-size-11 mt-20 mb-20 expandable-content text-yellow " id="offerings">
-                                    <strong>If you wish to become a significant parter and having the means >$500k for it, feel free to email me at tramsrepus@gmail.com </strong>
+                                    
                                 
                                     <br>
                                     <br>
