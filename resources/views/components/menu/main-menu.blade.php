@@ -1,32 +1,35 @@
 @if (request()->is('boxpromo*') || request()->is('timeline*') || request()->is('cv*') || request()->is('customer-letter-of-intent*'))
         <li class="{{ (request()->is('boxpromo*')) ? 'active' : '' }}">
-                <a href="{{url('boxpromo/')}}">Short version</a>
+                <a href="{{url('boxpromo/')}}">Introduction</a>
                 <li class="sub-menu display-block">
                         <ul>
                                 <li class="{{ (request()->is('boxpromo/long-version*')) ? 'active' : '' }}">
-                                        <a href="{{url('boxpromo/long-version')}}">Long version</a>
+                                        <a href="{{url('boxpromo/long-version')}}"></a>
                                 </li>
                                 <li class="{{ (request()->is('boxpromo/offerings*')) ? 'active' : '' }}">
-                                        <a href="{{url('boxpromo/offerings')}}">Offerings</a>
-                                </li>
+                                        <a href="{{url('boxpromo/offerings')}}">Get some boxes</a>
+                               <!-- </li>
                                 <li class="{{ (request()->is('boxpromo/time-plan*')) ? 'active' : '' }}">
                                         <a href="{{url('boxpromo/time-plan')}}">Time plan</a>
-                                </li>
+                                </li>-->
                                 <li class="{{ (request()->is('boxpromo/crab-box-promo-video*')) ? 'active' : '' }}">
-                                        <a href="{{url('boxpromo/crab-box-promo-video')}}">Video Crab box promo</a>
+                                        <a href="{{url('boxpromo/crab-box-promo-video')}}">Explanatory video</a>
                                 </li>
                                 <li class="{{ (request()->is('boxpromo/video-for-distributers*')) ? 'active' : '' }}">
                                         <a href="{{url('boxpromo/video-for-distributers')}}">Video for distributors</a>
                                 </li>
+                                
+                                <li class="{{ (request()->is('timeline*')) ? 'active' : '' }}">
+                                <a href="{{url('timeline/')}}">Timeline with photos</a>
+                                 </li>
+                                 
                                 <li class="{{ (request()->is('boxpromo/important-notes*')) ? 'active' : '' }}">
                                         <a href="{{url('boxpromo/important-notes')}}">Important notes</a>
                                 </li>
                         </ul>
                 </li>
         </li>
-        <li class="{{ (request()->is('timeline*')) ? 'active' : '' }}">
-                <a href="{{url('timeline/')}}">Timeline with photos</a>
-        </li>
+        
         <li class="{{ (request()->is('customer-letter-of-intent*')) ? 'active' : '' }}">
                 <a href="{{url('customer-letter-of-intent')}}">Distributor request (PDF)</a>
         </li>
@@ -34,9 +37,9 @@
         <li class="{{ (request()->is('cv*')) ? 'active' : '' }}">
                 <a href="{{url('cv/')}}">Peter’s CV (PDF)</a>
         </li>
-        <li>
+        <!--<li>
                 <a href="{{url('storage/docs/box_rental_calculator_and_very_simple_project_budget.xlsx')}}" target="_blank">Rental calculator (Excel)</a>
-        </li>
+        </li>-->
         <li>
                 <a href="{{url('storage/docs/market_size_reseach_1_ssc.xlsx')}}" target="_blank">Market research notes and links (Excel)</a>
         </li>
