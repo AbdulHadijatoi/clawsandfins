@@ -121,7 +121,7 @@ page-no-arc
                                 <p class="para sm_font-size-11">3D printed parts</p>
 
                                 <h3 class="text-black mt-20 font-size-25 sm_font-size-18 text-center mb-10">2019 - Factory Design</h3>
-                                <p class="para sm_font-size-11">The development and design of our future factory. This factory can hose 10 production lines (they work in pairs in this pict). We will build one section at the time first.</p>
+                                <p class="para sm_font-size-11">The development and design of our future factory. This factory can house 10 production lines (they work in pairs in this pict). We will build one section at the time first.</p>
                                 <div><img src="{{asset('timeline_images/image86.png')}}"></div>
                                 <div><img src="{{asset('timeline_images/image88.png')}}"></div>
                                 <div><img src="{{asset('timeline_images/image89.jpg')}}"></div>
@@ -165,7 +165,7 @@ page-no-arc
                                 <h3 class="text-black mt-20 font-size-25 sm_font-size-18 text-center mb-10">2020 - 2021 - Covid halted everything</h3>
                                 <p class="para sm_font-size-11">Covid hit us, everything had to be placed on idle, and we could only continue with online research, and I got almost a full year for myself to spend on optimizing the machine design further. This design has become way better, cheaper, and faster to manufacture. I am VERY happy with this new design.</p>
 
-                                <h3 class="text-black mt-20 font-size-25 sm_font-size-18 text-center mb-10">2021 April - photo shot session</h3>
+                                <h3 class="text-black mt-20 font-size-25 sm_font-size-18 text-center mb-10">2021 April - Photo shot session</h3>
                                 <p class="para sm_font-size-11">We arranged a big photo shot session with professional chefs and photographers to produce pictures of a large numbers of soft-shell crab dishes to be used on our website in future promotional material.</p>
                                 <div><img src="{{asset('timeline_images/image3.jpg')}}"></div>
                                 <div><img src="{{asset('timeline_images/image4.jpg')}}"></div>
@@ -176,7 +176,7 @@ page-no-arc
                                 <p class="para sm_font-size-11"> Food photo shooting</p>
 
                                 <h3 class="text-black mt-20 font-size-25 sm_font-size-18 text-center mb-10">2021 - Company mascot</h3>
-                                <p class="para sm_font-size-11">Development of a company mascot/character and company colors and graphical patterns, the goal was not to make modern and stiff logotype, but to create a highly rememberable and charming character and recognizable company colors and patterns, to be uses on product packaging later on.</p>
+                                <p class="para sm_font-size-11">Development of a company mascot/character and company colors and graphical patterns, the goal was not to make a modern and stiff logotype, but to create a highly rememberable and charming character and recognizable company colors and patterns, to be uses on product packaging later on.</p>
                                 <div><img src="{{asset('timeline_images/image9.png')}}"></div>
                                 <div><img src="{{asset('timeline_images/image10.png')}}"></div>
                                 
@@ -223,7 +223,7 @@ page-no-arc
                                 <h3 class="text-black mt-20 font-size-25 sm_font-size-18 text-center mb-10">2022 - Hard-to-get parts</h3>
                                 <p class="para sm_font-size-11">Researched suppliers of time consuming hard-to-get parts for the short line and began to order them. </p>
 
-                                <h3 class="text-black mt-20 font-size-25 sm_font-size-18 text-center mb-10">2022 - Custom made self-clinching nuts arrived</h3>
+                                <h3 class="text-black mt-20 font-size-25 sm_font-size-18 text-center mb-10">2022 - Custom made self-clinching nuts and screws arrived</h3>
                                 <p class="para sm_font-size-11">Our custom designed and very difficult to-get-manufactured screws and self-clinching nuts arrived to us at last.</p>
                                 <div><img src="{{asset('timeline_images/image37.png')}}"></div>
 
@@ -260,14 +260,14 @@ page-no-arc
                                 <h3 class="text-black mt-20 font-size-25 sm_font-size-18 text-center mb-10">2022 Dec - 2023 May - Endurance testing</h3>
                                 <p class="para sm_font-size-11">Long term endurance testing of different CNC parts, 3D printed parts, 3D resins, model servos, geared motors etc, etc. Some tests lasted for 6 month which equals to 10-210 years of production, yea 210+ years :-D depending which test run. All these testing to ensure that all equipment and components will last.</p>
                                 <div><img src="{{asset('timeline_images/image71.png')}}"></div>
-                                <p class="para sm_font-size-11">Different machine assemblies in a longevity test with different loads. Not so pretty perhaps, but very efficient. </p>
+                                <p class="para sm_font-size-11">Different machine assemblies in a longevity test with different loads. Not so pretty perhaps, but a very efficient machine torture. </p>
 
                               
                                 <h3 class="text-black mt-20 font-size-25 sm_font-size-18 text-center mb-10">2023 - Corrosion testing</h3>
                                 <p class="para sm_font-size-11">Aggressive long-term corrosion testing of different materials as our crabs will be kept in a saltwater environment, we made our own simple, but yet very effective saltwater spray enclosure, to test how well all our equipment can withstand corrosion, down to individual screws and nuts </p>
                                 <div><img src="{{asset('timeline_images/image72.jpg')}}"></div>
                                 <div><img src="{{asset('timeline_images/image73.jpg')}}"></div>
-                                <p class="para sm_font-size-11">Parts tested in saltwater spray for a while. The right hand stainless 304 screw will not last long. But the left hand anodized Alu-6061 screw will last. </p>
+                                <p class="para sm_font-size-11">Parts tested in saltwater spray for a while. The right hand stainless 304 screw will not last long. But the left hand anodized Alu-6061 screw will last "forever". </p>
 
                                 <h3 class="text-black mt-20 font-size-25 sm_font-size-18 text-center mb-10">2023 13th Jan - AI vision works</h3>
                                 <p class="para sm_font-size-11">Tested the inspection AI&#39;s machine vision electronics live for the first time, and it works even better than expected. It is VERY accurate but perhaps a bit slow, but fast enough for our application. I&rsquo;m very happy with it.</p>
@@ -283,7 +283,7 @@ page-no-arc
                                 <p class="para sm_font-size-11">Our biggest fan &#x1f60a; &nbsp;and me </p>
 
                                 <h3 class="text-black mt-20 font-size-25 sm_font-size-18 text-center mb-10">2023 - Testing of large water valves</h3>
-                                <p class="para sm_font-size-11">A setup for longevity testing of large water valves used for our sections has been built and testing begun. As &ldquo;section valves&rdquo; are such a critical part of the crab&rsquo;s wellbeing, we want to evaluate a few different valve variants from different makers to be sure that we will get good ones, and the test will also tell us after how many cycles they will be due for replacement. </p>
+                                <p class="para sm_font-size-11">A setup for longevity testing of large water valves used for our sections has been built and testing begun. As &ldquo;section valves&rdquo; are such a critical part of the crab&rsquo;s wellbeing, we want to evaluate a few different valve variants from different makers to be sure that we will get good ones, and the test will also show us after how many cycles they will last before due for replacement. </p>
                                 <div><img src="{{asset('timeline_images/image58.png')}}"></div>
                                 <div><img src="{{asset('timeline_images/image59.png')}}"></div>
                                 <div><img src="{{asset('timeline_images/image60.png')}}"></div>
@@ -307,7 +307,7 @@ page-no-arc
                                 <div><img src="{{asset('timeline_images/image105.png')}}"></div>
 
                                 <h3 class="text-black mt-20 font-size-25 sm_font-size-18 text-center mb-10">2023 - Aluminum profiles arrived</h3>
-                                <p class="para sm_font-size-11">Our own custom designed aluminum profiles finally arrived, used for the production line&rsquo;s shuttle tracks, robot tracks and rubber curtains. </p>
+                                <p class="para sm_font-size-11">Our own custom designed aluminum profiles finally arrived after 6-8 months of waitng, used for the production line&rsquo;s shuttle tracks, robot tracks and rubber curtains. </p>
                                 <div><img src="{{asset('timeline_images/image107.png')}}"></div>
                                 <div><img src="{{asset('timeline_images/image109.jpg')}}"></div>
                                 <p class="para sm_font-size-11">Custom made aluminum profiles </p>
@@ -319,7 +319,7 @@ page-no-arc
                                 <p class="para sm_font-size-11">1.5 ton lab tested and approved aluminum sheets. </p>
 
                                 <h3 class="text-black mt-20 font-size-25 sm_font-size-18 text-center mb-10">2023 - Faster inspector electronics</h3>
-                                <p class="para sm_font-size-11">A faster inspector AI microprocessor was decided, and a higher resolution image sensor, so a new revision of the inspector electronics began development. The added speed might help to increase production capacity a bit as we have been able to speed up other steps in the process as well.</p>
+                                <p class="para sm_font-size-11">A faster inspector AI microprocessor was decided, and a higher resolution image sensor, so a new revision of the inspector electronics began development. The added speed will help to increase production capacity a bit as we have been able to speed up other steps in the process as well.</p>
                                 {{-- <div><img src="{{asset('timeline_images/image17.png')}}"></div> --}}
                                 {{-- <div><img src="{{asset('timeline_images/image21.png')}}"></div> --}}
                                 {{-- <div><img src="{{asset('timeline_images/image19.png')}}"></div> --}}
@@ -379,7 +379,7 @@ page-no-arc
                                 <div><img src="{{asset('timeline_images/image114.jpg')}}"></div>
                                 <p class="para sm_font-size-11">Pillar leg assembled.</p>
                                 
-                                <h3 class="text-black mt-20 font-size-25 sm_font-size-18 text-center mb-10">2023 Nov - More information will be added as we progresses</h3>
+                                <h3 class="text-black mt-20 font-size-25 sm_font-size-18 text-center mb-10">2023 Nov - The new inspector unit PCBs is complete</h3>
                                 <p class="para sm_font-size-11">One of our new inspector unit PCBs is completed and ready for testing</p>
                                 <div><img src="{{asset('timeline_images/Inspector_got_compnents-1.png')}}"></div>
                                 <div><img src="{{asset('timeline_images/Inspector_got_compnents-2.png')}}"></div>

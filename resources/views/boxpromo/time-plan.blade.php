@@ -25,7 +25,7 @@ page-no-arc
                                 </a>
 
                                 <p class="para sm_font-size-11 text-white mt-20 mb-20 expandable-content" id="time_plan">
-                                    <strong class="text-yellow">Time Plan</strong> -The estimated time plan for the first full-length machine to be in production, is slightly more than a year from now, at around the beginning of 2025. Normally you will receive your rental fees after your boxes have been in full production for a full year, BUT, as you may have been waiting for a long time then, I will try to prioritize your first rental fee as soon as production income allows for it. The current estimate is that you will get your first rental payment sometime around mid-2025. But remember, these time frames are just rough estimates.
+                                    <strong class="text-yellow">Time Plan</strong> -The estimated time plan for the first full-length machine to be in production, is slightly more than a year from now, at around the beginning of 2025. Normally you will receive your rental fees after your boxes have been in full production for a full year, BUT, as you may have been waiting for such a long time then, I will try to prioritize your first rental fee as soon as production income allows for it. The current estimate is that you will get your first rental payment sometime around mid-2025. But remember, these time frames are just rough estimates.
                                 </p>
 
                                 <a href="{{url('/boxpromo/important-notes')}}" class="text-yellow text-center mb-20 expand-link" data-target="important-notes" style="width: 100% !important; display: block; font-size: 1.2rem;">
