@@ -80,54 +80,90 @@
                 </div>
                 <img img-arc="2" class="img-arc" src="{{asset('arcs/arc_9.svg')}}" />
             </section>
-            <section class="section" data-clip-id="4" style="background-image: url({{asset('bg/pattern_bg4.jpg')}});">
-                <div class="content">
-                    <div class="full-width align-in-center pt-0 pb-60">
-                        <div class="_75-width flex-column z-index-1 justify-center sm_90-width sm_align-center sm_mt_0">
-                            <h1 class="h1 text-yellow sm_font-size-30 text-center mt-60">Naturally molted, we don't harm our crabs.</h1>
-                            <p class="para text-white sm_font-size-11 text-right sm_text-center">
-                                Many unethical and ignorant crab producers cruelly remove the crab’s legs and claws and even eyes in hope for them to grow faster. That is a cruel practice and does not work. There are published studies, together with our own laboratory studies, that show that ablation of limbs and eyes does not increase a crab’s mass over time. And the reason for that is that crabs will stop grow and focus all energy on regrowing its missing limbs instead of growing bigger. And some will also die of infection from their wounds. So, in regards of soft-shelled crab production, it is a bad business practice, as a crab at a size of 70-80 gram will need in average 35 days (between 1-70 days from arriving) to molt naturally. If cutting their legs and claws, the crab will molt within 10 days, but it will not have fully developed legs and claws. It will take another full molting period of 60-70 days for it to fully regain the missing limbs. It is with pride we can say that our crabs molt naturally and are produced by modern ethical standards.
-                            </p>
+            <section class="section" data-clip-id="4" style="background-image: url({{asset('bg/pattern_bg7.jpg')}});">
+                <div class="content full-width">
+                    <div class="full-width align-in-center pb-60">
+                        <div class="_75-width flex-column z-index-1 justify-center md_90-width md_align-center">
+                            <div class="full-width justify-between align-center sm_flex-column sm_justify-center">
+                                <div class="w400 p-30 sm_p-10 sm_w250">
+                                    <img class="full-width circle border-15-orange sm_border-10 shadow_1" src="{{asset('soft-shelled/image1.png')}}">
+                                </div>
+                                <div class="flex-column _70-width sm_text-center sm_90-width">
+                                    <h1 class="h1 sm_font-size-25 text-yellow text-center">
+                                        Naturally molted, we don't harm our crabs.
+                                    </h1>
+                                    <p class="para text-white sm_font-size-11">
+                                        Many unethical and ignorant crab producers cruelly remove the crab's legs and claws and even eyes in hope for them to grow faster. That is a cruel practice and does not work. There are published studies, together with our own laboratory studies, that show that ablation of limbs and eyes does not increase a crab’s mass over time. And the reason for that is that crabs will stop grow and focus all energy on regrowing its missing limbs instead of growing bigger. And some will also die of infection from their wounds. So, in regards of soft-shelled crab production, it is a bad business practice, as a crab at a size of 70-80 gram will need in average 35 days (between 1-70 days from arriving) to molt naturally. If cutting their legs and claws, the crab will molt within 10 days, but it will not have fully developed legs and claws. It will take another full molting period of 60-70 days for it to fully regain the missing limbs. It is with pride we can say that our crabs molt naturally and are produced by modern ethical standards.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <img img-arc="3" class="img-arc" src="{{asset('arcs/arc_9.svg')}}" />
             </section>
-            <section class="section" data-clip-id="5" style="background-image: url({{asset('bg/pattern_bg4.jpg')}});">
-                <div class="content">
-                    <div class="full-width align-in-center pt-100 pb-60">
-                        <div class="_75-width flex-column z-index-1 justify-center sm_90-width sm_align-center sm_mt_60">
-                            <h1 class="h1 text-yellow sm_font-size-30 text-center mt-60">Competitor's chemically dissolved crab shells</h1>
-                            <p class="para text-white sm_font-size-11 text-right sm_text-center">
-                                Some companies soak hard crabs in a chemical bath and let the chemicals dissolve the crab's shell's calcium structure. The chemical dissolving method will not render the shell structure as soft and natural as a newly molted soft-shelled crab. A newly naturally molted crab's shell is just like a thin membrane that is still as soft and tender as the rest of the crab's meat. The chemicals used in this process may also negatively affect the taste and the consumer’s health.
-                            </p>
+            <section class="section" data-clip-id="5" style="background-image: url({{asset('bg/Grey_Background_3.png')}});">
+                {{-- <div class="content full-width"> --}}
+                    <div class="full-width align-in-center">
+                        <div class="_75-width flex-column z-index-1 justify-center md_90-width md_align-center">
+                            <div class="full-width justify-between align-center sm_flex-column sm_justify-center">
+                                <div class="w400 p-30 sm_p-10 sm_w250">
+                                    <img class="full-width circle border-15-orange sm_border-10 shadow_1" src="{{asset('soft-shelled/image2.png')}}">
+                                </div>
+                                <div class="flex-column _70-width sm_text-center sm_90-width">
+                                    <h1 class="h1 sm_font-size-25 text-yellow text-center">
+                                        Competitor's chemically dissolved crab shells
+                                    </h1>
+                                    <p class="para text-white sm_font-size-11">
+                                        Some companies soak hard crabs in a chemical bath and let the chemicals dissolve the crab's shell's calcium structure. The chemical dissolving method will not render the shell structure as soft and natural as a newly molted soft-shelled crab. A newly naturally molted crab's shell is just like a thin membrane that is still as soft and tender as the rest of the crab's meat. The chemicals used in this process may also negatively affect the taste and the consumer’s health.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
+                {{-- </div> --}}
+                
                 <img img-arc="4" class="img-arc" src="{{asset('arcs/arc_6.svg')}}" />
             </section>
             <section class="section" data-clip-id="6" style="background-image: url({{asset('bg/Grey_Background_4.png')}});">
-                <div class="content">
-                    <div class="full-width align-in-center pt-40 pb-60 mb-100">
-                        <div
-                            class="_75-width flex-column z-index-1 justify-center sm_90-width sm_align-center sm_mt_60 mb-40">
-                            <h1 class="h1 text-yellow sm_font-size-30 text-center">Nutrition</h1>
-                            <p class="para text-white sm_font-size-11 text-right sm_text-center">
-                                Soft-shelled crabs contain essential vitamins and minerals, such as vitamins B6 and B12m, vitamin E and K, riboflavin, folate, niacin, thiamin, iron, calcium, magnesium, copper, selenium, potassium, zinc, and phosphorus. A 65g serving of soft-shelled crab also provides 13g protein, 13g of fat, and 11g of carbohydrates. Soft-shelled crab is very low in saturated fat, low in calories, and contains essential omega 3 fats. Soft-shell crab is also rich in cholesterol and serves 79 mg of cholesterol, about 26% of the recommended daily intake web page level.
-                            </p>
+                <div class="content full-width sm_mb-100">
+                    <div class="full-width align-in-center">
+                        <div class="_75-width flex-column z-index-1 justify-center md_90-width md_align-center">
+                            <div class="full-width justify-between align-center sm_flex-column sm_justify-center">
+                                <div class="w400 p-30 sm_p-10 sm_w250">
+                                    <img class="full-width circle border-15-orange sm_border-10 shadow_1" src="{{asset('soft-shelled/image3.png')}}">
+                                </div>
+                                <div class="flex-column _70-width sm_text-center sm_90-width">
+                                    <h1 class="h1 sm_font-size-25 text-yellow text-center">
+                                        Nutrition
+                                    </h1>
+                                    <p class="para text-white sm_font-size-11 mb-60 pb-40">
+                                        Soft-shelled crabs contain essential vitamins and minerals, such as vitamins B6 and B12m, vitamin E and K, riboflavin, folate, niacin, thiamin, iron, calcium, magnesium, copper, selenium, potassium, zinc, and phosphorus. A 65g serving of soft-shelled crab also provides 13g protein, 13g of fat, and 11g of carbohydrates. Soft-shelled crab is very low in saturated fat, low in calories, and contains essential omega 3 fats. Soft-shell crab is also rich in cholesterol and serves 79 mg of cholesterol, about 26% of the recommended daily intake web page level.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <img img-arc="5" class="img-arc" src="{{asset('arcs/arc_15.svg')}}" />
             </section>
-            <section class="section" data-clip-id="7" style="background-image: url({{asset('bg/Grey_Background_3.png')}});">
-                <div class="content">
-                    <div class="full-width align-in-center pt-100 pb-60">
-                        <div class="_75-width flex-column z-index-1 justify-center sm_90-width sm_align-center sm_mt_60">
-                            <h1 class="h1 text-yellow sm_font-size-30 text-center mt-60">Production</h1>
-                            <p class="para text-white sm_font-size-11 text-right sm_text-center">
-                                Our soft-shell crab production occurs indoors under strict environmental regulations. Crabs are kept in individual compartments for an average of 35 days before they molt naturally. The daily management such as monitoring of health status and development stage, as well as feeding, cleaning, and harvesting is done by robots driven by artificial intelligence (AI). We feed the crabs twice a day with in-house produced ecological feed. Our water quality and hygiene conditions are automatically controlled at high web page levels using modern technology. The crabs are nurtured in highly filtered, disinfected, recirculated water keeping them free from harmful particles, viruses, bacteria, and parasites.
-                            </p>
+            <section class="section pb-100 sm_pb-20" data-clip-id="7" style="background-image: url({{asset('bg/Grey_Background_3.png')}});">
+                <div class="content full-width mt-150 sm_mt-50">
+                    <div class="full-width align-in-center">
+                        <div class="_75-width flex-column z-index-1 justify-center md_90-width md_align-center">
+                            <div class="full-width justify-between align-center sm_flex-column sm_justify-center">
+                                <div class="w400 p-30 sm_p-10 sm_w250">
+                                    <img class="full-width circle border-15-orange sm_border-10 shadow_1" src="{{asset('soft-shelled/image4.png')}}">
+                                </div>
+                                <div class="flex-column _70-width sm_text-center sm_90-width">
+                                    <h1 class="h1 sm_font-size-25 text-yellow text-center">
+                                        Production
+                                    </h1>
+                                    <p class="para text-white sm_font-size-11 mb-50 pb-30">
+                                        Our soft-shell crab production occurs indoors under strict environmental regulations. Crabs are kept in individual compartments for an average of 35 days before they molt naturally. The daily management such as monitoring of health status and development stage, as well as feeding, cleaning, and harvesting is done by robots driven by artificial intelligence (AI). We feed the crabs twice a day with in-house produced ecological feed. Our water quality and hygiene conditions are automatically controlled at high web page levels using modern technology. The crabs are nurtured in highly filtered, disinfected, recirculated water keeping them free from harmful particles, viruses, bacteria, and parasites.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
