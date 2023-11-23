@@ -20,10 +20,10 @@ page-no-arc
                         <div class="_75-width md_90-width flex-column justify-center max-w700">
                             <h1 class="h1 font-size-25 sm_font-size-20 text-center mb-10 text-yellow">Earn a good income from your own crab box</h1>
                             <div class="text-white font-size-12 p-10 mb-20">
-                                <a class="text-yellow text-center mb-20 expand-link" data-target="long-introduction" style="width: 100% !important; display: block; font-size: 1.2rem;">
+                                <a class="text-yellow text-center mb-20" style="width: 100% !important; display: block; font-size: 1.2rem;">
                                     <strong>Introduction</strong>
                                 </a>
-                                <p class="para sm_font-size-11 mt-20 mb-20 expandable-content" id="long-introduction">
+                                <p class="para sm_font-size-11 mt-20 mb-20">
                                     <strong class="text-yellow">Who am I?</strong> For those of you who might not know me so well. Let me present myself. I am Peter Persson, a 54-year-old Swedish machine designer (automation, robotics, and machine mechanics). But I am not your regular paper tossing desk-engineer. Surely, I love my desk and computer where I design everything, but I also love to get my hands dirty on a workshop floor while building my creations. I have been doing this as a self-employed entrepreneur for 34 years and I still love every minute of it 😊.<br><br>
                                     
                                     <strong class="text-yellow">Project</strong> - As many of you already know, I have been working on a large AI-driven high-tech soft-shell crab project for a while. Now after 6.5 years and 40-50,000 hours of project development, testing, prototyping, researching, designing, etc, etc, the project is reaching a final phase, and we have started to build our first full sized, but shorter machine, which will be extended later, and I need your help to speed things up and therefore invite you to be a part of it. <br><br>
@@ -45,7 +45,7 @@ page-no-arc
                                     
                                     <br> <br>
 
-                                <a href="{{url('/boxpromo/offerings')}}" class="text-yellow text-center mb-20 expand-link" data-target="short-introduction" style="width: 100% !important; display: block; font-size: 1.2rem;">
+                                <a href="{{url('/boxpromo/offerings')}}" class="text-yellow text-center mb-20" style="width: 100% !important; display: block; font-size: 1.2rem;">
                                     <strong><u>Get some boxes</u></strong><br>
                                     <span class="text-blue font-size-12"></span>
                                 </a>
