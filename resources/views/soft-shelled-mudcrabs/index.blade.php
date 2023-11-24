@@ -55,13 +55,21 @@
                 <div class="content">
                     <div class="full-width align-in-center pt-0 pb-60">
                         <div class="_75-width flex-column z-index-1 justify-center sm_90-width sm_align-center sm_mt_0">
-                            <h1 class="h1 text-yellow sm_font-size-30 text-center mt-60">What makes our soft-shelled crabs so special? </h1>
-                            <p class="para text-white sm_font-size-11 text-left sm_text-center">
-                                You will never get a chewy and leathery soft-shelled crab from us. Our crabs are harvested within the first hours after being molted, by an automated robot and cryogenically frozen. In a traditional soft-shell mud crab production, the molting process is monitored manually by people, every 1-4 hours, 24 hours a day, 7 days a week. Such dull, mundane, and repetitive working conditions increase the likelihood of mistakes and errors being made in the regulation of harvesting the molting crabs at precisely the right time. By the time these crabs are collected they can be up to 8 hours old, by which point the crabs have already developed a hard, chewy, leathery shell texture. 
-                            </p>
-                            <p class="para text-white sm_font-size-11 text-left sm_text-center mb-15">
-                                And many soft-shell mud crab farmers are small producers and may not care or even understand the need for proper freezing facilities, resulting in a large loss of natural liquid, taste, and weight when the crabs are thawed and cooked. 
-                            </p>
+                            <div class="full-width justify-between align-center sm_flex-column-reverse sm_justify-center">
+                                <div class="flex-column _70-width sm_text-center sm_90-width">
+                                    <h1 class="h1 text-yellow sm_font-size-30 mt-60 sm_mt-10">What makes our soft-shelled crabs so special? </h1>
+                                    <p class="para text-white sm_font-size-11 text-left sm_text-center">
+                                        You will never get a chewy and leathery soft-shelled crab from us. Our crabs are harvested within the first hours after being molted, by an automated robot and cryogenically frozen. In a traditional soft-shell mud crab production, the molting process is monitored manually by people, every 1-4 hours, 24 hours a day, 7 days a week. Such dull, mundane, and repetitive working conditions increase the likelihood of mistakes and errors being made in the regulation of harvesting the molting crabs at precisely the right time. By the time these crabs are collected they can be up to 8 hours old, by which point the crabs have already developed a hard, chewy, leathery shell texture. 
+                                    </p>
+                                    <p class="para text-white sm_font-size-11 text-left sm_text-center mb-15">
+                                        And many soft-shell mud crab farmers are small producers and may not care or even understand the need for proper freezing facilities, resulting in a large loss of natural liquid, taste, and weight when the crabs are thawed and cooked. 
+                                    </p>
+                                    
+                                </div>
+                                <div class="w400 p-30 sm_p-10 sm_w250">
+                                    <img class="full-width circle border-15-orange sm_border-10 shadow_1" src="{{asset('soft-shelled/image1.png')}}">
+                                </div>
+                            </div>
                             <p class="para text-white sm_font-size-11 text-left sm_text-center mb-15">
                                 These sub-quality crabs, when bought and packed by distributors, are mixed with crabs of different qualities, from different farms with unknown origins, making it highly likely that the customer whose plate they are served on, will not have a pleasant experience, causing damage to the reputation of the restaurateurs who unknowingly purchased such poorly produced crab.
                             </p>
@@ -106,17 +114,17 @@
                 {{-- <div class="content full-width"> --}}
                     <div class="full-width align-in-center">
                         <div class="_75-width flex-column z-index-1 justify-center md_90-width md_align-center">
-                            <div class="full-width justify-between align-center sm_flex-column sm_justify-center">
-                                <div class="w400 p-30 sm_p-10 sm_w250">
-                                    <img class="full-width circle border-15-orange sm_border-10 shadow_1" src="{{asset('soft-shelled/image2.png')}}">
-                                </div>
+                            <div class="full-width justify-between align-center sm_flex-column-reverse sm_justify-center">
                                 <div class="flex-column _70-width sm_text-center sm_90-width">
-                                    <h1 class="h1 sm_font-size-25 text-yellow text-center">
+                                    <h1 class="h1 sm_font-size-25 text-yellow">
                                         Competitor's chemically dissolved crab shells
                                     </h1>
                                     <p class="para text-white sm_font-size-11">
                                         Some companies soak hard crabs in a chemical bath and let the chemicals dissolve the crab's shell's calcium structure. The chemical dissolving method will not render the shell structure as soft and natural as a newly molted soft-shelled crab. A newly naturally molted crab's shell is just like a thin membrane that is still as soft and tender as the rest of the crab's meat. The chemicals used in this process may also negatively affect the taste and the consumer’s health.
                                     </p>
+                                </div>
+                                <div class="w400 p-30 sm_p-10 sm_w250">
+                                    <img class="full-width circle border-15-orange sm_border-10 shadow_1" src="{{asset('soft-shelled/image2.png')}}">
                                 </div>
                             </div>
                         </div>
@@ -125,14 +133,12 @@
                 
                 <img img-arc="4" class="img-arc" src="{{asset('arcs/arc_6.svg')}}" />
             </section>
-            <section class="section" data-clip-id="6" style="background-image: url({{asset('bg/Grey_Background_4.png')}});">
+            <section class="section pb-50 mb-50 sm_pb-10 sm_mb-10" data-clip-id="6" style="background-image: url({{asset('bg/Grey_Background_4.png')}});">
                 <div class="content full-width sm_mb-100">
                     <div class="full-width align-in-center">
                         <div class="_75-width flex-column z-index-1 justify-center md_90-width md_align-center">
-                            <div class="full-width justify-between align-center sm_flex-column sm_justify-center">
-                                <div class="w400 p-30 sm_p-10 sm_w250">
-                                    <img class="full-width circle border-15-orange sm_border-10 shadow_1" src="{{asset('soft-shelled/image3.png')}}">
-                                </div>
+                            <div class="full-width justify-between align-center sm_flex-column-reverse sm_justify-center">
+                                
                                 <div class="flex-column _70-width sm_text-center sm_90-width">
                                     <h1 class="h1 sm_font-size-25 text-yellow text-center">
                                         Nutrition
@@ -140,6 +146,9 @@
                                     <p class="para text-white sm_font-size-11 mb-60 pb-40">
                                         Soft-shelled crabs contain essential vitamins and minerals, such as vitamins B6 and B12m, vitamin E and K, riboflavin, folate, niacin, thiamin, iron, calcium, magnesium, copper, selenium, potassium, zinc, and phosphorus. A 65g serving of soft-shelled crab also provides 13g protein, 13g of fat, and 11g of carbohydrates. Soft-shelled crab is very low in saturated fat, low in calories, and contains essential omega 3 fats. Soft-shell crab is also rich in cholesterol and serves 79 mg of cholesterol, about 26% of the recommended daily intake web page level.
                                     </p>
+                                </div>
+                                <div class="w400 p-30 sm_p-10 sm_w250">
+                                    <img class="full-width circle border-15-orange sm_border-10 shadow_1" src="{{asset('soft-shelled/image3.png')}}">
                                 </div>
                             </div>
                         </div>
