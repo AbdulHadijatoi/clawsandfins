@@ -55,17 +55,26 @@
             </div>
             <img img-arc="1" class="img-arc" src="{{asset('arcs/arc_15.svg')}}"/>
         </section>
-        <section class="section" data-clip-id="3" style="background-image: url({{asset('bg/pattern_bg3.jpg')}});">
-            <div class="content">
-                <div class="full-width align-in-center pt-100 pb-120">
-                    <div class="_75-width flex-column z-index-1 justify-center sm_155-width sm_align-center sm_mt_60">
-                        <h1 class="h1 text-yellow sm_font-size-30 text-right sm_text-center">Local community engagement</h1>
-                        <p class="para text-white sm_font-size-11 text-right sm_text-center">
-                            It is in our core believe that if you benefit the local community, the people there will add value to your business as well. For every site we establish a manufacturing facility, our project will add value to the community as whole. We will provide jobs for hundreds of local residents with positions available within our production, sales, administration, and management teams. We will also offer hundreds of local farmers opportunities to join our supply network, providing training, coaching, and financial support to help them adapt to a more intensive and efficient farming system. Through our research and development, anything learned or discovered will be shared with our farmers to produce more efficiently and a healthier product. One among many different local benefitting activities, is that we will arrange cleanup days where we offer students an extra income for their effort as well as courses in environment know-how and teach them the importance of keeping the environment healthy.
-                        </p>
+        <section class="section sm_pb-50 sm_mb-50" data-clip-id="3" style="background-image: url({{asset('bg/pattern_bg3.jpg')}});">
+            <div class="content mt-100">
+                    <div class="full-width align-in-center">
+                        <div class="_75-width flex-column z-index-1 justify-center md_90-width md_align-center">
+                            <div class="full-width justify-between align-center sm_flex-column sm_justify-center">
+                                <div class="flex-column _70-width sm_text-center sm_90-width">
+                                    <h1 class="h1 sm_font-size-25 text-yellow text-center">
+                                        Local community engagement
+                                    </h1>
+                                    <p class="para text-white sm_font-size-11 mb-50 pb-30 sm_pb-0 sm_mb-10">
+                                        It is in our core believe that if you benefit the local community, the people there will add value to your business as well. For every site we establish a manufacturing facility, our project will add value to the community as whole. We will provide jobs for hundreds of local residents with positions available within our production, sales, administration, and management teams. We will also offer hundreds of local farmers opportunities to join our supply network, providing training, coaching, and financial support to help them adapt to a more intensive and efficient farming system. Through our research and development, anything learned or discovered will be shared with our farmers to produce more efficiently and a healthier product. One among many different local benefitting activities, is that we will arrange cleanup days where we offer students an extra income for their effort as well as courses in environment know-how and teach them the importance of keeping the environment healthy.
+                                    </p>
+                                </div>
+                                <div class="w400 p-30 sm_p-10 sm_w250">
+                                    <img class="full-width circle border-15-orange sm_border-10 shadow_1" src="{{asset('images/image_2.jpg')}}">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
             <img img-arc="2" class="img-arc" src="arcs/arc_2.svg"/>
         </section>
         <!-- <section class="section" data-clip-id="4" style="background-image: url(bg/pattern_bg4.jpg);">
