@@ -7,7 +7,7 @@
             <div class="content">
                 <div class="full-width align-in-center pb-120">
                     <div class="_75-width flex-column z-index-1 justify-center md_90-width md_align-center">
-                        <h1 class="h1 text-yellow sm_font-size-35 sm_mt-35 text-center">Pete's Claws and Fins</h1>
+                        <h1 class="h1 text-yellow sm_font-size-35 sm_mt-35 text-center">***STILL UNDER CONSTRUCTION*** <br><br><br>Pete's Claws and Fins</h1>
                         <p class="sub-heading mb-20 text-center sm_mb-0 sm_font-size-20" style="font-weight: 600;font-size: 20px;">High-Tech Ecological Seafood</p>
                         <!--<h1 class="h1 text-yellow sm_font-size-35 sm_mt-30 text-center mt-60">We produce ecological food</h1>
                         <p class="sub-heading mb-20 text-center sm_mb-0 sm_font-size-20" style="font-weight: 600;font-size: 20px;">using high-tech and artificial intelligence (AI).</p>
