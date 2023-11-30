@@ -412,12 +412,23 @@ page-no-arc
                                 <p class="para sm_font-size-11"><span class="text-bold">2025 Q2</span> - First production line runs at full production </p>
                                 <p class="para sm_font-size-11"><span class="text-bold">2025 H2</span> The second line will be up and running at full production.</p>
                                 <p class="para sm_font-size-11"><span class="text-bold">2026</span> - This year we plan to build 2-3 additional production lines. </p>
+                                
+                                 <br>
+                                 
+                                <a href="{{url('/boxpromo/important-notes')}}" class="text-yellow text-center mb-20 expand-link" data-target="important-notes" style="width: 100% !important; display: block; font-size: 1.2rem;">
+                                    <strong><u>Click for important notes</strong></u><br>
+                                    <span class="text-blue font-size-12"></span>
+                                </a>
+                                
                             </div>
+                           
                         </div>
                     </div>
                 </div>
             </section>
         </div>
+        
+        
 
 @endsection
 

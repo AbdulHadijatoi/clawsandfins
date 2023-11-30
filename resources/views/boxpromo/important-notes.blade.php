@@ -30,11 +30,11 @@ page-no-arc
                                     <strong></strong>
                                     <span style="display: block" class="para sm_font-size-11 mt-20 mb-20 ml-20">
                                         <strong class="text-yellow">Booking and payments</strong>
-                                        - Book your bundles of boxes by sending Peter a message on Facebook with the number of bundles and which of the Offer A, Offer B or Offer C you wish to join, together with your email address, and feel free to ask Peter any questions. You will get a confirmation email with further instructions, then you will pay the initial payment to our company Yat Fung International Holding ltd in Hong Kong within 5 days, and then send Peter a proof of payment. The day we receive your payment, first then we will secure your boxes for you. Late payment will risk you losing the boxes. Contact Peter as soon as possible at such an event.
+                                        - Book your bundles of boxes by sending me, Peter a message on Facebook with the number of bundles you want, together with your email address, and feel free to ask me any questions. You will get a confirmation email from me with further instructions, then you will pay the initial payment to my company Yat Fung International Holding ltd in Hong Kong within 5 days, and please send me a proof of payment right after. The day I receive your payment, first then I will secure your boxes for you. Late payment will risk you losing the boxes. Contact me as soon as possible at such delay.
                                     </span>
                                     <span style="display: block" class="para sm_font-size-11 mt-20 mb-20 ml-20">
-                                        <strong class="text-yellow">Failed payment for a booking </strong>
-                                         - Please understand that if you have booked any of the offerings above and then fails to complete any outstanding payments 2 weeks after that our payment request has been sent out, you will sadly lose ALL your booked boxes and we must hold your earlier payments till we, with your FULLY cooperation and effort, have been able to find a new buyer for your boxes. Or we will let you earn an income from the boxes you actually paid for AND as a good deed, I might also add in free boxes to speed up the earnings, but only till you have gotten your initial payments back, and then we will have no more obligations left to you. (No interest will be paid).
+                                        <strong class="text-yellow">Failed payments</strong>
+                                         - Please understand that if you fail to complete any outstanding payments 2 weeks after that our payment request has been sent out to you, you will sadly lose ALL your booked boxes and I will hold your earlier payments, but I will let you earn an income from the boxes you actually paid for, AND as a good deed, I might also add in free boxes to speed up the earnings, but only till you have gotten your initial payments back, and then we will have no more obligations left to you. (A fair Interest will be paid to you as well). 
                                     </span>
                                     <span style="display: block" class="para sm_font-size-11 mt-20 mb-20 ml-20">
                                         <strong class="text-yellow">Risk</strong>
@@ -63,11 +63,11 @@ page-no-arc
                                         <strong class="text-yellow">Free boxes </strong>
                                          - Whenever one of your boxes, purchased or free, has been in full production for a whole year or more, it has earned you one additional free box in the next coming machine. <br><br>
                                             <u>The free box rule is simple: </u><br>
-                                            One of your boxes, purchased or free, has been in production for one year or longer since the last free box it earned.<br>
+                                             * One of your boxes, purchased or free, has been in full production for one year or longer since the last free box it earned.<br>
                                             AND<br>
-                                            A new machine has been added to the production.<br>
+                                             * A new machine has been added to the production.<br>
                                             =<br>
-                                            You will get one new free box in that machine to earn an income from.
+                                             * You will get one new free box in that machine to earn an income from.
    
                                          </span>
                                     
@@ -75,13 +75,13 @@ page-no-arc
                                     
                                     <span style="display: block" class="para sm_font-size-11 mt-20 mb-20 ml-20">
                                         <strong class="text-yellow">Inflation</strong>
-                                         - As we are giving you many boxes/compartments for free, your rental income will be fixed and will not be adjusted for any eventual inflation, deflation or devaluation of the US Dollar.   
+                                         - As I am giving you many boxes/compartments for free, your rental income will be fixed and will not be adjusted for any eventual inflation, deflation or devaluation of the US Dollar.   
                                     </span>
                                     
                                     
                                     <span style="display: block" class="para sm_font-size-11 mt-20 mb-20 ml-20">
                                         <strong class="text-yellow">Sell your contract</strong>
-                                         - You are free to sell your contract as whole, if you wish to, to anyone in the group who already has our contract, to the highest bid. Let Peter know, and he will post your sale to every contract-holder to bid on.  
+                                         - You are free to sell your contract as whole, if you wish to, to anyone in the group of contract-holders, (no outsiders) to the highest bid. Let me know, and I will post your sale to every contract-holder to bid on.   
                                     </span>
                                     <span style="display: block" class="para sm_font-size-11 mt-20 mb-20 ml-20">
                                         <strong class="text-yellow">A “machine”</strong> 
@@ -111,7 +111,7 @@ page-no-arc
                                     
                                     <span style="display: block" class="para sm_font-size-11 mt-20 mb-20 ml-20">
                                         <strong class="text-yellow">Accountable for your loss </strong>
-                                         -  All money from the sale of boxes will go entirely to finalizing your boxes and compartments. I will work my ass off to protect your investment, the company, and my own honor and reputation, but me, Peter Persson can NEVER personally be accountable for any of your financial losses, neither directly nor indirectly. You have agreed to be involved in a business venture associated with a high risk, but also very high returns, so you should be well aware that you can lose all your invested money. If you can't accept that, please don't get involved in this project. But if you do, let’s make money together. 
+                                         -  All money from the sale of boxes will go entirely to finalizing boxes, compartments and necessary equipment around them and not be used for anything else. I will work my ass off to protect your investment, the company, and my own honor and reputation, but me, Peter Persson can NEVER personally be accountable for any of your financial losses, neither directly nor indirectly. You have agreed to be involved in a business venture associated with a high risk, but also very high returns, so you should be well aware that you can lose all your invested money. If you can't accept that, please don't get involved in this project. But if you do, let’s make money together. 
                                     </span>
                                     
                                     <a href="{{url('/timeline')}}" class="text-yellow text-center mb-20 expand-link" data-target="short-introduction" style="width: 100% !important; display: block; font-size: 1.2rem;">

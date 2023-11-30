@@ -37,9 +37,9 @@
         <li class="{{ (request()->is('cv*')) ? 'active' : '' }}">
                 <a href="{{url('cv/')}}">Peter’s CV (PDF)</a>
         </li>
-        <!--<li>
-                <a href="{{url('storage/docs/box_rental_calculator_and_very_simple_project_budget.xlsx')}}" target="_blank">Rental calculator (Excel)</a>
-        </li>-->
+        <li>
+                <a href="{{url('storage/docs/box_rental_calculator_and_very_simple_project_budget.xlsx')}}" target="_blank">Calculate your earnings (Excel)</a>
+        </li>
         <li>
                 <a href="{{url('storage/docs/market_size_reseach_1_ssc.xlsx')}}" target="_blank">Market research notes and links (Excel)</a>
         </li>

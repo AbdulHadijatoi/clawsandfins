@@ -20,11 +20,35 @@ page-no-arc
                         <div class="_75-width md_90-width flex-column justify-center max-w700">
                             <h1 class="h1 font-size-25 sm_font-size-20 text-center mb-10 text-yellow">Earn a good income from your own crab box</h1>
                             <div class="text-white font-size-12 p-10 mb-20">
+                                
                                 <a class="text-yellow text-center mb-20" style="width: 100% !important; display: block; font-size: 1.2rem;">
                                     <strong>Introduction</strong>
+                                </a><br>
+                                <a class="text-yellow text-center mb-20" style="width: 100% !important; display: block; font-size: 1.2rem;">
+                                    <strong>Very short version</strong>
                                 </a>
                                 <p class="para sm_font-size-11 mt-20 mb-20">
-                                    <strong class="text-yellow">Who am I?</strong> For those of you who might not know me so well. Let me present myself. I am Peter Persson, a 54-year-old Swedish machine designer (automation, robotics, and machine mechanics). But I am not your regular paper tossing desk-engineer. Surely, I love my desk and computer where I design everything, but I also love to get my hands dirty on a workshop floor while building my creations. I have been doing this as a self-employed entrepreneur for 34 years and I still love every minute of it 😊.<br><br>
+                                                                        <strong class="text-yellow"></strong> 
+                                    <strong class="text-yellow">Get a box</strong> - Buy a box for $8 but only pay $2.67 now (33.3%) and the rest in 2 installments, 3 months apart, giving you a chance to see our progress. (For companies, we can issue invoices). 
+                                    <br><br>
+                                     <strong class="text-yellow">Bundles</strong> -  Boxes will come in bundles of 500 boxes in each. I only have 33 bundles available, and no new ones will be offered with this arrangement. 
+                                    <br><br>
+                                    <strong class="text-yellow">Get free boxes</strong> - Get additional free boxes for every new machine I get up in production. 
+                                    <br><br>
+                                    <strong class="text-yellow">Earnings</strong> - Earn $1.2 yearly from every box, including the free ones. 
+                                    <br><br>
+                                    
+                                    <strong class="text-yellow">Huge market</strong> - Our market research estimates that we can have 50-300 machines up and running within 10 years, from which every one of them, will earn you a yearly $1.2 (15%), from your initial $8 box investment. For example: 10 machines will earn you $12 and 20 machines will earn you $24, and so, from your initial $8 box investment.
+                                    <br><br>
+                                    
+                                    </p>
+                                    
+                                
+                                <a class="text-yellow text-center mb-20" style="width: 100% !important; display: block; font-size: 1.2rem;">
+                                    <strong>Long version</strong>
+                                </a>
+                                <p class="para sm_font-size-11 mt-20 mb-20">
+                                    <strong class="text-yellow">Who am I?</strong> - For those of you who might not know me so well. Let me present myself. I am Peter Persson, a 54-year-old Swedish machine designer (automation, robotics, and machine mechanics). But I am not your regular paper tossing desk-engineer. Surely, I love my desk and computer where I design everything, but I also love to get my hands dirty on a workshop floor while building my creations. I have been doing this as a self-employed entrepreneur for 34 years and I still love every minute of it 😊.<br><br>
                                     
                                     <strong class="text-yellow">Project</strong> - As many of you already know, I have been working on a large AI-driven high-tech soft-shell crab project for a while. Now after 6.5 years and 40-50,000 hours of project development, testing, prototyping, researching, designing, etc, etc, the project is reaching a final phase, and we have started to build our first full sized, but shorter machine, which will be extended later, and I need your help to speed things up and therefore invite you to be a part of it. <br><br>
                                     
@@ -40,8 +64,7 @@ page-no-arc
                                     
                                     <strong class="text-yellow">Huge market</strong> - And imagine, there is a $25 billion worth of crab market out there, of which $1.5-2 billion is soft-shell crab to tap into. So, it is not impossible that we could have anything between 50 - 300 machines in production within next 10 years from now, as we are the only one in the world who have automated this production process which will produce an unrivaled product quality and to an extremely low cost.<br><br>
                                     
-                                    <strong class="text-yellow">Customer is waiting</strong> - We actually have a distribution request from a Korean customer already. A customer who has followed our project for over 4 years, and have also visited us in Vietnam, at two different occasions. He is asking for delivery of roughly 20 tons of soft-shell crabs per month, worth roughly $4.3 million per year, which equals production in 2-3 machines. And the Korean customer also believes that he can increase this volume significantly to 30-50 tons as soon as the current economic recession is over. So, just to satisfy this one single customer’s future demands, we might be required to have between 3-6 machines… And with 20-30 of such customers from different countries around the world, we might be required to have 50-300 machines in production within 10 years. My machine’s parts are designed to be cheap and fast to mass-produce and easy and fast to assemble. (Built within 2-3 months and ROI in 6-8 months).<br><br>
-                                    Why do we only have one customer? Because it will take us about 1-2 years to just satisfy this single customer’s demands at the beginning. Surely, I have communicated with a few others, but it feels meaningless to engage them any further now as we will not be able to deliver to them for a while. But as soon as we are ready and have the production capacity for it, we will, for sure.
+                                    <strong class="text-yellow">Customer is waiting</strong> - We actually have a distribution request from a Korean customer already. A customer who has followed our project for over 4 years, and have also visited us in Vietnam, at two different occasions. He is asking for delivery of roughly 20 tons of soft-shell crabs per month, worth roughly $4.3 million per year, which equals production in 2-3 machines. And the Korean customer also believes that he can increase this volume significantly to 30-50 tons as soon as the current economic recession is over. So, just to satisfy this one single customer’s future demands, we may be required to have between 3-6 machines… And with 20-30 of such customers from different countries around the world, we may be required to have 50-300 machines in production within 10 years. My machine’s parts are designed to be cheap and fast to mass-produce and easy and fast to assemble. (Built within 2-3 months and ROI in 6-8 months).
                                     
                                     <br> <br>
 

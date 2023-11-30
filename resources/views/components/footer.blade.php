@@ -3,11 +3,13 @@
     <svg class="absolute" style="margin-bottom: -10px;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 761.705 463.652">
         <g style="filter: drop-shadow( 6px 0px 6px rgba(0, 0, 0, 0.8));" id="Group_41" transform="translate(-107 -821)">
             <g transform="matrix(1, 0, 0, 1, 107, 821)">
-                
-                    <radialGradient id="Rectangle_6-2_00000118393049395272186980000003601199239602735242_" cx="131.1084" cy="482.7901" r="0.3883" gradientTransform="matrix(499.1503 -43.0117 -43.0117 -499.1503 -44478.5859 246751.6562)" gradientUnits="userSpaceOnUse">
-                    <stop  offset="0" style="stop-color:#FF8A34"/>
-                    <stop  offset="1" style="stop-color:#E00000"/>
-                </radialGradient>
+
+            <radialGradient id="Rectangle_6-2_00000118393049395272186980000003601199239602735242_" cx="130.877" cy="482.884" r="0.3883" gradientTransform="matrix(495.134801, 297.488531, 753.495622, -1254.105254, -428559.779803, 566727.144762)" gradientUnits="userSpaceOnUse">
+                <stop offset="0" style="stop-color:#FFBA08"></stop>
+                <stop offset="1" style="stop-color:#E00000"></stop>
+            </radialGradient>
+
+
                 <path id="Rectangle_6-2" style="fill:url(#Rectangle_6-2_00000118393049395272186980000003601199239602735242_);" d="
                     M198.591,9.439L198.591,9.439c65.283,0,118.205,52.922,118.205,118.205l0,0c0,65.283-52.922,118.205-118.205,118.205l0,0
                     c-65.283,0-118.205-52.922-118.205-118.205l0,0C80.386,62.361,133.308,9.439,198.591,9.439z"/>
@@ -31,10 +33,12 @@
         <g style="filter: drop-shadow( 6px 0px 6px rgba(0, 0, 0, 0.8));" id="Group_41_00000159461837734112345100000006418876321107595199_" transform="translate(-107 -821)">
             <g transform="matrix(1, 0, 0, 1, 107, 821)">
                 
-                    <radialGradient id="Rectangle_6-2_00000133508265552570723280000009298788813370790018_" cx="131.7027" cy="482.6174" r="0.2901" gradientTransform="matrix(499.1503 -43.0117 -43.0117 -499.1503 -44478.5859 246751.6562)" gradientUnits="userSpaceOnUse">
-                    <stop  offset="0" style="stop-color:#FF8A34"/>
-                    <stop  offset="1" style="stop-color:#E00000"/>
-                </radialGradient>
+                    
+            <radialGradient id="Rectangle_6-2_00000133508265552570723280000009298788813370790018_" cx="130.839" cy="482.433" r="0.2901" gradientTransform="matrix(-478.349171, -353.975572, -634.386806, 857.28622, 369206.396823, -367029.32779)" gradientUnits="userSpaceOnUse">
+            <stop offset="0" style="stop-color:#FFBA08"></stop>
+            <stop offset="1" style="stop-color:#E00000"></stop>
+            </radialGradient>
+
                 
                     <path id="Rectangle_6-2_00000102523483417539575970000010441552123867476642_" style="fill:url(#Rectangle_6-2_00000133508265552570723280000009298788813370790018_);" d="
                     M502.693,99.981L502.693,99.981c48.771,0,88.307,39.536,88.307,88.307l0,0c0,48.771-39.536,88.307-88.307,88.307l0,0
@@ -57,10 +61,12 @@
         </g>
         <g style="filter: drop-shadow( 6px 0px 6px rgba(0, 0, 0, 0.8));" id="Group_41_00000003078696164919490630000001320425455692212113_" transform="translate(-107 -821)">
             <g transform="matrix(1, 0, 0, 1, 107, 821)">
-                    <radialGradient id="Rectangle_6-2_00000108274577833090856370000008530305212779170969_" cx="131.3732" cy="482.4697" r="0.372" gradientTransform="matrix(499.1503 -43.0117 -43.0117 -499.1503 -44478.5859 246751.6562)" gradientUnits="userSpaceOnUse">
-                    <stop  offset="0" style="stop-color:#FF8A34"/>
-                    <stop  offset="1" style="stop-color:#E00000"/>
-                </radialGradient>
+                    
+            <radialGradient id="Rectangle_6-2_00000108274577833090856370000008530305212779170969_" cx="131.547" cy="482.337" r="0.372" gradientTransform="matrix(-459.815294, -354.483748, -305.887617, 396.779275, 208465.240983, -144415.11913)" gradientUnits="userSpaceOnUse">
+            <stop offset="0" style="stop-color:#FB3F00"></stop>
+            <stop offset="1" style="stop-color:#FF0700"></stop>
+            </radialGradient>
+
                     <path id="Rectangle_6-2_00000054265630195933872920000000224317566555944578_" style="fill:url(#Rectangle_6-2_00000108274577833090856370000008530305212779170969_);" d="
                     M344.545,162.96L344.545,162.96c62.546,0,113.25,50.704,113.25,113.25l0,0c0,62.546-50.704,113.25-113.25,113.25l0,0
                     c-62.546,0-113.25-50.704-113.25-113.25l0,0C231.295,213.664,281.999,162.96,344.545,162.96z"/>
