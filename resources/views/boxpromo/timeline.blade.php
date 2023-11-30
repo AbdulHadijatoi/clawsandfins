@@ -13,17 +13,6 @@ page-no-arc
                 color:brown;
             }
 
-            .expandable-content {
-                display: none;
-            }
-
-            .expanded {
-                display: block;
-            }
-
-            .expand-link {
-                cursor: pointer;
-            }
 
             .mt-50{
                 margin-top: 50px;
@@ -415,7 +404,7 @@ page-no-arc
                                 
                                  <br>
                                  
-                                <a href="{{url('/boxpromo/important-notes')}}" class="text-yellow text-center mb-20 expand-link" data-target="important-notes" style="width: 100% !important; display: block; font-size: 1.2rem;">
+                                <a href="{{url('/boxpromo/important-notes')}}" class="text-yellow text-center mb-20" style="width: 100% !important; display: block; font-size: 1.2rem;">
                                     <strong><u>Click for important notes</strong></u><br>
                                     <span class="text-blue font-size-12"></span>
                                 </a>
@@ -451,34 +440,6 @@ page-no-arc
 @endsection
 
 @section('script_extra')
-
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const expandLinks = document.querySelectorAll(".expand-link");
-  
-      expandLinks.forEach(function (link) {
-        link.addEventListener("click", function (event) {
-          event.preventDefault();
-          const targetId = link.getAttribute("data-target");
-          const targetContent = document.getElementById(targetId);
-  
-          if (targetContent) {
-            expandLinks.forEach(function (otherLink) {
-              if (otherLink !== link) {
-                const otherTargetId = otherLink.getAttribute("data-target");
-                const otherTargetContent = document.getElementById(otherTargetId);
-                if (otherTargetContent) {
-                  otherTargetContent.classList.remove("expanded");
-                }
-              }
-            });
-  
-            targetContent.classList.toggle("expanded");
-          }
-        });
-      });
-    });
-  </script>
 <!-- Temporary Script for Logged in User >>> -->
 <script>
     if (Cookies.get('logged-in')) {
