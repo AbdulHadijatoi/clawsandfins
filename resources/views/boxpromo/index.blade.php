@@ -39,27 +39,35 @@ page-no-arc
                            
                                     </p>
                                     
-                                     <p class="para sm_font-size-11 mt-20 mb-20">
-                                    <strong class="text-yellow"></strong> So, would you be interested in being a part of my project, and experience the project from the inside, through its ups and downs, and follow the development process, and perhaps even get personally involved and providing the project with your unique skillsets and life experience, as well as earning a good growing income from it? 
-                                    
-                                    <br><br>
-                                    
-                                    <strong class="text-yellow">Huge market</strong> - Imagine, there is a US$25 billion worth of crab market out there, of which US$1.5-2 billion is the current market size of soft-shell crabs for us to tap into. So, it is not impossible that we could have anything between 50 - 300 machines in production within next 10 years, especially as we are the <strong>only one in the world</strong> who have automated this production process which will produce an unrivaled product quality and to an extremely low production cost.   
-                                    <br>
-                                    
                                     <p class="para sm_font-size-11 mt-20 mb-20">
-                                    <strong class="text-yellow">Offering</strong> - I hereby offer you to be a part of my crab project by helping me to acquire boxes for use in my machine, and from which you will earn a <strong>constantly growing</strong> income from, as the project grows. 
-                                    
-                                    <br><br>Only 33 bundles, each with 500 boxes, are available now, and no more boxes with this VERY generous income profile will ever be offered again when these are all taken. 
-                                    
-                                    <br><br>
-                                    
-                                    <strong class="text-yellow">How will it work?</strong> – You buy as many boxes you want and rent them out to me, for use in my machine, and I will pay you a 15% yearly rental fee for them. AND as a token of my gratitude for your early belief in me and my project, and for you patiently waiting 18-24 month before your boxes start generating you an income, I will be more than happy to share the project’s profit with you, by giving you a free box for every new machine we get into production, for every box you helped us with at the beginning. With this arrangement your income will increase at the same pace as the whole project grows.
-                                    <br><br>
-                                        <strong>Example:<br></strong> 
-                                        * With 2 machines in production, you will have the box you first paid for, plus 1 box you got for free and you will earn 15% each from both of them.
+                                        <strong class="text-yellow"></strong> So, would you be interested in being a part of my project, and experience the project from the inside, through its ups and downs, and follow the development process, and perhaps even get personally involved and providing the project with your unique skillsets and life experience, as well as earning a good growing income from it? 
+                                        
+                                        <br><br>
+                                        
+                                        <strong class="text-yellow">Huge market</strong> - Imagine, there is a US$25 billion worth of crab market out there, of which US$1.5-2 billion is the current market size of soft-shell crabs for us to tap into. So, it is not impossible that we could have anything between 50 - 300 machines in production within next 10 years, especially as we are the <strong>only one in the world</strong> who have automated this production process which will produce an unrivaled product quality and to an extremely low production cost.   
                                         <br>
-                                        * And when we have 10 machines after few years, you will still have your first box that you paid for, plus 9 free boxes as well, and earn 15% each from all 10 of them.  
+                                        
+                                        <p class="para sm_font-size-11 mt-20 mb-20">
+                                        <strong class="text-yellow">Offering</strong> - I hereby offer you to be a part of my crab project by helping me to acquire boxes for use in my machine, and from which you will earn a <strong>constantly growing</strong> income from, as the project grows. 
+                                        
+                                        <br><br>Only 33 bundles, each with 500 boxes, are available now, and no more boxes with this VERY generous income profile will ever be offered again when these are all taken. 
+                                        
+                                        <br><br>
+                                        
+                                        <strong class="text-yellow">How will it work?</strong> – You buy as many boxes you want and rent them out to me, for use in my machine, and I will pay you a 15% yearly rental fee for them. AND as a token of my gratitude for your early belief in me and my project, and for you patiently waiting 18-24 month before your boxes start generating you an income, I will be more than happy to share the project’s profit with you, by giving you a free box for every new machine we get into production, for every box you helped us with at the beginning. With this arrangement your income will increase at the same pace as the whole project grows.
+                                        <br><br>
+                                    </p>
+                                    <p class="font-size-14"><strong>Example:</strong></p>
+                                    <ul style="display: block; list-style: disc" class="para sm_font-size-11 mt-0 mb-20 ml-20">
+                                        <li>
+                                            With 2 machines in production, you will have the box you first paid for, plus 1 box you got for free and you will earn 15% each from both of them.
+                                        </li>
+                                        <li>
+                                            And when we have 10 machines after few years, you will still have your first box that you paid for, plus 9 free boxes as well, and earn 15% each from all 10 of them.  
+                                        </li>
+                                    </ul>
+                                        
+
                                     <br><br>
                                     
                                     <strong class="text-yellow">Customer is waiting</strong> - We actually have a distribution request from a Korean customer already. A customer who has followed our project for over 4 years, and have also visited us in Vietnam, at two different occasions. He is asking for delivery of roughly 20 tons of soft-shell crabs per month, worth roughly US$4.3 million per year, which equals production in 2-3 machines. And the Korean customer also believes that he can increase this volume significantly to 30-50 tons as soon as the current economic recession is over. So, just to satisfy this one single customer’s future demands, we may be required to have between 3-6 machines… And with 20-30 of such customers from different countries around the world, we may be required to have 50-300 machines in production within 10 years. 
