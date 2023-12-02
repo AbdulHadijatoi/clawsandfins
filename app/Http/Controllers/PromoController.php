@@ -14,6 +14,12 @@ class PromoController extends Controller
         return view('boxpromo.index');
     }
     
+    
+    public function indexSWE()
+    {
+        return view('boxpromo.index-swe');
+    }
+    
     public function timeline()
     {
         return view('boxpromo.timeline');

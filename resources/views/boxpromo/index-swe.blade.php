@@ -7,17 +7,19 @@ page-no-arc
 @section('custom-class-menu', 'menu-dark')
 
 @section('content')
+
         <style>
             .text-blue{
                 color:brown;
             }
         </style>
+
         <div class="content-wrapper">
             <section class="section bg-white" data-clip-id="1" style="background-color: #0d0d0d">
                 <div class="content">
                     <div class="full-width align-in-center pb-60">
                         <div class="_75-width md_90-width flex-column justify-center max-w700">
-                            <a class="margin-auto mb-10" href="{{url('boxpromo-swe')}}"><img alt="Swedish flag" src="{{('svg/sweflag.svg')}}" style="width: 50px;"></a>
+                            <a class="margin-auto mb-10" href="{{url('boxpromo')}}"><img alt="Swedish flag" src="{{('svg/sweflag.svg')}}" style="width: 50px;"></a>
                             <h1 class="h1 font-size-25 sm_font-size-20 text-center mb-10 text-yellow">I know that saying<br> “Earn 15-300% in yearly returns” sounds fishy. <br>So, better you figure it out yourself.</h1>
                             
                             <br>
