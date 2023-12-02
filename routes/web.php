@@ -39,6 +39,8 @@ Route::get('/boxpromo/crab-box-promo-video', [PromoController::class,'crab_box_p
 Route::get('/boxpromo/video-for-distributers', [PromoController::class,'video_for_distributers']);
 Route::get('/boxpromo/important-notes', [PromoController::class,'important_notes']);
 Route::get('/boxpromo/time-plan', [PromoController::class,'time_plan']);
+Route::get('/boxpromo/who-am-i', [PromoController::class,'who_am_i']);
+Route::get('/boxpromo/earlier-offering', [PromoController::class,'earlier_offering']);
 
 // Navigation menu url routes:begins
 Route::group(['middleware' => ['visitor']], function() {

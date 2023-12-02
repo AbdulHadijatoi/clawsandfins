@@ -35,6 +35,7 @@ page-no-arc
                             <h1 class="h1 text-black sm_font-size-35 text-center mb-10">Project timeline.</h1>
                             <div class="text-black font-size-12 p-10 mb-20">
                                 <h3 class="text-black font-size-25 sm_font-size-18 text-center mb-10">Past Achievements</h3><br>
+                                <p class="para sm_font-size-11"><strong>Keep in mind that I can't show pictures of everything here, due to eventual future patent and their strict rules.</strong></p>
                                 <h3 class="text-black font-size-25 sm_font-size-18 text-center mb-10">2016 – Why soft-shelled crabs?</h3>
                                 <p class="para sm_font-size-11">After having finalized a large project for a customer, I wanted to build something for myself this time. I began brainstorming new and old product ideas for about a year when my girlfriend at the time told me that anyone who could come up with a solution for farming a tiny crab used in a traditional Thai dish, Somtam, or Papaya-salad as most know it, would make a fortune.
                                 <br>I researched this crab and other crabs for a while, and I stumbled on an article about soft-shelled crabs and how they are made, and how enormously labor intensive it was to produce, and that there were no machines developed for it, at all.

@@ -8,8 +8,17 @@
                                 </li>
                                 <li class="{{ (request()->is('boxpromo/offerings*')) ? 'active' : '' }}">
                                         <a href="{{url('boxpromo/offerings')}}">Get some boxes</a>
-                               <!-- </li>
-                                <li class="{{ (request()->is('boxpromo/time-plan*')) ? 'active' : '' }}">
+                               </li>
+                                
+                               <li class="{{ (request()->is('timeline*')) ? 'active' : '' }}">
+                                <a href="{{url('timeline/')}}">Timeline with photos</a>
+                                 </li>
+                                 
+                                <li class="{{ (request()->is('boxpromo/important-notes*')) ? 'active' : '' }}">
+                                        <a href="{{url('boxpromo/important-notes')}}">Important notes</a>
+                                </li>
+                               
+                            <!--<li class="{{ (request()->is('boxpromo/time-plan*')) ? 'active' : '' }}">
                                         <a href="{{url('boxpromo/time-plan')}}">Time plan</a>
                                 </li>-->
                                 <li class="{{ (request()->is('boxpromo/crab-box-promo-video*')) ? 'active' : '' }}">
@@ -18,13 +27,13 @@
                                 <li class="{{ (request()->is('boxpromo/video-for-distributers*')) ? 'active' : '' }}">
                                         <a href="{{url('boxpromo/video-for-distributers')}}">Video for distributors</a>
                                 </li>
+                               
+                                <li class="{{ (request()->is('boxpromo/who-am-i*')) ? 'active' : '' }}">
+                                        <a href="{{url('boxpromo/who-am-i')}}">Who is Peter?</a>
+                                </li>
                                 
-                                <li class="{{ (request()->is('timeline*')) ? 'active' : '' }}">
-                                <a href="{{url('timeline/')}}">Timeline with photos</a>
-                                 </li>
-                                 
-                                <li class="{{ (request()->is('boxpromo/important-notes*')) ? 'active' : '' }}">
-                                        <a href="{{url('boxpromo/important-notes')}}">Important notes</a>
+                                <li class="{{ (request()->is('boxpromo/earlier-offering*')) ? 'active' : '' }}">
+                                        <a href="{{url('boxpromo/earlier-offering')}}">Earlier offering?</a>
                                 </li>
                         </ul>
                 </li>

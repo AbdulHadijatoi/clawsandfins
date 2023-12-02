@@ -53,5 +53,14 @@ class PromoController extends Controller
     {
         return view('boxpromo.time-plan');
     }
-
+    
+public function who_am_i()
+    {
+        return view('boxpromo.who-am-i');
+    }
+    
+    public function earlier_offering()
+    {
+        return view('boxpromo.earlier-offering');
+    }
 }
