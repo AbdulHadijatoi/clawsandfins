@@ -20,32 +20,33 @@ page-no-arc
                 <div class="content">
                     <div class="full-width align-in-center pb-60">
                         <div class="_75-width md_90-width flex-column justify-center max-w700">
-                            <a class="margin-auto mb-10" href="{{url('/boxpromo/offerings-swe')}}"><img alt="Swedish flag" src="{{asset('svg/sweflag.svg')}}" style="width: 50px;"></a>
-                            <h1 class="h1 font-size-25 sm_font-size-20 text-center mb-10 text-yellow">Earn a good income from your own crab box</h1>
+                            <a class="margin-auto mb-10" href="{{url('/boxpromo/offerings')}}"><img alt="English flag" src="{{asset('svg/engflag.svg')}}" style="width: 50px;"></a>
+                            
+                            <h1 class="h1 font-size-25 sm_font-size-20 text-center mb-10 text-yellow">Tjäna en bra inkomst från din egna krabbbox</h1>
                             <div class="text-white font-size-12 p-10 mb-20">
 
-                                <a class="text-yellow text-center mb-20 expand-link" data-target="offerings" style="width: 100% !important; display: block; font-size: 1.2rem;">
-                                    <strong>Get some boxes</strong>
+                                <a class="text-yellow text-center mb-20 expand-link" data-target="offerings-swe" style="width: 100% !important; display: block; font-size: 1.2rem;">
+                                    <strong>Införskaffa egna boxar</strong>
                                 </a>
                                 
                                 <p class="para sm_font-size-11 mt-20 mb-20 expandable-content" id="long-introduction">
                                     
-                                    <strong class="text-yellow">Limited availability </strong>– These boxes will come in bundles of 500 pcs in each. I only have 33 bundles, and no new ones will be offered with this generous income profile when all these are taken. 
+                                    <strong class="text-yellow">Tillgänglighet </strong>– Boxarna kommer i poster om 500 i varje. Jag kommer bara att ha 33 boxposter tillgängliga, och inga nya kommer att erbjudas med detta generösa inkomstarrangemang när alla poster är tagna.  
                                     
-                                   <br><br>When you are sure that you want to be a part of my project and own boxes, please let me know by sending me a message on Facebook, and I will arrange a contract (a summarize of all text here) which we both sign and scan and email each other. 
+                                   <br><br>När du är säker på att du vill vara en del av mitt projekt och inneha egna boxar, vänligen meddela mig på Facebook, så ordnar jag ett kontrakt (en summering av all text här) som vi båda skriver under och skannar och mejlar varandra. 
                                    <br><br>
-                                   The reason for these bundles is to minimize future administrative workload. If you wish to buy fewer boxes, see if you can partner with some friends, or contact me and I will see if I can partner you with someone in the same situation. But remember full bundle buyers will have priority on availability, so you might end up without any.
+                                   Anledningen till dessa boxposter om 500 boxar, är att minimera framtida administrativ arbetsbelastning. Om du vill köpa färre boxar, se om du kan gå ihop med några vänner, eller kontakta mig så ska jag se om jag kan para ihop dig med någon annan i samma situation. Men kom ihåg att köpare av kompletta paket kommer att ha prioritet på tillgänglighet, så du kan bli helt utan.
                                     <br><br>
-                                    <strong class="text-yellow">Price for a bundle </strong>- The price for a bundle with 500 boxes is US$4000. But you will only pay one third now at US$1334, which will secure your bundle of 500 boxes. 
+                                    <strong class="text-yellow">Pris för en boxpost </strong>- Priset för en boxpost med 500 boxar är US$4000. Men du betalar bara en tredjedel nu på US$1334, vilket kommer att säkra ditt paket med 500 boxar.  
                                     
-                                    <br>For companies, we can issue invoices <br><br>
+                                    <br>För företag kan vi utfärda fakturor.<br><br>
                                     
-                                    <strong class="text-yellow">Second payment </strong>- In February-March 2024, after you have been shown our progress with the build of our full-sized machine, 5.5 meters tall, but shorter at 15 meters long, you will pay the next third, US$1334 to us. The machine you will be shown will still not be completed nor operational, but it will show you our progress. <br><br>
+                                    <strong class="text-yellow">Andra betalningen </strong>- I februari-mars 2024, efter att du har visats våra framsteg med en pågående byggnationen av vår fullstora maskin, 5.5 meter hög, men en kortare variant som är 15 meter lång, betalar du nästa tredjedel, US$1334 till oss. Maskinen som visas, kommer fortfarande inte att vara färdig eller i drift, men du kommer att få en inblick i våra framsteg.<br><br>
                                     
-                                    <strong class="text-yellow">Last payment </strong>- In May-June 2024, after you have been shown a complete but still short 15 meter version, with 5 service robots (software might not be final yet though, so time will tell how much they will move around automatically at this demonstration), you will pay the last third, US$1333 to us and your boxes are now yours to earn income from.<br><br>
+                                    <strong class="text-yellow">Sista betalningen </strong>- I maj-juni 2024, efter att du har visats en komplett men fortfarande kort version, med 5 tjänsterobotar (mjukvaran kanske inte är slutgiltig ännu, så tiden får utvisa hur mycket de kommer att flytta runt automatiskt vid denna demonstration, kommer du att betala den sista tredjedelen, US$1333 till oss och boxarna är nu dina att tjäna inkomst från.<br><br>
                                     
                                     
-                                    <strong class="text-yellow">Time plan </strong>- The estimated time plan for the first full-length machine to be in production, is slightly more than a year from now, at around the beginning of 2025. Normally you will receive your rental fees after your boxes have been in full production for a full year, BUT, as you may have been waiting for such a long time then, I will try to prioritize your first rental fee as soon as production income allows for it. The current estimate is that you will get your first rental payment sometime around mid-2025. But remember, these time frames are just rough estimates.
+                                    <strong class="text-yellow">Tidsplan </strong>- Den beräknade tidsplanen för den första fullängdsmaskinen som ska vara i produktion är drygt ett år från nu, runt början av 2025. Normalt får du dina hyresavgifter efter att dina boxar har varit i full produktion i ett helt år, MEN, då du nu kanske har väntat väldigt länge, skall jag försöka prioritera din första hyresbetalning så fort produktionsintäkterna tillåter det. Den nuvarande uppskattningen är att du kommer att få din första hyresbetalning någon gång i mitten av 2025. Men kom ihåg att dessa tidsramar bara är grova uppskattningar.
                                     </p>
 
                                 <!-- <p class="para sm_font-size-11 mt-20 mb-20 expandable-content" id="offerings">
@@ -103,6 +104,7 @@ page-no-arc
                     </div>
                 </div>
             </section>
+            
         </div>
 
 @endsection

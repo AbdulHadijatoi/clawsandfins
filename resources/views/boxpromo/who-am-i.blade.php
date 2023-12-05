@@ -30,8 +30,8 @@ page-no-arc
                                   
                                 </p>
 
-                                <a href="{{url('/boxpromo/important-notes')}}" class="text-yellow text-center mb-20 expand-link" data-target="important-notes" style="width: 100% !important; display: block; font-size: 1.2rem;">
-                                    <strong><u>Click for important notes</strong></u><br>
+                                <a href="{{url('cv')}}" class="text-yellow text-center mb-20 expand-link" data-target="cv" style="width: 100% !important; display: block; font-size: 1.2rem;">
+                                    <strong><u>Click to see Peter's CV</strong></u><br>
                                     <span class="text-blue font-size-12"></span>
                                 </a>
                                 

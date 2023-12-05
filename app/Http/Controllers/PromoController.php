@@ -65,8 +65,13 @@ public function who_am_i()
         return view('boxpromo.who-am-i');
     }
     
-    public function earlier_offering()
+    public function QA()
     {
-        return view('boxpromo.earlier-offering');
+        return view('boxpromo.QA');
+    }
+        
+    public function offerings_swe()
+    {
+        return view('boxpromo.offerings-swe');
     }
 }

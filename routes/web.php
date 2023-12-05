@@ -41,7 +41,8 @@ Route::get('/boxpromo/video-for-distributers', [PromoController::class,'video_fo
 Route::get('/boxpromo/important-notes', [PromoController::class,'important_notes']);
 Route::get('/boxpromo/time-plan', [PromoController::class,'time_plan']);
 Route::get('/boxpromo/who-am-i', [PromoController::class,'who_am_i']);
-Route::get('/boxpromo/earlier-offering', [PromoController::class,'earlier_offering']);
+Route::get('/boxpromo/QA', [PromoController::class,'QA']);
+Route::get('/boxpromo/offerings-swe', [PromoController::class,'offerings_swe']);
 
 // Navigation menu url routes:begins
 Route::group(['middleware' => ['visitor']], function() {

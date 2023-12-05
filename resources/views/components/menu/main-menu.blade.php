@@ -7,7 +7,7 @@
                                         <a href="{{url('boxpromo/long-version')}}"></a>
                                 </li>
                                 <li class="{{ (request()->is('boxpromo/offerings*')) ? 'active' : '' }}">
-                                        <a href="{{url('boxpromo/offerings')}}">Get some boxes</a>
+                                        <a href="{{url('boxpromo/offerings')}}">Get your own boxes</a>
                                </li>
                                 
                                <li class="{{ (request()->is('timeline*')) ? 'active' : '' }}">
@@ -31,9 +31,9 @@
                                 <li class="{{ (request()->is('boxpromo/who-am-i*')) ? 'active' : '' }}">
                                         <a href="{{url('boxpromo/who-am-i')}}">Who is Peter?</a>
                                 </li>
-                                
-                                <li class="{{ (request()->is('boxpromo/earlier-offering*')) ? 'active' : '' }}">
-                                        <a href="{{url('boxpromo/earlier-offering')}}">Earlier offering?</a>
+                              
+                                <li class="{{ (request()->is('boxpromo/QA*')) ? 'active' : '' }}">
+                                        <a href="{{url('boxpromo/QA')}}">Q&A</a>
                                 </li>
                         </ul>
                 </li>
