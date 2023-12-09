@@ -19,7 +19,7 @@ page-no-arc
                         <div class="_75-width md_90-width flex-column justify-center max-w700">
                             <a class="margin-auto mb-10" href="{{url('boxpromo')}}"><img alt="English flag" src="{{('svg/engflag.png')}}" style="width: 50px;"></a>
                             
-                            <h2 class="h2 font-size-20 sm_font-size-20
+                            <h2 class="h2 font-size-25 sm_font-size-20
                             text-center mb-10 text-white">Hur sjutton säger man
                             <h1 class="h1 font-size-25 sm_font-size-20 text-center mb-10 text-yellow">Tjäna 15-300% i årlig avkastning
                             <h2 class="h2 font-size-16 sm_font-size-14 text-center mb-10 text-white">utan att det låter jäkligt suspekt?
@@ -39,7 +39,7 @@ page-no-arc
                                     <strong>Introduktion</strong>
                                 </a>
                                 
-                                 <strong class="text-yellow"></strong>Föreställ dig, det finns en krabbmarknad där ute, värd 250 miljarder kronor, av varav 15-20 miljarder kronor är den nuvarande marknadsstorleken för soft-shell-krabbor för oss att erövra. Och eftersom <strong>vi är dom enda i världen</strong> som har automatiserat productionsprocessen av soft-shell-krabbor, och som kommer att leverera en oöverträffad produktkvalitet och till en extremt låg produktionskostnad, är det väldigt troligt att vi kommer att bli den dominerade aktören på denna marknad.  
+                                 <strong class="text-yellow"></strong>Föreställ dig, det finns en krabbmarknad där ute, värd 250 miljarder kronor, av varav 15-20 miljarder kronor är den nuvarande marknadsstorleken för soft-shell-krabbor för oss att erövra. Och eftersom <strong>vi är dom enda i världen</strong> som har automatiserat productionsprocessen av soft-shell-krabbor, och som kommer att leverera en oöverträffad produktkvalitet och till en extremt låg produktionskostnad, är det inte helt omöjligt att vi att blir den dominerade aktören på denna marknad frömöver.  
                                         <br><br>
                                     <strong class="text-yellow">Hej på er alla. Peter här.</strong><br>
                                     Som många av er redan vet, har jag jobbat med ett stort AI-drivet high-tech soft-shell-krabbprojekt ett tag. Nu efter nästan 7 år och 40-50 000 timmar av projektutveckling med research, design, prototypbyggnation, och en hel massa testning, har projektet nått en slutfas och vi har börjat bygga vår första fullstora men kortare maskin (15m), som senare kommer att förlängas till fullängd (120m). Och jag behöver din hjälp för att speeda upp det hela. 
@@ -57,13 +57,13 @@ page-no-arc
                                        
                                         
                                         <p class="para sm_font-size-11 mt-20 mb-20">
-                                        <strong class="text-yellow">Min inbjudan </strong>- Jag erbjuder dig härmed att vara en del av mitt krabbprojekt genom att hjälpa mig att anskaffa kabbboxar för användning i min maskin, och som du kommer att tjäna en <strong>ständigt växande</strong> inkomst ifrån, allt eftersom projektet växer. 
+                                        <strong class="text-yellow">Min inbjudan </strong>- Jag erbjuder dig härmed att vara en del av mitt krabbprojekt genom att hjälpa mig att anskaffa kabbboxar för användning i min maskin, och som du kommer att tjäna en <strong>ständigt växande</strong> inkomst ifrån, allt eftersom projektet växer sig allt större. 
 
-                                        <br><br>Jag har bara 33 boxposter tillgängliga, var och en med 500 boxar, och inga fler boxar med denna mycket generösa inkomstprofil kommer någonsin att erbjudas igen när alla dessa är tagna. 
+                                        
                                         
                                         <br><br>
                                         
-                                        <strong class="text-yellow">Hur fungerar det? </strong>– Du köper de boxar du önskar för US$8 vardera, och hyr ut dem till mig, för användning i min maskin, och jag kommer att betala dig en 15 procentig (US$1,2) årlig avkastning för dem. <strong>Dessutom,</strong> som ett tecken på min tacksamhet för din tidiga tilltro på mig och mitt projekt, och för att du har tålmodigt väntat 18 månader innan dina boxar börjat alstra dig en inkomst, kommer jag mer än gärna, dela projektets vinst med dig, genom att ge dig en gratis box för varje ny maskin vi sätter i produktion, för varje box du hjälpte oss med i början, vilka också alstrar dig en 15% (US$1,2) avkastning vardera. Med detta arrangemang kommer din inkomst att öka i samma takt som hela projektet växer.
+                                        <strong class="text-yellow">Hur fungerar det? </strong>– Du köper de boxar du önskar för US$8 vardera, och hyr ut dem till mig, för användning i min maskin, och jag kommer att betala dig en 15 procentig (US$1,2) årlig avkastning för dem. <strong>Dessutom,</strong> som ett tecken på min tacksamhet för din tidiga tilltro till mig och mitt projekt, och för att du då har tålmodigt väntat över 18 månader innan dina boxar har börjat generera dig en inkomst, kommer jag mer än gärna, dela projektets vinst med dig, genom att ge dig en gratis box för varje ny maskin vi sätter i produktion, för varje box du hjälpte oss med i början, vilka också alstrar dig en 15% (US$1,2) avkastning vardera. Med detta arrangemang kommer din inkomst att öka i samma takt som hela projektet växer.
                                         <br>
                                     </p>
                                     <p class="font-size-14"><strong>Exempel:</strong></p>

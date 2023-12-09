@@ -30,19 +30,19 @@ page-no-arc
                                 
                                 <p class="para sm_font-size-11 mt-20 mb-20 expandable-content" id="long-introduction">
                                     
-                                    <strong class="text-yellow">Limited availability </strong>– These boxes will come in bundles of 500 pcs in each. I only have 33 bundles, and no new ones will be offered with this generous income profile when all these are taken. 
+                                    <strong class="text-yellow">Availability </strong>– These boxes will come in bundles of 500 pcs in each. I only have 33 bundles, and no new ones will be offered with this generous income profile when all these are taken. 
                                     
-                                   <br><br>When you are sure that you want to be a part of my project and own boxes, please let me know by sending me a message on Facebook, and I will arrange a contract (a summarize of all text here) which we both sign and scan and email each other. 
+                                   <br><br>When you are sure that you want to be a part of my project and own boxes, please let me know by sending me a message on Facebook, and I will send you a contract (a summarize of all text here) which I have signed on behalf of my company Yat Fung International Holding Ltd. 
                                    <br><br>
                                    The reason for these bundles is to minimize future administrative workload. If you wish to buy fewer boxes, see if you can partner with some friends, or contact me and I will see if I can partner you with someone in the same situation. But remember full bundle buyers will have priority on availability, so you might end up without any.
                                     <br><br>
                                     <strong class="text-yellow">Price for a bundle </strong>- The price for a bundle with 500 boxes is US$4000. But you will only pay one third now at US$1334, which will secure your bundle of 500 boxes. 
                                     
-                                    <br>For companies, we can issue invoices <br><br>
+                                    <br>For companies, we can issue invoices. <br><br>
                                     
                                     <strong class="text-yellow">Second payment </strong>- In February-March 2024, after you have been shown our progress with the build of our full-sized machine, 5.5 meters tall, but shorter at 15 meters long, you will pay the next third, US$1334 to us. The machine you will be shown will still not be completed nor operational, but it will show you our progress. <br><br>
                                     
-                                    <strong class="text-yellow">Last payment </strong>- In May-June 2024, after you have been shown a complete but still short 15 meter version, with 5 service robots (software might not be final yet though, so time will tell how much they will move around automatically at this demonstration), you will pay the last third, US$1333 to us and your boxes are now yours to earn income from.<br><br>
+                                    <strong class="text-yellow">Last payment </strong>- In May-June 2024, after you have been shown a complete but still short 15 meter machine, with 5 service robots (software might not be final yet though, so time will tell how much they will move around automatically at this demonstration), you will pay the last third, US$1333 to us and your boxes are now yours to earn income from.<br><br>
                                     
                                     
                                     <strong class="text-yellow">Time plan </strong>- The estimated time plan for the first full-length machine to be in production, is slightly more than a year from now, at around the beginning of 2025. Normally you will receive your rental fees after your boxes have been in full production for a full year, BUT, as you may have been waiting for such a long time then, I will try to prioritize your first rental fee as soon as production income allows for it. The current estimate is that you will get your first rental payment sometime around mid-2025. But remember, these time frames are just rough estimates.

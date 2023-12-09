@@ -19,7 +19,7 @@ page-no-arc
                         <div class="_75-width md_90-width flex-column justify-center max-w700">
                             <a class="margin-auto mb-10" href="{{url('boxpromo-swe')}}"><img alt="Swedish flag" src="{{('svg/sweflag.svg')}}" style="width: 50px;"></a>
                             
-                            <h2 class="h2 font-size-20 sm_font-size-20
+                            <h2 class="h2 font-size-25 sm_font-size-20
                             text-center mb-10 text-white">How on earth do I say
                             <h1 class="h1 font-size-25 sm_font-size-20 text-center mb-10 text-yellow">Earn 15-300% in yearly returns
                             <h2 class="h2 font-size-16 sm_font-size-14 text-center mb-10 text-white">without it sounding awfully suspicious? 
@@ -39,7 +39,7 @@ page-no-arc
                                     <a class="text-yellow text-center mb-20" style="width: 100% !important; display: block; font-size: 1.2rem;">
                                     <strong>Introduction</strong>
                                 </a>
-                                    <strong class="text-yellow"></strong>Imagine, there is a US$25 billion worth of crab market out there, of which US$1.5-2 billion is the current market size of soft-shelled crabs for us to tap into. And as <strong>we are the only one in the world,</strong> who has automated this soft-shell crab production process, which will produce an unrivaled product quality and to an extremely low production cost, it is highly likely that we could become the dominant player on this market.   
+                                    <strong class="text-yellow"></strong>Imagine, there is a US$25 billion worth of crab market out there, of which US$1.5-2 billion is the current market size of soft-shelled crabs for us to tap into. And as <strong>we are the only one in the world,</strong> who has automated this soft-shell crab production process, which will produce an unrivaled product quality and to an extremely low production cost, it is not impossible that we could become the dominant player on this market.   
                                         <br> <br>
                                         
                                         <strong class="text-yellow">Hello everyone, Peter here.</strong>
@@ -52,20 +52,18 @@ page-no-arc
                                     </p>
                                     
                                     <p class="para sm_font-size-11 mt-20 mb-20">
-                                        <strong class="text-yellow"></strong> So I would like to ask you, would you be interested in being a part of my project, and experience the project from the inside, through its ups and downs, and follow the development process, and perhaps even get personally involved and providing the project with your unique skillsets and life experience, as well as earning a good growing income from it? 
+                                        <strong class="text-yellow"></strong> So I would like to ask you, would you be interested in being a part of my project, and experience the project from the inside, through its ups and downs, and follow the development process, and perhaps even get personally involved and providing the project with your unique skillsets and life experiences, as well as earning a good growing income from it? 
                                         
-                                        <br><br>
-                                        
-                                        
+                                        <br>
                                         
                                         <p class="para sm_font-size-11 mt-20 mb-20">
                                         <strong class="text-yellow">My invitation </strong> - I hereby offer you to be a part of my crab project by helping me to acquire boxes for use in my machine, and from which you will earn a <strong>constantly growing</strong> income from, as the project grows larger. 
                                         
-                                        <br><br>I only have 33 bundles available, each with 500 boxes, and no more boxes with this very generous income profile will ever be offered again when these are all taken. 
+                                        
                                         
                                         <br><br>
                                         
-                                        <strong class="text-yellow">How will it work?</strong> – You buy as many boxes you want for (US$8) each, and rent them out to me, for use in my machine, and I will pay you a 15% (US$1.2) yearly rental fee for them. <strong>Additionally,</strong> as a token of my gratitude for your early belief in me and my project, and for you patiently waiting 18 months before your boxes start generating you an income, I will be more than happy to share the project’s profit with you, by giving you a free box for every new machine we get into production, for every box you helped us with at the beginning, which also generate you a 15% (US$1.2) return each. With this arrangement your income will increase at the same pace as the whole project grows.
+                                        <strong class="text-yellow">How will it work?</strong> – You buy as many boxes you want for (US$8) each, and rent them out to me, for use in my machine, and I will pay you a 15% (US$1.2) yearly rental fee for them. <strong>Additionally,</strong> as a token of my gratitude for your early belief in me and my project, and for you who have then patiently waited for over 18 months before your boxes start generating you an income, I will be more than happy to share the project’s profit with you, by giving you a free box for every new machine we get into production, for every box you helped us with at the beginning, which also generate you a 15% (US$1.2) return each. With this arrangement your income will increase at the same pace as the whole project grows.
                                         <br>
                                     </p>
                                     <p class="font-size-14"><strong>Example:</strong></p>

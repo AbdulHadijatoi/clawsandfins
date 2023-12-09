@@ -153,7 +153,7 @@ page-no-arc
                                 <p class="para sm_font-size-11">Inspector unit electronics are ready for real life testing.</p>
 
                                 <h3 class="text-black mt-20 font-size-25 sm_font-size-18 text-center mb-10">2020 - 2021 - Covid halted everything</h3>
-                                <p class="para sm_font-size-11">Covid hit us, everything had to be placed on idle, and we could only continue with online research, and I got almost a full year for myself to spend on optimizing the machine design further. This design has become way better, cheaper, and faster to manufacture. I am VERY happy with this new design.</p>
+                                <p class="para sm_font-size-11">Covid hit us, everything had to be placed on idle, and we could only continue with online research, and I got almost a full year for myself to spend on optimizing the machine design further. Resulted in a way better, cheaper, and faster to manufacture design. I am VERY satisfied with this new design.</p>
 
                                 <h3 class="text-black mt-20 font-size-25 sm_font-size-18 text-center mb-10">2021 April - Photo shot session</h3>
                                 <p class="para sm_font-size-11">We arranged a big photo shot session with professional chefs and photographers to produce pictures of a large numbers of soft-shell crab dishes to be used on our website in future promotional material.</p>
@@ -381,7 +381,7 @@ page-no-arc
 
                                 
                                 <h3 class="text-black mt-20 font-size-25 sm_font-size-18 text-center mb-10">Tasks left to do</h3>
-                                <p class="para sm_font-size-11"><span class="text-bold">2023 Dec</span> - Line chassis must be finished. But laser cut quality may delay this goal. Lets hope not.</p>
+                                <p class="para sm_font-size-11"><span class="text-bold">2023 Dec</span> - Line chassis must be finished.</p>
                                 <p class="para sm_font-size-11"><span class="text-red text-bold">2024 Feb-Mar</span> - Finalize the build of the line's chassis and assembly of most chassis peripherals and show it for Offering A box buyers before their second payment.</p>
                                 <p class="para sm_font-size-11"><span class="text-bold">2024 Q1</span> - Order CNC parts to 3 more robot drivers and one more Scara arm.</p>
                                 <p class="para sm_font-size-11"><span class="text-bold">2024 Q1</span> - Test more section valves</p>
