@@ -17,8 +17,10 @@ page-no-arc
                 <div class="content">
                     <div class="full-width align-in-center pb-60">
                         <div class="_75-width md_90-width flex-column justify-center max-w700">
-                            <a class="margin-auto mb-10" href="{{url('boxpromo')}}"><img alt="English flag" src="{{('svg/engflag.svg')}}" style="width: 40px;">
-                            <a class="margin-auto mb-10" href="{{url('boxpromo-swe')}}"><img alt="Swedish flag" src="{{('svg/sweflag.svg')}}" style="width: 40px;"></a>
+                            <div class="d-flex justify-center align-items-center margin-auto mb-10">
+                                <a class="mr-10" href="{{url('boxpromo')}}"><img alt="English flag" src="{{('svg/engflag.svg')}}" style="width: 40px;"></a>
+                                <a href="{{url('boxpromo-swe')}}"><img alt="Swedish flag" src="{{('svg/sweflag.svg')}}" style="width: 40px;"></a>
+                            </div>
                             
                             <h1 class="h1 font-size-25 sm_font-size-20 text-center mb-10 text-yellow">Nhận hộp của riêng bạn và xem lợi nhuận hàng năm của nó tăng 15% cho mỗi máy chúng tôi thiết lập lên.
                             <h2 class="h2 font-size-16 sm_font-size-14 text-center mb-10 text-white"> 2 máy = 2 x 15% = 30%, 10 máy = 10 x 15% = 150%, v.v...
