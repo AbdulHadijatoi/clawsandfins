@@ -20,7 +20,9 @@ page-no-arc
                 <div class="content">
                     <div class="full-width align-in-center pb-60">
                         <div class="_75-width md_90-width flex-column justify-center max-w700">
-                            <a class="margin-auto mb-10" href="{{url('/boxpromo/offerings-swe')}}"><img alt="Swedish flag" src="{{asset('svg/sweflag.svg')}}" style="width: 50px;"></a>
+                            <a class="margin-auto mb-10" href="{{url('/boxpromo/offerings-swe')}}"><img alt="Swedish flag" src="{{asset('svg/sweflag.svg')}}" style="width: 42px;">
+                            <a class="margin-auto mb-10" href="{{url('/boxpromo/offerings-vn')}}"><img alt="Vietnamese flag" src="{{asset('svg/vnflag.svg')}}" style="width: 40px;"></a>
+                            
                             <h1 class="h1 font-size-25 sm_font-size-20 text-center mb-10 text-yellow">Earn a good income from your own crab box</h1>
                             <div class="text-white font-size-12 p-10 mb-20">
 

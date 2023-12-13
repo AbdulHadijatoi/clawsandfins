@@ -17,15 +17,13 @@ page-no-arc
                 <div class="content">
                     <div class="full-width align-in-center pb-60">
                         <div class="_75-width md_90-width flex-column justify-center max-w700">
-                            <a class="margin-auto mb-10" href="{{url('boxpromo')}}"><img alt="English flag" src="{{('svg/engflag.png')}}" style="width: 50px;"></a>
+                            <a class="margin-auto mb-10" href="{{url('boxpromo')}}"><img alt="English flag" src="{{('svg/engflag.svg')}}" style="width: 40px;">
+                            <a class="margin-auto mb-10" href="{{url('boxpromo-vn')}}"><img alt="Vietnamese flag" src="{{('svg/vnflag.svg')}}" style="width: 40px;"></a>
                             
-                            <h2 class="h2 font-size-25 sm_font-size-20
-                            text-center mb-10 text-white">Hur sjutton säger man
-                            <h1 class="h1 font-size-25 sm_font-size-20 text-center mb-10 text-yellow">Tjäna 15-300% i årlig avkastning
-                            <h2 class="h2 font-size-16 sm_font-size-14 text-center mb-10 text-white">utan att det låter jäkligt suspekt?
-                            <br>
-                            <img src="{{asset('boxpromo_images/clueless.png')}}"style="width: 80px;">
-                            <br>Det är nog bättre att du bildar dig en egen uppfattning. </h2> 
+                            
+                            <h1 class="h1 font-size-25 sm_font-size-20 text-center mb-10 text-yellow">Skaffa en egen box och se dess årliga avkastning öka med 15% för varje maskin vi får upp.
+                            <h2 class="h2 font-size-16 sm_font-size-14 text-center mb-10 text-white"> 2 maskiner = 2x 15% = 30%, 10 maskiner = 10x 15% = 150%, och så vidare...
+                            </h2> 
                             
                             
                             
@@ -72,7 +70,7 @@ page-no-arc
                                             Med 2 maskiner i produktion kommer du att ha boxen du först betalade US$8 för, plus 1 box du fick gratis och du tjänar nu 15% (US$1,2) vardera från dem, vilket bli totalt US$2,4.
                                         </li>
                                         <li>
-                                            Och när vi har 10 maskiner efter några år, kommer du fortfarande att ha din första box som du betalade US$8 för, plus 9 gratisboxar, alltså totalt 10 boxar som tjänar dig 15% (US$1,2) vardera, vilket bli totalt US$12. 
+                                            Och när vi har 10 maskiner efter några år, kommer du fortfarande att ha din första box som du betalade US$8 för, plus 9 gratisboxar, alltså totalt 10 boxar som tjänar dig 15% (US$1,2) vardera, vilket bli totalt US$12. Ta en titt på <a class="text-yellow" href="{{url('https://clawsandfins.com/clawsandfins/public/storage/docs/box_rental_calculator_and_very_simple_project_budget.xlsx')}}">"Calculate your earnings (Excel)"</a> i menyn till vänster
                                         </li>
                                     </ul>
                                         

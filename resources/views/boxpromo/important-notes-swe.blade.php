@@ -19,15 +19,15 @@ page-no-arc
                     <div class="full-width align-in-center pb-60">
                         <div class="_75-width md_90-width flex-column justify-center max-w700">
                             
-                            <a class="margin-auto mb-10" href="{{url('/boxpromo/important-notes-swe')}}"><img alt="Swedish flag" src="{{asset('svg/sweflag.svg')}}" style="width: 40px;">
+                            <a class="margin-auto mb-10" href="{{url('/boxpromo/important-notes')}}"><img alt="English flag" src="{{asset('svg/engflag.svg')}}" style="width: 40px;">
                             <a class="margin-auto mb-10" href="{{url('/boxpromo/important-notes-vn')}}"><img alt="Vietnamese flag" src="{{asset('svg/vnflag.svg')}}" style="width: 40px;"></a>
                             
-                            <h1 class="h1 font-size-25 sm_font-size-20 text-center mb-10 text-yellow">Earn a good income from your own crab box</h1>
+                            <h1 class="h1 font-size-25 sm_font-size-20 text-center mb-10 text-yellow">Tjäna en bra inkomst från din egna krabbbox</h1>
                             <div class="text-white font-size-12 p-10 mb-20">
                                 
                                 
                                 <a class="text-yellow text-center mb-20 expand-link" data-target="important_notes" style="width: 100% !important; display: block; font-size: 1.2rem;">
-                                    <strong>Important notes</strong>
+                                    <strong>Viktiga noteringar - Översättning kommer senare</strong>
                                 </a>
 
                                 <p class="expandable-content" id="important_notes">

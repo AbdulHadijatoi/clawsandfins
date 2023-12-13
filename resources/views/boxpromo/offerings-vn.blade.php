@@ -21,33 +21,34 @@ page-no-arc
                     <div class="full-width align-in-center pb-60">
                         <div class="_75-width md_90-width flex-column justify-center max-w700">
                             <a class="margin-auto mb-10" href="{{url('/boxpromo/offerings')}}"><img alt="English flag" src="{{asset('svg/engflag.svg')}}" style="width: 40px;">
-                            <a class="margin-auto mb-10" href="{{url('boxpromo/offerings-vn')}}"><img alt="Vietnamese flag" src="{{asset('svg/vnflag.svg')}}" style="width: 40px;"></a>
+                            <a class="margin-auto mb-10" href="{{url('/boxpromo/offerings-swe')}}"><img alt="Swedish flag" src="{{asset('svg/sweflag.svg')}}" style="width: 40px;"></a>
+
                             
-                            <h1 class="h1 font-size-25 sm_font-size-20 text-center mb-10 text-yellow">Tjäna en bra inkomst från din egna krabbbox</h1>
+                            <h1 class="h1 font-size-25 sm_font-size-20 text-center mb-10 text-yellow">Kiếm khoản thu nhập tốt với những chiếc hộp của bạn</h1>
                             <div class="text-white font-size-12 p-10 mb-20">
 
-                                <a class="text-yellow text-center mb-20 expand-link" data-target="offerings-swe" style="width: 100% !important; display: block; font-size: 1.2rem;">
-                                    <strong>Införskaffa egna boxar</strong>
+                                <a class="text-yellow text-center mb-20 expand-link" data-target="offerings" style="width: 100% !important; display: block; font-size: 1.2rem;">
+                                    <strong>Hãy mua cho mình vài hộp</strong>
                                 </a>
                                 
                                 <p class="para sm_font-size-11 mt-20 mb-20 expandable-content" id="long-introduction">
                                     
-                                    <strong class="text-yellow">Tillgänglighet </strong>– Boxarna kommer i poster om 500 i varje. Jag kommer bara att ha 33 boxposter tillgängliga, och inga nya kommer att erbjudas med detta generösa inkomstarrangemang när alla poster är tagna.  
+                                    <strong class="text-yellow">Số lượng sẵn có </strong>– Những hộp này sẽ bán dưới dạng gói, 500 hộp/gói. Tôi chỉ có 33 gói và sẽ không có gói mới nào được chào bán ra với mức thu nhập hào phóng như này khi tất cả những gói này được đặt hàng hết. 
                                     
-                                   <br><br>När du är säker på att du vill vara en del av mitt projekt och inneha egna boxar, vänligen meddela mig på Facebook, och jag kommer att skicka dig ett kontrakt (en sammanfattning av all text här) som jag har undertecknat som representant för mitt företag Yat Fung International Holding Ltd.
+                                   <br><br>Khi bạn chắc chắn về việc muốn trở thành một phần trong dự án và sở hữu những chiếc hộp, vui lòng cho tôi biết bằng cách gửi tin nhắn qua Facebook và tôi sẽ gửi cho bạn một hợp đồng (tóm tắt tất cả văn bản ở đây) mà tôi đã ký trên đó thay mặt cho công ty của tôi - Yat Fung International Holding Ltd. 
                                    <br><br>
-                                   Anledningen till dessa boxposter om 500 boxar, är att minimera framtida administrativ arbetsbelastning. Om du vill köpa färre boxar, se om du kan gå ihop med några vänner, eller kontakta mig så ska jag se om jag kan para ihop dig med någon annan i samma situation. Men kom ihåg att köpare av kompletta poster kommer att ha prioritet på tillgänglighet, så du kan bli helt utan.
+                                   Lý do của các gói này là để giảm thiểu khối lượng công việc quản trị trong tương lai. Nếu bạn muốn mua ít hộp hơn, hãy xem liệu bạn có thể hợp tác với một số người bạn hay không, hoặc liên hệ với tôi và tôi sẽ xem có thể hợp tác với bạn với người có cùng hoàn cảnh hay không. Nhưng hãy nhớ rằng người mua gói đầy đủ sẽ được ưu tiên trước, vì vậy bạn có thể không có gói nào.
                                     <br><br>
-                                    <strong class="text-yellow">Pris för en boxpost </strong>- Priset för en boxpost med 500 boxar är US$4000. Men du betalar bara en tredjedel nu på US$1334, vilket kommer att säkra ditt paket med 500 boxar.  
+                                    <strong class="text-yellow">Giá cho một gói </strong>- Giá cho một gói 500 hộp là 4000 USD. Nhưng bây giờ bạn chỉ phải trả trước một phần ba số tiền là 1334 USD, số tiền này sẽ đảm bảo cho đặt hàng của bạn được giữ chỗ. 
                                     
-                                    <br>För företag kan vi utfärda fakturor.<br><br>
+                                    <br>Đối với các công ty, chúng tôi có thể xuất hóa đơn. <br><br>
                                     
-                                    <strong class="text-yellow">Andra betalningen </strong>- I februari-mars 2024, efter att du har visats våra framsteg med en pågående byggnationen av vår fullstora maskin, 5.5 meter hög, men en kortare variant som är 15 meter lång, betalar du nästa tredjedel, US$1334 till oss. Maskinen som visas, kommer fortfarande inte att vara färdig eller i drift, men du kommer att få en inblick i våra framsteg.<br><br>
+                                    <strong class="text-yellow">Khoản thanh toán thứ hai </strong>- Vào khoảng tháng 2 - 3 năm 2024, sau khi bạn thấy tiến độ việc chế tạo chiếc máy có kích thước đầy đủ, cao 5,5 mét nhưng ngắn hơn với chiều dài 15 mét, bạn sẽ thanh toán cho chúng tôi một phần ba tiếp theo - 1334 USD. Máy bạn nhìn thấy vẫn chưa được hoàn thiện cũng như chưa hoạt động, nhưng nó sẽ cho bạn thấy chúng tôi đang tiến triển. <br><br>
                                     
-                                    <strong class="text-yellow">Sista betalningen </strong>- I maj-juni 2024, efter att du har visats en komplett men fortfarande kort maskin, med 5 tjänsterobotar (mjukvaran kanske inte är slutgiltig ännu, så tiden får utvisa hur mycket de kommer att flytta runt automatiskt vid denna demonstration, kommer du att betala den sista tredjedelen, US$1333 till oss och boxarna är nu dina att tjäna inkomst från.<br><br>
+                                    <strong class="text-yellow">Khoản thanh toán cuối cùng </strong>- Vào khoảng tháng 5 - 6 năm 2024, sau khi bạn được xem một chiếc máy hoàn chỉnh ở phiên bản ngắn 15 mét, với 5 robot nhiệm vụ (tuy nhiên, phần mềm có thể chưa phải là phiên bản cuối cùng, vì vậy thời gian sẽ cho biết chúng sẽ tự động di chuyển như thế nào trong mô hình này), bạn sẽ trả một phần ba cuối cùng là 1333 đô la Mỹ cho chúng tôi và hộp bây giờ chính thức là của bạn để kiếm thu nhập.<br><br>
                                     
                                     
-                                    <strong class="text-yellow">Tidsplan </strong>- Den beräknade tidsplanen för den första fullängdsmaskinen som ska vara i produktion är drygt ett år från nu, runt början av 2025. Normalt får du dina hyresavgifter efter att dina boxar har varit i full produktion i ett helt år, MEN, då du nu kanske har väntat väldigt länge, skall jag försöka prioritera din första hyresbetalning så fort produktionsintäkterna tillåter det. Den nuvarande uppskattningen är att du kommer att få din första hyresbetalning någon gång i mitten av 2025. Men kom ihåg att dessa tidsramar bara är grova uppskattningar.
+                                    <strong class="text-yellow">Kế hoạch </strong>- Thời gian ước tính để chiếc máy có chiều dài đầy đủ đầu tiên được sản xuất là hơn một năm kể từ bây giờ, vào khoảng đầu năm 2025. Thông thường, bạn sẽ nhận được phí thuê sau khi hộp của bạn đã được sản xuất hoàn chỉnh trong cả một năm, NHƯNG, vì có thể bạn đã chờ đợi rất lâu nên tôi sẽ cố gắng ưu tiên khoản tiền thuê đầu tiên của bạn ngay khi thu nhập sản xuất cho phép. Ước tính hiện tại là bạn sẽ nhận được khoản thanh toán tiền thuê đầu tiên vào khoảng giữa năm 2025. Nhưng hãy nhớ rằng, những khung thời gian này chỉ là ước tính sơ bộ.
                                     </p>
 
                                 <!-- <p class="para sm_font-size-11 mt-20 mb-20 expandable-content" id="offerings">
@@ -97,7 +98,7 @@ page-no-arc
                                     <br>
                                    
                                 <a href="{{url('/timeline')}}" class="text-yellow text-center mb-20 expand-link" data-target="short-introduction" style="width: 100% !important; display: block; font-size: 1.2rem;">
-                                    <strong><u>Timeline with photos</u></strong><br>
+                                    <strong><u>Tiến độ qua hình ảnh</u></strong><br>
                                 </a>
                                 
                               </div>
@@ -105,7 +106,6 @@ page-no-arc
                     </div>
                 </div>
             </section>
-            
         </div>
 
 @endsection

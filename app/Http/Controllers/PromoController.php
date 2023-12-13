@@ -20,6 +20,11 @@ class PromoController extends Controller
         return view('boxpromo.index-swe');
     }
     
+    public function indexVN()
+    {
+        return view('boxpromo.index-vn');
+    }
+    
     public function timeline()
     {
         return view('boxpromo.timeline');
@@ -42,6 +47,14 @@ class PromoController extends Controller
     {
         return view('boxpromo.offerings');
     }
+    public function offerings_swe()
+    {
+        return view('boxpromo.offerings-swe');
+    }
+    public function offerings_vn()
+    {
+        return view('boxpromo.offerings-vn');
+    }
     public function crab_box_promo_video()
     {
         return view('boxpromo.crab-box-promo-video');
@@ -53,6 +66,14 @@ class PromoController extends Controller
     public function important_notes()
     {
         return view('boxpromo.important-notes');
+    }
+            public function important_notes_swe()
+    {
+        return view('boxpromo.important-notes-swe');
+    }
+        public function important_notes_vn()
+    {
+        return view('boxpromo.important-notes-vn');
     }
     
     public function time_plan()
@@ -70,8 +91,5 @@ public function who_am_i()
         return view('boxpromo.QA');
     }
         
-    public function offerings_swe()
-    {
-        return view('boxpromo.offerings-swe');
-    }
+
 }

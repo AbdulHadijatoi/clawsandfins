@@ -31,18 +31,24 @@ Route::get('admin/logout', [AuthController::class, 'logout'])->name('admin.logou
 
 Route::get('/boxpromo', [PromoController::class,'index'])->name('promo.index');
 Route::get('/boxpromo-swe', [PromoController::class,'indexSWE']);
+Route::get('/boxpromo-vn', [PromoController::class,'indexVN']);
 Route::get('/timeline', [PromoController::class,'timeline'])->name('promo.timeline');
 Route::get('/cv', [PromoController::class,'cv'])->name('promo.cv');
 Route::get('/customer-letter-of-intent', [PromoController::class,'letter_of_intent'])->name('promo.letter_of_intent');
 Route::get('/boxpromo/long-version', [PromoController::class,'long_version']);
 Route::get('/boxpromo/offerings', [PromoController::class,'offerings']);
+Route::get('/boxpromo/offerings-swe', [PromoController::class,'offerings_swe']);
+Route::get('/boxpromo/offerings-vn', [PromoController::class,'offerings_vn']);
 Route::get('/boxpromo/crab-box-promo-video', [PromoController::class,'crab_box_promo_video']);
 Route::get('/boxpromo/video-for-distributers', [PromoController::class,'video_for_distributers']);
 Route::get('/boxpromo/important-notes', [PromoController::class,'important_notes']);
+Route::get('/boxpromo/important-notes-swe', [PromoController::class,'important_notes_swe']);
+Route::get('/boxpromo/important-notes-vn', [PromoController::class,'important_notes_vn']);
 Route::get('/boxpromo/time-plan', [PromoController::class,'time_plan']);
 Route::get('/boxpromo/who-am-i', [PromoController::class,'who_am_i']);
 Route::get('/boxpromo/QA', [PromoController::class,'QA']);
-Route::get('/boxpromo/offerings-swe', [PromoController::class,'offerings_swe']);
+
+
 
 // Navigation menu url routes:begins
 Route::group(['middleware' => ['visitor']], function() {

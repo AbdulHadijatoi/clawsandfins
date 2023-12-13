@@ -17,16 +17,13 @@ page-no-arc
                 <div class="content">
                     <div class="full-width align-in-center pb-60">
                         <div class="_75-width md_90-width flex-column justify-center max-w700">
-                            <a class="margin-auto mb-10" href="{{url('boxpromo-swe')}}"><img alt="Swedish flag" src="{{('svg/sweflag.svg')}}" style="width: 50px;"></a>
+                            <a class="margin-auto mb-10" href="{{url('boxpromo-swe')}}"><img alt="Swedish flag" src="{{('svg/sweflag.svg')}}" style="width: 40px;">  
+                            <a class="margin-auto mb-10" href="{{url('boxpromo-vn')}}"><img alt="Vietnamese flag" src="{{('svg/vnflag.svg')}}" style="width: 40px;">
+                            </a>
                             
-                            <h2 class="h2 font-size-25 sm_font-size-20
-                            text-center mb-10 text-white">How on earth do I say
-                            <h1 class="h1 font-size-25 sm_font-size-20 text-center mb-10 text-yellow">Earn 15-300% in yearly returns
-                            <h2 class="h2 font-size-16 sm_font-size-14 text-center mb-10 text-white">without it sounding awfully suspicious? 
-                           <br>
-                            <img src="{{asset('boxpromo_images/clueless.png')}}"style="width: 80px;">
-                           
-                            <br>It's probably better if you figure it all out yourself.</h2>
+                            <h1 class="h1 font-size-25 sm_font-size-20 text-center mb-10 text-yellow">Get your own box and see its annual return increase by 15% for every machine we set up.
+                            <h2 class="h2 font-size-16 sm_font-size-14 text-center mb-10 text-white"> 2 machines = 2x 15% = 30%, 10 machines = 10x 15% = 150%, and so on...
+                            </h2>
                             
                             
                             
@@ -72,7 +69,7 @@ page-no-arc
                                             With 2 machines in production, you will have the box you first paid US$8 for, plus 1 box you got for free and you will earn 15% (US$1.2) each from both of them, which totaling at US$2.4.
                                         </li>
                                         <li>
-                                            And when we have 10 machines after few years, you will still have your first box that you paid US$8 for, plus 9 free boxes as well, and earn 15% (US$1.2) each from all 10 of them, which totaling at US$12.  
+                                            And when we have 10 machines after few years, you will still have your first box that you paid US$8 for, plus 9 free boxes as well, and earn 15% (US$1.2) each from all 10 of them, which totaling at US$12. Take a look at <a class="text-yellow" href="{{url('https://clawsandfins.com/clawsandfins/public/storage/docs/box_rental_calculator_and_very_simple_project_budget.xlsx')}}">"Calculate your earnings (Excel)"</a> in the menu on the left. 
                                         </li>
                                     </ul>
                                         
